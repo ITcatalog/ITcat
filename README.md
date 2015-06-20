@@ -1,10 +1,10 @@
 # ITcat
 ITcat core ontology
 
-Used standard ontologies
+ITcat relies on a number of pre-existing vocabularies, namely:
 
 - SKOS
-- Dublin core
+- Dublin core (terms + type)
 - FOAF
 - Prov Ontology
 - Linked USDL
