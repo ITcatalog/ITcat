@@ -1,0 +1,242 @@
+@prefix : <http://th-brandenburg/ns/itcat#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
+@prefix dcterms: <http://www.purl.org/dc/terms/>.
+@prefix dc: <http://purl.org/dc/elements/1.1/>.
+@prefix gr: <http://purl.org/goodrelations/v1#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix schema: <http://schema.org/> .
+@prefix itcat: <http://th-brandenburg/ns/itcat#> .
+@prefix usdl-core: <http://www.linked-usdl.org/ns/usdl-core#> .
+@prefix usdl-agreement: <http://www.linked-usdl.org/ns/usdl-agreement#> .
+@base <http://th-brandenburg/ns/itcat#> .
+
+<http://th-brandenburg/ns/itcat#> rdf:type owl:Ontology ;
+                                  
+                                  rdfs:label "ITCat" ;
+                                  
+                                  rdfs:comment "Ontologie für den IT-Dienste-Katalog einer Organisation, die sowohl externe IT-Dienste nutzt, als auch eigene IT-Dienste bereitstellt. "@de ;
+                                  
+                                  owl:versionInfo "v 0.1" .
+
+
+#################################################################
+#
+#    Classes
+#
+#################################################################
+
+
+###  http://th-brandenburg.de/ns/itcat#ITService
+
+itcat:ITService rdf:type owl:Class , rdfs:Class ;
+             rdfs:subClassOf schema:Product; ###( owl:unionOf (prov:Agent prov:Entity prov:Activity )) ;
+			 skos:related usdl-core:Service ; 	 
+           
+             skos:prefLabel "IT-Dienst"@de ;
+             rdfs:label "IT Service"@en ;
+             skos:definition "Ein IT-Dienst ist eine abgrenzbare Dienstleistung, die auf dem Einsatz von Informationstechnologie basiert. Sie wird von einem Leistungserbringer (IT Service Provider) für interne und/oder externe Leistungsempfänger bereitgestellt."@de .
+
+
+###  http://th-brandenburg/ns/itcat#Agent
+
+itcat:Agent rdf:type owl:Class , rdfs:Class ;
+			owl:sameAs prov:Agent ;
+            
+            rdfs:label "Agent"@en ;
+            skos:prefLabel "Akteur"@de ; 
+            skos:definition "Ein Akteur ist eine Person, Organisation oder eine Rolle, die als Leistungsanbieter, Leistungsempfänger, Nutzer oder sonstiger Verantwortlicher im Rahmen eines IT-Dienstes auftritt."@de .
+
+
+###  http://th-brandenburg/ns/itcat#Costs
+
+itcat:Costs rdf:type owl:Class , rdfs:Class ;
+            
+            rdfs:label "Costs"@de ;
+            skos:prefLabel "Kosten"@de ;
+  			skos:definition "Kosten stellen den Werteverzehr durch einen IT-Dienst dar. Sie werden nach Kostenarten erfasst und mit Bezug auf eine Leistungseinheit und eine Zeiteinheit verrechnet. "@de .
+
+
+###  http://th-brandenburg/ns/itcat#Customer
+
+itcat:Customer rdf:type owl:Class , rdfs:Class ;
+            rdfs:subClassOf itcat:Agent , prov:Agent ;
+              
+            skos:prefLabel "Kunde"@de ;
+            rdfs:label "Customer"@en ;               
+            skos:definition "Der Kunde eines Dienstes ist der Vertragspartner des Dienste-Anbieters (Providers). Er kann, muss aber nicht auch selbst Nutzer des Dienstes sein."@de .
+
+
+###  http://th-brandenburg/ns/itcat#Depreciation
+
+itcat:Depreciation rdf:type owl:Class , rdfs:Class ;
+            rdfs:subClassOf itcat:InternalCosts ;
+                   
+            skos:prefLabel "Abschreibung"@de ;
+            rdfs:label "Depreciation"@en ;                 
+            skos:definition "Abschreibungen ermitteln sich in diesem Kontext aus der anteilig einem Dienst zuzurechnenden Nutzung von Vermögensgegenständen einer Organisation. Vermögensgegenstände können sowohl materieller (z. B. Server-Platten) als auch immaterieller Natur (z. B. Lizenzen) sein."@de .
+
+
+###  http://th-brandenburg/ns/itcat#Document
+
+itcat:Document rdf:type owl:Class , rdfs:Class;
+			owl:sameAs foaf:Document;
+			rdfs:subClassOf prov:Entity;
+			               
+            skos:prefLabel "Dokument"@de ;
+            rdfs:label "Document"@en ; 
+            skos:definition "Dokumente beinhalten unstrukturierte bzw. schwach strukturierte Informationen in elektronischer oder papiergebundener Form. Sie sind primär darauf ausgerichtet, von Menschen gelesen zu werden. Durch den Einsatz semantischer Technologien kann die maschinelle Auswertbarkeit von elektronischen Dokumenten sognifikant erhöht werden."@de .
+
+
+
+###  http://th-brandenburg/ns/itcat#ExternalCosts
+
+itcat:ExternalCosts rdf:type owl:Class , rdfs:Class ;                           
+                   rdfs:label "Externas Costs"@en ;
+                   
+                   
+                    
+                    rdfs:subClassOf itcat:Costs ;
+                    
+                    rdfs:comment "Externe Kosten eines IT-Dienstes fallen gegenüber externen Providern an. Sie werden zu vereinbarten Zeiten auf Grundlage von Rechnungen oder Rahmenvereinbarungen gezahlt."@de .
+
+
+
+###  http://th-brandenburg/ns/itcat#ITComponent
+
+itcat:ITComponent rdf:type owl:Class ;
+                  
+                  rdfs:label "IT-Komponente"@de ;
+                  
+                  rdfs:comment "Die IT-Komponenten gelten im Rahmen des IT-Service-Managements als Configuration Items. Da dieser Begriff jedoch viel weiter gefasst ist und neben technischen Komponenten auch Dokumente, Prozesse, Rollen und auch Dienste umfasst, soll hier der engere Begriff IT-Komponenten verwendet werden."@de ,
+                               "IT-Komponenten sind die im Rahmen eines IT-Dienstes eingesetzten Systeme und Komponenten der Informations- und Kommunikationstechnologie. Dazu zählen u. a. PCs, Server, Drucker, Netzwerkkomponenten, Software(-Pakete). "@de .
+
+
+
+###  http://th-brandenburg/ns/itcat#InternalCosts
+
+itcat:InternalCosts rdf:type owl:Class ;
+                    
+                    rdfs:label "Interne Kosten"@de ;
+                    
+                    rdfs:subClassOf itcat:Costs ;
+                    
+                    rdfs:comment "Interne Kosten repräsentieren den Ressourcenverbrauch innerhalb einer Organisation. Sie können nur durch interne Verrechnungen ermittelt werden."@de .
+
+
+
+###  http://th-brandenburg/ns/itcat#OperationalCosts
+
+itcat:OperationalCosts rdf:type owl:Class ;
+                       
+                       rdfs:label "Betriebskosten"@de ;
+                       
+                       rdfs:subClassOf itcat:InternalCosts ;
+                       
+                       rdfs:comment "Betriebskosten ermitteln sich aus dem anteilig einem Dienst zuzurechnenden Verbrauche von Betriebsstoffe und Kleinmaterial. Zur Vereinfachung sollten auch eventuelle sonstige Kosten hier erfasst werden."@de .
+
+
+
+###  http://th-brandenburg/ns/itcat#Provider
+
+itcat:Provider rdf:type owl:Class ;
+               
+               rdfs:label "Anbieter"@de ;
+               
+               rdfs:subClassOf itcat:Agent ;
+               
+               rdfs:comment "Der Anbieter eines Dienstes ist eine Person oder Organisation, die Leistungen im Rahmen des Dienstes bereitstellt. Provider kann auch eine Organisationseinheit innerhalb einer Organisation sein, z. B. ein internes Rechenzentrum oder eine IT-Abteilung."@de .
+
+
+
+###  http://th-brandenburg/ns/itcat#ServiceOption
+
+itcat:ServiceOption rdf:type owl:Class ;
+                    
+                    rdfs:label "Dienstoption"@de ;
+                    
+                    rdfs:comment "Dienstoptionen sind unterscheidbare Pakete von Funktionalitäten und Gewährleistungen im Hinblick auf einen Dienst, die von Kunden ausgewählt werden können und die mit einem (Verrechnungs-)Preis versehen sind."@de .
+
+
+
+###  http://th-brandenburg/ns/itcat#ServiceProperty
+
+itcat:ServiceProperty rdf:type owl:Class ;
+                      
+                      rdfs:label "Dienstmerkmal"@de ;
+                      
+                      rdfs:comment "Dienstmerkmale sind charakteristische Eigenschaften eines IT-Dienstes, die seinen Nutzen/seine Funktionalität sowie seine zugesicherten Qualitätsmerkmale darstellen."@de .
+
+
+
+###  http://th-brandenburg/ns/itcat#StaffCosts
+
+itcat:StaffCosts rdf:type owl:Class ;
+                 
+                 rdfs:label "Personalkosten"@de ;
+                 
+                 rdfs:subClassOf itcat:InternalCosts ;
+                 
+                 rdfs:comment "Personalkosten umfassen die anteilig auf einen Dienst anzurechnenden Kosten für den Einsatz internen Personals. Hier sollten auch zurechenbare Anteile von Reise- und Fortbildungskosten erfasst werden."@de .
+
+
+
+###  http://th-brandenburg/ns/itcat#Supporter
+
+itcat:Supporter rdf:type owl:Class ;
+                
+                rdfs:label "Supporter"@de ;
+                
+                rdfs:subClassOf itcat:Agent ;
+                
+                rdfs:comment "Supporter ist jede Person, Organisation oder Rolle, die Nutzer eines Dienstes bei Fragen oder Problemen unterstützt, Fehler behebt bzw. Hilfe leistet."@de .
+
+
+
+###  http://th-brandenburg/ns/itcat#User
+
+itcat:User rdf:type owl:Class ;
+           
+           rdfs:label "Nutzer"@de ;
+           
+           rdfs:subClassOf itcat:Agent ;
+           
+           rdfs:comment "Der Nutzer eines Dienstes ist der direkte Empfänger der Leistungen. Er kann, muss aber nicht gleichzeitig Kunde des Dienstes sein."@de .
+
+
+
+###  http://th-brandenburg/ns/itcat#Utility
+
+itcat:Utility rdf:type owl:Class ;
+              
+              rdfs:label "Funktion"@de ,
+                         "Nutzen"@de ;
+              
+              rdfs:subClassOf itcat:ServiceProperty ;
+              
+              rdfs:comment "Der Nutzen/die Funktion eines Dienstes beantwortet die Frage: \"Was leistet der Dienst für den Nutzer?\""@de ,
+                           "Der Nutzen/die Funktion eines Dienstes stellt die Art der Leistung dar, die der IT-Dienst dem Nutzer bietet, z. B. Mails senden und empfangen, Kalender und Aufgaben verwalten, Lehrvideos bereitstellen, Dokumente austauschen."@de .
+
+
+
+###  http://th-brandenburg/ns/itcat#Warranty
+
+itcat:Warranty rdf:type owl:Class ;
+               
+               rdfs:label "Gewährleistung"@de ;
+               
+               rdfs:subClassOf itcat:ServiceProperty ;
+               
+               rdfs:comment "Die Gewährleistung umfasst alle Zusicherungen des Dienste-Anbieters in Bezug auf Qualitätsdimensionen des Dienstes, z. B. Verfügbarkeit, Bandbreite, Geschwindigkeit, Transfervolumen, Verschlüsselungsgrad."@de ,
+                            "Gewährleistungen sollten in einer Vereinbarung zwischen Dienste-Anbieter und Kunde festgehalten werden. Solche Vereinbarungen werden im IT-Service-Management als Service Level Agreement (SLA, für externe Kunden) bzw. Operational Level Agreement (OLA, für interne Kunden) bezeichnet. "@de .
+
+
+
+
+###  Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net
+
