@@ -143,6 +143,32 @@ itcat:Provider rdf:type owl:Class , rdfs:Class ;
              rdfs:label "Provider"@en ;
              skos:definition "Der Anbieter eines Dienstes ist eine Person oder Organisation, die Leistungen im Rahmen des Dienstes bereitstellt. Provider kann auch eine Organisationseinheit innerhalb einer Organisation sein, z. B. ein internes Rechenzentrum oder eine IT-Abteilung."@de .
 
+###  http://th-brandenburg/ns/itcat#ServiceEvaluation
+
+itcat:ServiceEvaluation rdf:type owl:Class , rdfs:Class ;
+             rdfs:subClassOf gr:QualitativeValue ;
+             
+             skos:prefLabel "Dienstebewertung"@de ;
+             rdfs:label "Service Evaluation"@en ;
+             skos:definition "Dienstbwertungen sind sind qualitative Charakteristika der Dienste im Hinblick auf ihren Wert/ihre Bedeutung für die Organisation."@de .
+
+###  http://th-brandenburg/ns/itcat#Priority
+
+itcat:Priority rdf:type owl:Class , rdfs:Class ;
+             rdfs:subClassOf itcat:ServiceEvaluation ;
+             
+             skos:prefLabel "Priorität"@de ;
+             rdfs:label "Priority"@en ;
+             skos:definition "Die Priorität eines Dienstes gibt an, welcher Wert ihm im Rahmen des Dienste-Portfolios einer Organisation beigemessen wird."@de .
+             
+###  http://th-brandenburg/ns/itcat#Criticality
+
+itcat:Criticality rdf:type owl:Class , rdfs:Class ;
+             rdfs:subClassOf itcat:ServiceEvaluation ;
+             
+             skos:prefLabel "Kritikalität"@de ;
+             rdfs:label "Criticality"@en ;
+             skos:definition "Die Kritikalität eines Dienstes gibt an, wie kritisch eine Störung oder der Ausfall eines Dienstes für die IT-Versorgung einer Organisation eingeschätzt wird."@de .
 
 ###  http://th-brandenburg/ns/itcat#ServiceOption
 
@@ -191,7 +217,8 @@ itcat:User rdf:type owl:Class , rdfs:Class ;
             
             skos:prefLabel "Nutzer"@de ;
             rdfs:label "User"@en ;
-            skos:definition "Der Nutzer eines Dienstes ist der direkte Empfänger der Leistungen. Er kann, muss aber nicht gleichzeitig Kunde des Dienstes sein."@de .
+            skos:definition "Der Nutzer eines Dienstes ist der direkte Empfänger der Leistungen. Er kann, muss aber nicht gleichzeitig Kunde des Dienstes sein."@de ;
+            rdfs:comment "Nutzer können externe oder interne Personen oder Gruppen der Organisation sein"@de .
 
 
 ###  http://th-brandenburg/ns/itcat#Utility
