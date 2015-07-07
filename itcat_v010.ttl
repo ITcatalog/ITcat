@@ -34,7 +34,7 @@
 
 ###  http://th-brandenburg.de/ns/itcat#ITService
 
-itcat:ITService rdf:type owl:Class , rdfs:Class ;
+itcat:ITService rdf:type owl:Class ;
              rdfs:subClassOf schema:Product; ###( owl:unionOf (prov:Agent prov:Entity prov:Activity )) ;
 			 skos:related usdl-core:Service ; 	 
            
@@ -45,8 +45,8 @@ itcat:ITService rdf:type owl:Class , rdfs:Class ;
 
 ###  http://th-brandenburg/ns/itcat#Agent
 
-itcat:Agent rdf:type owl:Class , rdfs:Class ;
-			owl:sameAs prov:Agent ;
+itcat:Agent rdf:type owl:Class ;
+			owl:equivalentClass prov:Agent ;
             
             rdfs:label "Agent"@en ;
             skos:prefLabel "Akteur"@de ; 
@@ -55,7 +55,7 @@ itcat:Agent rdf:type owl:Class , rdfs:Class ;
 
 ###  http://th-brandenburg/ns/itcat#Costs
 
-itcat:Costs rdf:type owl:Class , rdfs:Class ;
+itcat:Costs rdf:type owl:Class ;
             
             rdfs:label "Costs"@de ;
             skos:prefLabel "Kosten"@de ;
@@ -64,7 +64,7 @@ itcat:Costs rdf:type owl:Class , rdfs:Class ;
 
 ###  http://th-brandenburg/ns/itcat#Customer
 
-itcat:Customer rdf:type owl:Class , rdfs:Class ;
+itcat:Customer rdf:type owl:Class ;
             rdfs:subClassOf itcat:Agent , prov:Agent ;
               
             skos:prefLabel "Kunde"@de ;
@@ -74,7 +74,7 @@ itcat:Customer rdf:type owl:Class , rdfs:Class ;
 
 ###  http://th-brandenburg/ns/itcat#Depreciation
 
-itcat:Depreciation rdf:type owl:Class , rdfs:Class ;
+itcat:Depreciation rdf:type owl:Class ;
             rdfs:subClassOf itcat:InternalCosts ;
                    
             skos:prefLabel "Abschreibung"@de ;
@@ -84,8 +84,8 @@ itcat:Depreciation rdf:type owl:Class , rdfs:Class ;
 
 ###  http://th-brandenburg/ns/itcat#Document
 
-itcat:Document rdf:type owl:Class , rdfs:Class;
-			owl:sameAs foaf:Document;
+itcat:Document rdf:type owl:Class ;
+			owl:equivalentClass foaf:Document;
 			rdfs:subClassOf prov:Entity;
 			               
             skos:prefLabel "Dokument"@de ;
@@ -95,7 +95,7 @@ itcat:Document rdf:type owl:Class , rdfs:Class;
 
 ###  http://th-brandenburg/ns/itcat#ExternalCosts
 
-itcat:ExternalCosts rdf:type owl:Class , rdfs:Class ;
+itcat:ExternalCosts rdf:type owl:Class ;
 			rdfs:subClassOf itcat:Costs ;
 			
             rdfs:label "External Costs"@en ;
@@ -105,7 +105,7 @@ itcat:ExternalCosts rdf:type owl:Class , rdfs:Class ;
 
 ###  http://th-brandenburg/ns/itcat#ITComponent
 
-itcat:ITComponent rdf:type owl:Class , rdfs:Class ;
+itcat:ITComponent rdf:type owl:Class ;
             rdfs:subClassOf prov:Entity ;
             
             skos:prefLabel "IT-Komponente"@de ;
@@ -116,7 +116,7 @@ itcat:ITComponent rdf:type owl:Class , rdfs:Class ;
 
 ###  http://th-brandenburg/ns/itcat#InternalCosts
 
-itcat:InternalCosts rdf:type owl:Class , rdfs:Class ;
+itcat:InternalCosts rdf:type owl:Class ;
             rdfs:subClassOf itcat:Costs ;        
             
             skos:prefLabel "Interne Kosten"@de ;
@@ -126,7 +126,7 @@ itcat:InternalCosts rdf:type owl:Class , rdfs:Class ;
 
 ###  http://th-brandenburg/ns/itcat#OperationalCosts
 
-itcat:OperationalCosts rdf:type owl:Class , rdfs:Class ;
+itcat:OperationalCosts rdf:type owl:Class ;
              rdfs:subClassOf itcat:InternalCosts ;
              
              skos:prefLabel "Betriebskosten"@de ;
@@ -136,7 +136,7 @@ itcat:OperationalCosts rdf:type owl:Class , rdfs:Class ;
 
 ###  http://th-brandenburg/ns/itcat#Provider
 
-itcat:Provider rdf:type owl:Class , rdfs:Class ;
+itcat:Provider rdf:type owl:Class ;
              rdfs:subClassOf itcat:Agent , prov:Agent ;
              
              skos:prefLabel "Anbieter"@de ;
@@ -145,7 +145,7 @@ itcat:Provider rdf:type owl:Class , rdfs:Class ;
 
 ###  http://th-brandenburg/ns/itcat#ServiceEvaluation
 
-itcat:ServiceEvaluation rdf:type owl:Class , rdfs:Class ;
+itcat:ServiceEvaluation rdf:type owl:Class ;
              rdfs:subClassOf gr:QualitativeValue ;
              
              skos:prefLabel "Dienstebewertung"@de ;
@@ -154,7 +154,7 @@ itcat:ServiceEvaluation rdf:type owl:Class , rdfs:Class ;
 
 ###  http://th-brandenburg/ns/itcat#Priority
 
-itcat:Priority rdf:type owl:Class , rdfs:Class ;
+itcat:Priority rdf:type owl:Class ;
              rdfs:subClassOf itcat:ServiceEvaluation ;
              
              skos:prefLabel "Priorität"@de ;
@@ -163,7 +163,7 @@ itcat:Priority rdf:type owl:Class , rdfs:Class ;
              
 ###  http://th-brandenburg/ns/itcat#Criticality
 
-itcat:Criticality rdf:type owl:Class , rdfs:Class ;
+itcat:Criticality rdf:type owl:Class ;
              rdfs:subClassOf itcat:ServiceEvaluation ;
              
              skos:prefLabel "Kritikalität"@de ;
@@ -172,7 +172,7 @@ itcat:Criticality rdf:type owl:Class , rdfs:Class ;
 
 ###  http://th-brandenburg/ns/itcat#ServiceOption
 
-itcat:ServiceOption rdf:type owl:Class , rdfs:Class ;
+itcat:ServiceOption rdf:type owl:Class ;
              rdfs:subClassOf schema:OfferItemOption ;
              
              skos:prefLabel "Dienstoption"@de ;
@@ -182,8 +182,8 @@ itcat:ServiceOption rdf:type owl:Class , rdfs:Class ;
 
 ###  http://th-brandenburg/ns/itcat#ServiceProperty
 
-itcat:ServiceProperty rdf:type owl:Class , rdfs:Class ;
-             owl:sameAs usdl-agreement:ServiceProperty ;
+itcat:ServiceProperty rdf:type owl:Class ;
+             owl:equivalentClass usdl-agreement:ServiceProperty ;
              
              skos:prefLabel "Dienstmerkmal"@de ;
              rdfs:label "Service Property"@en ;
@@ -192,7 +192,7 @@ itcat:ServiceProperty rdf:type owl:Class , rdfs:Class ;
 
 ###  http://th-brandenburg/ns/itcat#StaffCosts
 
-itcat:StaffCosts rdf:type owl:Class , rdfs:Class ;
+itcat:StaffCosts rdf:type owl:Class ;
              rdfs:subClassOf itcat:InternalCosts ;
              
              skos:prefLabel "Personalkosten"@de ;
@@ -202,7 +202,7 @@ itcat:StaffCosts rdf:type owl:Class , rdfs:Class ;
 
 ###  http://th-brandenburg/ns/itcat#Supporter
 
-itcat:Supporter rdf:type owl:Class , rdfs:Class ;
+itcat:Supporter rdf:type owl:Class ;
              rdfs:subClassOf itcat:Agent , prov:Agent ;   
              
              skos:prefLabel "Supporter"@de ;
@@ -212,7 +212,7 @@ itcat:Supporter rdf:type owl:Class , rdfs:Class ;
 
 ###  http://th-brandenburg/ns/itcat#User
 
-itcat:User rdf:type owl:Class , rdfs:Class ;
+itcat:User rdf:type owl:Class ;
             rdfs:subClassOf itcat:Agent , prov:Agent ;
             
             skos:prefLabel "Nutzer"@de ;
@@ -223,19 +223,20 @@ itcat:User rdf:type owl:Class , rdfs:Class ;
 
 ###  http://th-brandenburg/ns/itcat#Utility
 
-itcat:Utility rdf:type owl:Class , rdfs:Class ;
+itcat:Utility rdf:type owl:Class ;
             rdfs:subClassOf itcat:ServiceProperty ; 
             
             skos:prefLabel "Funktion"@de ;
             rdfs:label "Utility"@en ;
             skos:altLabel "Nutzen"@de ;
             skos:definition "Der Nutzen/die Funktion eines Dienstes stellt die Art der Leistung dar, die der IT-Dienst dem Nutzer bietet, z. B. Mails senden und empfangen, Kalender und Aufgaben verwalten, Lehrvideos bereitstellen, Dokumente austauschen."@de ;
-            rdfs:comment "Der Nutzen/die Funktion eines Dienstes beantwortet die Frage: 'Was leistet der Dienst für den Nutzer?'"@de .                           
+            rdfs:comment "Der Nutzen/die Funktion eines Dienstes beantwortet die Frage: 'Was leistet der Dienst für den Nutzer?'"@de ;
+            rdfs:comment "Der Nutzen kann in Form einer informellen Beschreibung, einer formalen (technischen) Spezifikation oder in Form eines juristischen Dokumentes (Vertrag) niedergelegt sein."@de .                           
 
 
 ###  http://th-brandenburg/ns/itcat#Warranty
 
-itcat:Warranty rdf:type owl:Class , rdfs:Class ;
+itcat:Warranty rdf:type owl:Class ;
             rdfs:subClassOf itcat:ServiceProperty ;
             
             skos:prefLabel "Gewährleistung"@de ;
@@ -243,6 +244,145 @@ itcat:Warranty rdf:type owl:Class , rdfs:Class ;
             skos:definition "Die Gewährleistung umfasst alle Zusicherungen des Dienste-Anbieters in Bezug auf Qualitätsdimensionen des Dienstes, z. B. Verfügbarkeit, Bandbreite, Geschwindigkeit, Transfervolumen, Verschlüsselungsgrad."@de ;
             rdfs:comment "Gewährleistungen sollten in einer Vereinbarung zwischen Dienste-Anbieter und Kunde festgehalten werden. Solche Vereinbarungen werden im IT-Service-Management als Service Level Agreement (SLA, für externe Kunden) bzw. Operational Level Agreement (OLA, für interne Kunden) bezeichnet. "@de .
 
+
+
+#################################################################
+#
+#    Object Properties
+#
+#################################################################
+
+itcat:actsIn rdf:type owl:ObjectProperty ;
+			skos:prefLabel "agiert in"@de ;
+			rdfs:label "acts in"@en ;
+			skos:definition "Abstrakte Objektrelation zwischen einem Akteur (Instanz der Klasse 'Agent') und einem IT-Dienst. Bezeichnet eine handelnde Rolle in Bezug zu diesem IT-Dienst, z. B. als Anbieter, Kunde, Nutzer oder Supporter."@de ;
+			rdfs:domain itcat:Agent ;
+			rdfs:range itcat:ITService .
+			
+itcat:hasActor rdf:type owl:ObjectProperty ;
+			skos:prefLabel "hat Akteur"@de ;
+			rdfs:label "has actor"@en ;
+			skos:definition "Abstrakte Objektrelation zwischen einem IT-Dienst und einem Akteur (Instanz der Klasse 'Agent'), der eine handelnde Rolle in Bezug zu diesem IT-Dienst einnimmt, z. B. als Anbieter, Kunde, Nutzer oder Supporter."@de ;
+			owl:inverseOf itcat:actsIn .
+			
+itcat:orders rdf:type owl:ObjectProperty ;
+			skos:prefLabel "bestellt"@de ;
+			rdfs:label "orders"@en ;
+			skos:definition "Objektrelation zwischen einem Kunden und einem IT-Dienst, den der Kunde in Auftrag gegeben (bestellt) hat. Der Kunde hat für die Kosten des IT-Dienstes aufzukommen, entweder indem er die Rechnungen des Anbieters begleicht (externer Kunde) oder indem er dem (internen) Anbieter ein Budget zur Verfügung stellt."@de ;
+			rdfs:domain itcat:Customer ;
+			rdfs:range itcat:ITService .
+			
+itcat:isOrderedBy rdf:type owl:ObjectProperty ;
+			skos:prefLabel "bestellt von"@de ;
+			rdfs:label "is ordered by"@en ;
+			skos:definition "Objektrelation zwischen einem IT-Dienst und (einem) seinem(r) Kunden. Der Kunde hat für die Kosten des IT-Dienstes aufzukommen, entweder indem er die Rechnungen des Anbieters begleicht (externer Kunde) oder indem er dem (internen) Anbieter ein Budget zur Verfügung stellt."@de ;
+			owl:inverseOf itcat:orders . 
+
+itcat:provides rdf:type owl:ObjectProperty ;
+			skos:prefLabel "bietet an"@de ;
+			rdfs:label "provides"@en ;
+			skos:definition "Objektrelation zwischen dem Anbieter eines IT-Dienstes und dem betreffenden IT-Dienst."@de ;
+			rdfs:domain itcat:Provider ;
+			rdfs:range itcat:ITService .
+			
+itcat:isProvidedBy rdf:type owl:ObjectProperty ;
+			skos:prefLabel "wird angeboten von"@de ;
+			rdfs:label "is provided by"@en ;
+			skos:definition "Objektrelation zwischen dem einem IT-Dienstes und seinem jeweiligen Anbieter."@de ;
+			owl:inverseOf itcat:provides . 
+
+itcat:uses rdf:type owl:ObjectProperty ;
+			skos:prefLabel "nutzt"@de ;
+			rdfs:label "uses"@en ;
+			skos:definition "Objektrelation zwischen dem Nutzer eines IT-Dienstes und dem betreffenden IT-Dienst."@de ;
+			rdfs:domain itcat:User ;
+			rdfs:range itcat:ITService .
+			
+itcat:isUsedBy rdf:type owl:ObjectProperty ;
+			skos:prefLabel "wird genutzt von"@de ;
+			rdfs:label "is used by"@en ;
+			skos:definition "Objektrelation zwischen dem einem IT-Dienstes und (einem) seinem(r) Nutzer."@de ;
+			owl:inverseOf itcat:uses . 
+
+itcat:isCausedBy rdf:type owl:ObjectProperty ;
+			skos:prefLabel "wird verursacht durch"@de ;
+			rdfs:label "is caused by"@en ;
+			skos:definition "Objektrelation zwischen einer Kostenart und einem diese Kosten verursachenden IT-Dienst."@de ;
+			rdfs:domain itcat:Costs ;
+			rdfs:range itcat:ITService .
+			
+itcat:causes rdf:type owl:ObjectProperty ;
+			skos:prefLabel "verursacht"@de ;
+			rdfs:label "causes"@en ;
+			skos:definition "Objektrelation zwischen einem IT-Dienst und einer Kostenart, die durch diesen IT-Dienst verursacht wird."@de ;
+			owl:inverseOf itcat:isCausedBy .
+			
+itcat:isEmployedBy rdf:type owl:ObjectProperty ;
+			skos:prefLabel "wird eingesetzt in"@de ;
+			rdfs:label "is employed by"@en ;
+			skos:definition "Objektrelation zwischen einer IT-Komponente und einem diese Komponente einsetzenden IT-Dienst."@de ;
+			rdfs:domain itcat:ITComponent ;
+			rdfs:range itcat:ITService .
+			
+itcat:employs rdf:type owl:ObjectProperty ;
+			skos:prefLabel "setzt ein"@de ;
+			rdfs:label "employs"@en ;
+			skos:definition "Objektrelation zwischen einem IT-Dienst und einer IT-Komponente, die für diesen IT-Dienst eingesetzt wird."@de ;
+			owl:inverseOf itcat:isEmployedBy .
+
+itcat:isLinkedTo rdf:type owl:ObjectProperty ;
+			skos:prefLabel "ist verknüpft mit"@de ;
+			rdfs:label "is linked to"@en ;
+			skos:definition "Objektrelation zwischen einem Dokument und einem IT-Dienst. Dokumente können Beschreibungen, Regeln, Richtlinien, Prozessmodelle o. ä. enthalten, die einen Bezug zu dem IT-Dienst haben."@de ;
+			rdfs:domain itcat:Document ;
+			rdfs:range itcat:ITService .
+			
+itcat:linksTo rdf:type owl:ObjectProperty ;
+			skos:prefLabel "verweist auf"@de ;
+			rdfs:label "links to"@en ;
+			skos:definition "Objektrelation zwischen einem IT-Dienst und einem Dokument, das Informationen für oder über diesen IT-Dienst enthält."@de ;
+			owl:inverseOf itcat:isLinkedTo .
+			
+itcat:hasOfferSpecification rdf:type owl:ObjectProperty ;
+			skos:prefLabel "hat Angebotsspezifikation"@de ;
+			rdfs:label "has offer specification"@en ;
+			skos:definition "Objektrelation zwischen einem IT-Dienst und einer/seiner spezifischen Dienstoption, die unmittelbar von Kunden ausgewählt werden kann. "@de ;
+			rdfs:domain itcat:ITService ;
+			rdfs:range itcat:ServiceOption .
+			
+itcat:specifiesOfferOf rdf:type owl:ObjectProperty ;
+			skos:prefLabel "spezifiziert Angebot von"@de ;
+			rdfs:label "specifies offer of"@en ;
+			skos:definition "Objektrelation zwischen einer spezifischen, von Kunden unmittelbar auswählbaren Dienstoption eines IT-Dienst und diesem IT-Dienst."@de ;
+			owl:inverseOf itcat:hasOfferSpecification .
+			
+itcat:hasCriticality rdf:type owl:ObjectProperty ;
+			skos:prefLabel "hat Kritikalität"@de ;
+			rdfs:label "has criticality"@en ;
+			skos:definition "Objektrelation zwischen einem IT-Dienst und seiner Kritikalitätsklasse. "@de ;
+			rdfs:domain itcat:ITService ;
+			rdfs:range itcat:ServiceEvaluation .
+			
+itcat:hasPriority rdf:type owl:ObjectProperty ;
+			skos:prefLabel "hat Priorität"@de ;
+			rdfs:label "has priority"@en ;
+			skos:definition "Objektrelation zwischen einem IT-Dienst und seiner Prioritätsklasse. "@de ;
+			rdfs:domain itcat:ITService ;
+			rdfs:range itcat:ServiceEvaluation .
+			
+itcat:hasUtility rdf:type owl:ObjectProperty ;
+			skos:prefLabel "hat Nutzen"@de ;
+			rdfs:label "has utility"@en ;
+			skos:definition "Objektrelation zwischen einem IT-Dienst und einer Dienstmerkmalsklasse, die der Beschreibung/Spezifikation seines Nutzens dient."@de ;
+			rdfs:domain itcat:ITService ;
+			rdfs:range itcat:ServiceProperty .
+
+itcat:hasWarranty rdf:type owl:ObjectProperty ;
+			skos:prefLabel "hat Gewährleistung"@de ;
+			rdfs:label "has warranty"@en ;
+			skos:definition "Objektrelation zwischen einem IT-Dienst und und einer Dienstmerkmalsklasse, die der Beschreibung/Spezifikation seiner zugesicherten Qualitätsdimensionen (Gewährleistung) dient."@de ;
+			rdfs:domain itcat:ITService ;
+			rdfs:range itcat:ServiceProperty .
 
 ###  Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net
 
