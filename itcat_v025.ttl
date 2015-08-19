@@ -17,11 +17,11 @@
 
 <http://th-brandenburg/ns/itcat#> rdf:type owl:Ontology ;
                                   
-                                  rdfs:label "ITCat Schema" ;
+                                  skos:prefLabel "ITCat Schema" ;
                                   
                                   rdfs:comment "Schema-Ontologie für den IT-Dienste-Katalog einer Organisation, die sowohl externe IT-Dienste nutzt, als auch eigene IT-Dienste bereitstellt. "@de ;
                                   
-                                  owl:versionInfo "v 0.2" .
+                                  owl:versionInfo "v 0.25 - im Vergleich zu v 0.2 ohne Kosten und ohne Service-Optionen (incl. der entsprechenden Object Properties) aber mit Rolle als weiterer Agent und Instanzen für Qualitative Values." .
 
 
 #################################################################
@@ -37,7 +37,7 @@ schema:Service rdf:type owl:Class ;
              skos:related usdl-core:Service ; 	 
            
              skos:prefLabel "Dienst"@de ;
-             rdfs:label "service"@en ;
+             skos:prefLabel "service"@en ;
              rdfs:comment "Gegenstand dieser Ontologie sind IT-Dienste, klassifiziert nach Katalogen und Sachkategorien sowie die Relationen zwischen IT-Diensten, Empfängern, Anbietern sowie Technologiekomponenten." ;
              skos:definition "Ein IT-Dienst ist eine abgrenzbare Dienstleistung, die auf dem Einsatz von Informationstechnologie basiert. Sie wird von einem Leistungsanbieter (IT Service Provider) für interne und/oder externe Leistungsempfänger bereitgestellt."@de .
 
@@ -45,7 +45,7 @@ schema:Service rdf:type owl:Class ;
 ###  Spezifikation von prov:Agent als Oberklasse für alle Akteure
 
 prov:Agent rdf:type owl:Class ;
-			rdfs:label "agent"@en ;
+			skos:prefLabel "agent"@en ;
             skos:prefLabel "Akteur"@de ; 
             skos:definition "Ein Akteur ist eine Person, Organisation oder eine Rolle, die als Leistungsanbieter, Leistungsempfänger, Nutzer oder sonstiger Verantwortlicher im Rahmen eines IT-Dienstes auftritt."@de .
 
@@ -53,52 +53,25 @@ prov:Agent rdf:type owl:Class ;
 
 foaf:Organization rdfs:subClassOf prov:Agent .
 foaf:Person rdfs:subClassOf prov:Agent .
+schema:Role rdfs:subClassOf prov:Agent .
 
 
 ###  Spezifikation von prov:Entity als Oberklasse für diverse Gegenstände und Artefakte
 
 prov:Entity rdf:type owl:Class ;
-			rdfs:label "entity"@en ;
+			skos:prefLabel "entity"@en ;
             skos:prefLabel "Entität"@de ; 
             skos:definition "Eine Entität ist ein Gegenstand oder ein immaterieller Artefakt, der durch Akteure beeinflusst, verändert wird, z. B. im Rahmen von IT-Diensten ."@de .
             
-###  http://th-brandenburg/ns/itcat#CostType
-
-itcat:CostType rdf:type owl:Class ;
-			rdfs:subClassOf prov:Entity ;
-            
-            rdfs:label "cost type"@en ;
-            skos:prefLabel "Kostenart"@de ;
-  			skos:definition "Kostenarten stellen Kategorien des Werteverzehrs durch einen IT-Dienst dar. Sie werden nach Kostenarten erfasst und mit Bezug auf eine Leistungseinheit und eine Zeiteinheit verrechnet. "@de .
-
-
-###  http://th-brandenburg/ns/itcat#Depreciation
-
-itcat:Depreciation rdf:type owl:Class ;
-            rdfs:subClassOf itcat:InternalCost ;
-                   
-            skos:prefLabel "Abschreibung"@de ;
-            rdfs:label "depreciation"@en ;                 
-            skos:definition "Abschreibungen ermitteln sich in diesem Kontext aus der anteilig einem Dienst zuzurechnenden Nutzung von Vermögensgegenständen einer Organisation. Vermögensgegenstände können sowohl materieller (z. B. Server-Platten) als auch immaterieller Natur (z. B. Lizenzen) sein."@de .
-
 
 ###  Spezifikation der Klasse foaf:Document
 
 foaf:Document rdfs:subClassOf prov:Entity;
 			               
             skos:prefLabel "Dokument"@de ;
-            rdfs:label "document"@en ; 
+            skos:prefLabel "document"@en ; 
             skos:definition "Dokumente beinhalten unstrukturierte bzw. schwach strukturierte Informationen in elektronischer oder papiergebundener Form. Sie sind primär darauf ausgerichtet, von Menschen gelesen zu werden. Durch den Einsatz semantischer Technologien kann die maschinelle Auswertbarkeit von elektronischen Dokumenten signifikant erhöht werden."@de ;
 			rdfs:comment "Dokumente können Beschreibungen, Benutzerhilfen, Regeln, Richtlinien, Prozessmodelle, vertragliche Vereinbarungen o. ä. sein."@de .
-
-###  http://th-brandenburg/ns/itcat#ExternalCost
-
-itcat:ExternalCost rdf:type owl:Class ;
-			rdfs:subClassOf itcat:CostType ;
-			
-            rdfs:label "external cost"@en ;
-            skos:prefLabel "Externe Kostenart"@de;
-  			skos:definition "Externe Kostenarten eines IT-Dienstes fallen gegenüber externen Providern an. Sie werden zu vereinbarten Zeiten auf Grundlage von Rechnungen oder Rahmenvereinbarungen gezahlt."@de .
 
 
 ###  http://th-brandenburg/ns/itcat#ITAsset
@@ -107,29 +80,9 @@ itcat:ITAsset rdf:type owl:Class ;
             rdfs:subClassOf prov:Entity ;
             
             skos:prefLabel "IT-Asset"@de ;
-            rdfs:label "IT asset"@en ;
+            skos:prefLabel "IT asset"@en ;
             skos:definition "IT-Assets sind die im Rahmen eines IT-Dienstes eingesetzten Systeme und Komponenten der Informations- und Kommunikationstechnologie. Dazu zählen u. a. PCs, Server, Drucker, Netzwerkkomponenten, Software(-Pakete)."@de ;
 			rdfs:comment "Die IT-Assets gelten im Rahmen des IT-Service-Managements als Configuration Items. Da dieser Begriff jedoch viel weiter gefasst ist und neben technischen Komponenten auch Dokumente, Prozesse, Rollen und auch Dienste umfasst, soll hier der engere Begriff IT-Assets verwendet werden."@de .
-
-
-###  http://th-brandenburg/ns/itcat#InternalCost
-
-itcat:InternalCost rdf:type owl:Class ;
-            rdfs:subClassOf itcat:CostType ;        
-            
-            skos:prefLabel "Interne Kostenart"@de ;
-            rdfs:label "internal cost"@en ;
-            skos:definition "Interne Kostenarten repräsentieren den Ressourcenverbrauch innerhalb einer Organisation. Sie werden durch interne Verrechnungen ermittelt."@de .
-
-
-###  http://th-brandenburg/ns/itcat#OperationalCost
-
-itcat:OperationalCost rdf:type owl:Class ;
-             rdfs:subClassOf itcat:InternalCost ;
-             
-             skos:prefLabel "Betriebskostenart"@de ;
-             rdfs:label "operational cost"@en ;
-             skos:definition "Betriebskostenarten ermitteln sich aus dem anteilig einem Dienst zuzurechnenden Verbrauch von Betriebsstoffen und Kleinmaterial. Zur Vereinfachung sollten auch eventuelle sonstige Kosten hier erfasst werden."@de .
 
 
 ###  Spezifikation der Standardklasse schema:QualitativeValue
@@ -137,7 +90,7 @@ itcat:OperationalCost rdf:type owl:Class ;
 schema:QualitativeValue rdf:type owl:Class ;
                          
              skos:prefLabel "qualitativer Wert"@de ;
-             rdfs:label "qualitative value"@en ;
+             skos:prefLabel "qualitative value"@en ;
              skos:definition "Qualitative Werte erlauben die Beurteilung eines Dienstes oder einer Entität im Hinblick auf ihren Wert/ihre Bedeutung für die Organisation."@de ;
              rdfs:comment "In dieser Ontologie stehen IT-Dienste im Fokus. Qualitative Werte beziehen sich hauptsächlich auf IT-Dienste und ihren Wert/ihre Bedeutung für die Organisation." .
 
@@ -146,7 +99,7 @@ schema:QualitativeValue rdf:type owl:Class ;
 itcat:Priority rdfs:subClassOf schema:QualitativeValue ;
              
              skos:prefLabel "Priorität"@de ;
-             rdfs:label "priority"@en ;
+             skos:prefLabel "priority"@en ;
              skos:definition "Die Priorität eines Dienstes gibt an, welcher Wert ihm im Rahmen des Dienste-Portfolios einer Organisation beigemessen wird."@de ;
              rdfs:comment "Prioritäten werden nach Prioritätskategorien eingeteilt."@de .
              
@@ -155,35 +108,17 @@ itcat:Priority rdfs:subClassOf schema:QualitativeValue ;
 itcat:Criticality rdfs:subClassOf schema:QualitativeValue ;
              
              skos:prefLabel "Kritikalität"@de ;
-             rdfs:label "criticality"@en ;
+             skos:prefLabel "criticality"@en ;
              skos:definition "Die Kritikalität eines Dienstes gibt an, wie kritisch eine Störung oder der Ausfall eines Dienstes für die IT-Versorgung einer Organisation eingeschätzt wird."@de ;
              rdfs:comment "Kritikalitäten werden nach Kritikalitätskategorien eingeteilt."@de .
-
-###  Spezifikation der Standardklasse schema:OfferItemCondition
-
-schema:OfferItemCondition rdf:type owl:Class ;
-                         
-             skos:prefLabel "Angebotsoptionen"@de ;
-             rdfs:label "offer item condition"@en ;
-             skos:definition "Angebotsoptionen sind unterscheidbare Pakete (Auflistungen) von Funktionalitäten und Gewährleistungen im Hinblick auf ein Angebot (z. B.einen Dienst), die von Kunden ausgewählt werden können und die mit einem (Verrechnungs-)Preis versehen sind."@de .
 
 
 ###  Spezifikation der Klasse usdl-agreement:ServiceProperty
 
 usdl-agreement:ServiceProperty rdf:type owl:Class ;
 			skos:prefLabel "Dienstmerkmal"@de ;
-            rdfs:label "service property"@en ;
+            skos:prefLabel "service property"@en ;
             skos:definition "Dienstmerkmale sind charakteristische Eigenschaften eines IT-Dienstes, die seinen Nutzen/seine Funktionalität sowie seine zugesicherten Qualitätsmerkmale darstellen."@de .
-
-
-###  http://th-brandenburg/ns/itcat#StaffCost
-
-itcat:StaffCost rdf:type owl:Class ;
-             rdfs:subClassOf itcat:InternalCost ;
-             
-             skos:prefLabel "Personalkostenart"@de ;
-             rdfs:label "staff cost"@en ;
-             skos:definition "Personalkostenarten umfassen die anteilig auf einen Dienst anzurechnenden Kosten für den Einsatz internen Personals. Hier sollten auch zurechenbare Anteile von Reise- und Fortbildungskosten erfasst werden."@de .
 
 
 ###  http://th-brandenburg/ns/itcat#Utility
@@ -192,7 +127,7 @@ itcat:Utility rdf:type owl:Class ;
             rdfs:subClassOf usdl-agreement:ServiceProperty ; 
             
             skos:prefLabel "Funktion"@de ;
-            rdfs:label "utility"@en ;
+            skos:prefLabel "utility"@en ;
             skos:altLabel "Nutzen"@de ;
             skos:definition "Der Nutzen/die Funktion eines Dienstes stellt die Art der Leistung dar, die der IT-Dienst dem Nutzer bietet, z. B. Mails senden und empfangen, Kalender und Aufgaben verwalten, Lehrvideos bereitstellen, Dokumente austauschen."@de ;
             rdfs:comment "Der Nutzen/die Funktion eines Dienstes beantwortet die Frage: 'Was leistet der Dienst für den Nutzer?'"@de ;
@@ -205,7 +140,7 @@ itcat:UserAssetSupport rdf:type owl:Class ;
 			rdfs:subClassOf itcat:Utility ;
 			
 			skos:prefLabel "Unterstützung für Endgeräte"@de ;
-			rdfs:label "user asset support"@en ;
+			skos:prefLabel "user asset support"@en ;
 			skos:definition "Dienstmerkmalsklasse zur Spezifikation der von einem Dienst unterstützten Endgeräte."@de ;
 			rdfs:comment "Diese Dienstmerkmalsklasse ist relevant für nutzerorientierte Dienste (Dienste für Fachanwender oder für externe Stakeholder). Es definiert, für welche Endgeräte der Dienst zugänglich sein soll."@de ;
 			rdfs:comment "Diese Dienstmerkmalsklasse wird in Verbindung mit der Object Property 'itcat:usableWith', die eine Unterproperty von 'itcat:hasUtility' ist, verwendet."@de .
@@ -217,10 +152,38 @@ itcat:Warranty rdf:type owl:Class ;
             rdfs:subClassOf usdl-agreement:ServiceProperty ;
             
             skos:prefLabel "Gewährleistung"@de ;
-            rdfs:label "warranty"@en ;
+            skos:prefLabel "warranty"@en ;
             skos:definition "Die Gewährleistung umfasst alle Zusicherungen des Dienste-Anbieters in Bezug auf Qualitätsdimensionen des Dienstes, z. B. Verfügbarkeit, Bandbreite, Geschwindigkeit, Transfervolumen, Verschlüsselungsgrad."@de ;
             rdfs:comment "Gewährleistungen sollten in einer Vereinbarung zwischen Dienste-Anbieter und Kunde festgehalten werden. Solche Vereinbarungen werden im IT-Service-Management als Service Level Agreement (SLA, für externe Kunden) bzw. Operational Level Agreement (OLA, für interne Kunden) bezeichnet."@de .
 
+
+###  http://th-brandenburg/ns/itcat#ServiceCategory
+
+itcat:ServiceCategory  rdf:type owl:Class ;
+			skos:prefLabel "Dienstekategorie"@de ;
+            skos:prefLabel "service category"@en ;
+            skos:definition "Dienstkategorien werden verwendet, um die IT-Dienste nach geeigneten Unterscheidungskriterien zu klassifizieren."@de .
+
+
+###  http://th-brandenburg/ns/itcat#SubjectCategory
+
+itcat:SubjectCategory rdf:type owl:Class ;
+			rdfs:subClassOf itcat:ServiceCategory ; 
+            
+            skos:prefLabel "Sachkategorie"@de ;
+            skos:prefLabel "subject category"@en ;
+            skos:definition "Sachkategorien helfen bei der sachlichen Einordnung von IT-Diensten. Ein IT-Dienst kann mehreren Sachkategorien angehören."@de .
+
+
+###  http://th-brandenburg/ns/itcat#CatalogCategory
+
+itcat:CatalogCategory rdf:type owl:Class ;
+			rdfs:subClassOf itcat:ServiceCategory ; 
+            
+            skos:prefLabel "Katalogkategorie"@de ;
+            skos:prefLabel "catalog category"@en ;
+            skos:definition "Katalogkategorien helfen bei der Einordnung von IT-Diensten in verschiedene Dienstekataloge."@de ;
+            rdfs:comment "Wie IT-Dienste in Katalogkategorien eingruppiert werden, ist noch nicht abschließend geklärt."@de .
 
 
 #################################################################
@@ -234,7 +197,7 @@ itcat:Warranty rdf:type owl:Class ;
 			
 schema:agent rdf:type owl:ObjectProperty ;
 			skos:prefLabel "Akteur"@de ;
-			rdfs:label "agent"@en ;
+			skos:prefLabel "agent"@en ;
 			skos:definition "Abstrakte Objektrelation zwischen einem IT-Dienst und einem Akteur (Instanz der Klasse 'Agent'), der eine handelnde Rolle in Bezug zu diesem IT-Dienst einnimmt, z. B. als Anbieter, Kunde, Nutzer oder Supporter."@de ;
 			rdfs:domain schema:Service ;
 			rdfs:range prov:Agent .
@@ -245,7 +208,7 @@ schema:agent rdf:type owl:ObjectProperty ;
 schema:customer rdf:type owl:ObjectProperty ;
 			skos:prefLabel "bestellt von"@de ;
 			rdfs:subPropertyOf schema:agent ;
-			rdfs:label "has customer"@en ;
+			skos:prefLabel "has customer"@en ;
 			skos:definition "Objektrelation zwischen einem IT-Dienst und (einem) seinem(r) Kunden. Der Kunde hat für die Kosten des IT-Dienstes aufzukommen, entweder indem er die Rechnungen des Anbieters begleicht (externer Kunde) oder indem er dem (internen) Anbieter ein Budget zur Verfügung stellt."@de ;
 			rdfs:domain schema:Service ;
 			rdfs:range prov:Agent . 
@@ -256,7 +219,7 @@ schema:customer rdf:type owl:ObjectProperty ;
 schema:provider rdf:type owl:ObjectProperty ;
 			skos:prefLabel "hat Anbieter"@de ;
 			rdfs:subPropertyOf schema:agent ;
-			rdfs:label "has provider"@en ;
+			skos:prefLabel "has provider"@en ;
 			skos:definition "Objektrelation zwischen einem IT-Dienst und seinem Anbieter."@de ;
 			rdfs:domain schema:Service ;
 			rdfs:range prov:Agent .
@@ -267,7 +230,7 @@ schema:provider rdf:type owl:ObjectProperty ;
 itcat:user rdf:type owl:ObjectProperty ;
 			rdfs:subPropertyOf schema:agent ;
 			skos:prefLabel "hat Nutzer"@de ;
-			rdfs:label "has user"@en ;
+			skos:prefLabel "has user"@en ;
 			skos:definition "Objektrelation zwischen einem IT-Dienst und (einem) seinem(r) Nutzer."@de ;
 			rdfs:domain schema:Service ;
 			rdfs:range prov:Agent . 
@@ -278,27 +241,17 @@ itcat:user rdf:type owl:ObjectProperty ;
 itcat:supporter rdf:type owl:ObjectProperty ;
 			rdfs:subPropertyOf schema:agent ;
 			skos:prefLabel "hat Betreuer"@de ;
-			rdfs:label "has supporter"@en ;
+			skos:prefLabel "has supporter"@en ;
 			skos:definition "Objektrelation zwischen einem IT-Dienst und (einem) seinem(r) Supporter."@de ;
 			rdfs:domain schema:Service ;
 			rdfs:range prov:Agent .
-			
-
-###  Spezifikation der Standardrelation schema:cause
-
-schema:cause rdf:type owl:ObjectProperty ;
-			skos:prefLabel "hat Ursache"@de ;
-			rdfs:label "has cause"@en ;
-			skos:definition "Objektrelation zwischen einer Kostenart und einem diese Kosten verursachenden IT-Dienst."@de ;
-			rdfs:domain itcat:CostType ;
-			rdfs:range schema:Service .
 			
 
 ###  Spezifikation der Standardrelation schema:isRelatedTo
 
 schema:isRelatedTo rdf:type owl:ObjectProperty ;
 			skos:prefLabel "in Beziehung zu"@de ;
-			rdfs:label "is related to"@en ;
+			skos:prefLabel "is related to"@en ;
 			skos:definition "Objektrelation zwischen zwei Ressourcen (Instanzen), die zueinander in Beziehung stehen."@de ;
 			rdfs:comment "Diese Standardrelation kann sehr vielfältig verwendet werden. Zwei Hauptanwendungen in dieser Ontologie sind: 1) die Beziehung zwischen zwei unterschiedlichen Diensten und 2) die Beziehung zwischen Instanzen der Diensmerkmalsklasse 'itcat:UserAssetSupport' und den entsprechenden Instanzen der Klasse 'IT Asset'."@de .
 			
@@ -307,7 +260,7 @@ schema:isRelatedTo rdf:type owl:ObjectProperty ;
 
 skos:related rdf:type owl:ObjectProperty ;
 			skos:prefLabel "Beziehung zwischen Klassen"@de ;
-			rdfs:label "related"@en ;
+			skos:prefLabel "related"@en ;
 			skos:definition "Objektrelation zwischen zwei Klassen, die zueinander in Beziehung stehen."@de ;
 			rdfs:comment "Diese Standardrelation wird hier verwendet um nicht näher spezifizierbare Beziehungen zwischen proprietären itcat-Klassen und Standardklassen zu erklären."@de .
 
@@ -317,8 +270,8 @@ skos:related rdf:type owl:ObjectProperty ;
 
 schema:isPartOf rdf:type owl:ObjectProperty ;
 			skos:prefLabel "wird eingesetzt in"@de ;
-			rdfs:label "ist Teil von"@de ;
-			rdfs:label "is part of"@en ;
+			skos:prefLabel "ist Teil von"@de ;
+			skos:prefLabel "is part of"@en ;
 			skos:definition "Objektrelation zwischen zwei Ressourcen, wobei das Subjekt im Vergleich zum Objekt eine untergeordnete Rolle spielt. " ;
 			rdfs:comment "In dieser Ontologie wird diese Objektrelation vorwiegend verwendet, um eine Verflechtung zwischen einem IT-Asset und einem diese Komponente einsetzenden IT-Dienst, oder zwischen mehreren Diensten abzubilden."@de .
 			
@@ -327,8 +280,8 @@ schema:isPartOf rdf:type owl:ObjectProperty ;
 
 schema:hasPart rdf:type owl:ObjectProperty ;
 			skos:prefLabel "setzt ein"@de ;
-			rdfs:label "has part"@en ;
-			rdfs:label "hat Teil"@de ;
+			skos:prefLabel "has part"@en ;
+			skos:prefLabel "hat Teil"@de ;
 			skos:definition "Objektrelation zwischen zwei Ressourcen, wobei das Subjekt im Vergleich zum Objekt eine übergeordnete Rolle spielt. " ;
 			rdfs:comment "In dieser Ontologie wird diese Objektrelation vorwiegend verwendet, um eine Verflechtung zwischen einem IT-Asset und einem diese Komponente einsetzenden IT-Dienst, oder zwischen mehreren Diensten abzubilden."@de ;
 			owl:inverseOf schema:isPartOf .
@@ -338,7 +291,7 @@ schema:hasPart rdf:type owl:ObjectProperty ;
 
 foaf:topic rdf:type owl:ObjectProperty ;
 			skos:prefLabel "hat Thema"@de ;
-			rdfs:label "has topic"@en ;
+			skos:prefLabel "has topic"@en ;
 			skos:definition "Objektrelation zwischen einem Dokument und einer anderen Ressource. Dokumente können Beschreibungen, Benutzerhilfen, Regeln, Richtlinien, Prozessmodelle, Verträge o. ä. sein bzw. enthalten, die einen Bezug zu einem IT-Dienst haben."@de ;
 			rdfs:domain foaf:Document .
 			
@@ -347,19 +300,9 @@ foaf:topic rdf:type owl:ObjectProperty ;
 
 foaf:page rdf:type owl:ObjectProperty ;
 			skos:prefLabel "hat Dokument"@de ;
-			rdfs:label "has page"@en ;
+			skos:prefLabel "has page"@en ;
 			skos:definition "Objektrelation zwischen einer Ressource, z. B. einem IT-Dienst und einem Dokument, das Informationen für oder über diesen IT-Dienst enthält."@de ;
 			owl:inverseOf foaf:topic .
-			
-
-###  Spezifikation der Standardrelation schema:option			
-
-schema:option rdf:type owl:ObjectProperty ;
-			skos:prefLabel "hat Angebotsoption"@de ;
-			rdfs:label "has option"@en ;
-			skos:definition "Objektrelation zwischen einem Produkt oder Dienst und seinen Angebotsoptionen, die unmittelbar von Kunden ausgewählt werden können. "@de ;
-			rdfs:domain schema:Service ;
-			rdfs:range schema:OfferItemCondition .
 			
 
 ### Es ist noch zu untersuchen, auf welche Standardkonzepte die folgenden zwei Objektrelationen gemappt werden können.
@@ -368,7 +311,7 @@ schema:option rdf:type owl:ObjectProperty ;
 
 itcat:hasCriticality rdf:type owl:ObjectProperty ;
 			skos:prefLabel "hat Kritikalität"@de ;
-			rdfs:label "has criticality"@en ;
+			skos:prefLabel "has criticality"@en ;
 			skos:definition "Objektrelation zwischen einem IT-Dienst und seiner Kritikalitätskategorie. "@de ;
 			rdfs:domain schema:Service ;
 			rdfs:range schema:QualitativeValue .
@@ -378,7 +321,7 @@ itcat:hasCriticality rdf:type owl:ObjectProperty ;
 
 itcat:hasPriority rdf:type owl:ObjectProperty ;
 			skos:prefLabel "hat Priorität"@de ;
-			rdfs:label "has priority"@en ;
+			skos:prefLabel "has priority"@en ;
 			skos:definition "Objektrelation zwischen einem IT-Dienst und seiner Prioritätskategorie. "@de ;
 			rdfs:domain schema:Service ;
 			rdfs:range schema:QualitativeValue .
@@ -389,7 +332,7 @@ itcat:hasPriority rdf:type owl:ObjectProperty ;
 itcat:hasUtility rdf:type owl:ObjectProperty ;
 			owl:equivalentProperty gr:hasBusinessFunction ;
 			skos:prefLabel "hat Nutzen"@de ;
-			rdfs:label "has utility"@en ;
+			skos:prefLabel "has utility"@en ;
 			skos:definition "Objektrelation zwischen einem IT-Dienst und einer Dienstmerkmalsklasse, die der Beschreibung/Spezifikation seines Nutzens dient."@de ;
 			rdfs:domain schema:Service ;
 			rdfs:range usdl-agreement:ServiceProperty .
@@ -400,7 +343,7 @@ itcat:hasUtility rdf:type owl:ObjectProperty ;
 itcat:usableWith rdf:type owl:ObjectProperty ;
 			rdfs:subPropertyOf itcat:hasUtility ;
 			skos:prefLabel "nutzbar mit"@de ;
-			rdfs:label "usable with"@en ;
+			skos:prefLabel "usable with"@en ;
 			skos:definition "Objektrelation zwischen einem IT-Dienst und der Dienstmerkmalsklasse 'Unterstützung für Endgeräte'."@de ;
 			rdfs:domain schema:Service ;
 			rdfs:range itcat:UserAssetSupport .			
@@ -411,12 +354,25 @@ itcat:usableWith rdf:type owl:ObjectProperty ;
 itcat:hasWarranty rdf:type owl:ObjectProperty ;
 			rdfs:subPropertyOf gr:hasWarrantyPromise ;
 			skos:prefLabel "hat Gewährleistung"@de ;
-			rdfs:label "has warranty"@en ;
+			skos:prefLabel "has warranty"@en ;
 			skos:definition "Objektrelation zwischen einem IT-Dienst und und einer Dienstmerkmalsklasse, die der Beschreibung/Spezifikation seiner zugesicherten Qualitätsdimensionen (Gewährleistung) dient."@de ;
 			rdfs:domain schema:Service ;
 			rdfs:range usdl-agreement:ServiceProperty .
 			
 
+###  http://th-brandenburg/ns/itcat#inCategory
+
+itcat:inCategory rdf:type owl:ObjectProperty ;
+			skos:prefLabel "gehört zu Kategorie"@de ;
+			skos:prefLabel "belongs to category"@en ;
+			skos:definition "Objektrelation zwischen einem IT-Dienst und einer Dienstekategorie. "@de ;
+			rdfs:comment "Aktuell werden zwei Kategorieklassen unterschieden: Sachkategorien und Katalogkategorien."@de ;
+			rdfs:comment "Jeder IT-Dienst muss mindestens einer Kategorie in jeder Kategorieklasse zugeordnet sein."@de ;
+			rdfs:comment "Ein IT-Dienst kann gleichzeitig mehreren Dienstekategorien innerhalb einer Kategorieklasse angehören."@de ;
+			rdfs:domain schema:Service ;
+			rdfs:range schema:ServiceCategory .
+			
+			
 #################################################################
 #
 #    Data Properties
@@ -427,7 +383,7 @@ itcat:hasWarranty rdf:type owl:ObjectProperty ;
 
 schema:url rdf:type owl:DatatypeProperty ;
 			skos:prefLabel "URL"@de ;
-			rdfs:label "url"@en ;
+			skos:prefLabel "url"@en ;
 			skos:definition "Referenziert eine URL zu einer Ressource. Verweist auf weiterführende Informationen, Dokumente, Zugänge etc."@de ;
 			rdfs:comment "Diese Standardrelation wird in dieser Ontologie verwendet, um die bereits vorhandenen Webseiten zu den IT-Diensten zu referenzieren."@de .
 			
@@ -436,7 +392,7 @@ schema:url rdf:type owl:DatatypeProperty ;
 
 itcat:status rdf:type owl:DatatypeProperty ;
 			skos:prefLabel "Status"@de ;
-			rdfs:label "status"@en ;
+			skos:prefLabel "status"@en ;
 			skos:definition "Gibt an in welcher Phase des Lebenszyklus sich ein IT-Dienst befindet."@de ;
 			rdfs:comment "Zu verwendende Status sind: 'in Planung', 'in Einführung', 'in Betrieb', 'außer Betrieb', 'abgeschaltet'."@de .
 
@@ -452,7 +408,7 @@ itcat:status rdf:type owl:DatatypeProperty ;
 
 dcterms:description rdf:type owl:AnnotationProperty ;
 			skos:prefLabel "Beschreibung"@de ;
-			rdfs:label "description"@en ;
+			skos:prefLabel "description"@en ;
 			skos:definition "Im engeren Sinne: Relation zu einer textuellen Beschreibung einer Ressource. Kann im weiteren Sinne auch für andere Formen von Beschreibungen genutzt werden: Grafiken, Inhaltsverzeichnissen etc."@de ;
 			rdfs:comment "Diese Standardrelation wird in dieser Ontologie verwendet, um Beschreibungen von IT-Diensten bereitzustellen."@de .
 					
@@ -461,7 +417,7 @@ dcterms:description rdf:type owl:AnnotationProperty ;
 
 dcterms:abstract rdf:type owl:AnnotationProperty ;
 			skos:prefLabel "Kurzbeschreibung"@de ;
-			rdfs:label "abstract"@en ;
+			skos:prefLabel "abstract"@en ;
 			skos:definition "Relation zu einer textuellen Kurzbeschreibung einer Ressource."@de ;
 			rdfs:comment "Diese Standardrelation wird in dieser Ontologie verwendet, um Kurzbeschreibungen von IT-Diensten bereitzustellen, die als Teaser im IT-Katalog erscheinen."@de .
 			
@@ -470,7 +426,7 @@ dcterms:abstract rdf:type owl:AnnotationProperty ;
 
 dcterms:title rdf:type owl:AnnotationProperty ;
 			skos:prefLabel "Bezeichnung"@de ;
-			rdfs:label "title"@en ;
+			skos:prefLabel "title"@en ;
 			skos:definition "Die vollständige (offizielle) Bezeichnung / der Name einer Ressource."@de ;
 			rdfs:comment "Diese Standardrelation wird in dieser Ontologie verwendet, um vollständige Bezeichnungen von IT-Diensten bereitzustellen."@de .
 			
@@ -479,11 +435,163 @@ dcterms:title rdf:type owl:AnnotationProperty ;
 
 dcterms:subject rdf:type owl:AnnotationProperty ;
 			skos:prefLabel "Gegenstand"@de ;
-			rdfs:label "subject"@en ;
+			skos:prefLabel "subject"@en ;
 			skos:definition "Ein thematischer Gegenstand einer Ressource."@de ;
-			rdfs:comment "Diese Standardrelation wird in dieser Ontologie verwendet, um Schlüsselwörter zur Klassifikation von IT-Diensten zu referenzieren. Dadur wird es möglich Gruppen von Diensten bzw. spezifische Kataloge zusammenzustellen."@de ;
-			rdfs:comment "Die Schlüsselwörter sollten in Klassifikationsschemata klar spezifiziert werden. Aktuell siehe Excel-Dokument: OntologyManagement, Tabellenblatt: ITcatCategories."@de .
+			rdfs:comment "Diese Standardrelation wird in dieser Ontologie verwendet, um Schlüsselwörter zu IT-Diensten zu referenzieren."@de .
 			
 
-###  Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net
+#################################################################
+#
+#    Individuals
+#
+#################################################################
 
+
+###  http://th-brandenburg/ns/itcat#HighCriticality
+
+itcat:HighCriticality  rdf:type itcat:Criticality ;
+			skos:prefLabel "Hohe Kritikalität"@de ;
+			skos:prefLabel "high criticality"@en ;
+			skos:definition "Ein Dienst ist von hoher Kritikalität, wenn eine Störung oder der Ausfall dieses Dienstes als sehr kritisch für die IT-Versorgung einer Organisation eingeschätzt wird."@de ;
+			rdfs:comment "Kritikalitätskategorien sind: 'Hohe Kritikalität', 'Mittlere Kritikalität' und 'Geringe Kritikalität'."@de .
+					
+
+###  http://th-brandenburg/ns/itcat#MediumCriticality
+
+itcat:MediumCriticality  rdf:type itcat:Criticality ;
+			skos:prefLabel "Mittlere Kritikalität"@de ;
+			skos:prefLabel "medium criticality"@en ;
+			skos:definition "Ein Dienst ist von mittlerer Kritikalität, wenn eine Störung oder der Ausfall dieses Dienstes die IT-Versorgung einer Organisation einschränkt, aber nicht in kritischen Bereichen."@de ;
+			rdfs:comment "Kritikalitätskategorien sind: 'Hohe Kritikalität', 'Mittlere Kritikalität' und 'Geringe Kritikalität'."@de .
+
+
+###  http://th-brandenburg/ns/itcat#LowCriticality
+
+itcat:LowCriticality  rdf:type itcat:Criticality ;
+			skos:prefLabel "Geringe Kritikalität"@de ;
+			skos:prefLabel "low criticality"@en ;
+			skos:definition "Ein Dienst ist von geringer Kritikalität, wenn eine Störung oder der Ausfall dieses Dienstes die IT-Versorgung einer Organisation nicht wesentlich einschränkt."@de ;
+			rdfs:comment "Kritikalitätskategorien sind: 'Hohe Kritikalität', 'Mittlere Kritikalität' und 'Geringe Kritikalität'."@de .
+	
+
+###  http://th-brandenburg/ns/itcat#HighPriority
+
+itcat:HighPriority  rdf:type itcat:Priority ;
+			skos:prefLabel "Hohe Priorität"@de ;
+			skos:prefLabel "high priority"@en ;
+			skos:definition "Ein Dienst ist von hoher Priortät, wenn ihm im Rahmen des Dienste-Portfolios einer Organisation ein hoher Wert beigemessen wird."@de ;
+			rdfs:comment "Prioritätskategorien sind: 'Hohe Priorität', 'Mittlere Priorität' und 'Geringe Priorität'."@de .
+					
+
+###  http://th-brandenburg/ns/itcat#MediumPriority
+
+itcat:MediumPriority  rdf:type itcat:Priority ;
+			skos:prefLabel "Mittlere Priorität"@de ;
+			skos:prefLabel "medium priority"@en ;
+			skos:definition "Ein Dienst ist von mittlerer Priortät, wenn ihm im Rahmen des Dienste-Portfolios einer Organisation ein mittlerer Wert beigemessen wird."@de ;
+			rdfs:comment "Prioritätskategorien sind: 'Hohe Priorität', 'Mittlere Priorität' und 'Geringe Priorität'."@de .
+					
+
+###  http://th-brandenburg/ns/itcat#LowPriority
+
+itcat:LowPriority  rdf:type itcat:Priority ;
+			skos:prefLabel "Geringe Priorität"@de ;
+			skos:prefLabel "low priority"@en ;
+			skos:definition "Ein Dienst ist von geringer Priortät, wenn ihm im Rahmen des Dienste-Portfolios einer Organisation ein geringer Wert beigemessen wird."@de ;
+			rdfs:comment "Prioritätskategorien sind: 'Hohe Priorität', 'Mittlere Priorität' und 'Geringe Priorität'."@de .
+	
+
+###  http://th-brandenburg/ns/itcat#LibraryService
+
+itcat:LibraryService  rdf:type itcat:SubjectCategory ;
+			skos:prefLabel "Bibliotheksdienst"@de ;
+			skos:prefLabel "library service"@en ;
+			skos:definition "Zu den Bibliotheksdiensten gehören alle IT-Dienste, die den Zugang zu Fachliteratur in der Hochschulbibliothek sowie über zentrale Datenbanken, Dienste und Systeme unterstützen bzw. ermöglichen."@de .
+	
+
+###  http://th-brandenburg/ns/itcat#HISService
+
+itcat:HISService   rdf:type itcat:SubjectCategory ;
+			skos:prefLabel "HIS-Dienst"@de ;
+			skos:prefLabel "HIS service"@en ;
+			skos:definition "Zu den HIS-Diensten gehören alle Anwendungen im Rahmen der Hochschulinformationssysteme HIS und HISinOne."@de .
+
+
+###  http://th-brandenburg/ns/itcat#TeachingPlatform
+
+itcat:TeachingPlatform  rdf:type itcat:SubjectCategory ;
+			skos:prefLabel "Lehrportal"@de ;
+			skos:prefLabel "teaching platform"@en ;
+			skos:definition "Lehrplattformen unterstützen bzw. ermöglichen die Hochschullehre sowohl in der klassischen Präsenzlehre als auch im E-Learning."@de .
+
+
+###  http://th-brandenburg/ns/itcat#CommunicationService
+
+itcat:CommunicationService  rdf:type itcat:SubjectCategory ;
+			skos:prefLabel "Kommunikationsdienst"@de ;
+			skos:prefLabel "communication service"@en ;
+			skos:definition "Kommunikationsdienste unterstützen bzw. ermöglichen die synchrone und asynchrone Kommunikation von Gruppen und Individuen."@de .
+
+
+###  http://th-brandenburg/ns/itcat#InformationService
+
+itcat:InformationService  rdf:type itcat:SubjectCategory ;
+			skos:prefLabel "Informationsdienst"@de ;
+			skos:prefLabel "information service"@en ;
+			skos:definition "Informationsdienste stellen für die Benutzer strukturierte, regelmäßig aktualisierte Informationen über verschiedene Medien bereit."@de .
+
+
+###  http://th-brandenburg/ns/itcat#MiscService
+
+itcat:MiscService  rdf:type itcat:SubjectCategory ;
+			skos:prefLabel "Sonstige Anwendung"@de ;
+			skos:prefLabel "miscellaneous application"@en ;
+			skos:definition "Unter sonstigen Anwendungen werden alle Fachanwendungen (IT-Dienste) zusammengefasst, die in keine der anderen Sachkategorien schlüssig einordenbar sind."@de .
+
+
+###  http://th-brandenburg/ns/itcat#NetworkService
+
+itcat:NetworkService  rdf:type itcat:SubjectCategory ;
+			skos:prefLabel "Netzwerkdienst"@de ;
+			skos:prefLabel "network service"@en ;
+			skos:definition "Netzwerkdienste nutzen ein oder mehrere Netzwerkprotokolle (HTTP, DNS, NTP, DHCP ...) um über ein Computernetzwerk bestimmte Funktionen bereitzustellen."@de .
+
+
+###  http://th-brandenburg/ns/itcat#InfrastructureService
+
+itcat:InfrastructureService  rdf:type itcat:SubjectCategory ;
+			skos:prefLabel "Infrastrukturdienst"@de ;
+			skos:prefLabel "infrastructure service"@en ;
+			skos:definition "Infrastrukturdienste sind grundlegende Dienste zur Bereitstellung, Pflege und Wartung einer IT-Versorgungsstruktur."@de .
+
+
+###  http://th-brandenburg/ns/itcat#BusinessCatalog
+
+itcat:BusinessCatalog  rdf:type itcat:CatalogCategory ;
+			skos:prefLabel "Fachanwenderkatalog"@de ;
+			skos:prefLabel "business catalog"@en ;
+			skos:definition "Der Fachanwenderkatalog umfasst alle für Fachanwender bereitgestellten Dienste einer Organisation. Sprache und Design des Katalogs orientieren sich an der Sprache der Fachanwender."@de .
+
+
+###  http://th-brandenburg/ns/itcat#PublicCatalog
+
+itcat:PublicCatalog  rdf:type itcat:CatalogCategory ;
+			skos:prefLabel "Öffentlicher Dienstekatalog"@de ;
+			skos:prefLabel "public catalog"@en ;
+			skos:definition "Der Öffentliche Dienstekatalog umfasst alle für die interessierte Öffentlichkeit bereitgestellten Dienste einer Organisation. Sprache und Design des Katalogs orientieren sich an der Sprache der Zielgruppen."@de .
+
+
+###  http://th-brandenburg/ns/itcat#OperationalCatalog
+
+itcat:OperationalCatalog  rdf:type itcat:CatalogCategory ;
+			skos:prefLabel "IT-Betriebskatalog"@de ;
+			skos:prefLabel "operational catalog"@en ;
+			skos:definition "Der IT-Betriegskatalog umfasst alle für die Sicherung des IT-Betriebs einer Organisation relevanten Dienste. Sprache und Design des Katalogs orientieren sich an der Sprache der IT-Betriebsverantwortlichen."@de .
+
+
+###  http://th-brandenburg/ns/itcat#InfrastructureCatalog
+
+itcat:InfrastructureCatalog  rdf:type itcat:CatalogCategory ;
+			skos:prefLabel "IT-Infrastrukturkatalog"@de ;
+			skos:prefLabel "infrastructure catalog"@en ;
+			skos:definition "Der IT-Infrastrukturkatalog umfasst alle für die Sicherung des IT-Betriebs einer Organisation relevanten IT-Systeme bzw. -Komponenten. Sprache und Design des Katalogs orientieren sich an der Sprache der IT-Administratoren."@de .
