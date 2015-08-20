@@ -19,6 +19,8 @@
 #################################################################
 
 
+### BSCW Groupware
+
 itcat:BSCW  a                   schema:Service ;
 		#Annotation Properties
 		skos:prefLabel			"BSCW Groupware"@de ;
@@ -44,6 +46,8 @@ itcat:BSCW  a                   schema:Service ;
         itcat:inCategory		itcat:TeachingPlatforms , itcat:CommunicationServices , itcat:BusinessCatalog .
          
 
+### Cloudservice FB Wirtschaft
+
 itcat:CloudserviceFBW  a        schema:Service ;
 		#Annotation Properties
 		skos:prefLabel			"Cloudservice des FBW"@de ;
@@ -68,7 +72,9 @@ itcat:CloudserviceFBW  a        schema:Service ;
         foaf:page 				"http://fbwcms.fh-brandenburg.de/sixcms/media.php/1127/filr1_qs_mobile.pdf" , "http://itworks.fh-brandenburg.de/" ;
         itcat:inCategory		itcat:MiscServices , itcat:NetworkServices , itcat:BusinessCatalog .
         
-        
+
+### Datensicherung
+
 itcat:Datensicherung  a        schema:Service ;
 		#Annotation Properties
 		skos:prefLabel			"Datensicherung"@de ;
@@ -88,10 +94,91 @@ itcat:Datensicherung  a        schema:Service ;
         itcat:supporter			itcat:DataCenter ;
         itcat:hasCriticality	itcat:MediumCriticality ;
         itcat:hasPriority		itcat:HighPriority ;
-        itcat:usableWith  		"" ;
+##      itcat:usableWith  		"" ;
         schema:isRelatedTo		itcat:Plattenstorage ;
         foaf:page 				"" ;
         itcat:inCategory		itcat:InfrastructureService , itcat:InfrastructureCatalog .
+
+
+### Datenbank-Infosystem
+
+itcat:DBIS  a        schema:Service ;
+		#Annotation Properties
+		skos:prefLabel			"Datenbank-Infosystem"@de ;
+		skos:prefLabel			"databased information system"@en ;
+		dcterms:title			"Datenbank-Infosystem der Universität Regensburg"@de ;
+		dcterms:abstract		"Das Datenbank-Infosystem (DBIS) ist ein kooperativer Service zur Nutzung wissenschaftlicher Datenbanken, der vom Rechenzentrum der Universitätsbibliothek Regensburg bereitgestellt wird."@de ;
+        dcterms:description     "<p>Das Datenbank-Infosystem (DBIS) wurde mit finanzieller Unterstützung des Bayerischen Staatsministeriums für Wissenschaft, Forschung und Kunst und der Deutschen Forschungsgemeinschaft (DFG) von der Universitätsbibliothek Regensburg entwickelt. Inzwischen wird das Datenbank-Infosystem als Nutzerservice in 299 Bibliotheken genutzt.</p><p> Momentan umfasst das Datenbank-Infosystem 11429 Einträge. Davon sind 4718 Datenbanken frei über das Internet verfügbar. In DBIS werden Datenbanken verzeichnet, deren Inhalte über eine Suchfunktionalität gezielt durchsucht werden können. Die Datenbanken werden nach Fächern sortiert angeboten. Daneben gibt es auch eine erweiterte Suche, in der unter anderem eine Stichwortsuche möglich ist oder nach Datenbanken mit geographischem Bezug gesucht werden kann.</p>"@de ;
+        dcterms:subject         "" ;
+        rdfs:comment			"" ;
+        #Data Properties
+        schema:url              "http://rzblx10.uni-regensburg.de/dbinfo/dbliste.php?bib_id=fhbrb&colors=31&ocolors=40&lett=a" ;
+        itcat:status            "in Betrieb" ;
+        #Object Properties
+        itcat:user				itcat:Students , itcat:Staff , itcat:ExtWorkers ;
+        schema:customer			itcat:Library ;
+        schema:provider			itcat:BRZUR ;
+        itcat:supporter			itcat:MHeinrich ;
+        itcat:hasCriticality	itcat:LowCriticality ;
+        itcat:hasPriority		itcat:HighPriority ;
+        itcat:usableWith  		itcat:Computer , itcat:Laptop , itcat:Smartphone , itcat:Tablet ;
+        schema:isRelatedTo		itcat:IDM , itcat:WebHosting ;
+        foaf:page 				"" ;
+        itcat:inCategory		itcat:LibraryServices , itcat:InformationServices, itcat:BusinessCatalog .
+        
+ 
+### eduroam
+
+itcat:  a        schema:Service ;
+		#Annotation Properties
+		skos:prefLabel			"eduroam"@de ;
+		skos:prefLabel			"eduroam"@en ;
+		dcterms:title			"eduroam - Internet über WLAN an wissenschaftlichen Einrichtungen weltweit"@de ;
+		dcterms:abstract		"eduroam ist ein weltweites WLAN, welches Mitgliedern von wissenschaftlichen Einrichtungen kostenlosen Zugang zum Internet ermöglicht. Die TH Brandenburg betreibt diesen Zugang in Zusammenarbeit mit dem DFN-Verein."@de ;
+        dcterms:description     "<p>eduroam ist ein weltweites WLAN, welches Mitgliedern von wissenschaftlichen Einrichtungen kostenlosen Zugang zum Internet ermöglicht. Die TH Brandenburg betreibt diesen Zugang in Zusammenarbeit mit dem DFN-Verein. Damit können Mitglieder der Hochschule bei angeschlossenen Einrichtungen im In- und Ausland WLAN-Dienste in Anspruch nehmen. Zum anderen haben Mitglieder anderer Einrichtungen, die unsere Hochschule besuchen, ihrerseits Zugriff auf das Web.</p> <p>Um den Dienst nutzen zu können, muss ein Installationsprogramm heruntergeladen werden. Das genaue Vorgehen für die Anmeldung und Nutzung des Dienstes ist unter der u. a. URL zu finden.</p>"@de ;
+        dcterms:subject         "" ;
+        rdfs:comment			"" ;
+        #Data Properties
+        schema:url              "http://www.fh-brandenburg.de/eduroam.html" ;
+        itcat:status            "in Betrieb" ;
+        #Object Properties
+        itcat:user				itcat:Staff , itcat:Students , itcat:ExtWorkers ;
+        schema:customer			itcat:THB ;
+        schema:provider			itcat:DFN ;
+        itcat:supporter			itcat:DataCenter ;
+        itcat:hasCriticality	itcat:Criticality ;
+        itcat:hasPriority		itcat:Priority ;
+        itcat:usableWith  		itcat:Computer , itcat:Laptop , itcat:Smartphone , itcat:Tablet ;
+        schema:isRelatedTo		itcat:WLAN , itcat:IDM ;
+        foaf:page 				"https://www.dfn.de/dienstleistungen/dfnroaming/" ,"https://edit.dfn.de/CAT-1.0.4/web/" ;
+        itcat:inCategory		itcat:NetworkServices , itcat:PublicCatalog .
+
+ 
+### Zentraler Maildienst
+
+itcat:CetralMail  a        schema:Service ;
+		#Annotation Properties
+		skos:prefLabel			"Zentraler Maildienst"@de ;
+		skos:prefLabel			"central mail service"@en ;
+		dcterms:title			"Zentraler Maildienst der TH Brandenburg"@de ;
+		dcterms:abstract		"Das Rechenzentrum betreibt 2 Mailserver (Mailrelay), die die Verteilung von Email innerhalb der Domain fh-brandenburg.de und den Empfang und Versand nach aussen abwickeln."@de ;
+        dcterms:description     "<p>Das Rechenzentrum betreibt 2 Mailserver (Mailrelay), die die Verteilung von Email innerhalb der Domain fh-brandenburg.de und den Empfang und Versand nach aussen abwickeln. Die Adressen dieser Server, in Emailclients als SMTP-Server oder Server für ausgehende Nachrichten bezeichnet, lauten:</p><ul><li>mail.fh-brandenburg.de:25</li><li>mail-auth.fh-brandenburg.de:25 (StartTLS)</li><ul><p>Eingehende Nachrichten können mittels pop3- oder imap-Protokoll abgerufen werden. Die Adressen dieser Server, in Emailclients als POP3-/IMAP-Server oder Server für eingehende Nachrichten bezeichnet, lauten:</p><ul><li>pop3-server: pop3.fh-brandenburg.de port: 995</li><li>imap-server: imap.fh-brandenburg.de port: 143/starttls</li><li>imap-server: imap.fh-brandenburg.de port: 993/ssl</li></ul><p>Die Größe einer Email ist begrenzt auf 10 MB. Für den Austausch von größeren Dateien benutzen Sie bitte den Dienst <a href=\"/VolumeTransfer\">Volumendatentransfer</a></p>."@de ;
+        dcterms:subject         "" ;
+        rdfs:comment			"" ;
+        #Data Properties
+        schema:url              "http://www.fh-brandenburg.de/email2.html" ;
+        itcat:status            "in Betrieb" ;
+        #Object Properties
+        itcat:user				itcat:TLSO , itcat:DataCenter ;
+        schema:customer			itcat:THB ;
+        schema:provider			itcat:DataCenter ;
+        itcat:supporter			itcat:DataCenter ;
+        itcat:hasCriticality	itcat:HighCriticality ;
+        itcat:hasPriority		itcat:HighPriority ;
+##      itcat:usableWith  		"" ;
+        schema:isRelatedTo		itcat:WebMail ;
+        foaf:page 				"http://www.fh-brandenburg.de/email.html" ;
+        itcat:inCategory		itcat:NetworkService , itcat:InformationService , itcat:OperationalCatalog .
 
 
 ### ServiceTemplate
@@ -107,7 +194,7 @@ itcat:  a        schema:Service ;
         rdfs:comment			"" ;
         #Data Properties
         schema:url              "" ;
-        itcat:status             "" ;
+        itcat:status            "" ;
         #Object Properties
         itcat:user				itcat: ;
         schema:customer			itcat: ;
@@ -198,7 +285,7 @@ itcat:StaffADM	a				schema:Role ;
 		skos:definition			"Mitarbeiter der Hochschulverwaltung oder der Zentren."@de .
 		
 		
-itcat:ExtWorker	a				schema:Role ;
+itcat:ExtWorkers	a			schema:Role ;
 		skos:prefLabel			"Externe Beschäftigte"@de ;
 		skos:prefLabel			"external workers"@en ;
 		skos:definition			"Lehrbeauftragte, Gastprofessoren, Honorarprofessoren u. a. externe Beschäftigten, z. B. in Projekten."@de .
@@ -273,7 +360,12 @@ itcat:BRZUR		a				foaf:Organization ;
 		dcterms:title			"Bibliotheksrechenzentrum der Universität Regensburg"@de .
 		
 		
-
+itcat:DFN		a				foaf:Organization ;
+		skos:prefLabel			"DFN Verein"@de ;
+		skos:prefLabel			"DFN association"@en ;
+		dcterms:title			"DFN Verein zur Förderung eines Deutschen Forschungsnetzes e. V."@de .
+		
+	
 ### Person Individuals
 
 
