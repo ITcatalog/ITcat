@@ -129,7 +129,7 @@ itcat:DBIS  a        schema:Service ;
  
 ### eduroam
 
-itcat:  a        schema:Service ;
+itcat:Eduroam  a        schema:Service ;
 		#Annotation Properties
 		skos:prefLabel			"eduroam"@de ;
 		skos:prefLabel			"eduroam"@en ;
@@ -377,7 +377,7 @@ itcat:EduDrive  a        schema:Service ;
 		skos:prefLabel			"Lehrelaufwerk"@de ;
 		skos:prefLabel			"educational drive"@en ;
 		dcterms:title			"Lehrelaufwerk für Lehrende im Fachbereich Wirtschaft"@de ;
-		dcterms:abstract		"Im Hochschulnetz "@de ;
+		dcterms:abstract		"Im Hochschulnetz haben Lehrende des Fachbereichs Wirtschaft die Möglichkeit, elektronische Lehrskripte für Studierende bereitzustellen. Darüber hinuas erlaubt das Lehrelaufwerk auch den lesenden Zugriff auf die Laufwerke der anderen Lehrenden."@de ;
         dcterms:description     "Die Dozenten sind angehalten, Ihre Lehrscripte, die in elektronischer Form ausgearbeitet sind, auf einem zentralen Serverlaufwerk zu veröffentlichen. Innerhalb der Fachhochschule ist der Portalserver des FB Wirtschaft nach erfolgreicher Anmeldung auf dem Netzwerklaufwerk L: (Lehre) auf den Desktops zugewiesen. Der Link zum browserbasierten Portalzugriff ist unten veröffentlicht. Für den Zugang benötigen Sie einen gültigen Account und gegebenenfalls das Zertifikat für den WEB-Browser. Authentifiziert wird sich hierbei mit den IDM-Login Daten."@de ;
         dcterms:subject         "" ;
         rdfs:comment			"" ;
