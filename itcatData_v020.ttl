@@ -156,13 +156,13 @@ itcat:Eduroam  a        schema:Service ;
  
 ### Zentraler Maildienst
 
-itcat:CetralMail  a        schema:Service ;
+itcat:CentralMail  a        schema:Service ;
 		#Annotation Properties
 		skos:prefLabel			"Zentraler Maildienst"@de ;
 		skos:prefLabel			"central mail service"@en ;
 		dcterms:title			"Zentraler Maildienst der TH Brandenburg"@de ;
 		dcterms:abstract		"Das Rechenzentrum betreibt 2 Mailserver (Mailrelay), die die Verteilung von Email innerhalb der Domain fh-brandenburg.de und den Empfang und Versand nach aussen abwickeln."@de ;
-        dcterms:description     "<p>Das Rechenzentrum betreibt 2 Mailserver (Mailrelay), die die Verteilung von Email innerhalb der Domain fh-brandenburg.de und den Empfang und Versand nach aussen abwickeln. Die Adressen dieser Server, in Emailclients als SMTP-Server oder Server für ausgehende Nachrichten bezeichnet, lauten:</p><ul><li>mail.fh-brandenburg.de:25</li><li>mail-auth.fh-brandenburg.de:25 (StartTLS)</li><ul><p>Eingehende Nachrichten können mittels pop3- oder imap-Protokoll abgerufen werden. Die Adressen dieser Server, in Emailclients als POP3-/IMAP-Server oder Server für eingehende Nachrichten bezeichnet, lauten:</p><ul><li>pop3-server: pop3.fh-brandenburg.de port: 995</li><li>imap-server: imap.fh-brandenburg.de port: 143/starttls</li><li>imap-server: imap.fh-brandenburg.de port: 993/ssl</li></ul><p>Die Größe einer Email ist begrenzt auf 10 MB. Für den Austausch von größeren Dateien benutzen Sie bitte den Dienst <a href=\"/VolumeTransfer\">Volumendatentransfer</a></p>."@de ;
+        dcterms:description     "<p>Das Rechenzentrum betreibt 2 Mailserver (Mailrelay), die die Verteilung von Email innerhalb der Domain fh-brandenburg.de und den Empfang und Versand nach aussen abwickeln. Die Adressen dieser Server, in Emailclients als SMTP-Server oder Server für ausgehende Nachrichten bezeichnet, lauten:</p><ul><li>mail.fh-brandenburg.de:25</li><li>mail-auth.fh-brandenburg.de:25 (StartTLS)</li></ul><p>Eingehende Nachrichten können mittels pop3- oder imap-Protokoll abgerufen werden. Die Adressen dieser Server, in Emailclients als POP3-/IMAP-Server oder Server für eingehende Nachrichten bezeichnet, lauten:</p><ul><li>pop3-server: pop3.fh-brandenburg.de port: 995</li><li>imap-server: imap.fh-brandenburg.de port: 143/starttls</li><li>imap-server: imap.fh-brandenburg.de port: 993/ssl</li></ul><p>Die Größe einer Email ist begrenzt auf 10 MB. Für den Austausch von größeren Dateien benutzen Sie bitte den Dienst <a href=\"VolumeTransfer\">Volumendatentransfer</a></p>."@de ;
         dcterms:subject         "" ;
         rdfs:comment			"" ;
         #Data Properties
@@ -377,36 +377,216 @@ itcat:EduDrive  a        schema:Service ;
 		skos:prefLabel			"Lehrelaufwerk"@de ;
 		skos:prefLabel			"educational drive"@en ;
 		dcterms:title			"Lehrelaufwerk für Lehrende im Fachbereich Wirtschaft"@de ;
-		dcterms:abstract		"Im Hochschulnetz haben Lehrende des Fachbereichs Wirtschaft die Möglichkeit, elektronische Lehrskripte für Studierende bereitzustellen. Darüber hinuas erlaubt das Lehrelaufwerk auch den lesenden Zugriff auf die Laufwerke der anderen Lehrenden."@de ;
-        dcterms:description     "Die Dozenten sind angehalten, Ihre Lehrscripte, die in elektronischer Form ausgearbeitet sind, auf einem zentralen Serverlaufwerk zu veröffentlichen. Innerhalb der Fachhochschule ist der Portalserver des FB Wirtschaft nach erfolgreicher Anmeldung auf dem Netzwerklaufwerk L: (Lehre) auf den Desktops zugewiesen. Der Link zum browserbasierten Portalzugriff ist unten veröffentlicht. Für den Zugang benötigen Sie einen gültigen Account und gegebenenfalls das Zertifikat für den WEB-Browser. Authentifiziert wird sich hierbei mit den IDM-Login Daten."@de ;
+		dcterms:abstract		"Im Hochschulnetz haben Lehrende des Fachbereichs Wirtschaft die Möglichkeit, elektronische Lehrskripte für Studierende bereitzustellen. Das Lehrelaufwerk erlaubt den lesenden Zugriff durch alle Lehrenden und Studierenden des Fachbereichs auf die Laufwerke der anderen Lehrenden."@de ;
+        dcterms:description     "Innerhalb der Fachhochschule ist der Portalserver des FB Wirtschaft nach erfolgreicher Anmeldung auf dem Netzwerklaufwerk L: (Lehre) auf den Desktops zugewiesen. Der Link zum browserbasierten Portalzugriff ist unten angegeben. Für den Zugang benötigen Sie einen gültigen Account und gegebenenfalls das Zertifikat für den WEB-Browser. Die Authentifizierung erfolgt mit den IDM-Login-Daten."@de ;
         dcterms:subject         "" ;
         rdfs:comment			"" ;
         #Data Properties
-        schema:url              "" ;
-        itcat:status            "" ;
+        schema:url              "https://fhs-w7.fh-brandenburg.de/lehre/" ;
+        itcat:status            "in Betrieb" ;
         #Object Properties
         itcat:user				itcat:Staff , itcat:Students ;
-        schema:customer			itcat: ;
-        schema:provider			itcat: ;
-        itcat:supporter			itcat: ;
+        schema:customer			itcat:DBM ;
+        schema:provider			itcat:TLSO ;
+        itcat:supporter			itcat:TLSO ;
         itcat:hasCriticality	itcat:Criticality ;
         itcat:hasPriority		itcat:Priority ;
         itcat:usableWith  		itcat:Computer , itcat:Laptop , itcat:Smartphones ;
         schema:isRelatedTo		itcat:IDM ;
+        foaf:page 				"https://fhs-w8.fh-brandenburg.de/NetStorage/" ;
+        itcat:inCategory		itcat:TeachingPlatforms , itcat:NetworkServices , itcat:BusinessCatalog .
+
+
+### MapOnGo
+
+itcat:MapOnGo  a        schema:Service ;
+		#Annotation Properties
+		skos:prefLabel			"Gebäudeplan Bibliothek"@de ;
+		skos:prefLabel			"library map"@en ;
+		dcterms:title			"MapOnGo - Gebäudeplan der Bibliothek"@de ;
+		dcterms:abstract		"Ein elektronisches Abbild des Gebäudeplans der Hochschulbibliothek einschließlich der Aufbewahrungsorte von Fachliteratur nach Themen geordnet. Dieser Dienst kann im Zusammenhang mit dem Online-Katalog (OPAC) verwendet werden."@de ;
+        dcterms:description     "Der interaktive Gebäudeplan der Bibliothek erlaubt den Nutzern, sich über die Anordnung der Ausstattung sowie der Fachliteratur in der Hochschulbibliothek zu informieren. Neben einer Anwahl der verschiedenen Gebäudeteile und Elemente über ein Menü, kann auch der Mouse-Over-Effekt des Gebäudeplans verwendet werden."@de ;
+        dcterms:subject         "" ;
+        rdfs:comment			"" ;
+        #Data Properties
+        schema:url              "http://fh-brandenburg.mapongo.de/viewer?language=de&project_id=1#" ;
+        itcat:status            "in Betrieb" ;
+        #Object Properties
+        itcat:user				itcat:Students , itcat:Staff ;
+        schema:customer			itcat:Library ;
+        schema:provider			itcat:TLSO ;
+        itcat:supporter			itcat:TLSO ;
+        itcat:hasCriticality	itcat:LowCriticality ;
+        itcat:hasPriority		itcat:LowPriority ;
+        itcat:usableWith  		itcat:Smartphone , itcat:Laptop ;
+        schema:isRelatedTo		itcat:OPAC , itcat:WebHosting ;
+        foaf:page 				"http://www.fh-brandenburg.de/bibgebaeudeplan.html" ;
+        itcat:inCategory		itcat:LibraryServices , itcat:BusinessCatalog .
+
+
+### Monitoring
+
+itcat:Monitoring  a        schema:Service ;
+		#Annotation Properties
+		skos:prefLabel			"IT-Monitoring"@de ;
+		skos:prefLabel			"IT monitoring"@en ;
+		dcterms:title			"Monitoring von IT-Systemen und -Komponenten"@de ;
+		dcterms:abstract		"Für die Überwachung der IT-Systeme und -Komponenten nutzt das Rechenzentrum der Hochschule das Monitoring-System nagios."@de ;
+        dcterms:description     "<p>Nagios ist eine Software, die dem Monitoring komplexer IT-Infrastrukturen dient. Nagios bietet dazu eine Sammlung von Modulen zur Überwachung von Netzwerken, Hosts und speziellen Diensten sowie eine Web-Schnittstelle zum Abfragen der gesammelten Daten. 2007 wurde die Nagios Enterprises LLC von Ethan Galstad gegründet, welche Consulting und technische Unterstützung rund um das Thema Nagios als kommerzielle Dienstleistung anbietet. Die Kern-Software selbst bleibt weiterhin unter einer freien Lizenz.</p><p>An der TH Brandenburg wird Nagios vom Rechenzentrum eingesetzt, um die wesentlichen Elemente der IT-Infrastruktur sowie das Netzwerk zu überwachen.</p>"@de ;
+        dcterms:subject         "" ;
+        rdfs:comment			"" ;
+        #Data Properties
+        schema:url              "https://www.nagios.org/" ;
+        itcat:status            "in Betrieb" ;
+        #Object Properties
+        itcat:user				itcat:DataCenter ;
+        schema:customer			itcat:THB ;
+        schema:provider			itcat:DataCenter ;
+        itcat:supporter			itcat:Nagios ;
+        itcat:hasCriticality	itcat:Criticality ;
+        itcat:hasPriority		itcat:Priority ;
+        itcat:usableWith  		itcat:Computer , itcat:Laptop ;
+##      schema:isRelatedTo		itcat: ;
         foaf:page 				"" ;
-        itcat:inCategory		itcat: .
+        itcat:inCategory		itcat:InfrastructureServices , itcat:OperationalCatalog .
 
-itcat:Lehrelaufwerk  a          schema:Service ;
-        dc1:description         "Die Dozenten sind angehalten, Ihre Lehrscripte, die in elektronischer Form ausgearbeitet sind, auf einem zentralen Serverlaufwerk zu veröffentlichen. Innerhalb der Fachhochschule ist der Portalserver des FB Wirtschaft nach erfolgreicher Anmeldung auf dem Netzwerklaufwerk L: (Lehre) auf den Desktops zugewiesen. Der Link zum browserbasierten Portalzugriff ist unten veröffentlicht. Für den Zugang benötigen Sie einen gültigen Account und gegebenenfalls das Zertifikat für den WEB-Browser. Authentifiziert wird sich hierbei mit den IDM-Login Daten." ;
-        dc1:subject             "Bereitstellungsservice über Lehrelaufwerk" ;
-        usdlagreement:refersTo  itcat:Computer , itcat:Laptop , itcat:Smartphones ;
-        skos:prefLabel          "Lehrelaufwerk" ;
-        schema:isProvidedBy     itcat:TLSO ;
-        schema:isRelatedTo      itcat:IDM ;
-        schema:url              <http://bscw.fh-brandenburg.de> ;
-        schema:user             itcat:Mitarbeiter , itcat:Studenten .
 
- 
+### Moodle
+
+itcat:Moodle  a        schema:Service ;
+		#Annotation Properties
+		skos:prefLabel			"Lehrplattform moodle"@de ;
+		skos:prefLabel			"teaching platform moodle"@en ;
+		dcterms:title			"Kurs-/Lernmanagementsystem Moodle"@de ;
+		dcterms:abstract		"Moodle dient als Plattform für Kurse an der Fachhochschule Brandenburg. Diese Kurse können Vorlesungen oder andere organisatorische Einheiten, Dienste u. ä. sein."@de ;
+        dcterms:description     "In den moodle-Kursen können u.a. Dokumente und Dateien hoch- und runtergeladen werden, Tests veröffentlicht, Aufgaben verteilt, Foren eröffnet, oder Wikis erstellt/bereitgestellt werden. In moodle können Kurse für bestimmte Nutzergruppen gesperrt, bzw. geöffnet werden. Die Authentifizierung erfolgt mit den IDM-Login-Daten"@de ;
+        dcterms:subject         "" ;
+        rdfs:comment			"" ;
+        #Data Properties
+        schema:url              "http://www.fh-brandenburg.de/moodle" ;
+        itcat:status            "in Betrieb" ;
+        #Object Properties
+        itcat:user				itcat:Students , itcat:Staff , itcat:ExtWorkers ;
+        schema:customer			itcat:THB ;
+        schema:provider			itcat:DataCenter ;
+        itcat:supporter			itcat:RWietusch , itcat:DataCenter ;
+        itcat:hasCriticality	itcat:HighCriticality ;
+        itcat:hasPriority		itcat:HighPriority ;
+        itcat:usableWith  		itcat:Computer , itcat:Laptop ;
+        schema:isRelatedTo		itcat:IDM , itcat:WebHosting , itcat:CentralMail;
+        foaf:page 				"" ;
+        itcat:inCategory		itcat:TeachingPlatforms , itcat:InformationServices , itcat:BusinessCatalog .
+
+
+### NTP
+
+itcat:NTP  a        schema:Service ;
+		#Annotation Properties
+		skos:prefLabel			"Steuerung Netzzeit"@de ;
+		skos:prefLabel			"control network time"@en ;
+		dcterms:title			"Zeitsynchronisationsdienst NTP - Network Time Protocol"@de ;
+		dcterms:abstract		"Um eine eindeutige und weitgehend einheitliche Systemzeit im gesamten Hochschulnetz zu erreichen, betreibt das Rechenzentrum einen Zeitserver."@de ;
+        dcterms:description     "Für die Synchronisation mit dem Zeitserver des Rechenzentrums ist erforderlich, den ntp-Dienst zu aktivieren. In Abhängigkeit vom Betriebssystem der Zielsysteme stehen dafür verschiedene Konfigurationsdateien bzw. Kommandozeilenbefehle zur Verfügung. Details finden sich unter der u. a. URL."@de ;
+        dcterms:subject         "" ;
+        rdfs:comment			"" ;
+        #Data Properties
+        schema:url              "https://www.fh-brandenburg.de/zeitsynchronisation.html" ;
+        itcat:status            "in Betrieb" ;
+        #Object Properties
+        itcat:user				itcat:TLSO ;
+        schema:customer			itcat:THB ;
+        schema:provider			itcat:TUBerlin , itcat:UniStuttgart ;
+        itcat:supporter			itcat:DataCenter ;
+        itcat:hasCriticality	itcat:MediumCriticality ;
+        itcat:hasPriority		itcat:LowPriority ;
+        itcat:usableWith  		itcat:Computer , itcat:Laptop ;
+##      schema:isRelatedTo		itcat: ;
+        foaf:page 				"" ;
+        itcat:inCategory		itcat:InfrastructureServices , itcat:OperationalCatalog.
+
+
+### Online-Shop
+
+itcat:OnlineShop  a        schema:Service ;
+		#Annotation Properties
+		skos:prefLabel			"THB-Onlineshop"@de ;
+		skos:prefLabel			"online shop"@en ;
+		dcterms:title			"Onlineshop der TH Brandenburg"@de ;
+		dcterms:abstract		"Die TH Brandenburg betreibt einen Online-Shop unter dem Dach des Social-Commerce-Unternehmens Spreadshirt. Hier können Bekleidungsstücke, Tassen u. a. nette Sachen mit Motiven der Hochschule bestellt werden."@de ;
+        dcterms:description     "Im Onlineshop der TH Brandenburg können Sie folgende Gegenstände kaufen: <ul><li>Jacken</li><li>Kapuzenpullover</li><li>T-Shirts</li><li>Poloshirts</li> <li>Tassen</li><li>Kochschürzen</li><li>Badtücher</li></li>Baseballkappen</li><li>diverse Kleinteile</li></ul> Insgesamt stehen mehrere Farben und Motive zur Verfügung."@de ;
+        dcterms:subject         "" ;
+        rdfs:comment			"" ;
+        #Data Properties
+        schema:url              "http://fh-brandenburg.spreadshirt.de/" ;
+        itcat:status            "in Betrieb" ;
+        #Object Properties
+        itcat:user				itcat:Public , itcat:Staff , itcat:Students ;
+        schema:customer			itcat:THB ;
+        schema:provider			itcat:SpreadShirt ;
+        itcat:supporter			itcat:KLeipnitz ;
+        itcat:hasCriticality	itcat:LowCriticality ;
+        itcat:hasPriority		itcat:MediumPriority ;
+        itcat:usableWith  		itcat:Computer , itcat:Laptop , itcat:Smartphone , itcat:Tablet ;
+        schema:isRelatedTo		itcat:WebHosting ;
+        foaf:page 				"" ;
+        itcat:inCategory		itcat:MiscServices , itcat:PublicCatalog .
+
+
+### OPAC
+
+itcat:OPAC  a        schema:Service ;
+		#Annotation Properties
+		skos:prefLabel			"Online-Katalog OPAC"@de ;
+		skos:prefLabel			"online catalog OPAC"@en ;
+		dcterms:title			"Online-Katalog der Hochschulbibliothek (OPAC)"@de ;
+		dcterms:abstract		"Der Medienbestand der Hochschulbibliothek ist im Online-Katalog (OPAC) nachgewiesen. Hier sind ind sowohl die physischen als auch der größte Teil der E-Medien verzeichnet. Für die physikalischen Medien ist der Status (verliehen / nicht verliehen) einsehbar."@de ;
+        dcterms:description     "<p>Der Online-Katalog erlaubt verschieden Suchstrategien: die einfache, die erweiterte und die systematische Suche. Darüber hinaus kann ein Benutzer Merklisten anlegen, die Neuerwerbungen einsehen, Auskünfte einholen sowie Anschaffungswünsche platzieren.</p><p>Die Anmeldung erfolgt mit der Benutzernummer und einem Passwort. Nach Anmeldung kann der Benutzer sein Konto einsehen und verwalten. Damit sind auch Vormerkungen und Verlängerungen online realisierbar.</p>"@de ;
+        dcterms:subject         "" ;
+        rdfs:comment			"" ;
+        #Data Properties
+        schema:url              "https://opac.fh-brandenburg.de" ;
+        itcat:status            "in Betrieb" ;
+        #Object Properties
+        itcat:user				itcat:Students , itcat:Staff , itcat:Public ;
+        schema:customer			itcat:Library ;
+        schema:provider			itcat:OCLC ;
+        itcat:supporter			itcat:DataCenter ;
+        itcat:hasCriticality	itcat:MediumCriticality ;
+        itcat:hasPriority		itcat:HighPriority ;
+        itcat:usableWith  		itcat:Computer , itcat:Laptop , itcat:Smartphone , itcat:Tablet ;
+        schema:isRelatedTo		itcat:CentralMail , itcat:WebHosting ;
+        foaf:page 				"http://www.fh-brandenburg.de/bibopac.html" , "https://www.oclc.org/deutschland/de_de.html";
+        itcat:inCategory		itcat:LibraryServices , itcat:InformationServices , itcat:PublicCatalog .
+
+
+### QISFSV
+
+itcat:QISFSV  a        schema:Service ;
+		#Annotation Properties
+		skos:prefLabel			"QISFSV"@de ;
+		skos:prefLabel			"QISFSV"@en ;
+		dcterms:title			"Finanz- und Sachmittelverwaltungsmodul der TH Brandenburg"@de ;
+		dcterms:abstract		"Das Finanz- und Sachmittelverwaltungsmodul FSV ist mit den Untermodulen Beschaffung (BES), Mittelbewirtschaftung (MBS), Inventarisierung (IVS) und Materialwirtschaft (MAT) eine integrierte Lösung für die Verwaltung der Hochschulen. Auf dem Modul MBS setzt das Finanzbuchhaltungs-Modul FIBU auf."@de ;
+        dcterms:description     "An der TH Brandenburg wird FSV sowohl in der zentralen Verwaltung als auch bei der Steuerung von Drittmittelprojekten eingesetzt."@de ;
+        dcterms:subject         "" ;
+        rdfs:comment			"" ;
+        #Data Properties
+        schema:url              "https://qisfsv.fh-brandenburg.de/qisserver/rds?state=user&type=0" ;
+        itcat:status            "in Betrieb" ;
+        #Object Properties
+        itcat:user				itcat:StaffADM ;
+        schema:customer			itcat:THB ;
+        schema:provider			itcat:DataCenter ;
+        itcat:supporter			itcat:DataCenter ;
+        itcat:hasCriticality	itcat:HigCriticality ;
+        itcat:hasPriority		itcat:HighPriority ;
+        itcat:usableWith  		itcat:Computer , itcat:Laptop ;
+        schema:isRelatedTo		itcat:IDM , itcat:WebHosting ;
+        foaf:page 				"https://www.his.de/produkte/gxqis/finanz-und-sachmittelverwaltung.html" ;
+        itcat:inCategory		itcat:HISServices , itcat:BusinessCatalog .
+        
+
+
 ### ServiceTemplate
 
 itcat:  a        schema:Service ;
@@ -615,8 +795,38 @@ itcat:KOBV		a				foaf:Organization ;
 		skos:prefLabel			"KOBV Berlin-Brandenburg"@de ;
 		skos:prefLabel			"KOBV Berlin-Brandenburg"@en ;
 		dcterms:title			"Kooperativer Bibliotheksverbund Berlin-Brandenburg"@de .
-	  
-	  
+
+
+itcat:OCLC		a				foaf:Organization ;
+		skos:prefLabel			"OCLC Deutschland"@de ;
+		skos:prefLabel			"OCLC Germany"@en ;
+		dcterms:title			"Deutsches Chapter des Online Computer Library Center (OCLC) - weltweit tätige Non-Profit-Organisation und Dienstleister für Bibliotheken"@de .
+
+
+itcat:Nagios	a				foaf:Organization ;
+		skos:prefLabel			"Nagios Community"@de ;
+		skos:prefLabel			"Nagios community"@en ;
+		dcterms:title			"Open Source Community zur Weiterentwicklung der IT-Monitoring-Software Nagios"@de .
+
+
+itcat:SpreadShirt	a			foaf:Organization ;
+		skos:prefLabel			"sprd.net AG"@de ;
+		skos:prefLabel			"sprd.net AG"@en ;
+		dcterms:title			"Spreadshirt sprd.net AG"@de .
+
+
+itcat:TUBerlin	a				foaf:Organization ;
+		skos:prefLabel			"TU Berlin"@de ;
+		skos:prefLabel			"Technical University Berlin"@en ;
+		dcterms:title			"Technische Universität Berlin"@de .
+
+
+itcat:UniStuttgart	a			foaf:Organization ;
+		skos:prefLabel			"Uni Stuttgart"@de ;
+		skos:prefLabel			"University of Stuttgart"@en ;
+		dcterms:title			"Universität Stuttgart"@de .
+
+
 ### Person Individuals
 
 
@@ -712,16 +922,6 @@ itcat:TRanglack	a				foaf:Person ;
 ### Alte Daten
 
 
-itcat:Online-Katalog  a         schema:Service ;
-        dc1:description         "Der Online Public Access Catalogue (Opac) bietet Studenten und Mitarbeitern die Möglichkeit Bücher und E-Books online abzufragen. Die Web-Plattform bietet folgende Dienste an: Die Suche nach lokalen Büchern, E-Books und/oder Abschlussarbeiten Produktbeschreibungen- und Informationen  (soweit vorhanden) Den Status der Bücher (verliehen/nicht verliehen) Einen Wegweiser zum physischen Lagerungsort Das Erstellen einer Merkliste Den Zugriff auf das eigene Konto über mobile Geräte (Web Opac App) Das Anzeigen von Neuerwerbungen. Authentifiziert wird sich hierbei mit den Logindaten der Bibliothek, welche nicht identisch mit den IDM-Logindaten sind." ;
-        dc1:subject             "Online-Katalog (Opac)" ;
-        itcat:Status            "in Betrieb" ;
-        usdlagreement:refersTo  itcat:Computer , itcat:Smartphones , itcat:Laptop ;
-        skos:prefLabel          " Online-Katalog " ;
-        schema:provider         itcat:Hochschulbibliothek ;
-        schema:url              <https://opac.fh-brandenburg.de/InfoGuideClient.bfbsis/start.do?Login=igbfb> ;
-        schema:user             itcat:Studenten , itcat:Mitarbeiter .
-
 itcat:Samba  a                  schema:Service ;
         dc1:description         "Die Software Samba wird in der FH Brandenburg als Datei- und Druckserver verwendet. Sie basiert auf dem NetBIOS-Protokoll SMB von Microsoft. Sie gibt den Anwendern die Möglichkeit auf ihre Laufwerke über eine VPN Verbindung zuzugreifen und auf ihnen lokal unabhängig zu interagieren. Authentifiziert wird sich hierbei mit dem IDM-Login Daten." ;
         dc1:subject             "DSFW- / Samba Serverdienst (Zugriff auf FHB-Laufwerke)" ;
@@ -732,16 +932,6 @@ itcat:Samba  a                  schema:Service ;
         schema:url              <http://www.fh-brandenburg.de/samba-faq.1.html> ;
         schema:user             itcat:Studenten , itcat:Mitarbeiter .
 
-
-itcat:NTP  a                    schema:Service ;
-        dc1:description         "Um eine eindeutige und weitgehend monotone Systemzeit netzweit zu erreichen, betreibt das Rechenzentrum einen Zeitserver. Der Name des Servers lautet: timehost.fh-brandenburg.de" ;
-        dc1:subject             "Zeitsynchronisationsdienst mit  NTP" ;
-        itcat:Status            "in Betrieb" ;
-        usdlagreement:refersTo  itcat:Laptop ;
-        skos:prefLabel          " Zeitsynchronisationsdienst mit  NTP" ;
-        schema:provider         itcat:Rechenzentrum ;
-        schema:url              <http://www.fh-brandenburg.de/zeitsynchronisation.htm> ;
-        schema:user             itcat:Mitarbeiter , itcat:Studenten .
 
 itcat:WLAN  a                   schema:Service ;
         dc1:description         "Die Nutzung des WLANs fhb-wlan steht allen Angehörigen der Fachhochschule Brandenburg frei. Einrichten und Betreuen von Zugängen für Mitarbeiter, Studenten und möglicherweise weitere Anwender. Verwalten des Zugangs/Betriebs von Bewohnern des Studentenheims." ;
@@ -776,34 +966,7 @@ itcat:Proxies  a                schema:Service ;
         schema:url              <http://www.fh-brandenburg.de/proxies.html> ;
         schema:user             itcat:Studenten , itcat:Mitarbeiter .
 
-itcat:mapongo  a                schema:Service ;
-        dc1:description         "Den Mitarbeiterinnen und Mitarbeitern des Fachbereichs steht nunmehr auch ein Cloud-Service zur Verfügung. Die Startseite zeigt Ihnen Ihr Home-Laufwerk, welches Sie als Arbeitsbereich nutzen können. Des Weiteren sehen Sie unter dem Menüpunkt Netzlaufwerke, die Ihnen zugewiesenen Laufwerke (z.B. Projekte, Lehre etc.). Über die Weboberfläche unseres Cloud-Services können Sie sich zusätzlich einen Client für Ihren PC/MAC herunterladen. Dieser Client besitzt erweiterte Funktionalitäten, z.B. auch Synchronisationsmöglichkeiten, wie Sie sie vom iFolder her kennen. (Klicken Sie in der Webanwendung oben rechts auf Ihren Namen. Es öffnet sich ein Tooltip mit einem Link zum Download.) Für Smartphones und Tablets gibt es im Apple-App-Store bzw. Google Play Store eine kostenlose App mit dem Namen Filr. Authentifiziert wird sich hierbei mit dem IDM-Login Daten. Ein elektronisches Abbild der Bibliothek der Fachhochschule inkl.Dem Aufbewahrungsort von Büchern. Dieser Dienst kann im Zusammenhang mit dem Online-Katalog (Opac) verwendet werden." ;
-        dc1:subject             "Standortsuche FH Bibliothek (mapongo)" , "Cloud-Service des FBW" ;
-        itcat:Status            " " ;
-        usdlagreement:refersTo  itcat:Smartphones , itcat:Laptop ;
-        skos:prefLabel          "Standortsuche FH Bibliothek" ;
-        schema:provider         itcat:TLSO , itcat:Hochschulbibliothek ;
-        schema:url              <https://cloud.fh-brandenburg.de> , <http://fh-brandenburg.mapongo.de/viewer?language=de&project_id=1> ;
-        schema:user             itcat:Studenten , itcat:Mitarbeiter .
 
-itcat:Monotoring  a             schema:Service ;
-        dc1:description         " " ;
-        dc1:subject             "Monotoring" ;
-        itcat:Status            " " ;
-        usdlagreement:refersTo  itcat:Laptop ;
-        skos:prefLabel          " Nagios" ;
-        schema:provider         itcat:Rechenzentrum ;
-        schema:user             itcat:Studenten , itcat:Mitarbeiter .
-
-itcat:Online-Shop  a            schema:Service ;
-        dc1:description         "Über den Online-Shop, in Verbindung mit Social-Commerce-Unternehmen dem Spreadshirt,können Bekleidungsstücke mit Motiven der Fachhochschule bestellt werden." ;
-        dc1:subject             "Online-Shop der Fachhochschule Brandenburg" ;
-        itcat:Status            "in Betrieb" ;
-        usdlagreement:refersTo  itcat:Laptop , itcat:Smartphones ;
-        skos:prefLabel          " FHB Online-Shop" ;
-        schema:provider         itcat:TLSO ;
-        schema:url              <http://www.bsn-infodisplay.de/mobil/fhbfbwi> ;
-        schema:user             itcat:Mitarbeiter , itcat:Studenten , itcat:Extern .
 
 <http://th-brandenburg.de/ns/itcat#DHCP/DNS/Bereitstellung/EmpfangGroßerDateien>
         a                       schema:Service ;
@@ -816,15 +979,6 @@ itcat:Online-Shop  a            schema:Service ;
         schema:url              <http://www.fh-brandenburg.de/zeitsynchronisation.html> ;
         schema:user             itcat:Mitarbeiter , itcat:Studenten .
 
-itcat:QISFSV  a             schema:Service ;
-        dc1:description     "Dient der Bearbeitung von Finanzen und Sachmittel mit folgenden Modulen: Mittelbewirtschaftung (MBS) Finanzbuchhaltung (FIBU) Beschaffung (BES) Inventarverwaltung (IVS) Materialwirtschaft (MAT) Anlagebuchhaltung (BAT)" ;
-        dc1:subject         "Software  für Finanzberichte der FH Brandenburg (QISFSV)" ;
-        itcat:Status        "in Betrieb" ;
-        skos:prefLabel      " Online-Portal für Finanzberichte der FH Brandenburg" ;
-        schema:isRelatedTo  itcat:IDM ;
-        schema:provider     itcat:Rechenzentrum ;
-        schema:url          <https://qisfsv.fh-brandenburg.de/qisserver/rds?state=user&type=0&topitem=> ;
-        schema:user         itcat:Mitarbeiter .
 
 
 itcat:QISPOS  a                 schema:Service ;
@@ -838,16 +992,6 @@ itcat:QISPOS  a                 schema:Service ;
         schema:url              <https://hapweb.fh-brandenburg.de> , <http://www.fh-brandenburg.de/qispos.html> ;
         schema:user             itcat:Mitarbeiter .
 
-
-itcat:Moodle  a                 schema:Service ;
-        dc1:description         "Moodle dient als Plattform für Kurse an der Fachhochschule Brandenburg. Diese Kurse können Vorlesungen oder andere organisatorische Einheiten sein. In diesen Kursen können u.a. Dokumente und Dateien hoch- und runtergeladen werden, Tests veröffentlicht, Aufgaben verteilt, Foren eröffnet, oder Wikis erstellt/bereitgestellt werden. In Moodle können Kurse für bestimmte Usergruppen gesperrt, bzw. geöffnet werden. Authentifiziert wird sich hierbei mit den IDM-Login Daten" ;
-        dc1:subject             "Online-Portal des Studierendensekretariats der Fachhochschule Brandenburg" ;
-        usdlagreement:refersTo  itcat:Laptop , itcat:Smartphones , itcat:Computer ;
-        skos:prefLabel          "Kurs-/Lernmanagementsystem Moodle " ;
-        schema:isRelatedTo      itcat:IDM , itcat:E-Mail ;
-        schema:provider         itcat:Rechenzentrum ;
-        schema:url              <http://www.fh-brandenburg.de/moodle> ;
-        schema:user             itcat:Mitarbeiter , itcat:Studenten .
 
 itcat:Stundenpläne  a           schema:Service ;
         dc1:description         "Mittels des Stundenplans können Studenten Informationen über den Vorlesungsart, Vorlesungszeiten, Dozenten einsehen. Die Vorlesung werden zu einer Informationsseite verlinkt, in welcher Ziele und Inhalte der Veranstaltungen,die jeweiligen Literaturverzeichnisse,Arten (Wahlpflicht/Pflicht),ECTS Credits,Informationen über die Lehrmethoden und Bewertungen, Sprache, sowie Informationen über die zugewiesenen Dozenten dargestellt werden" ;
