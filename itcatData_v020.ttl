@@ -295,7 +295,7 @@ itcat:HISQIS  a        schema:Service ;
 		#Annotation Properties
 		skos:prefLabel			"Studierenden-Portal"@de ;
 		skos:prefLabel			"student's portal"@en ;
-		dcterms:title			"Online-Portal des Studierendensekretariat der TH Brandenburg"@de ;
+		dcterms:title			"Online-Portal des Studierendensekretariat der TH Brandenburg für Studenten"@de ;
 		dcterms:abstract		"Über dieses Online-Portal können Studierende Einsicht in ihre Noten nehmen, den Notenspiegel abrufen, ihre Stammdaten ändern, den Rückmeldestatus sowie den Gebührenstand einsehen und Studienbescheinigungen ausdrucken."@de ;
         dcterms:description     "Neben der Noteneinsicht sind auch Prüfungsanmeldungen, Prüfungsversuche sowie das Prüfungsdatum einsehbar. Zu den änderbaren Stammdaten gehören: Heimatanschrift, Semesteranschrift, Telefonnummer und E-Mail-Adresse. Studienbescheinigungen können generiert, verifiziert und ausgedruckt werden."@de ;
         dcterms:subject         "" ;
@@ -308,10 +308,10 @@ itcat:HISQIS  a        schema:Service ;
         schema:customer			itcat:RegOffice ;
         schema:provider			itcat:DataCenter , itcat:RegOffice ;
         itcat:supporter			itcat:DataCenter ;
-        itcat:hasCriticality	itcat:Criticality ;
-        itcat:hasPriority		itcat:Priority ;
+        itcat:hasCriticality	itcat:MediumCriticality ;
+        itcat:hasPriority		itcat:HighPriority ;
         itcat:usableWith  		itcat:Computer , itcat:Laptop , itcat:Smartphone ;
-        schema:isRelatedTo		itcat:IDM , itcat:WebHosting , itcat:HISPOS ;
+        schema:isRelatedTo		itcat:IDM , itcat:WebHosting , itcat:QISPOS ;
         foaf:page 				"http://www.fh-brandenburg.de/online-portal.html" ;
         itcat:inCategory		itcat:HISServices , itcat:BusinessCatalog .
 
@@ -585,6 +585,59 @@ itcat:QISFSV  a        schema:Service ;
         foaf:page 				"https://www.his.de/produkte/gxqis/finanz-und-sachmittelverwaltung.html" ;
         itcat:inCategory		itcat:HISServices , itcat:BusinessCatalog .
         
+
+### QISPOS
+
+itcat:QISPOS  a        schema:Service ;
+		#Annotation Properties
+		skos:prefLabel			"Prüferportal"@de ;
+		skos:prefLabel			"examinator's portal"@en ;
+		dcterms:title			"Online-Portal des Studierendensekretariat der TH Brandenburg für Prüfer (QISPOS)"@de ;
+		dcterms:abstract		"Über dieses Online-Portal können Prüfende Einsicht von ihnen zu verantwortende Prüfungen nehmen, Zulassungslisten ausdrucken und Noten eingeben."@de ;
+        dcterms:description     "Die Anmeldung an diesem Portal erfolgt über die IDM-Login-Daten. Neben der aktuellen Prüfungsperiode können auch Nachprüfungen aus vergangenen Semestern bearbeitet werden. Die Prüfenden geben die Noten nach dem üblichen Raster ein. Nach Verarbeitung vom System können Notenlisten ausgedruckt und weiterverarbeitet werden."@de ;
+        dcterms:subject         "" ;
+        rdfs:comment			"Dieser Dienst wird baldmöglichst vom HISinOne-Modul EXA abgelöst." ;
+        #Data Properties
+        schema:url              "https://hisqis.fh-brandenburg.de/qisserver/rds?state=user&type=0" ;
+        itcat:status            "in Ablösung" ;
+        #Object Properties
+        itcat:user				itcat:Staff , itcat:ExtWorkers ;
+        schema:customer			itcat:THB ;
+        schema:provider			itcat:DataCenter ;
+        itcat:supporter			itcat:DataCenter , itcat:RegOffice ;
+        itcat:hasCriticality	itcat:MediumCriticality ;
+        itcat:hasPriority		itcat:HighPriority ;
+        itcat:usableWith  		itcat:Computer , itcat:Laptop , itcat:Smartphone ;
+        schema:isRelatedTo		itcat:IDM , itcat:HISQIS , itcat:WebHosting ;
+        foaf:page 				"http://www.fh-brandenburg.de/qispos.html" ;
+        itcat:inCategory		itcat:HISServices , itcat:BusinessCatalog .
+
+
+### Reisemanagement
+
+itcat:TravelMgt  a        schema:Service ;
+		#Annotation Properties
+		skos:prefLabel			"Reisemanagement"@de ;
+		skos:prefLabel			"travel management"@en ;
+		dcterms:title			"Beantragung, Bearbeitung und Abrechnung von Dienstreisen"@de ;
+		dcterms:abstract		""@de ;
+        dcterms:description     ""@de ;
+        dcterms:subject         "" ;
+        rdfs:comment			"" ;
+        #Data Properties
+        schema:url              "" ;
+        itcat:status            "" ;
+        #Object Properties
+        itcat:user				itcat: ;
+        schema:customer			itcat: ;
+        schema:provider			itcat: ;
+        itcat:supporter			itcat: ;
+        itcat:hasCriticality	itcat:Criticality ;
+        itcat:hasPriority		itcat:Priority ;
+        itcat:usableWith  		itcat: ;
+        schema:isRelatedTo		itcat: ;
+        foaf:page 				"" ;
+        itcat:inCategory		itcat: .
 
 
 ### ServiceTemplate
@@ -921,7 +974,6 @@ itcat:TRanglack	a				foaf:Person ;
 
 ### Alte Daten
 
-
 itcat:Samba  a                  schema:Service ;
         dc1:description         "Die Software Samba wird in der FH Brandenburg als Datei- und Druckserver verwendet. Sie basiert auf dem NetBIOS-Protokoll SMB von Microsoft. Sie gibt den Anwendern die Möglichkeit auf ihre Laufwerke über eine VPN Verbindung zuzugreifen und auf ihnen lokal unabhängig zu interagieren. Authentifiziert wird sich hierbei mit dem IDM-Login Daten." ;
         dc1:subject             "DSFW- / Samba Serverdienst (Zugriff auf FHB-Laufwerke)" ;
@@ -967,7 +1019,6 @@ itcat:Proxies  a                schema:Service ;
         schema:user             itcat:Studenten , itcat:Mitarbeiter .
 
 
-
 <http://th-brandenburg.de/ns/itcat#DHCP/DNS/Bereitstellung/EmpfangGroßerDateien>
         a                       schema:Service ;
         dc1:description         "Wie allgemein bekannt, ist die Begrenzung einer Email auf 10 MB eigentlich schon ein Zugeständnis und für den Austausch von Dateien auch nicht erfunden worden. Jedenfalls hat die Nachfrage nach dem Austausch von Dateien > 10 MB mit externen Partner stark zugenommen. Das Rechenzentrum bietet jetzt die Möglichkeit über ein Formular, Dateien für externe Partner zur Verfügung zu stellen bzw. große Dateien zu empfangen." ;
@@ -978,19 +1029,6 @@ itcat:Proxies  a                schema:Service ;
         schema:provider         itcat:Rechenzentrum ;
         schema:url              <http://www.fh-brandenburg.de/zeitsynchronisation.html> ;
         schema:user             itcat:Mitarbeiter , itcat:Studenten .
-
-
-
-itcat:QISPOS  a                 schema:Service ;
-        dc1:description         "Ermöglicht Dozenten die webbasierte Prüfungsverbuchung (Notenvergabe) Authentifiziert wird sich hierbei mit dem IDM-Login Daten." ;
-        dc1:subject             "Prüferfunktionen (QISPOS)" ;
-        itcat:Status            "in Betrieb" ;
-        usdlagreement:refersTo  itcat:Computer , itcat:Laptop , itcat:Smartphones ;
-        skos:prefLabel          " Prüfer online Sekretariat" ;
-        schema:isRelatedTo      itcat:IDM ;
-        schema:provider         itcat:Rechenzentrum ;
-        schema:url              <https://hapweb.fh-brandenburg.de> , <http://www.fh-brandenburg.de/qispos.html> ;
-        schema:user             itcat:Mitarbeiter .
 
 
 itcat:Stundenpläne  a           schema:Service ;
