@@ -403,6 +403,15 @@ itcat:status rdf:type owl:DatatypeProperty ;
 #
 #################################################################
 
+###  Spezifikation der Standardrelation skos:prefLabel
+
+skos:prefLabel rdf:type owl:AnnotationProperty ;
+			skos:prefLabel "Hauptbezeichnung"@de ;
+			skos:prefLabel "preferred label"@en ;
+			skos:definition "Standardrelation zur Auszeichnung einer Bevorzugten Bezeichnung einer Ressource."@de ;
+			rdfs:comment "In jeder Sprache kann es immer nur ein skos:prefLabel geben."@de ;
+			rdfs:comment "Diese Standardrelation wird in dieser Ontologie verwendet, um primäre Bezeichnungen von Ressourcen bereitzustellen."@de .
+					
 
 ###  Spezifikation der Standardrelation dcterms:description
 

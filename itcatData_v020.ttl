@@ -322,7 +322,7 @@ itcat:IDM  a        schema:Service ;
 		#Annotation Properties
 		skos:prefLabel			"Identity Management"@de ;
 		skos:prefLabel			"identity management"@en ;
-		dcterms:title			""@de ;
+		dcterms:title			"Identity Management"@de ;
 		dcterms:abstract		"Das IdM beinhaltet die zentrale Benutzerverwaltung der Fachhochschule Brandenburg. Hier werden die wichtigsten Daten aller Angehörigen der FHB in einem zentralen Verzeichnisdienst (LDAP) gespeichert und verwaltet, die für den Zugang zur IT-Infrastruktur und der angeschlossenen Systeme notwendig sind."@de ;
         dcterms:description     "<p>Die Benutzerkennung wird u. a. für die folgenden Dienste verwendet: E-Mail, Lernplattform Moodle, Anmeldung in Computerlaboren, Verbindung zu Netzlaufwerken, Zugang zum WLAN, Nutzung VPN-Zugang, Antrag zur Nutzung Internet im Studentenwohnheim.</p><p>Ein neuer Benutzer muss zunächst seine Benutzerkennung über das IDM-Portal aktivieren. Aktivierte Nutzer haben die Möglichkeit Ihr Passwort zu ändern. Für die Wahl des Passwortes finden sich Tipps auf der Hilfeseite des Rechenzentrums. Sollte ein Benutzer sein Passwort vergessen, so kann er sich ein neues Passwort an seine private E-Mail-Adresse zusenden lassen. Das IDM-Portal kann auch genutzt werden, um ein Foto für die CampusCard hochzuladen. </p>"@de ;
         dcterms:subject         "" ;
@@ -343,6 +343,70 @@ itcat:IDM  a        schema:Service ;
         itcat:inCategory		itcat:MiscApplications , itcat:NetworkServices , itcat:OperationalCatalog .
 
 
+### Infodisplay FBW
+
+itcat:InfoDisplay  a        schema:Service ;
+		#Annotation Properties
+		skos:prefLabel			"Info-Display FBW"@de ;
+		skos:prefLabel			"information display DBM"@en ;
+		dcterms:title			"Informationsdienst Info-Display des Fachbereichs Wirtschaft"@de ;
+		dcterms:abstract		"Über das Display in den 2. Etage des WWZ werden Studenten und Mitarbeiter über aktuelle Veranstaltungen, Ausfälle von Vorlesungen, den tagesaktuellen Mensaplan oder Raumänderungen informiert."@de ;
+        dcterms:description     "Wenn Sie Informationen auf dem Display veröffentlichen wollen, schicken Sie eine Mail mit den Veranstaltungsdaten an: fbw-infodisplay(at)fh-brandenburg.de "@de ;
+        dcterms:subject         "" ;
+        rdfs:comment			"" ;
+        #Data Properties
+        schema:url              "http://www.bsn-infodisplay.de/mobil/fhbfbwi" ;
+        itcat:status            "in Betrieb" ;
+        #Object Properties
+        itcat:user				itcat:Public , itcat:Students , itcat:Staff ;
+        schema:customer			itcat:THB ;
+        schema:provider			itcat:BSNeV ;
+        itcat:supporter			itcat:TLSO ;
+        itcat:hasCriticality	itcat:LowCriticality ;
+        itcat:hasPriority		itcat:MediumPriority ;
+        itcat:usableWith  		itcat:Computer , itcat:Laptop , itcat:Smartphone , itcat:Tablet , itcat:Screen ;
+        schema:isRelatedTo		itcat:WebHosting ;
+        foaf:page 				"http://www.buergerservicenetz.de/" ;
+        itcat:inCategory		itcat:InformationServices , itcat:BusinessCatalog .
+
+
+### Lehrelaufwerk
+
+itcat:EduDrive  a        schema:Service ;
+		#Annotation Properties
+		skos:prefLabel			"Lehrelaufwerk"@de ;
+		skos:prefLabel			"educational drive"@en ;
+		dcterms:title			"Lehrelaufwerk für Lehrende im Fachbereich Wirtschaft"@de ;
+		dcterms:abstract		"Im Hochschulnetz "@de ;
+        dcterms:description     "Die Dozenten sind angehalten, Ihre Lehrscripte, die in elektronischer Form ausgearbeitet sind, auf einem zentralen Serverlaufwerk zu veröffentlichen. Innerhalb der Fachhochschule ist der Portalserver des FB Wirtschaft nach erfolgreicher Anmeldung auf dem Netzwerklaufwerk L: (Lehre) auf den Desktops zugewiesen. Der Link zum browserbasierten Portalzugriff ist unten veröffentlicht. Für den Zugang benötigen Sie einen gültigen Account und gegebenenfalls das Zertifikat für den WEB-Browser. Authentifiziert wird sich hierbei mit den IDM-Login Daten."@de ;
+        dcterms:subject         "" ;
+        rdfs:comment			"" ;
+        #Data Properties
+        schema:url              "" ;
+        itcat:status            "" ;
+        #Object Properties
+        itcat:user				itcat:Staff , itcat:Students ;
+        schema:customer			itcat: ;
+        schema:provider			itcat: ;
+        itcat:supporter			itcat: ;
+        itcat:hasCriticality	itcat:Criticality ;
+        itcat:hasPriority		itcat:Priority ;
+        itcat:usableWith  		itcat:Computer , itcat:Laptop , itcat:Smartphones ;
+        schema:isRelatedTo		itcat:IDM ;
+        foaf:page 				"" ;
+        itcat:inCategory		itcat: .
+
+itcat:Lehrelaufwerk  a          schema:Service ;
+        dc1:description         "Die Dozenten sind angehalten, Ihre Lehrscripte, die in elektronischer Form ausgearbeitet sind, auf einem zentralen Serverlaufwerk zu veröffentlichen. Innerhalb der Fachhochschule ist der Portalserver des FB Wirtschaft nach erfolgreicher Anmeldung auf dem Netzwerklaufwerk L: (Lehre) auf den Desktops zugewiesen. Der Link zum browserbasierten Portalzugriff ist unten veröffentlicht. Für den Zugang benötigen Sie einen gültigen Account und gegebenenfalls das Zertifikat für den WEB-Browser. Authentifiziert wird sich hierbei mit den IDM-Login Daten." ;
+        dc1:subject             "Bereitstellungsservice über Lehrelaufwerk" ;
+        usdlagreement:refersTo  itcat:Computer , itcat:Laptop , itcat:Smartphones ;
+        skos:prefLabel          "Lehrelaufwerk" ;
+        schema:isProvidedBy     itcat:TLSO ;
+        schema:isRelatedTo      itcat:IDM ;
+        schema:url              <http://bscw.fh-brandenburg.de> ;
+        schema:user             itcat:Mitarbeiter , itcat:Studenten .
+
+ 
 ### ServiceTemplate
 
 itcat:  a        schema:Service ;
@@ -400,6 +464,11 @@ itcat:Tablet	a				itcat:ITAsset ;
 		skos:prefLabel			"tablet"@en ;
 		skos:definition			"Größere mobile Endgeräte. Diese Endgeräte sind überwiegend im Privatbesitz der Mitarbeiter, Studierenden und der externen Beschäftigten."@de .
 
+
+itcat:Screen	a				itcat:ITAsset ;
+		skos:prefLabel			"Bildschirm"@de ;
+		skos:prefLabel			"screen"@en ;
+		skos:definition			"In öffentlich zugänglichen Bereichen der Hochschulgebäude fest installierte Bildschirme, z. B. als Info-Displays genutzt."@de .
 
 
 #################################################################
@@ -594,7 +663,7 @@ itcat:TJacob	a				foaf:Person ;
 
 itcat:MLangerwisch	a			foaf:Person ;
 		skos:prefLabel			"Dipl. Wi-Inform.(FH) Marco Langerwisch" ;
-		schema:employee			itcat:DCS ;
+		schema:employee			itcat:TLSO ;
 		foaf:name				"Marco Langerwisch" ;
 		foaf:mbox				"marco.langerwisch(at)th-brandenburg.de" ;
 		foaf:phone 				"+49 3381 355 - 224" .
@@ -602,12 +671,20 @@ itcat:MLangerwisch	a			foaf:Person ;
 
 itcat:RFahl		a				foaf:Person ;
 		skos:prefLabel			"René Fahl" ;
-		schema:employee			itcat:DCS ;
+		schema:employee			itcat:TLSO ;
 		foaf:name				"René Fahl" ;
 		foaf:mbox				"rene.fahl(at)th-brandenburg.de" ;
 		foaf:phone 				"+49 3381 355 - 279" .
 		
 
+itcat:RWietusch		a			foaf:Person ;
+		skos:prefLabel			"Dipl.-Chem. Renate Wietusch" ;
+		schema:employee			itcat:TLSO ;
+		foaf:name				"Renate Wietusch" ;
+		foaf:mbox				"renate.wietusch(at)th-brandenburg.de" ;
+		foaf:phone 				"+49 3381 355 - 213" .
+		
+		
 itcat:MHeinrich	a				foaf:Person ;
 		skos:prefLabel			"Marcus Heinrich" ;
 		schema:employee			itcat:DCS ;
@@ -655,15 +732,6 @@ itcat:Samba  a                  schema:Service ;
         schema:url              <http://www.fh-brandenburg.de/samba-faq.1.html> ;
         schema:user             itcat:Studenten , itcat:Mitarbeiter .
 
-itcat:Lehrelaufwerk  a          schema:Service ;
-        dc1:description         "Die Dozenten sind angehalten, Ihre Lehrscripte, die in elektronischer Form ausgearbeitet sind, auf einem zentralen Serverlaufwerk zu veröffentlichen. Innerhalb der Fachhochschule ist der Portalserver des FB Wirtschaft nach erfolgreicher Anmeldung auf dem Netzwerklaufwerk L: (Lehre) auf den Desktops zugewiesen. Der Link zum browserbasierten Portalzugriff ist unten veröffentlicht. Für den Zugang benötigen Sie einen gültigen Account und gegebenenfalls das Zertifikat für den WEB-Browser. Authentifiziert wird sich hierbei mit den IDM-Login Daten." ;
-        dc1:subject             "Bereitstellungsservice über Lehrelaufwerk" ;
-        usdlagreement:refersTo  itcat:Computer , itcat:Laptop , itcat:Smartphones ;
-        skos:prefLabel          "Lehrelaufwerk" ;
-        schema:isProvidedBy     itcat:TLSO ;
-        schema:isRelatedTo      itcat:IDM ;
-        schema:url              <http://bscw.fh-brandenburg.de> ;
-        schema:user             itcat:Mitarbeiter , itcat:Studenten .
 
 itcat:NTP  a                    schema:Service ;
         dc1:description         "Um eine eindeutige und weitgehend monotone Systemzeit netzweit zu erreichen, betreibt das Rechenzentrum einen Zeitserver. Der Name des Servers lautet: timehost.fh-brandenburg.de" ;
@@ -758,15 +826,6 @@ itcat:QISFSV  a             schema:Service ;
         schema:url          <https://qisfsv.fh-brandenburg.de/qisserver/rds?state=user&type=0&topitem=> ;
         schema:user         itcat:Mitarbeiter .
 
-itcat:Infodisplay  a            schema:Service ;
-        dc1:description         "Über das Display in der 2. Etage  des WWZ, sowie beim Zugang zum Essbereich der Mensa werdenStudenten und Mitarbeiter über aktuelle Veranstaltungen, Ausfälle von Vorlesungen, den tagesaktuellem Mensaplan und/oder Raumänderungeninformiert." ;
-        dc1:subject             "Informationsservice Infodisplay" ;
-        itcat:Status            "in Betrieb" ;
-        usdlagreement:refersTo  itcat:Laptop , itcat:Smartphones ;
-        skos:prefLabel          "Infodisplay" ;
-        schema:provider         itcat:TLSO ;
-        schema:url              <http://www.bsn-infodisplay.de/mobil/fhbfbwi> ;
-        schema:user             itcat:Studenten , itcat:Mitarbeiter .
 
 itcat:QISPOS  a                 schema:Service ;
         dc1:description         "Ermöglicht Dozenten die webbasierte Prüfungsverbuchung (Notenvergabe) Authentifiziert wird sich hierbei mit dem IDM-Login Daten." ;
