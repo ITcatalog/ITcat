@@ -370,7 +370,7 @@ itcat:inCategory rdf:type owl:ObjectProperty ;
 			rdfs:comment "Jeder IT-Dienst muss mindestens einer Kategorie in jeder Kategorieklasse zugeordnet sein."@de ;
 			rdfs:comment "Ein IT-Dienst kann gleichzeitig mehreren Dienstekategorien innerhalb einer Kategorieklasse angehören."@de ;
 			rdfs:domain schema:Service ;
-			rdfs:range schema:ServiceCategory .
+			rdfs:range itcat:ServiceCategory .
 			
 			
 #################################################################
@@ -394,7 +394,7 @@ itcat:status rdf:type owl:DatatypeProperty ;
 			skos:prefLabel "Status"@de ;
 			skos:prefLabel "status"@en ;
 			skos:definition "Gibt an in welcher Phase des Lebenszyklus sich ein IT-Dienst befindet."@de ;
-			rdfs:comment "Zu verwendende Status sind: 'in Planung', 'in Einführung', 'in Betrieb', 'außer Betrieb', 'abgeschaltet'."@de .
+			rdfs:comment "Zu verwendende Status sind: 'in Planung', 'in Einführung', 'in Betrieb', 'in Ablösung', 'abgeschaltet'."@de .
 
 
 #################################################################
