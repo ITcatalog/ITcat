@@ -178,7 +178,7 @@ itcat:CentralMail  a        schema:Service ;
 ##      itcat:usableWith  		"" ;
         schema:isRelatedTo		itcat:WebMail ;
         foaf:page 				"http://www.fh-brandenburg.de/email.html" ;
-        itcat:inCategory		itcat:NetworkService , itcat:InformationService , itcat:OperationalCatalog .
+        itcat:inCategory		itcat:NetworkServices , itcat:InformationServices , itcat:OperationalCatalog .
 
 
 ### EZB
@@ -619,25 +619,26 @@ itcat:TravelMgt  a        schema:Service ;
 		#Annotation Properties
 		skos:prefLabel			"Reisemanagement"@de ;
 		skos:prefLabel			"travel management"@en ;
-		dcterms:title			"Beantragung, Bearbeitung und Abrechnung von Dienstreisen"@de ;
-		dcterms:abstract		""@de ;
-        dcterms:description     ""@de ;
+		dcterms:title			"Beantragung und Abrechnung von Dienstreisen"@de ;
+		dcterms:abstract		"Der Verwaltungsbereich Personal/Organisation der TH Brandenburg bietet zwei online bearbeitbare PDF-Formulare zur Beantragung und zur Abrechnung von Dienstreisen an."@de ;
+        dcterms:description     "Die Formulare stehen im Intranet zur Verfügung und können im Browser geöffnet und bearbeitet werden. Ein Speichern der ausgefüllten Formulare ist nicht möglich. Ausgefüllte Formulare müssen auf Papier ausgedruckt werden. (Ein Adobe-PDF-Ausdruck kann zur elektronischen Ablage verwendet werden). Die weitere Verarbeitung der Dokumente bedarf einer Reihe von Unterschriften und erfolgt somit papiergebunden."@de ;
         dcterms:subject         "" ;
         rdfs:comment			"" ;
         #Data Properties
-        schema:url              "" ;
-        itcat:status            "" ;
+        schema:url              "http://www.fh-brandenburg.de/2898.html?&MP=39-304" ;
+        itcat:status            "in Betrieb" ;
         #Object Properties
-        itcat:user				itcat: ;
-        schema:customer			itcat: ;
-        schema:provider			itcat: ;
-        itcat:supporter			itcat: ;
+        itcat:user				itcat:Staff , itcat:Students , itcat:ExtWorkers ;
+        schema:customer			itcat:THB ;
+        schema:provider			itcat:StaffADM ;
+        itcat:supporter			itcat:DataCenter ;
         itcat:hasCriticality	itcat:Criticality ;
         itcat:hasPriority		itcat:Priority ;
-        itcat:usableWith  		itcat: ;
+        itcat:usableWith  		itcat:Computer , itcat:Laptop ;
         schema:isRelatedTo		itcat: ;
         foaf:page 				"" ;
         itcat:inCategory		itcat: .
+
 
 
 ### ServiceTemplate
@@ -1040,18 +1041,6 @@ itcat:Stundenpläne  a           schema:Service ;
         schema:provider         itcat:FBWirtschaft ;
         schema:url              <http://zeus.fh-brandenburg.de/Stundenplan/Plan.htm> ;
         schema:user             itcat:Studenten , itcat:Mitarbeiter .
-
-
-itcat:Dienstreiseservice
-        a                   schema:Service ;
-        dc1:description     " Sämtliche Formulare, welche nötig sind um eine Dienstreise zu beantragen, lassen sich online unter http://www.fh-brandenburg.de/formulare_verwaltung.3.html finden Als Bearbeitungssoftware und Antrags-, Genehmigungs- und Abrechnungsverfahren von dienstlichen Reisen werden in der FH die Produkte HISRKA, sowie QISRKA verwendet." ;
-        dc1:subject         "Dienstreiseservice" ;
-        itcat:Status        "in Betrieb" ;
-        skos:prefLabel      " Beantragung und Verarbeitung von Dienstreisen" ;
-        schema:isRelatedTo  itcat:IDM , itcat:E-Mail ;
-        schema:provider     itcat:Personalabteilung ;
-        schema:url          <http://www.fh-brandenburg.de/formulare_verwaltung.3.html> ;
-        schema:user         itcat:Mitarbeiter , itcat:Studenten .
 
 
 itcat:Webmail  a                schema:Service ;
