@@ -29,15 +29,321 @@ itcat:BSCW  a                   schema:Service ;
         dcterms:subject         "" ;
         rdfs:comment			"" ;
         #Data Properties
-        schema:url              "http://bscw.fh-brandenburg.de"^^x ;
-        schema:user             itcat:Mitarbeiter , itcat:Studenten ;
+        schema:url              "http://bscw.fh-brandenburg.de" ;
+        itcat:status             "in Betrieb" ;
         #Object Properties
-        usdlagreement:refersTo  itcat:Smartphones , itcat:Laptop , itcat:Computer ;
-        skos:prefLabel          "BSCW" ;
-        schema:isProvidedBy     itcat:TLSO .
+        itcat:user				itcat:Staff , itcat:Students ;
+        schema:customer			itcat:DBM ;
+        schema:provider			itcat:TLSO ;
+        itcat:supporter			itcat:MLangerwisch ;
+        itcat:hasCriticality	itcat:MediumCriticality ;
+        itcat:hasPriority		itcat:LowPriority ;
+        itcat:usableWith  		itcat:Smartphone , itcat:Laptop , itcat:Computer ;
+        schema:isRelatedTo		itcat:WebHosting ;
+        foaf:page 				"" ;
+        itcat:inCategory		itcat:TeachingPlatforms , itcat:CommunicationServices , itcat:BusinessCatalog .
          
 
-## Alte Daten
+itcat:CloudserviceFBW  a        schema:Service ;
+		#Annotation Properties
+		skos:prefLabel			"Cloudservice des FBW"@de ;
+		skos:prefLabel			"Cloudservice DBM"@en ;
+		dcterms:title			"Cloudservice des Fachbereichs Wirtschaft"@de ;
+		dcterms:abstract		"Den Mitarbeiterinnen und Mítarbeitern des Fachbereichs Wirtschaft und der Verwaltung steht nunmehr auch ein Cloud-Service der Firma Novel zur Verfügung. Der Hersteller bewirbt diesen Dienst mit den Worten 'Ähnlich wie Dropbox. Sicher wie Fort Knox.'."@de ;
+        dcterms:description     "<p>Unseren Cloud-Service (Filr) erreichen Sie am besten mit einem Browser über die u. a. URL. Bitte loggen Sie sich dort mit Ihrem FHB-Account ein. Die Startseite zeigt nur den Mitarbeiterinnen und Mitarbeitern des Fachbereichs Wirtschaft das vom Novell-Client bekannte Home-Laufwerk, welches Sie als Arbeitsbereich nutzen können. Des Weiteren sehen Sie unter dem Menüpunkt Netzlaufwerke, die Ihnen zugewiesenen Laufwerke (z.B. Projekte, Lehre etc.).</p><p>Über die Weboberfläche unseres Cloud-Services können Sie sich zusätzlich einen Client für Ihren PC/MAC herunterladen. Dieser Client besitzt erweiterte Funktionalitäten, z.B. auch Synchronisationsmöglichkeiten, wie Sie sie vom iFolder her kennen. (Klicken Sie in der Webanwendung oben rechts auf Ihren Namen. Es öffnet sich ein Tooltip mit einem Link zum Download.) Für Smartphones und Tablets gibt es im Apple App Store bzw. Google Play Store eine kostenlose App mit dem Namen 'Filr'.</p>"@de ;
+        dcterms:subject         "" ;
+        rdfs:comment			"" ;
+        #Data Properties
+        schema:url              "https://cloud.fh-brandenburg.de" ;
+        itcat:status             "in Betrieb" ;
+        #Object Properties
+        itcat:user				itcat:StaffDBM , itcat:StaffAdmin ;
+        schema:customer			itcat:DBM ;
+        schema:provider			itcat:TLSO ;
+        itcat:supporter			itcat:TJacob ;
+        itcat:hasCriticality	itcat:MediumCriticality ;
+        itcat:hasPriority		itcat:LowPriority ;
+        itcat:usableWith  		itcat:Smartphone , itcat:Laptop , itcat:Computer ;
+        schema:isRelatedTo		itcat:WebHosting ;
+        foaf:page 				"http://fbwcms.fh-brandenburg.de/sixcms/media.php/1127/filr1_qs_mobile.pdf" , "http://itworks.fh-brandenburg.de/" ;
+        itcat:inCategory		itcat:MiscServices , itcat:NetworkServices , itcat:BusinessCatalog .
+        
+        
+itcat:Datensicherung  a        schema:Service ;
+		#Annotation Properties
+		skos:prefLabel			"Datensicherung"@de ;
+		skos:prefLabel			"backup service"@en ;
+		dcterms:title			"Backup- und Restoreservice der THB"@de ;
+		dcterms:abstract		""@de ;
+        dcterms:description     ""@de ;
+        dcterms:subject         "" ;
+        rdfs:comment			"" ;
+        #Data Properties
+        schema:url              "" ;
+        itcat:status            "in Betrieb" ;
+        #Object Properties
+        itcat:user				itcat:StaffTHB ;
+        schema:customer			itcat:THB ;
+        schema:provider			itcat:DataCenter , itcat:TLSO ;
+        itcat:supporter			itcat:DataCenter ;
+        itcat:hasCriticality	itcat:MediumCriticality ;
+        itcat:hasPriority		itcat:HighPriority ;
+        itcat:usableWith  		"" ;
+        schema:isRelatedTo		itcat:Plattenstorage ;
+        foaf:page 				"" ;
+        itcat:inCategory		itcat:InfrastructureService , itcat:InfrastructureCatalog .
+
+
+### ServiceTemplate
+
+itcat:  a        schema:Service ;
+		#Annotation Properties
+		skos:prefLabel			""@de ;
+		skos:prefLabel			""@en ;
+		dcterms:title			""@de ;
+		dcterms:abstract		""@de ;
+        dcterms:description     ""@de ;
+        dcterms:subject         "" ;
+        rdfs:comment			"" ;
+        #Data Properties
+        schema:url              "" ;
+        itcat:status             "" ;
+        #Object Properties
+        itcat:user				itcat: ;
+        schema:customer			itcat: ;
+        schema:provider			itcat: ;
+        itcat:supporter			itcat: ;
+        itcat:hasCriticality	itcat:Criticality ;
+        itcat:hasPriority		itcat:Priority ;
+        itcat:usableWith  		itcat: ;
+        schema:isRelatedTo		itcat: ;
+        foaf:page 				"" ;
+        itcat:inCategory		itcat: .
+
+
+#################################################################
+#
+#    IT-Assets
+#
+#################################################################        
+ 
+
+itcat:Computer	a				itcat:ITAsset ;
+		skos:prefLabel			"Computer"@de ;
+		skos:prefLabel			"computer"@en ;
+		skos:definition			"Gemeint sind hier Desktop-Computer, insbesondere die von Mitarbeitern genutzten Geräte sowie die Labor-PCs."@de .
+
+
+itcat:Laptop	a				itcat:ITAsset ;
+		skos:prefLabel			"Laptop"@de ;
+		skos:prefLabel			"laptop"@en ;
+		skos:definition			"Gemeint sind hier portable Computer. Diese können als Hochschuleigentum von Mitarbeitern genutzt werden. Auch die privaten portablen Computer der Mitarbeiter, Studierenden und externen Beschäftigten sind mit gemeint."@de .
+
+
+itcat:Smartphone a				itcat:ITAsset ;
+		skos:prefLabel			"Smartphone"@de ;
+		skos:prefLabel			"smart phone"@en ;
+		skos:definition			"Gemeint sind hier kleine mobile Endgeräte, die u. a. zum Telefonieren benutzt werden können. Diese Endgeräte sind überwiegend im Privatbesitz der Mitarbeiter, Studierenden und der externen Beschäftigten."@de .
+
+
+itcat:Tablet	a				itcat:ITAsset ;
+		skos:prefLabel			"Tablet"@de ;
+		skos:prefLabel			"tablet"@en ;
+		skos:definition			"Gemeint sind hier etwas größere mobile Endgeräte. Diese Endgeräte sind überwiegend im Privatbesitz der Mitarbeiter, Studierenden und der externen Beschäftigten."@de .
+
+
+
+#################################################################
+#
+#    Agents
+#
+#################################################################
+        
+
+### Role Individuals
+
+itcat:Students	a				schema:Role ;
+		skos:prefLabel			"Studierende"@de ;
+		skos:prefLabel			"students"@en ;
+		skos:definition			"Zum aktuellen Zeitpunkt an der Hochschule eingeschriebene Studierende."@de .
+
+
+itcat:Staff		a				schema:Role ;
+		skos:prefLabel			"Mitarbeiter"@de ;
+		skos:prefLabel			"staff"@en ;
+		skos:definition			"Zum aktuellen Zeitpunkt an der Hochschule festangestellte Mitarbeiter."@de .
+		
+		
+itcat:StaffDBM	a				schema:Role ;
+		skos:prefLabel			"Mitarbeiter FBW"@de ;
+		skos:prefLabel			"staff of DBM"@en ;
+		skos:definition			"Mitarbeiter des Fachbereichs Wirtschaft."@de .
+		
+		
+itcat:StaffDCS	a				schema:Role ;
+		skos:prefLabel			"Mitarbeiter FBI"@de ;
+		skos:prefLabel			"staff of DCS"@en ;
+		skos:definition			"Mitarbeiter des Fachbereichs Informatik und Medien."@de .
+		
+		
+itcat:StaffDTE	a				schema:Role ;
+		skos:prefLabel			"Mitarbeiter FBT"@de ;
+		skos:prefLabel			"staff of DTE"@en ;
+		skos:definition			"Mitarbeiter des Fachbereichs Technik."@de .
+		
+		
+itcat:StaffADM	a				schema:Role ;
+		skos:prefLabel			"Mitarbeiter Verwaltung/Zentren"@de ;
+		skos:prefLabel			"staff of administration or centers"@en ;
+		skos:definition			"Mitarbeiter der Hochschulverwaltung oder der Zentren."@de .
+		
+		
+itcat:ExtWorker	a				schema:Role ;
+		skos:prefLabel			"Externe Beschäftigte"@de ;
+		skos:prefLabel			"external workers"@en ;
+		skos:definition			"Lehrbeauftragte, Gastprofessoren, Honorarprofessoren u. a. externe Beschäftigten, z. B. in Projekten."@de .
+		
+		
+itcat:Enrollees	a				schema:Role ;
+		skos:prefLabel			"Studienbewerber"@de ;
+		skos:prefLabel			"enrollees"@en ;
+		skos:definition			"Personen, die sich an der Hochschule bewerben oder beworben haben, über deren Bewerbung jedoch aktuell noch nicht entschieden wurde."@de .
+		
+		
+itcat:Public	a				schema:Role ;
+		skos:prefLabel			"Öffentlichkeit"@de ;
+		skos:prefLabel			"public"@en ;
+		skos:definition			"Personen, die ein berufliches oder privates Interesse an der Hochschule haben."@de .
+
+
+### Organization Individuals
+
+
+itcat:THB		a				foaf:Organization ;
+		skos:prefLabel			"TH Brandenburg"@de ;
+		skos:prefLabel			"UAS Brandenburg"@en ;
+		dcterms:title			"Technische Hochschule Brandenburg an der Havel - University of Applied Sciences"@de .
+		
+		
+itcat:DCS		a				foaf:Organization ;
+		skos:prefLabel			"FBI"@de ;
+		skos:prefLabel			"DCS - Department of Computer Science and Media"@en ;
+		dcterms:title			"Fachbereich Informatik und Medien"@de ;
+		schema:isPartOf			itcat:THB .
+		
+		
+itcat:DTE		a				foaf:Organization ;
+		skos:prefLabel			"FBT"@de ;
+		skos:prefLabel			"DTE - Department of Technology and Engineering"@en ;
+		dcterms:title			"Fachbereich Technik"@de ;
+		schema:isPartOf	 		itcat:THB .
+		
+		
+itcat:DBM		a				foaf:Organization ;
+		skos:prefLabel			"FBW"@de ;
+		skos:prefLabel			"DBM - Department of Business and Management"@en ;
+		dcterms:title			"Fachbereich Wirtschaft"@de ;
+		schema:isPartOf			itcat:THB .
+		
+		
+itcat:TLSO		a				foaf:Organization ;
+		skos:prefLabel			"TLSO"@de ;
+		skos:prefLabel			"TLSO"@en ;
+		dcterms:title			"Team Labor Service und Organisation des FBW"@de ;
+		schema:isPartOf			itcat:DBM .
+		
+		
+itcat:DataCenter	a			foaf:Organization ;
+		skos:prefLabel			"Rechenzentrum"@de ;
+		skos:prefLabel			"data center"@en ;
+		dcterms:title			"Rechenzentrum der TH Brandenburg"@de ;
+		schema:isPartOf			itcat:THB .
+		
+		
+itcat:Library	a				foaf:Organization ;
+		skos:prefLabel			"Hochschulbibliothek"@de ;
+		skos:prefLabel			"university library"@en ;
+		dcterms:title			"Hochschulbibliothek der TH Brandenburg"@de ;
+		schema:isPartOf			itcat:THB .
+		
+		
+itcat:BRZUR		a				foaf:Organization ;
+		skos:prefLabel			"BRZ Uni Regensburg"@de ;
+		skos:prefLabel			"University Data Center Regensburg"@en ;
+		dcterms:title			"Bibliotheksrechenzentrum der Universität Regensburg"@de .
+		
+		
+
+### Person Individuals
+
+
+itcat:WWeidner	a				foaf:Person ;
+		skos:prefLabel			"Wolfram Weidner, B.Sc." ;
+		schema:employee			itcat:DCS ;
+		foaf:name				"Wolfram Weidner" ;
+		foaf:mbox				"wolfram.weidner(at)th-brandenburg.de" ;
+		foaf:phone 				"+49 3381 355 - 437" .
+		
+
+itcat:RDoletzki	a				foaf:Person ;
+		skos:prefLabel			"Dipl.-Ing. Ralf Doletzki" ;
+		schema:employee			itcat:DCS ;
+		foaf:name				"Ralf Doletzki" ;
+		foaf:mbox				"ralf.doletzki(at)th-brandenburg.de" ;
+		foaf:phone 				"+49 3381 355 - 414" .
+		
+
+itcat:DSchulz	a				foaf:Person ;
+		skos:prefLabel			"Dipl.-Ing. (FH) Dieter Schulz" ;
+		schema:employee			itcat:DTE ;
+		foaf:name				"Dieter Schulz" ;
+		foaf:mbox				"dieter.schulz(at)th-brandenburg.de" ;
+		foaf:phone 				"+49 3381 355 - 325" .
+		
+
+itcat:DThiele	a				foaf:Person ;
+		skos:prefLabel			"Dipl.-Ing. (FH) Dieter Thiele" ;
+		schema:employee			itcat:DTE ;
+		foaf:name				"Dieter Thiehle" ;
+		foaf:mbox				"dieter.thiele(at)th-brandenburg.de" ;
+		foaf:phone 				"+49 3381 355 - 538" ;
+		foaf:phone				"+49 3381 355 - 508" .
+		
+
+itcat:TJacob	a				foaf:Person ;
+		skos:prefLabel			"Dipl. Wi.-Inform.(FH) Thomas Jacob" ;
+		schema:employee			itcat:TLSO ;
+		foaf:name				"Thomas Jacob" ;
+		foaf:mbox				"thomas.jacob(at)th-brandenburg.de" ;
+		foaf:phone 				"+49 3381 355 - 222" .
+		
+
+itcat:MLangerwisch	a			foaf:Person ;
+		skos:prefLabel			"Dipl. Wi-Inform.(FH) Marco Langerwisch" ;
+		schema:employee			itcat:DCS ;
+		foaf:name				"Marco Langerwisch" ;
+		foaf:mbox				"marco.langerwisch(at)th-brandenburg.de" ;
+		foaf:phone 				"+49 3381 355 - 224" .
+		
+
+itcat:RFahl		a				foaf:Person ;
+		skos:prefLabel			"René Fahl" ;
+		schema:employee			itcat:DCS ;
+		foaf:name				"René Fahl" ;
+		foaf:mbox				"rene.fahl(at)th-brandenburg.de" ;
+		foaf:phone 				"+49 3381 355 - 279" .
+		
+
+itcat:MHeinrich	a				foaf:Person ;
+		skos:prefLabel			"Marcus Heinrich" ;
+		schema:employee			itcat:DCS ;
+		foaf:name				"Marcus Heinrich" ;
+		foaf:mbox				"marcus.heinrich(at)th-brandenburg.de" ;
+		foaf:phone 				"+49 3381 355 - 164" .
+		
+
+
+### Alte Daten
 
 itcat:HISQIS  a                 schema:Service ;
         dc1:description         "Das HISQIS ist die Plattform für Studenten der Fachhochschule Brandenburg, welche folgende Dienste bereitstellt: Allgemeine Verwaltung: Kontaktdaten des Studierenden Studium Verwaltung: Studienbescheinigung, Gebühreninfos und Studentenstatus Prüfungsverwaltung: Notenspiegel Authentifiziert wird sich hierbei mit den IDM-Login Daten." ;

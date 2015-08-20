@@ -13,7 +13,7 @@
 @prefix itcat: <http://th-brandenburg/ns/itcat#> .
 @prefix usdl-core: <http://www.linked-usdl.org/ns/usdl-core#> .
 @prefix usdl-agreement: <http://www.linked-usdl.org/ns/usdl-agreement#> .
-@base <http://th-brandenburg/ns/itcat#> .
+@base <http://th-brandenburg.de/ns/itcat#> .
 
 <http://th-brandenburg/ns/itcat#> rdf:type owl:Ontology ;
                                   
@@ -501,67 +501,67 @@ itcat:LowPriority  rdf:type itcat:Priority ;
 			rdfs:comment "Prioritätskategorien sind: 'Hohe Priorität', 'Mittlere Priorität' und 'Geringe Priorität'."@de .
 	
 
-###  http://th-brandenburg/ns/itcat#LibraryService
+###  http://th-brandenburg/ns/itcat#LibraryServices
 
-itcat:LibraryService  rdf:type itcat:SubjectCategory ;
-			skos:prefLabel "Bibliotheksdienst"@de ;
-			skos:prefLabel "library service"@en ;
+itcat:LibraryServices  rdf:type itcat:SubjectCategory ;
+			skos:prefLabel "Bibliotheksdienste"@de ;
+			skos:prefLabel "library services"@en ;
 			skos:definition "Zu den Bibliotheksdiensten gehören alle IT-Dienste, die den Zugang zu Fachliteratur in der Hochschulbibliothek sowie über zentrale Datenbanken, Dienste und Systeme unterstützen bzw. ermöglichen."@de .
 	
 
-###  http://th-brandenburg/ns/itcat#HISService
+###  http://th-brandenburg/ns/itcat#HISServices
 
-itcat:HISService   rdf:type itcat:SubjectCategory ;
-			skos:prefLabel "HIS-Dienst"@de ;
-			skos:prefLabel "HIS service"@en ;
+itcat:HISServices   rdf:type itcat:SubjectCategory ;
+			skos:prefLabel "HIS-Dienste"@de ;
+			skos:prefLabel "HIS services"@en ;
 			skos:definition "Zu den HIS-Diensten gehören alle Anwendungen im Rahmen der Hochschulinformationssysteme HIS und HISinOne."@de .
 
 
-###  http://th-brandenburg/ns/itcat#TeachingPlatform
+###  http://th-brandenburg/ns/itcat#TeachingPlatforms
 
-itcat:TeachingPlatform  rdf:type itcat:SubjectCategory ;
-			skos:prefLabel "Lehrportal"@de ;
-			skos:prefLabel "teaching platform"@en ;
+itcat:TeachingPlatforms  rdf:type itcat:SubjectCategory ;
+			skos:prefLabel "Lehrportale"@de ;
+			skos:prefLabel "teaching platforms"@en ;
 			skos:definition "Lehrplattformen unterstützen bzw. ermöglichen die Hochschullehre sowohl in der klassischen Präsenzlehre als auch im E-Learning."@de .
 
 
-###  http://th-brandenburg/ns/itcat#CommunicationService
+###  http://th-brandenburg/ns/itcat#CommunicationServices
 
-itcat:CommunicationService  rdf:type itcat:SubjectCategory ;
-			skos:prefLabel "Kommunikationsdienst"@de ;
-			skos:prefLabel "communication service"@en ;
+itcat:CommunicationServices  rdf:type itcat:SubjectCategory ;
+			skos:prefLabel "Kommunikationsdienste"@de ;
+			skos:prefLabel "communication services"@en ;
 			skos:definition "Kommunikationsdienste unterstützen bzw. ermöglichen die synchrone und asynchrone Kommunikation von Gruppen und Individuen."@de .
 
 
-###  http://th-brandenburg/ns/itcat#InformationService
+###  http://th-brandenburg/ns/itcat#InformationServices
 
-itcat:InformationService  rdf:type itcat:SubjectCategory ;
-			skos:prefLabel "Informationsdienst"@de ;
-			skos:prefLabel "information service"@en ;
+itcat:InformationServices  rdf:type itcat:SubjectCategory ;
+			skos:prefLabel "Informationsdienste"@de ;
+			skos:prefLabel "information services"@en ;
 			skos:definition "Informationsdienste stellen für die Benutzer strukturierte, regelmäßig aktualisierte Informationen über verschiedene Medien bereit."@de .
 
 
-###  http://th-brandenburg/ns/itcat#MiscService
+###  http://th-brandenburg/ns/itcat#MiscServices
 
-itcat:MiscService  rdf:type itcat:SubjectCategory ;
-			skos:prefLabel "Sonstige Anwendung"@de ;
-			skos:prefLabel "miscellaneous application"@en ;
+itcat:MiscServices  rdf:type itcat:SubjectCategory ;
+			skos:prefLabel "Sonstige Anwendungen"@de ;
+			skos:prefLabel "miscellaneous applications"@en ;
 			skos:definition "Unter sonstigen Anwendungen werden alle Fachanwendungen (IT-Dienste) zusammengefasst, die in keine der anderen Sachkategorien schlüssig einordenbar sind."@de .
 
 
-###  http://th-brandenburg/ns/itcat#NetworkService
+###  http://th-brandenburg/ns/itcat#NetworkServices
 
-itcat:NetworkService  rdf:type itcat:SubjectCategory ;
-			skos:prefLabel "Netzwerkdienst"@de ;
-			skos:prefLabel "network service"@en ;
+itcat:NetworkServices  rdf:type itcat:SubjectCategory ;
+			skos:prefLabel "Netzwerkdienste"@de ;
+			skos:prefLabel "network services"@en ;
 			skos:definition "Netzwerkdienste nutzen ein oder mehrere Netzwerkprotokolle (HTTP, DNS, NTP, DHCP ...) um über ein Computernetzwerk bestimmte Funktionen bereitzustellen."@de .
 
 
-###  http://th-brandenburg/ns/itcat#InfrastructureService
+###  http://th-brandenburg/ns/itcat#InfrastructureServices
 
-itcat:InfrastructureService  rdf:type itcat:SubjectCategory ;
-			skos:prefLabel "Infrastrukturdienst"@de ;
-			skos:prefLabel "infrastructure service"@en ;
+itcat:InfrastructureServices  rdf:type itcat:SubjectCategory ;
+			skos:prefLabel "Infrastrukturdienste"@de ;
+			skos:prefLabel "infrastructure services"@en ;
 			skos:definition "Infrastrukturdienste sind grundlegende Dienste zur Bereitstellung, Pflege und Wartung einer IT-Versorgungsstruktur."@de .
 
 
