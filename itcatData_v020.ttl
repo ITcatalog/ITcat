@@ -131,25 +131,25 @@ itcat:  a        schema:Service ;
 itcat:Computer	a				itcat:ITAsset ;
 		skos:prefLabel			"Computer"@de ;
 		skos:prefLabel			"computer"@en ;
-		skos:definition			"Gemeint sind hier Desktop-Computer, insbesondere die von Mitarbeitern genutzten Geräte sowie die Labor-PCs."@de .
+		skos:definition			"Desktop-Computer, insbesondere die von Mitarbeitern genutzten Geräte sowie die Labor-PCs."@de .
 
 
 itcat:Laptop	a				itcat:ITAsset ;
 		skos:prefLabel			"Laptop"@de ;
 		skos:prefLabel			"laptop"@en ;
-		skos:definition			"Gemeint sind hier portable Computer. Diese können als Hochschuleigentum von Mitarbeitern genutzt werden. Auch die privaten portablen Computer der Mitarbeiter, Studierenden und externen Beschäftigten sind mit gemeint."@de .
+		skos:definition			"Portable Computer. Diese können als Hochschuleigentum von Mitarbeitern genutzt werden. Auch die privaten portablen Computer der Mitarbeiter, Studierenden und externen Beschäftigten sind mit gemeint."@de .
 
 
 itcat:Smartphone a				itcat:ITAsset ;
 		skos:prefLabel			"Smartphone"@de ;
 		skos:prefLabel			"smart phone"@en ;
-		skos:definition			"Gemeint sind hier kleine mobile Endgeräte, die u. a. zum Telefonieren benutzt werden können. Diese Endgeräte sind überwiegend im Privatbesitz der Mitarbeiter, Studierenden und der externen Beschäftigten."@de .
+		skos:definition			"Kleine mobile Endgeräte, die u. a. zum Telefonieren benutzt werden können. Diese Endgeräte sind überwiegend im Privatbesitz der Mitarbeiter, Studierenden und der externen Beschäftigten."@de .
 
 
 itcat:Tablet	a				itcat:ITAsset ;
 		skos:prefLabel			"Tablet"@de ;
 		skos:prefLabel			"tablet"@en ;
-		skos:definition			"Gemeint sind hier etwas größere mobile Endgeräte. Diese Endgeräte sind überwiegend im Privatbesitz der Mitarbeiter, Studierenden und der externen Beschäftigten."@de .
+		skos:definition			"Größere mobile Endgeräte. Diese Endgeräte sind überwiegend im Privatbesitz der Mitarbeiter, Studierenden und der externen Beschäftigten."@de .
 
 
 
