@@ -32,7 +32,7 @@ itcat:BSCW  a                   schema:Service ;
         rdfs:comment			"" ;
         #Data Properties
         schema:url              "http://bscw.fh-brandenburg.de" ;
-        itcat:status             "in Betrieb" ;
+        itcat:hasStage           itcat:Operation ;
         #Object Properties
         itcat:user				itcat:Staff , itcat:Students ;
         schema:customer			itcat:DBM ;
@@ -59,7 +59,7 @@ itcat:CloudserviceFBW  a        schema:Service ;
         rdfs:comment			"" ;
         #Data Properties
         schema:url              "https://cloud.fh-brandenburg.de" ;
-        itcat:status             "in Betrieb" ;
+        itcat:hasStage           itcat:Operation ;
         #Object Properties
         itcat:user				itcat:StaffDBM , itcat:StaffAdmin ;
         schema:customer			itcat:DBM ;
@@ -86,7 +86,7 @@ itcat:Datensicherung  a        schema:Service ;
         rdfs:comment			"" ;
         #Data Properties
         schema:url              "" ;
-        itcat:status            "in Betrieb" ;
+        itcat:hasStage          itcat:Operation ;
         #Object Properties
         itcat:user				itcat:StaffTHB ;
         schema:customer			itcat:THB ;
@@ -113,7 +113,7 @@ itcat:DBIS  a        schema:Service ;
         rdfs:comment			"" ;
         #Data Properties
         schema:url              "http://rzblx10.uni-regensburg.de/dbinfo/dbliste.php?bib_id=fhbrb&colors=31&ocolors=40&lett=a" ;
-        itcat:status            "in Betrieb" ;
+        itcat:hasStage          itcat:Operation ;
         #Object Properties
         itcat:user				itcat:Students , itcat:Staff , itcat:ExtWorkers ;
         schema:customer			itcat:Library ;
@@ -140,7 +140,7 @@ itcat:Eduroam  a        schema:Service ;
         rdfs:comment			"" ;
         #Data Properties
         schema:url              "http://www.fh-brandenburg.de/eduroam.html" ;
-        itcat:status            "in Betrieb" ;
+        itcat:hasStage          itcat:Operation ;
         #Object Properties
         itcat:user				itcat:Staff , itcat:Students , itcat:ExtWorkers ;
         schema:customer			itcat:THB ;
@@ -167,7 +167,7 @@ itcat:CentralMail  a        schema:Service ;
         rdfs:comment			"" ;
         #Data Properties
         schema:url              "http://www.fh-brandenburg.de/email2.html" ;
-        itcat:status            "in Betrieb" ;
+        itcat:hasStage          itcat:Operation ;
         #Object Properties
         itcat:user				itcat:TLSO , itcat:DataCenter ;
         schema:customer			itcat:THB ;
@@ -194,7 +194,7 @@ itcat:EZB  a        schema:Service ;
         rdfs:comment			"" ;
         #Data Properties
         schema:url              "http://rzblx1.uni-regensburg.de/ezeit/" ;
-        itcat:status            "in Betrieb" ;
+        itcat:hasStage          itcat:Operation ;
         #Object Properties
         itcat:user				itcat:Students , itcat:Staff , itcat:ExtWorkers ;
         schema:customer			itcat:Library ;
@@ -221,7 +221,7 @@ itcat:Fernleihe  a        schema:Service ;
         rdfs:comment			"" ;
         #Data Properties
         schema:url              "https://fh-brandenburg.de/bibfernleihe.3.html" ;
-        itcat:status            "in Betrieb" ;
+        itcat:hasStage          itcat:Operation ;
         #Object Properties
         itcat:user				itcat:Students , itcat:Staff , itcat:ExtWorkers ;
         schema:customer			itcat:Library ;
@@ -248,7 +248,7 @@ itcat:DeviceRental  a        schema:Service ;
         rdfs:comment			"" ;
         #Data Properties
         schema:url              "https://moodle.fh-brandenburg.de/course/view.php?id=199" ;
-        itcat:status            "in Betrieb" ;
+        itcat:hasStage          itcat:Operation ;
         #Object Properties
         itcat:user				itcat:Students ;
         schema:customer			itcat:THB ;
@@ -275,7 +275,7 @@ itcat:HISinOneAPP  a        schema:Service ;
         rdfs:comment			"" ;
         #Data Properties
         schema:url              "https://his1-ws.fh-brandenburg.de/qisserver/pages/cs/sys/portal/hisinoneStartPage.faces" ;
-        itcat:status            "in Einführung" ;
+        itcat:hasStage          itcat:Implementation ;
         #Object Properties
         itcat:user				itcat:Enrollees ;
         schema:customer			itcat:RegOffice ;
@@ -296,13 +296,13 @@ itcat:HISQIS  a        schema:Service ;
 		skos:prefLabel			"Studierenden-Portal"@de ;
 		skos:prefLabel			"student's portal"@en ;
 		dcterms:title			"Online-Portal des Studierendensekretariat der TH Brandenburg für Studenten"@de ;
-		dcterms:abstract		"Über dieses Online-Portal können Studierende Einsicht in ihre Noten nehmen, den Notenspiegel abrufen, ihre Stammdaten ändern, den Rückmeldestatus sowie den Gebührenstand einsehen und Studienbescheinigungen ausdrucken."@de ;
+		dcterms:abstract		"Über dieses Online-Portal können Studierende Einsicht in ihre Noten nehmen, den Notenspiegel abrufen, ihre Stammdaten ändern, den RückmeldehasStage sowie den Gebührenstand einsehen und Studienbescheinigungen ausdrucken."@de ;
         dcterms:description     "Neben der Noteneinsicht sind auch Prüfungsanmeldungen, Prüfungsversuche sowie das Prüfungsdatum einsehbar. Zu den änderbaren Stammdaten gehören: Heimatanschrift, Semesteranschrift, Telefonnummer und E-Mail-Adresse. Studienbescheinigungen können generiert, verifiziert und ausgedruckt werden."@de ;
         dcterms:subject         "" ;
         rdfs:comment			"Dieser Dienst wird baldmöglichst vom HISinOne-Modul EXA abgelöst."@de ;
         #Data Properties
         schema:url              "https://hisqis.fh-brandenburg.de/qisserver/rds?state=user&type=0" ;
-        itcat:status            "in Ablösung" ;
+        itcat:hasStage          itcat:InRelief ;
         #Object Properties
         itcat:user				itcat:Students ;
         schema:customer			itcat:RegOffice ;
@@ -329,7 +329,7 @@ itcat:IDM  a        schema:Service ;
         rdfs:comment			"" ;
         #Data Properties
         schema:url              "https://www.idm.fh-brandenburg.de/IDMProv/jsps/login/Login.jsp" ;
-        itcat:status            "in Betrieb" ;
+        itcat:hasStage          itcat:Operation ;
         #Object Properties
         itcat:user				itcat:Staff , itcat:Students , itcat:ExtWorkers ;
         schema:customer			itcat:THB ;
@@ -356,7 +356,7 @@ itcat:InfoDisplay  a        schema:Service ;
         rdfs:comment			"" ;
         #Data Properties
         schema:url              "http://www.bsn-infodisplay.de/mobil/fhbfbwi" ;
-        itcat:status            "in Betrieb" ;
+        itcat:hasStage          itcat:Operation ;
         #Object Properties
         itcat:user				itcat:Public , itcat:Students , itcat:Staff ;
         schema:customer			itcat:THB ;
@@ -383,7 +383,7 @@ itcat:EduDrive  a        schema:Service ;
         rdfs:comment			"" ;
         #Data Properties
         schema:url              "https://fhs-w7.fh-brandenburg.de/lehre/" ;
-        itcat:status            "in Betrieb" ;
+        itcat:hasStage          itcat:Operation ;
         #Object Properties
         itcat:user				itcat:Staff , itcat:Students ;
         schema:customer			itcat:DBM ;
@@ -410,7 +410,7 @@ itcat:MapOnGo  a        schema:Service ;
         rdfs:comment			"" ;
         #Data Properties
         schema:url              "http://fh-brandenburg.mapongo.de/viewer?language=de&project_id=1#" ;
-        itcat:status            "in Betrieb" ;
+        itcat:hasStage          itcat:Operation ;
         #Object Properties
         itcat:user				itcat:Students , itcat:Staff ;
         schema:customer			itcat:Library ;
@@ -437,7 +437,7 @@ itcat:Monitoring  a        schema:Service ;
         rdfs:comment			"" ;
         #Data Properties
         schema:url              "https://www.nagios.org/" ;
-        itcat:status            "in Betrieb" ;
+        itcat:hasStage          itcat:Operation ;
         #Object Properties
         itcat:user				itcat:DataCenter ;
         schema:customer			itcat:THB ;
@@ -464,7 +464,7 @@ itcat:Moodle  a        schema:Service ;
         rdfs:comment			"" ;
         #Data Properties
         schema:url              "http://www.fh-brandenburg.de/moodle" ;
-        itcat:status            "in Betrieb" ;
+        itcat:hasStage          itcat:Operation ;
         #Object Properties
         itcat:user				itcat:Students , itcat:Staff , itcat:ExtWorkers ;
         schema:customer			itcat:THB ;
@@ -491,7 +491,7 @@ itcat:NTP  a        schema:Service ;
         rdfs:comment			"" ;
         #Data Properties
         schema:url              "https://www.fh-brandenburg.de/zeitsynchronisation.html" ;
-        itcat:status            "in Betrieb" ;
+        itcat:hasStage          itcat:Operation ;
         #Object Properties
         itcat:user				itcat:TLSO ;
         schema:customer			itcat:THB ;
@@ -518,7 +518,7 @@ itcat:OnlineShop  a        schema:Service ;
         rdfs:comment			"" ;
         #Data Properties
         schema:url              "http://fh-brandenburg.spreadshirt.de/" ;
-        itcat:status            "in Betrieb" ;
+        itcat:hasStage          itcat:Operation ;
         #Object Properties
         itcat:user				itcat:Public , itcat:Staff , itcat:Students ;
         schema:customer			itcat:THB ;
@@ -545,7 +545,7 @@ itcat:OPAC  a        schema:Service ;
         rdfs:comment			"" ;
         #Data Properties
         schema:url              "https://opac.fh-brandenburg.de" ;
-        itcat:status            "in Betrieb" ;
+        itcat:hasStage          itcat:Operation ;
         #Object Properties
         itcat:user				itcat:Students , itcat:Staff , itcat:Public ;
         schema:customer			itcat:Library ;
@@ -572,7 +572,7 @@ itcat:QISFSV  a        schema:Service ;
         rdfs:comment			"" ;
         #Data Properties
         schema:url              "https://qisfsv.fh-brandenburg.de/qisserver/rds?state=user&type=0" ;
-        itcat:status            "in Betrieb" ;
+        itcat:hasStage          itcat:Operation ;
         #Object Properties
         itcat:user				itcat:StaffADM ;
         schema:customer			itcat:THB ;
@@ -599,7 +599,7 @@ itcat:QISPOS  a        schema:Service ;
         rdfs:comment			"Dieser Dienst wird baldmöglichst vom HISinOne-Modul EXA abgelöst." ;
         #Data Properties
         schema:url              "https://hisqis.fh-brandenburg.de/qisserver/rds?state=user&type=0" ;
-        itcat:status            "in Ablösung" ;
+        itcat:hasStage          itcat:InRelief ;
         #Object Properties
         itcat:user				itcat:Staff , itcat:ExtWorkers ;
         schema:customer			itcat:THB ;
@@ -626,7 +626,7 @@ itcat:TravelMgt  a        schema:Service ;
         rdfs:comment			"" ;
         #Data Properties
         schema:url              "http://www.fh-brandenburg.de/2898.html?&MP=39-304" ;
-        itcat:status            "in Betrieb" ;
+        itcat:hasStage          itcat:Operation ;
         #Object Properties
         itcat:user				itcat:Staff , itcat:Students , itcat:ExtWorkers ;
         schema:customer			itcat:THB ;
@@ -653,7 +653,7 @@ itcat:DSFWSamba  a        schema:Service ;
         rdfs:comment			"" ;
         #Data Properties
         schema:url              "http://www.fh-brandenburg.de/samba-faq.html" ;
-        itcat:status            "in Betrieb" ;
+        itcat:hasStage          itcat:Operation ;
         #Object Properties
         itcat:user				itcat:Students , itcat:Staff , itcat:ExtWorkers ;
         schema:customer			itcat:THB ;
@@ -680,7 +680,7 @@ itcat:ClassSchedule  a        schema:Service ;
         rdfs:comment			"" ;
         #Data Properties
         schema:url              "http://zeus.fh-brandenburg.de/Stundenplan/Plan.htm" ;
-        itcat:status            "in Ablösung" ;
+        itcat:hasStage          itcat:InRelief ;
         #Object Properties
         itcat:user				itcat:Students , itcat:Staff , itcat:ExtWorkers ;
         schema:customer			itcat:DCS ;
@@ -707,7 +707,7 @@ itcat:VolumeTransfer  a        schema:Service ;
         rdfs:comment			"" ;
         #Data Properties
         schema:url              "https://www.fh-brandenburg.de/exchange" ;
-        itcat:status            "in Betrieb" ;
+        itcat:hasStage          itcat:Operation ;
         #Object Properties
         itcat:user				itcat:Staff , itcat:Students , itcat:ExtWorkers , itcat:Public ;
         schema:customer			itcat:THB ;
@@ -735,7 +735,7 @@ itcat:VPNService  a        schema:Service ;
         rdfs:comment			"" ;
         #Data Properties
         schema:url              "http://www.fh-brandenburg.de/vpnanleitung.html" ;
-        itcat:status            "in Betrieb" ;
+        itcat:hasStage          itcat:Operation ;
         #Object Properties
         itcat:user				itcat:Students , itcat:Staff , itcat:ExtWorkers ;
         schema:customer			itcat:THB ;
@@ -762,7 +762,7 @@ itcat:WebMail  a        schema:Service ;
         rdfs:comment			"" ;
         #Data Properties
         schema:url              "https://webmail.fh-brandenburg.de/" ;
-        itcat:status            "in Betrieb" ;
+        itcat:hasStage          itcat:Operation ;
         #Object Properties
         itcat:user				itcat:Staff , itcat:Students , itcat:ExtWorkers ;
         schema:customer			itcat:THB ;
@@ -789,7 +789,7 @@ itcat:GroupWareADM  a        schema:Service ;
         rdfs:comment			"" ;
         #Data Properties
         schema:url              "https://zimbra.fh-brandenburg.de/" ;
-        itcat:status            "in Betrieb" ;
+        itcat:hasStage          itcat:Operation ;
         #Object Properties
         itcat:user				itcat:StaffADM ;
         schema:customer			itcat:THB ;
@@ -816,7 +816,7 @@ itcat:WLAN  a        schema:Service ;
         rdfs:comment			"" ;
         #Data Properties
         schema:url              "http://www.fh-brandenburg.de/1347.html" ;
-        itcat:status            "in Ablösung" ;
+        itcat:hasStage          itcat:InRelief ;
         #Object Properties
         itcat:user				itcat:Students , itcat:Staff , itcat:ExtWorkers ;
         schema:customer			itcat:THB ;
@@ -843,7 +843,7 @@ itcat:ProxyServer  a        schema:Service ;
         rdfs:comment			"" ;
         #Data Properties
         schema:url              "http://www.fh-brandenburg.de/proxies.html" ;
-        itcat:status            "in Betrieb" ;
+        itcat:hasStage          itcat:Operation ;
         #Object Properties
         itcat:user				itcat:Staff , itcat:Students ;
         schema:customer			itcat:THB ;
@@ -870,7 +870,7 @@ itcat:VirtualMachine  a        schema:Service ;
         rdfs:comment			"" ;
         #Data Properties
         schema:url              "https://fbwcms.fh-brandenburg.de/wirtschaft/vmantrag" ;
-        itcat:status            "in Betrieb" ;
+        itcat:hasStage          itcat:Operation ;
         #Object Properties
         itcat:user				itcat:Staff ;
         schema:customer			itcat:DBM ;
@@ -897,7 +897,7 @@ itcat:WebHosting  a        schema:Service ;
         rdfs:comment			"" ;
         #Data Properties
         schema:url              "http://www.fh-brandenburg.de/www.html" ;
-        itcat:status            "in Betrieb" ;
+        itcat:hasStage          itcat:Operation ;
         #Object Properties
         itcat:user				itcat:THB , itcat:DataCenter , itcat:TLSO , itcat:LSCS , itcat:HISProject ;
         schema:customer			itcat:THB ;
@@ -924,7 +924,7 @@ itcat:WebSite  a        schema:Service ;
         rdfs:comment			"" ;
         #Data Properties
         schema:url              "http://www.th-brandenburg.de" ;
-        itcat:status            "in Einführung" ;
+        itcat:hasStage          itcat:Implementation ;
         #Object Properties
         itcat:user				itcat:Public , itcat:Enrollees , itcat:Staff , itcat:Students ;
         schema:customer			itcat:THB ;

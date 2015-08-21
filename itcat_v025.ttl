@@ -186,6 +186,16 @@ itcat:CatalogCategory rdf:type owl:Class ;
             rdfs:comment "Wie IT-Dienste in Katalogkategorien eingruppiert werden, ist noch nicht abschließend geklärt."@de .
 
 
+###  http://th-brandenburg/ns/itcat#LifeCycleStage
+
+itcat:LifeCycleStage rdf:type owl:Class ;
+			rdfs:subClassOf itcat:ServiceCategory ; 
+            
+            skos:prefLabel "Lebenszyklusphase"@de ;
+            skos:prefLabel "life cycle stage"@en ;
+            skos:definition "Die Lebenzyklusphase gibt an, ob ein IT-Dienst aktuell in Planung ist, eingeführt wird, regulär angeboten und genutzt wir, sich in Ablösung befindet oder endgültig abgeschaltet ist. Ein IT-Dienst kann immer nur einer Lebenszyklusphase angehören."@de .
+
+
 #################################################################
 #
 #    Object Properties
@@ -371,7 +381,18 @@ itcat:inCategory rdf:type owl:ObjectProperty ;
 			rdfs:comment "Ein IT-Dienst kann gleichzeitig mehreren Dienstekategorien innerhalb einer Kategorieklasse angehören."@de ;
 			rdfs:domain schema:Service ;
 			rdfs:range itcat:ServiceCategory .
-			
+
+
+###  http://th-brandenburg/ns/itcat#hasStage
+
+itcat:hasStage rdf:type owl:ObjectProperty ;
+			skos:prefLabel "hat Lebenszyklusphase"@de ;
+			skos:prefLabel " has life cycle stage"@en ;
+			skos:definition "Gibt an in welcher Phase des Lebenszyklus sich ein IT-Dienst befindet."@de ;
+			rdfs:comment "Zu verwendende Phasen sind: 'in Planung', 'in Einführung', 'in Betrieb', 'in Ablösung', 'abgeschaltet'."@de ;
+			rdfs:domain	schema:Service ;
+			rdfs:range itcat:LifeCycleStage .
+
 			
 #################################################################
 #
@@ -387,15 +408,6 @@ schema:url rdf:type owl:DatatypeProperty ;
 			skos:definition "Referenziert eine URL zu einer Ressource. Verweist auf weiterführende Informationen, Dokumente, Zugänge etc."@de ;
 			rdfs:comment "Diese Standardrelation wird in dieser Ontologie verwendet, um die bereits vorhandenen Webseiten zu den IT-Diensten zu referenzieren."@de .
 			
-
-###  http://th-brandenburg/ns/itcat#status
-
-itcat:status rdf:type owl:DatatypeProperty ;
-			skos:prefLabel "Status"@de ;
-			skos:prefLabel "status"@en ;
-			skos:definition "Gibt an in welcher Phase des Lebenszyklus sich ein IT-Dienst befindet."@de ;
-			rdfs:comment "Zu verwendende Status sind: 'in Planung', 'in Einführung', 'in Betrieb', 'in Ablösung', 'abgeschaltet'."@de .
-
 
 #################################################################
 #
@@ -604,3 +616,45 @@ itcat:InfrastructureCatalog  rdf:type itcat:CatalogCategory ;
 			skos:prefLabel "IT-Infrastrukturkatalog"@de ;
 			skos:prefLabel "infrastructure catalog"@en ;
 			skos:definition "Der IT-Infrastrukturkatalog umfasst alle für die Sicherung des IT-Betriebs einer Organisation relevanten IT-Systeme bzw. -Komponenten. Sprache und Design des Katalogs orientieren sich an der Sprache der IT-Administratoren."@de .
+
+
+###  http://th-brandenburg/ns/itcat#Planning
+
+itcat:Planning  rdf:type itcat:LifeCycleStage ;
+			skos:prefLabel "in Planung"@de ;
+			skos:prefLabel "planning"@en ;
+			skos:definition "Ein IT-Dienst ist 'in Planung', wenn es konkrete Absichten, Konzepte oder Anträge in Bezug auf die Entwicklung und Einführung des Dienstes gibt."@de .
+
+
+###  http://th-brandenburg/ns/itcat#Implementation
+
+itcat:Implementation  rdf:type itcat:LifeCycleStage ;
+			skos:prefLabel "in Einführung"@de ;
+			skos:prefLabel "implementation"@en ;
+			skos:definition "Ein IT-Dienst ist 'in Einführung', wenn ein Projekt oder eine Maßnahme zur Einführung des Dienstes begonnen wurde."@de .
+
+
+###  http://th-brandenburg/ns/itcat#Operation
+
+itcat:Operation  rdf:type itcat:LifeCycleStage ;
+			skos:prefLabel "in Betrieb"@de ;
+			skos:prefLabel "operation"@en ;
+			skos:definition "Ein IT-Dienst ist 'in Betrieb', wenn er aktuell von einem Anbieter betrieben wird und von Nutzern grundsätzlich in Anspruch genommen werden kann."@de .
+
+
+###  http://th-brandenburg/ns/itcat#InRelief
+
+itcat:InRelief  rdf:type itcat:LifeCycleStage ;
+			skos:prefLabel "in Ablösung"@de ;
+			skos:prefLabel "in relief"@en ;
+			skos:definition "Ein IT-Dienst ist 'in Ablösung', wenn es konkrete Planungen gibt, ihn abzuschalten bzw. zu ersetzen."@de .
+
+
+###  http://th-brandenburg/ns/itcat#Off
+
+itcat:Off  rdf:type itcat:LifeCycleStage ;
+			skos:prefLabel "abgeschaltet"@de ;
+			skos:prefLabel "off"@en ;
+			skos:definition "Ein IT-Dienst ist 'abgeschaltet', wenn er von Nutzern grundsätzlich nicht mehr in Anspruch genommen werden kann."@de ;
+			rdfs:comment	"Ob und wie lange ein abgeschalteter Dienst im Katalog vorgehalten wird, ist noch zu bestimmen."@de .
+
