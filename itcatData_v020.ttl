@@ -97,7 +97,7 @@ itcat:Datensicherung  a        schema:Service ;
 ##      itcat:usableWith  		"" ;
         schema:isRelatedTo		itcat:Plattenstorage ;
         foaf:page 				"" ;
-        itcat:inCategory		itcat:InfrastructureService , itcat:InfrastructureCatalog .
+        itcat:inCategory		itcat:InfrastructureServices , itcat:InfrastructureCatalog .
 
 
 ### Datenbank-Infosystem
@@ -340,7 +340,7 @@ itcat:IDM  a        schema:Service ;
         itcat:usableWith  		itcat:Computer , itcat:Laptop ;
         schema:isRelatedTo		itcat:WebHosting ;
         foaf:page 				"http://www.fh-brandenburg.de/2261.html" , "https://www.idm.fh-brandenburg.de/IDMProv/portal/cn/GuestContainerPage/Passwort_vergessen" ;
-        itcat:inCategory		itcat:MiscApplications , itcat:NetworkServices , itcat:OperationalCatalog .
+        itcat:inCategory		itcat:MiscServices , itcat:NetworkServices , itcat:OperationalCatalog .
 
 
 ### Infodisplay FBW
@@ -635,9 +635,9 @@ itcat:TravelMgt  a        schema:Service ;
         itcat:hasCriticality	itcat:MediumCriticality ;
         itcat:hasPriority		itcat:MediumPriority ;
         itcat:usableWith  		itcat:Computer , itcat:Laptop ;
-        schema:isRelatedTo		itcat: ;
+        schema:isRelatedTo		itcat:WebHosting ;
         foaf:page 				"" ;
-        itcat:inCategory		itcat: .
+        itcat:inCategory		itcat:MiscServices , itcat:BusinessCatalog .
 
 
 ### DSFW/Samba
@@ -686,8 +686,8 @@ itcat:ClassSchedule  a        schema:Service ;
         schema:customer			itcat:DCS ;
         schema:provider			itcat:LSCS ;
         itcat:supporter			itcat:RWietusch , itcat:DCS ;
-        itcat:hasCriticality	itcat:Criticality ;
-        itcat:hasPriority		itcat:Priority ;
+        itcat:hasCriticality	itcat:MediumCriticality ;
+        itcat:hasPriority		itcat:MediumPriority ;
         itcat:usableWith  		itcat:Computer , itcat:Laptop , itcat:Smartphone ;
         schema:isRelatedTo		itcat:WebHosting ;
         foaf:page 				"" ;
@@ -807,9 +807,9 @@ itcat:GroupWareADM  a        schema:Service ;
 
 itcat:WLAN  a        schema:Service ;
 		#Annotation Properties
-		skos:prefLabel			""@de ;
-		skos:prefLabel			""@en ;
-		dcterms:title			""@de ;
+		skos:prefLabel			"WLAN"@de ;
+		skos:prefLabel			"WLAN"@en ;
+		dcterms:title			"Hochschuleigenes WLAN"@de ;
 		dcterms:abstract		"Die Nutzung des hochschuleigenen WLANs 'fhb-wlan' steht allen Angehörigen der Fachhochschule Brandenburg frei. Die Anmeldung an diesem WLAN erfolgt mit den IDM-Login-Daten. In der Regel genügt die Eingabe ihrer Zugangsdaten um sich im WLAN der Fachhochschule Brandenburg anzumelden."@de ;
         dcterms:description     "<p>Sollte es Probleme bei der Verbindung geben, nutzen Sie zunächst bitte die unter Dokumente abgelegte Anleitung um die Verbindung neu einzurichten.</p><p>Mit dem Beginn des Wintersemester 2015 kann das eduroam - WLAN auch durch Studierende und Mitarbeitende der FHB genutzt werden. Mit der einmaligen Einrichtung von eduroam auf ihrem mobilen Gerät haben Sie dann die Möglichkeit, kostenlosen Zugang zum Internet an der FHB und eben auch allen wissenschaftlichen Einrichtungen weltweit zu erhalten.</p><p>Das 'fhb-wlan' wird zunächst noch parallel zur Verfügung stehen, jedoch zum Beginn des Sommersemester 2016 abgeschaltet werden.</p>"@de ;
         dcterms:subject         "" ;
@@ -837,7 +837,7 @@ itcat:ProxyServer  a        schema:Service ;
 		skos:prefLabel			"Proxy-Server"@de ;
 		skos:prefLabel			"proxy server"@en ;
 		dcterms:title			"Verwalten und Einrichten von Web-Filtern (Proxies) an der TH Brandenburg"@de ;
-		dcterms:abstract		"Netzanschlüsse auf dem FHB Campus bekommen gewöhnlich eine sogenannte 'private' IP-Adresse. Verbindungen zum Internet, d.h. ausserhalb der Domain fh-brandenburg.de, können über Proxies hergestellt werden."@de ;
+		dcterms:abstract		"Netzanschlüsse auf dem Campus TH Brandenburg bekommen gewöhnlich eine sogenannte 'private' IP-Adresse. Verbindungen zum Internet, d.h. ausserhalb der Domain fh-brandenburg.de, können über Proxies hergestellt werden."@de ;
         dcterms:description     "<p>An Arbeitsstationen, bei denen im Browser 'Automatische Suche der Einstellungen' aktiviert wurde und die ihre IP-Adresse per DHCP erhalten, müssen keine Änderungen vorgenommen werden.</p> <p>Alle Arbeitsstationen und Server, deren IP-Adresse manuell eingestellt wurde und die demzufolge keine DHCP nutzen, können das automatische Proxy-Konfigurationsscript verwenden oder manuell die Einstellungen vornehmen. Anleigungen finden sich unter u. a. URL.</p>"@de ;
         dcterms:subject         "" ;
         rdfs:comment			"" ;
@@ -849,8 +849,8 @@ itcat:ProxyServer  a        schema:Service ;
         schema:customer			itcat:THB ;
         schema:provider			itcat:DataCenter ;
         itcat:supporter			itcat:DataCenter ;
-        itcat:hasCriticality	itcat:Criticality ;
-        itcat:hasPriority		itcat:Priority ;
+        itcat:hasCriticality	itcat:MediumCriticality ;
+        itcat:hasPriority		itcat:LowPriority ;
         itcat:usableWith  		itcat:Computer , itcat:Laptop ;
         schema:isRelatedTo		itcat:WebHosting ;
         foaf:page 				"" ;
@@ -908,7 +908,7 @@ itcat:WebHosting  a        schema:Service ;
 ##      itcat:usableWith  		itcat: ;
 ##      schema:isRelatedTo		itcat: ;
         foaf:page 				"" ;
-        itcat:inCategory		itcat:InfrastructurServices , itcat:OperationalCatalog .
+        itcat:inCategory		itcat:InfrastructureServices , itcat:OperationalCatalog .
 
 
 ### WebSite
