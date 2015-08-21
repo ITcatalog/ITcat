@@ -32,7 +32,7 @@ itcat:BSCW  a                   schema:Service ;
         rdfs:comment			"" ;
         #Data Properties
         schema:url              "http://bscw.fh-brandenburg.de" ;
-        itcat:hasStage           itcat:Operation ;
+        itcat:hasStage          itcat:Operation ;
         #Object Properties
         itcat:user				itcat:Staff , itcat:Students ;
         schema:customer			itcat:DBM ;
@@ -42,7 +42,7 @@ itcat:BSCW  a                   schema:Service ;
         itcat:hasPriority		itcat:LowPriority ;
         itcat:usableWith  		itcat:Smartphone , itcat:Laptop , itcat:Computer ;
         schema:isRelatedTo		itcat:WebHosting ;
-        foaf:page 				"" ;
+##      foaf:page 				itcat: ;
         itcat:inCategory		itcat:TeachingPlatforms , itcat:CommunicationServices , itcat:BusinessCatalog .
          
 
@@ -69,7 +69,7 @@ itcat:CloudserviceFBW  a        schema:Service ;
         itcat:hasPriority		itcat:LowPriority ;
         itcat:usableWith  		itcat:Smartphone , itcat:Laptop , itcat:Computer ;
         schema:isRelatedTo		itcat:WebHosting ;
-        foaf:page 				"http://fbwcms.fh-brandenburg.de/sixcms/media.php/1127/filr1_qs_mobile.pdf" , "http://itworks.fh-brandenburg.de/" ;
+        foaf:page 				itcat:CloudserviceFBW_DocDL001 , itcat:CloudserviceFBW_DocWP001 ;
         itcat:inCategory		itcat:MiscServices , itcat:NetworkServices , itcat:BusinessCatalog .
         
 
@@ -96,7 +96,7 @@ itcat:Datensicherung  a        schema:Service ;
         itcat:hasPriority		itcat:HighPriority ;
 ##      itcat:usableWith  		"" ;
         schema:isRelatedTo		itcat:Plattenstorage ;
-        foaf:page 				"" ;
+##      foaf:page 				itcat: ;
         itcat:inCategory		itcat:InfrastructureServices , itcat:InfrastructureCatalog .
 
 
@@ -123,7 +123,7 @@ itcat:DBIS  a        schema:Service ;
         itcat:hasPriority		itcat:HighPriority ;
         itcat:usableWith  		itcat:Computer , itcat:Laptop , itcat:Smartphone , itcat:Tablet ;
         schema:isRelatedTo		itcat:IDM , itcat:WebHosting ;
-        foaf:page 				"" ;
+##      foaf:page 				itcat: ;
         itcat:inCategory		itcat:LibraryServices , itcat:InformationServices, itcat:BusinessCatalog .
         
  
@@ -150,7 +150,7 @@ itcat:Eduroam  a        schema:Service ;
         itcat:hasPriority		itcat:HighPriority ;
         itcat:usableWith  		itcat:Computer , itcat:Laptop , itcat:Smartphone , itcat:Tablet ;
         schema:isRelatedTo		itcat:WLAN , itcat:IDM ;
-        foaf:page 				"https://www.dfn.de/dienstleistungen/dfnroaming/" ,"https://edit.dfn.de/CAT-1.0.4/web/" ;
+        foaf:page 				itcat:Eduroam_DocWP001 , itcat:Eduroam_DocWP002 ;
         itcat:inCategory		itcat:NetworkServices , itcat:PublicCatalog .
 
  
@@ -177,7 +177,7 @@ itcat:CentralMail  a        schema:Service ;
         itcat:hasPriority		itcat:HighPriority ;
 ##      itcat:usableWith  		"" ;
         schema:isRelatedTo		itcat:WebMail ;
-        foaf:page 				"http://www.fh-brandenburg.de/email.html" ;
+        foaf:page 				itcat:CentralMail_DocWP001 ; 
         itcat:inCategory		itcat:NetworkServices , itcat:InformationServices , itcat:OperationalCatalog .
 
 
@@ -204,7 +204,7 @@ itcat:EZB  a        schema:Service ;
         itcat:hasPriority		itcat:HighPriority ;
         itcat:usableWith  		itcat:Computer , itcat:Laptop , itcat:Smartphone , itcat:Tablet ;
         schema:isRelatedTo		itcat:IDM , itcat:WebHosting ;
-        foaf:page 				"" ;
+##      foaf:page 				itcat: ;
         itcat:inCategory		itcat:LibraryServices , itcat:InformationServices, itcat:BusinessCatalog .
 
 
@@ -231,7 +231,7 @@ itcat:Fernleihe  a        schema:Service ;
         itcat:hasPriority		itcat:MediumPriority ;
         itcat:usableWith  		itcat:Computer , itcat:Laptop , itcat:Smartphone ;
         schema:isRelatedTo		itcat:DBIS , itcat:IDM , itcat:WebHosting , itcat:OPAC ;
-        foaf:page 				"http://portal.kobv.de/?plv=2" ;
+        foaf:page 				itcat:Fernleihe_DocWP001 ;
         itcat:inCategory		itcat:LibraryServices , itcat:BusinessCatalog .
 
 
@@ -258,7 +258,7 @@ itcat:DeviceRental  a        schema:Service ;
         itcat:hasPriority		itcat:LowPriority ;
         itcat:usableWith  		itcat:Computer , itcat:Laptop , itcat:Smartphone , itcat:Tablet ;
         schema:isRelatedTo		itcat:Moodle ;
-        foaf:page 				"https://moodle.fh-brandenburg.de/brokenfile.php#/947/user/draft/799894076/MLP%20Haftpflicht%202013.pdf" , "https://moodle.fh-brandenburg.de/mod/resource/view.php?id=44403";
+        foaf:page 				itcat:DeviceRental_DocDL001 , itcat:DeviceRental_DocWP001 ;
         itcat:inCategory		itcat:InfrastructureServices , itcat:BusinessCatalog .
 
 
@@ -285,7 +285,7 @@ itcat:HISinOneAPP  a        schema:Service ;
         itcat:hasPriority		itcat:HighPriority ;
         itcat:usableWith  		itcat:Computer , itcat:Laptop , itcat:Smartphone , itcat:Tablet ;
         schema:isRelatedTo		itcat:WebHosting , itcat:IDM ;
-        foaf:page 				"http://www.fh-brandenburg.de/bewerbung-portale.html" , "http://www.fh-brandenburg.de/sts-bewerbung.html";
+        foaf:page 				itcat:HISInOneApp_DocWP001 , itcat:HISInOneApp_DocWP002 ;
         itcat:inCategory		itcat:HISServices , itcat:PublicCatalog .
 
 
@@ -312,7 +312,7 @@ itcat:HISQIS  a        schema:Service ;
         itcat:hasPriority		itcat:HighPriority ;
         itcat:usableWith  		itcat:Computer , itcat:Laptop , itcat:Smartphone ;
         schema:isRelatedTo		itcat:IDM , itcat:WebHosting , itcat:QISPOS ;
-        foaf:page 				"http://www.fh-brandenburg.de/online-portal.html" ;
+        foaf:page 				itcat:HISQIS_DocWP001 ;
         itcat:inCategory		itcat:HISServices , itcat:BusinessCatalog .
 
 
@@ -339,7 +339,7 @@ itcat:IDM  a        schema:Service ;
         itcat:hasPriority		itcat:HighPriority ;
         itcat:usableWith  		itcat:Computer , itcat:Laptop ;
         schema:isRelatedTo		itcat:WebHosting ;
-        foaf:page 				"http://www.fh-brandenburg.de/2261.html" , "https://www.idm.fh-brandenburg.de/IDMProv/portal/cn/GuestContainerPage/Passwort_vergessen" ;
+        foaf:page 				itcat:IDM_DocWP001 , itcat:IDM_DocWP002 ;
         itcat:inCategory		itcat:MiscServices , itcat:NetworkServices , itcat:OperationalCatalog .
 
 
@@ -366,7 +366,7 @@ itcat:InfoDisplay  a        schema:Service ;
         itcat:hasPriority		itcat:MediumPriority ;
         itcat:usableWith  		itcat:Computer , itcat:Laptop , itcat:Smartphone , itcat:Tablet , itcat:Screen ;
         schema:isRelatedTo		itcat:WebHosting ;
-        foaf:page 				"http://www.buergerservicenetz.de/" ;
+        foaf:page 				itcat:InfoDisplay_DocWP001 ;
         itcat:inCategory		itcat:InformationServices , itcat:BusinessCatalog .
 
 
@@ -393,7 +393,7 @@ itcat:EduDrive  a        schema:Service ;
         itcat:hasPriority		itcat:MediumPriority ;
         itcat:usableWith  		itcat:Computer , itcat:Laptop , itcat:Smartphones ;
         schema:isRelatedTo		itcat:IDM ;
-        foaf:page 				"https://fhs-w8.fh-brandenburg.de/NetStorage/" ;
+        foaf:page 				itcat:EduDrive_DocWP001 ;
         itcat:inCategory		itcat:TeachingPlatforms , itcat:NetworkServices , itcat:BusinessCatalog .
 
 
@@ -420,7 +420,7 @@ itcat:MapOnGo  a        schema:Service ;
         itcat:hasPriority		itcat:LowPriority ;
         itcat:usableWith  		itcat:Smartphone , itcat:Laptop ;
         schema:isRelatedTo		itcat:OPAC , itcat:WebHosting ;
-        foaf:page 				"http://www.fh-brandenburg.de/bibgebaeudeplan.html" ;
+        foaf:page 				itcat:MapOnGo_DocWP001 ;
         itcat:inCategory		itcat:LibraryServices , itcat:BusinessCatalog .
 
 
@@ -447,7 +447,7 @@ itcat:Monitoring  a        schema:Service ;
         itcat:hasPriority		itcat:HighPriority ;
         itcat:usableWith  		itcat:Computer , itcat:Laptop ;
 ##      schema:isRelatedTo		itcat: ;
-        foaf:page 				"" ;
+##      foaf:page 				itcat: ;
         itcat:inCategory		itcat:InfrastructureServices , itcat:OperationalCatalog .
 
 
@@ -474,7 +474,7 @@ itcat:Moodle  a        schema:Service ;
         itcat:hasPriority		itcat:HighPriority ;
         itcat:usableWith  		itcat:Computer , itcat:Laptop ;
         schema:isRelatedTo		itcat:IDM , itcat:WebHosting , itcat:CentralMail;
-        foaf:page 				"" ;
+##      foaf:page 				itcat: ;
         itcat:inCategory		itcat:TeachingPlatforms , itcat:InformationServices , itcat:BusinessCatalog .
 
 
@@ -501,7 +501,7 @@ itcat:NTP  a        schema:Service ;
         itcat:hasPriority		itcat:LowPriority ;
         itcat:usableWith  		itcat:Computer , itcat:Laptop ;
 ##      schema:isRelatedTo		itcat: ;
-        foaf:page 				"" ;
+##      foaf:page 				itcat: ;
         itcat:inCategory		itcat:InfrastructureServices , itcat:OperationalCatalog.
 
 
@@ -528,7 +528,7 @@ itcat:OnlineShop  a        schema:Service ;
         itcat:hasPriority		itcat:MediumPriority ;
         itcat:usableWith  		itcat:Computer , itcat:Laptop , itcat:Smartphone , itcat:Tablet ;
         schema:isRelatedTo		itcat:WebHosting ;
-        foaf:page 				"" ;
+##      foaf:page 				itcat: ;
         itcat:inCategory		itcat:MiscServices , itcat:PublicCatalog .
 
 
@@ -555,7 +555,7 @@ itcat:OPAC  a        schema:Service ;
         itcat:hasPriority		itcat:HighPriority ;
         itcat:usableWith  		itcat:Computer , itcat:Laptop , itcat:Smartphone , itcat:Tablet ;
         schema:isRelatedTo		itcat:CentralMail , itcat:WebHosting ;
-        foaf:page 				"http://www.fh-brandenburg.de/bibopac.html" , "https://www.oclc.org/deutschland/de_de.html";
+        foaf:page 				itcat:OPAC_DocWP001 , itcat:OPAC_DocWP002 ;
         itcat:inCategory		itcat:LibraryServices , itcat:InformationServices , itcat:PublicCatalog .
 
 
@@ -582,7 +582,7 @@ itcat:QISFSV  a        schema:Service ;
         itcat:hasPriority		itcat:HighPriority ;
         itcat:usableWith  		itcat:Computer , itcat:Laptop ;
         schema:isRelatedTo		itcat:IDM , itcat:WebHosting ;
-        foaf:page 				"https://www.his.de/produkte/gxqis/finanz-und-sachmittelverwaltung.html" ;
+        foaf:page 				itcat:QISFSV_DocWP001 ;
         itcat:inCategory		itcat:HISServices , itcat:BusinessCatalog .
         
 
@@ -609,7 +609,7 @@ itcat:QISPOS  a        schema:Service ;
         itcat:hasPriority		itcat:HighPriority ;
         itcat:usableWith  		itcat:Computer , itcat:Laptop , itcat:Smartphone ;
         schema:isRelatedTo		itcat:IDM , itcat:HISQIS , itcat:WebHosting ;
-        foaf:page 				"http://www.fh-brandenburg.de/qispos.html" ;
+        foaf:page 				itcat:QISPOS_DocWP001 ;
         itcat:inCategory		itcat:HISServices , itcat:BusinessCatalog .
 
 
@@ -636,7 +636,7 @@ itcat:TravelMgt  a        schema:Service ;
         itcat:hasPriority		itcat:MediumPriority ;
         itcat:usableWith  		itcat:Computer , itcat:Laptop ;
         schema:isRelatedTo		itcat:WebHosting ;
-        foaf:page 				"" ;
+##      foaf:page 				itcat: ;
         itcat:inCategory		itcat:MiscServices , itcat:BusinessCatalog .
 
 
@@ -663,7 +663,7 @@ itcat:DSFWSamba  a        schema:Service ;
         itcat:hasPriority		itcat:MediumPriority ;
         itcat:usableWith  		itcat:WindowsPC ;
         schema:isRelatedTo		itcat:IDM ;
-        foaf:page 				"http://www.fh-brandenburg.de/laufwerksbezeichnung.html" ;
+        foaf:page 				itcat:DSFWSamba_DocWP001 ;
         itcat:inCategory		itcat:InfrastructureServices , itcat:OperationalCatalog .
 
 
@@ -690,7 +690,7 @@ itcat:ClassSchedule  a        schema:Service ;
         itcat:hasPriority		itcat:MediumPriority ;
         itcat:usableWith  		itcat:Computer , itcat:Laptop , itcat:Smartphone ;
         schema:isRelatedTo		itcat:WebHosting ;
-        foaf:page 				"" ;
+##      foaf:page 				itcat: ;
         itcat:inCategory		itcat:InformationServices , itcat:BusinessCatalog .
         
      
@@ -717,7 +717,7 @@ itcat:VolumeTransfer  a        schema:Service ;
         itcat:hasPriority		itcat:MediumPriority ;
         itcat:usableWith  		itcat:Computer , itcat:Laptop ;
         schema:isRelatedTo		itcat:IDM , itcat:WebHosting ;
-        foaf:page 				"https://www.fh-brandenburg.de/exchange?tans=1" ;
+        foaf:page 				itcat:VolumeTransfer_DocWP001 ;
         itcat:inCategory		itcat:CommunicationServices , itcat:BusinessCatalog .
 
 
@@ -745,7 +745,7 @@ itcat:VPNService  a        schema:Service ;
         itcat:hasPriority		itcat:HighPriority ;
         itcat:usableWith  		itcat:Computer , itcat:Laptop ;
         schema:isRelatedTo		itcat:IDM , itcat:WebHosting ;
-        foaf:page 				"" ;
+##      foaf:page 				itcat: ;
         itcat:inCategory		itcat:NetworkServices , itcat:BusinessCatalog .
         
 
@@ -772,7 +772,7 @@ itcat:WebMail  a        schema:Service ;
         itcat:hasPriority		itcat:HighPriority ;
         itcat:usableWith  		itcat:Computer , itcat:Laptop , itcat:Smartphone , itcat:Tablet ;
         schema:isRelatedTo		itcat:CentralMail , itcat:IDM ;
-        foaf:page 				"https://webmail.fh-brandenburg.de/help/de/advanced/zimbra_user_help.htm" ;
+        foaf:page 				itcat:WebMail_DocWP001 ;
         itcat:inCategory		itcat:CommunicationServices , itcat:BusinessCatalog .
 
 
@@ -799,7 +799,7 @@ itcat:GroupWareADM  a        schema:Service ;
         itcat:hasPriority		itcat:HighPriority ;
         itcat:usableWith  		itcat:Computer , itcat:Laptop , itcat:Smartphone , itcat:Tablet ;
         schema:isRelatedTo		itcat:CentralMail , itcat:IDM ;
-        foaf:page 				"https://webmail.fh-brandenburg.de/help/de/advanced/zimbra_user_help.htm" ;
+        foaf:page 				itcat:GroupWareADM_DocWP001 ;
         itcat:inCategory		itcat:CommunicationServices , itcat:BusinessCatalog .
 
 
@@ -826,7 +826,7 @@ itcat:WLAN  a        schema:Service ;
         itcat:hasPriority		itcat:HighPriority ;
         itcat:usableWith  		itcat:Computer , itcat:Laptop , itcat:Smartphone , itcat:Tablet ;
         schema:isRelatedTo		itcat:IDM , itcat:WebHosting ;
-        foaf:page 				"http://www.fh-brandenburg.de/uploads/media/Einrichten_des_fhb-wlan.pdf" ;
+        foaf:page 				itcat:WLAN_DocDL001 ;
         itcat:inCategory		itcat:NetworkServices , itcat:InfrastructureCatalog .
 
 
@@ -853,7 +853,7 @@ itcat:ProxyServer  a        schema:Service ;
         itcat:hasPriority		itcat:LowPriority ;
         itcat:usableWith  		itcat:Computer , itcat:Laptop ;
         schema:isRelatedTo		itcat:WebHosting ;
-        foaf:page 				"" ;
+##      foaf:page 				itcat: ;
         itcat:inCategory		itcat:NetworkServices , itcat:InfrastructureCatalog .
 
 
@@ -880,7 +880,7 @@ itcat:VirtualMachine  a        schema:Service ;
         itcat:hasPriority		itcat:MediumPriority ;
         itcat:usableWith  		itcat:Computer , itcat:Laptop ;
         schema:isRelatedTo		itcat:IDM , itcat:WebHosting ;
-        foaf:page 				"http://fbwcms.fh-brandenburg.de/wirtschaft/vmantragagb" ;
+        foaf:page 				itcat:VirtualMachine_DocWP001 ;
         itcat:inCategory		itcat:InfrastructureServices , itcat:BusinessCatalog .
 
 
@@ -907,7 +907,7 @@ itcat:WebHosting  a        schema:Service ;
         itcat:hasPriority		itcat:HighPriority ;
 ##      itcat:usableWith  		itcat: ;
 ##      schema:isRelatedTo		itcat: ;
-        foaf:page 				"" ;
+##      foaf:page 				itcat: ;
         itcat:inCategory		itcat:InfrastructureServices , itcat:OperationalCatalog .
 
 
@@ -934,7 +934,7 @@ itcat:WebSite  a        schema:Service ;
         itcat:hasPriority		itcat:HighPriority ;
         itcat:usableWith  		itcat:Computer , itcat:Laptop , itcat:Smartphone , itcat:Tablet ;
         schema:isRelatedTo		itcat:WebHosting ;
-        foaf:page 				"http://www.fh-brandenburg.de" , "http://fbwcms.fh-brandenburg.de" , "http://informatik.fh-brandenburg.de/" ;
+        foaf:page 				itcat:WebSite_DocWP001 , itcat:WebSite_DocWP002 , itcat:WebSite_DocWP003 ;
         itcat:inCategory		itcat:InformationServices , itcat:PublicCatalog .
 
 
@@ -1257,3 +1257,98 @@ itcat:TRanglack	a				foaf:Person ;
 		foaf:mbox				"thomas.ranglack(at)th-brandenburg.de" ;
 		foaf:phone 				"+49 3381 355 - 445" .
 		
+
+
+#################################################################
+#
+#    Documents
+#
+#################################################################
+        
+
+itcat:CloudserviceFBW_DocDL001 a foaf:Document ;
+		schema:url "http://fbwcms.fh-brandenburg.de/sixcms/media.php/1127/filr1_qs_mobile.pdf" .
+		
+itcat:CloudserviceFBW_DocWP001 a foaf:Document ;
+		schema:url "http://itworks.fh-brandenburg.de/" .
+
+itcat:Eduroam_DocWP001 a foaf:Document  ;
+		schema:url "https://www.dfn.de/dienstleistungen/dfnroaming/" .
+		
+itcat:Eduroam_DocWP001 a foaf:Document ;
+		schema:url "https://edit.dfn.de/CAT-1.0.4/web/" .
+
+itcat:CentralMail_DocWP001 a foaf:Document ;
+		schema:url "http://www.fh-brandenburg.de/email.html" .
+
+itcat:Fernleihe_DocWP001 a foaf:Document ;
+		schema:url "http://portal.kobv.de/?plv=2" .
+
+itcat:DeviceRental_DocDL001 a foaf:Document ;
+        schema:url "https://moodle.fh-brandenburg.de/brokenfile.php#/947/user/draft/799894076/MLP%20Haftpflicht%202013.pdf" .
+
+itcat:DeviceRental_DocWP001 a foaf:Document ;
+		schema:url "https://moodle.fh-brandenburg.de/mod/resource/view.php?id=44403" .
+
+itcat:HISInOneApp_DocWP001 a foaf:Document ;
+		schema:url "http://www.fh-brandenburg.de/bewerbung-portale.html" .
+
+itcat:HISInOneApp_DocWP002 a foaf:Document ;
+		schema:url "http://www.fh-brandenburg.de/sts-bewerbung.html" .
+
+itcat:HISQIS_DocWP001 a foaf:Document ;
+        schema:url "http://www.fh-brandenburg.de/online-portal.html" .
+
+itcat:IDM_DocWP001 a foaf:Document ;
+        schema:url "http://www.fh-brandenburg.de/2261.html" .
+
+itcat:IDM_DocWP002 a foaf:Document ;
+		schema:url "https://www.idm.fh-brandenburg.de/IDMProv/portal/cn/GuestContainerPage/Passwort_vergessen" .
+
+itcat:InfoDisplay_DocWP001 a foaf:Document ;
+        schema:url "http://www.buergerservicenetz.de/" .
+        
+itcat:EduDrive_DocWP001 a foaf:Document ;        
+        schema:url "https://fhs-w8.fh-brandenburg.de/NetStorage/" .
+       
+itcat:MapOnGo_DocWP001 a foaf:Document ;        
+        schema:url "http://www.fh-brandenburg.de/bibgebaeudeplan.html" .
+        
+itcat:OPAC_DocWP001 a foaf:Document ;      
+        schema:url "http://www.fh-brandenburg.de/bibopac.html" . 
+        
+itcat:OPAC_DocWP002 a foaf:Document ;           
+        schema:url "https://www.oclc.org/deutschland/de_de.html" .
+              
+itcat:QISFSV_DocWP001 a foaf:Document ;
+		schema:url "https://www.his.de/produkte/gxqis/finanz-und-sachmittelverwaltung.html" .
+		
+itcat:QISPOS_DocWP001 a foaf:Document ;
+        schema:url "http://www.fh-brandenburg.de/qispos.html" .
+
+itcat:DSFWSamba_DocWP001 a foaf:Document ;
+        schema:url "http://www.fh-brandenburg.de/laufwerksbezeichnung.html" .
+
+itcat:VolumeTransfer_DocWP001 a foaf:Document ;
+        schema:url "https://www.fh-brandenburg.de/exchange?tans=1" .
+
+itcat:WebMail_DocWP001 a foaf:Document ;
+        schema:url "https://webmail.fh-brandenburg.de/help/de/advanced/zimbra_user_help.htm" .
+
+itcat:GroupWareADM_DocWP001 owl:sameAs itcat:WebMail_DocWP001 .
+
+itcat:WLAN_DocDL001 a foaf:Document ;
+        schema:url "http://www.fh-brandenburg.de/uploads/media/Einrichten_des_fhb-wlan.pdf" .
+
+itcat:VirtualMachine_DocWP001 a foaf:Document ;
+        schema:url "http://fbwcms.fh-brandenburg.de/wirtschaft/vmantragagb" .
+
+itcat:WebSite_DocWP001 a foaf:Document ;
+        schema:url "http://www.fh-brandenburg.de" . 
+
+itcat:WebSite_DocWP002 a foaf:Document ;
+		schema:url "http://fbwcms.fh-brandenburg.de" .
+
+itcat:WebSite_DocWP003 a foaf:Document ;
+		schema:url "http://informatik.fh-brandenburg.de/" .
+
