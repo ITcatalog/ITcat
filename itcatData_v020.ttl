@@ -1066,7 +1066,7 @@ itcat:LSCS		a				foaf:Organization ;
 		skos:prefLabel			"Labordienst FBI"@de ;
 		skos:prefLabel			"lab service DCS"@en ;
 		dcterms:title			"Labordienst des Fachbereichs Informatik und Medien"@de ;
-		schema:isPartOf			itcat:DBM .
+		schema:isPartOf			itcat:DCS .
 
 		
 itcat:DTE		a				foaf:Organization ;
@@ -1112,7 +1112,7 @@ itcat:Library	a				foaf:Organization ;
 		
 
 itcat:RegOffice	a				foaf:Organization ;
-		skos:prefLabel			"Studierendesekretariat"@de ;
+		skos:prefLabel			"Studierendensekretariat"@de ;
 		skos:prefLabel			"registrar's office"@en ;
 		dcterms:title			"Studierendensekretariat der TH Brandenburg"@de ;
 		schema:isPartOf			itcat:THB .
