@@ -8,7 +8,6 @@
 @prefix skos:  <http://www.w3.org/2004/02/skos/core#> . 
 @prefix itcat: <http://th-brandenburg.de/ns/itcat#> . 
 @prefix usdlagreement: <http://www.linked-usdl.org/ns/usdl-agreement#> . 
-@prefix dc1:   <http://purl.org/dc/terms/> . #nur temporär
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 
@@ -32,8 +31,8 @@ itcat:  a        schema:Service ;
         rdfs:comment			"" ;
         #Data Properties
         schema:url              "" ;
-        itcat:status            "" ;
         #Object Properties
+        itcat:hasStage          itcat: ;
         itcat:user				itcat: ;
         schema:customer			itcat: ;
         schema:provider			itcat: ;

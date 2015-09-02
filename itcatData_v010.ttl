@@ -1,20 +1,20 @@
-@prefix dc:    <http://purl.org/dc/elements/1.1/> .
-@prefix rdfa:  <http://www.w3.org/ns/rdfa#> .
-@prefix prov:  <http://www.w3.org/ns/prov#> .
-@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
-@prefix dc11:  <http://purl.org/dc/elements/1.1/> .
-@prefix qb:    <http://purl.org/linked-data/cube#> .
-@prefix org:   <http://www.w3.org/ns/org#> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix schema: <https://schema.org#> .
-@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix dcat:  <http://www.w3.org/ns/dcat#> .
-@prefix dc1:   <http://purl.org/dc/terms/> .
-@prefix owl:   <http://www.w3.org/2002/07/owl#> .
-@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
-@prefix itcat: <http://th-brandenburg.de/ns/itcat#> .
-@prefix usdlagreement: <http://www.linked-usdl.org/ns/usdl-agreement#> .
+@prefix dc:    <http://purl.org/dc/elements/1.1/> . # wird nicht verwendet
+@prefix rdfa:  <http://www.w3.org/ns/rdfa#> . # wird nicht verwendet
+@prefix prov:  <http://www.w3.org/ns/prov#> . # wird nicht verwendet
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> . # wird nicht verwendet
+@prefix dc11:  <http://purl.org/dc/elements/1.1/> . # wird nicht verwendet
+@prefix qb:    <http://purl.org/linked-data/cube#> . # wird nicht verwendet
+@prefix org:   <http://www.w3.org/ns/org#> . # wird nicht verwendet
+@prefix dcterms: <http://purl.org/dc/terms/> . # wird nicht verwendet
+@prefix schema: <https://schema.org#> . # richtig wäre <http://schema.org/>
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> . # wird nicht verwendet
+@prefix dcat:  <http://www.w3.org/ns/dcat#> . # wird nicht verwendet
+@prefix dc1:   <http://purl.org/dc/terms/> . # ok
+@prefix owl:   <http://www.w3.org/2002/07/owl#> . # wird nicht verwendet
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> . # wird nicht verwendet
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> . # ok
+@prefix itcat: <http://th-brandenburg.de/ns/itcat#> . # ok
+@prefix usdlagreement: <http://www.linked-usdl.org/ns/usdl-agreement#> . # ok
 
 itcat:HISQIS  a                 schema:Service ;
         dc1:description         "Das HISQIS ist die Plattform für Studenten der Fachhochschule Brandenburg, welche folgende Dienste bereitstellt: Allgemeine Verwaltung: Kontaktdaten des Studierenden Studium Verwaltung: Studienbescheinigung, Gebühreninfos und Studentenstatus Prüfungsverwaltung: Notenspiegel Authentifiziert wird sich hierbei mit den IDM-Login Daten." ;

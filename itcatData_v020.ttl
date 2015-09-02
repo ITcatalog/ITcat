@@ -8,7 +8,6 @@
 @prefix skos:  <http://www.w3.org/2004/02/skos/core#> . 
 @prefix itcat: <http://th-brandenburg.de/ns/itcat#> . 
 @prefix usdlagreement: <http://www.linked-usdl.org/ns/usdl-agreement#> . 
-@prefix dc1:   <http://purl.org/dc/terms/> . #nur temporär
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 
@@ -32,8 +31,8 @@ itcat:BSCW  a                   schema:Service ;
         rdfs:comment			"" ;
         #Data Properties
         schema:url              "http://bscw.fh-brandenburg.de" ;
-        itcat:hasStage          itcat:Operation ;
         #Object Properties
+        itcat:hasStage          itcat:Operation ;
         itcat:user				itcat:Staff , itcat:Students ;
         schema:customer			itcat:DBM ;
         schema:provider			itcat:TLSO ;
@@ -59,8 +58,8 @@ itcat:CloudserviceFBW  a        schema:Service ;
         rdfs:comment			"" ;
         #Data Properties
         schema:url              "https://cloud.fh-brandenburg.de" ;
-        itcat:hasStage           itcat:Operation ;
         #Object Properties
+        itcat:hasStage           itcat:Operation ;
         itcat:user				itcat:StaffDBM , itcat:StaffADM ;
         schema:customer			itcat:DBM ;
         schema:provider			itcat:TLSO ;
@@ -86,8 +85,8 @@ itcat:Datensicherung  a        schema:Service ;
         rdfs:comment			"" ;
         #Data Properties
         schema:url              "" ;
-        itcat:hasStage          itcat:Operation ;
         #Object Properties
+        itcat:hasStage          itcat:Operation ;
         itcat:user				itcat:Staff ;
         schema:customer			itcat:THB ;
         schema:provider			itcat:DataCenter , itcat:TLSO ;
@@ -113,8 +112,8 @@ itcat:DBIS  a        schema:Service ;
         rdfs:comment			"" ;
         #Data Properties
         schema:url              "http://rzblx10.uni-regensburg.de/dbinfo/dbliste.php?bib_id=fhbrb&colors=31&ocolors=40&lett=a" ;
-        itcat:hasStage          itcat:Operation ;
         #Object Properties
+        itcat:hasStage          itcat:Operation ;
         itcat:user				itcat:Students , itcat:Staff , itcat:ExtWorkers ;
         schema:customer			itcat:Library ;
         schema:provider			itcat:BRZUR ;
@@ -140,8 +139,8 @@ itcat:Eduroam  a        schema:Service ;
         rdfs:comment			"" ;
         #Data Properties
         schema:url              "http://www.fh-brandenburg.de/eduroam.html" ;
-        itcat:hasStage          itcat:Operation ;
         #Object Properties
+        itcat:hasStage          itcat:Operation ;
         itcat:user				itcat:Staff , itcat:Students , itcat:ExtWorkers ;
         schema:customer			itcat:THB ;
         schema:provider			itcat:DFN ;
@@ -167,8 +166,8 @@ itcat:CentralMail  a        schema:Service ;
         rdfs:comment			"" ;
         #Data Properties
         schema:url              "http://www.fh-brandenburg.de/email2.html" ;
-        itcat:hasStage          itcat:Operation ;
         #Object Properties
+        itcat:hasStage          itcat:Operation ;
         itcat:user				itcat:TLSO , itcat:DataCenter ;
         schema:customer			itcat:THB ;
         schema:provider			itcat:DataCenter ;
@@ -194,8 +193,8 @@ itcat:EZB  a        schema:Service ;
         rdfs:comment			"" ;
         #Data Properties
         schema:url              "http://rzblx1.uni-regensburg.de/ezeit/" ;
-        itcat:hasStage          itcat:Operation ;
         #Object Properties
+        itcat:hasStage          itcat:Operation ;
         itcat:user				itcat:Students , itcat:Staff , itcat:ExtWorkers ;
         schema:customer			itcat:Library ;
         schema:provider			itcat:BRZUR ;
@@ -221,8 +220,8 @@ itcat:Fernleihe  a        schema:Service ;
         rdfs:comment			"" ;
         #Data Properties
         schema:url              "https://fh-brandenburg.de/bibfernleihe.3.html" ;
-        itcat:hasStage          itcat:Operation ;
         #Object Properties
+        itcat:hasStage          itcat:Operation ;
         itcat:user				itcat:Students , itcat:Staff , itcat:ExtWorkers ;
         schema:customer			itcat:Library ;
         schema:provider			itcat:KOBV ;
@@ -248,8 +247,8 @@ itcat:DeviceRental  a        schema:Service ;
         rdfs:comment			"" ;
         #Data Properties
         schema:url              "https://moodle.fh-brandenburg.de/course/view.php?id=199" ;
-        itcat:hasStage          itcat:Operation ;
         #Object Properties
+        itcat:hasStage          itcat:Operation ;
         itcat:user				itcat:Students ;
         schema:customer			itcat:THB ;
         schema:provider			itcat:DCS ;
@@ -275,8 +274,8 @@ itcat:HISinOneAPP  a        schema:Service ;
         rdfs:comment			"" ;
         #Data Properties
         schema:url              "https://his1-ws.fh-brandenburg.de/qisserver/pages/cs/sys/portal/hisinoneStartPage.faces" ;
-        itcat:hasStage          itcat:Implementation ;
         #Object Properties
+        itcat:hasStage          itcat:Implementation ;
         itcat:user				itcat:Enrollees ;
         schema:customer			itcat:RegOffice ;
         schema:provider			itcat:DataCenter , itcat:RegOffice ;
@@ -302,8 +301,8 @@ itcat:HISQIS  a        schema:Service ;
         rdfs:comment			"Dieser Dienst wird baldmöglichst vom HISinOne-Modul EXA abgelöst."@de ;
         #Data Properties
         schema:url              "https://hisqis.fh-brandenburg.de/qisserver/rds?state=user&type=0" ;
-        itcat:hasStage          itcat:InRelief ;
         #Object Properties
+        itcat:hasStage          itcat:InRelief ;
         itcat:user				itcat:Students ;
         schema:customer			itcat:RegOffice ;
         schema:provider			itcat:DataCenter , itcat:RegOffice ;
@@ -329,8 +328,8 @@ itcat:IDM  a        schema:Service ;
         rdfs:comment			"" ;
         #Data Properties
         schema:url              "https://www.idm.fh-brandenburg.de/IDMProv/jsps/login/Login.jsp" ;
-        itcat:hasStage          itcat:Operation ;
         #Object Properties
+        itcat:hasStage          itcat:Operation ;
         itcat:user				itcat:Staff , itcat:Students , itcat:ExtWorkers ;
         schema:customer			itcat:THB ;
         schema:provider			itcat:DataCenter ;
@@ -356,8 +355,8 @@ itcat:InfoDisplay  a        schema:Service ;
         rdfs:comment			"" ;
         #Data Properties
         schema:url              "http://www.bsn-infodisplay.de/mobil/fhbfbwi" ;
-        itcat:hasStage          itcat:Operation ;
         #Object Properties
+        itcat:hasStage          itcat:Operation ;
         itcat:user				itcat:Public , itcat:Students , itcat:Staff ;
         schema:customer			itcat:THB ;
         schema:provider			itcat:BSNeV ;
@@ -383,8 +382,8 @@ itcat:EduDrive  a        schema:Service ;
         rdfs:comment			"" ;
         #Data Properties
         schema:url              "https://fhs-w7.fh-brandenburg.de/lehre/" ;
-        itcat:hasStage          itcat:Operation ;
         #Object Properties
+        itcat:hasStage          itcat:Operation ;
         itcat:user				itcat:Staff , itcat:Students ;
         schema:customer			itcat:DBM ;
         schema:provider			itcat:TLSO ;
@@ -410,8 +409,8 @@ itcat:MapOnGo  a        schema:Service ;
         rdfs:comment			"" ;
         #Data Properties
         schema:url              "http://fh-brandenburg.mapongo.de/viewer?language=de&project_id=1#" ;
-        itcat:hasStage          itcat:Operation ;
         #Object Properties
+        itcat:hasStage          itcat:Operation ;
         itcat:user				itcat:Students , itcat:Staff ;
         schema:customer			itcat:Library ;
         schema:provider			itcat:TLSO ;
@@ -437,8 +436,8 @@ itcat:Monitoring  a        schema:Service ;
         rdfs:comment			"" ;
         #Data Properties
         schema:url              "https://www.nagios.org/" ;
-        itcat:hasStage          itcat:Operation ;
         #Object Properties
+        itcat:hasStage          itcat:Operation ;
         itcat:user				itcat:DataCenter ;
         schema:customer			itcat:THB ;
         schema:provider			itcat:DataCenter ;
@@ -464,8 +463,8 @@ itcat:Moodle  a        schema:Service ;
         rdfs:comment			"" ;
         #Data Properties
         schema:url              "http://www.fh-brandenburg.de/moodle" ;
-        itcat:hasStage          itcat:Operation ;
         #Object Properties
+        itcat:hasStage          itcat:Operation ;
         itcat:user				itcat:Students , itcat:Staff , itcat:ExtWorkers ;
         schema:customer			itcat:THB ;
         schema:provider			itcat:DataCenter ;
@@ -491,8 +490,8 @@ itcat:NTP  a        schema:Service ;
         rdfs:comment			"" ;
         #Data Properties
         schema:url              "https://www.fh-brandenburg.de/zeitsynchronisation.html" ;
-        itcat:hasStage          itcat:Operation ;
         #Object Properties
+        itcat:hasStage          itcat:Operation ;
         itcat:user				itcat:TLSO ;
         schema:customer			itcat:THB ;
         schema:provider			itcat:TUBerlin , itcat:UniStuttgart ;
@@ -518,8 +517,8 @@ itcat:OnlineShop  a        schema:Service ;
         rdfs:comment			"" ;
         #Data Properties
         schema:url              "http://fh-brandenburg.spreadshirt.de/" ;
-        itcat:hasStage          itcat:Operation ;
         #Object Properties
+        itcat:hasStage          itcat:Operation ;
         itcat:user				itcat:Public , itcat:Staff , itcat:Students ;
         schema:customer			itcat:THB ;
         schema:provider			itcat:SpreadShirt ;
@@ -545,8 +544,8 @@ itcat:OPAC  a        schema:Service ;
         rdfs:comment			"" ;
         #Data Properties
         schema:url              "https://opac.fh-brandenburg.de" ;
-        itcat:hasStage          itcat:Operation ;
         #Object Properties
+        itcat:hasStage          itcat:Operation ;
         itcat:user				itcat:Students , itcat:Staff , itcat:Public ;
         schema:customer			itcat:Library ;
         schema:provider			itcat:OCLC ;
@@ -572,8 +571,8 @@ itcat:QISFSV  a        schema:Service ;
         rdfs:comment			"" ;
         #Data Properties
         schema:url              "https://qisfsv.fh-brandenburg.de/qisserver/rds?state=user&type=0" ;
-        itcat:hasStage          itcat:Operation ;
         #Object Properties
+        itcat:hasStage          itcat:Operation ;
         itcat:user				itcat:StaffADM ;
         schema:customer			itcat:THB ;
         schema:provider			itcat:DataCenter ;
@@ -599,8 +598,8 @@ itcat:QISPOS  a        schema:Service ;
         rdfs:comment			"Dieser Dienst wird baldmöglichst vom HISinOne-Modul EXA abgelöst." ;
         #Data Properties
         schema:url              "https://hisqis.fh-brandenburg.de/qisserver/rds?state=user&type=0" ;
-        itcat:hasStage          itcat:InRelief ;
         #Object Properties
+        itcat:hasStage          itcat:InRelief ;
         itcat:user				itcat:Staff , itcat:ExtWorkers ;
         schema:customer			itcat:THB ;
         schema:provider			itcat:DataCenter ;
@@ -626,8 +625,8 @@ itcat:TravelMgt  a        schema:Service ;
         rdfs:comment			"" ;
         #Data Properties
         schema:url              "http://www.fh-brandenburg.de/2898.html?&MP=39-304" ;
-        itcat:hasStage          itcat:Operation ;
         #Object Properties
+        itcat:hasStage          itcat:Operation ;
         itcat:user				itcat:Staff , itcat:Students , itcat:ExtWorkers ;
         schema:customer			itcat:THB ;
         schema:provider			itcat:StaffADM ;
@@ -653,8 +652,8 @@ itcat:DSFWSamba  a        schema:Service ;
         rdfs:comment			"" ;
         #Data Properties
         schema:url              "http://www.fh-brandenburg.de/samba-faq.html" ;
-        itcat:hasStage          itcat:Operation ;
         #Object Properties
+        itcat:hasStage          itcat:Operation ;
         itcat:user				itcat:Students , itcat:Staff , itcat:ExtWorkers ;
         schema:customer			itcat:THB ;
         schema:provider			itcat:DataCenter ;
@@ -680,8 +679,8 @@ itcat:ClassSchedule  a        schema:Service ;
         rdfs:comment			"" ;
         #Data Properties
         schema:url              "http://zeus.fh-brandenburg.de/Stundenplan/Plan.htm" ;
-        itcat:hasStage          itcat:InRelief ;
         #Object Properties
+        itcat:hasStage          itcat:InRelief ;
         itcat:user				itcat:Students , itcat:Staff , itcat:ExtWorkers ;
         schema:customer			itcat:DCS ;
         schema:provider			itcat:LSCS ;
@@ -707,8 +706,8 @@ itcat:VolumeTransfer  a        schema:Service ;
         rdfs:comment			"" ;
         #Data Properties
         schema:url              "https://www.fh-brandenburg.de/exchange" ;
-        itcat:hasStage          itcat:Operation ;
         #Object Properties
+        itcat:hasStage          itcat:Operation ;
         itcat:user				itcat:Staff , itcat:Students , itcat:ExtWorkers , itcat:Public ;
         schema:customer			itcat:THB ;
         schema:provider			itcat:DataCenter ;
@@ -735,8 +734,8 @@ itcat:VPNService  a        schema:Service ;
         rdfs:comment			"" ;
         #Data Properties
         schema:url              "http://www.fh-brandenburg.de/vpnanleitung.html" ;
-        itcat:hasStage          itcat:Operation ;
         #Object Properties
+        itcat:hasStage          itcat:Operation ;
         itcat:user				itcat:Students , itcat:Staff , itcat:ExtWorkers ;
         schema:customer			itcat:THB ;
         schema:provider			itcat:DataCenter ;
@@ -762,8 +761,8 @@ itcat:WebMail  a        schema:Service ;
         rdfs:comment			"" ;
         #Data Properties
         schema:url              "https://webmail.fh-brandenburg.de/" ;
-        itcat:hasStage          itcat:Operation ;
         #Object Properties
+        itcat:hasStage          itcat:Operation ;
         itcat:user				itcat:Staff , itcat:Students , itcat:ExtWorkers ;
         schema:customer			itcat:THB ;
         schema:provider			itcat:DataCenter ;
@@ -789,8 +788,8 @@ itcat:GroupWareADM  a        schema:Service ;
         rdfs:comment			"" ;
         #Data Properties
         schema:url              "https://zimbra.fh-brandenburg.de/" ;
-        itcat:hasStage          itcat:Operation ;
         #Object Properties
+        itcat:hasStage          itcat:Operation ;
         itcat:user				itcat:StaffADM ;
         schema:customer			itcat:THB ;
         schema:provider			itcat:DataCenter ;
@@ -816,8 +815,8 @@ itcat:WLAN  a        schema:Service ;
         rdfs:comment			"" ;
         #Data Properties
         schema:url              "http://www.fh-brandenburg.de/1347.html" ;
-        itcat:hasStage          itcat:InRelief ;
         #Object Properties
+        itcat:hasStage          itcat:InRelief ;
         itcat:user				itcat:Students , itcat:Staff , itcat:ExtWorkers ;
         schema:customer			itcat:THB ;
         schema:provider			itcat:DataCenter ;
@@ -843,8 +842,8 @@ itcat:ProxyServer  a        schema:Service ;
         rdfs:comment			"" ;
         #Data Properties
         schema:url              "http://www.fh-brandenburg.de/proxies.html" ;
-        itcat:hasStage          itcat:Operation ;
         #Object Properties
+        itcat:hasStage          itcat:Operation ;
         itcat:user				itcat:Staff , itcat:Students ;
         schema:customer			itcat:THB ;
         schema:provider			itcat:DataCenter ;
@@ -870,8 +869,8 @@ itcat:VirtualMachine  a        schema:Service ;
         rdfs:comment			"" ;
         #Data Properties
         schema:url              "https://fbwcms.fh-brandenburg.de/wirtschaft/vmantrag" ;
-        itcat:hasStage          itcat:Operation ;
         #Object Properties
+        itcat:hasStage          itcat:Operation ;
         itcat:user				itcat:Staff ;
         schema:customer			itcat:DBM ;
         schema:provider			itcat:TLSO ;
@@ -897,8 +896,8 @@ itcat:WebHosting  a        schema:Service ;
         rdfs:comment			"" ;
         #Data Properties
         schema:url              "http://www.fh-brandenburg.de/www.html" ;
-        itcat:hasStage          itcat:Operation ;
         #Object Properties
+        itcat:hasStage          itcat:Operation ;
         itcat:user				itcat:THB , itcat:DataCenter , itcat:TLSO , itcat:LSCS , itcat:HISProject ;
         schema:customer			itcat:THB ;
         schema:provider			itcat:DFN ;
@@ -924,8 +923,8 @@ itcat:WebSite  a        schema:Service ;
         rdfs:comment			"" ;
         #Data Properties
         schema:url              "http://www.th-brandenburg.de" ;
-        itcat:hasStage          itcat:Implementation ;
         #Object Properties
+        itcat:hasStage          itcat:Implementation ;
         itcat:user				itcat:Public , itcat:Enrollees , itcat:Staff , itcat:Students ;
         schema:customer			itcat:THB ;
         schema:provider			itcat:DataCenter ;

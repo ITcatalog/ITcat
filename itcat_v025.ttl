@@ -17,11 +17,9 @@
 
 <http://th-brandenburg/ns/itcat#> rdf:type owl:Ontology ;
                                   
-                                  skos:prefLabel "ITCat Schema" ;
-                                  
-                                  rdfs:comment "Schema-Ontologie für den IT-Dienste-Katalog einer Organisation, die sowohl externe IT-Dienste nutzt, als auch eigene IT-Dienste bereitstellt. "@de ;
-                                  
-                                  owl:versionInfo "v 0.25 - im Vergleich zu v 0.2 ohne Kosten und ohne Service-Optionen (incl. der entsprechenden Object Properties) aber mit Rolle als weiterer Agent und Instanzen für Qualitative Values." .
+                                  skos:prefLabel "ITCat Schema" ;                                
+                                  rdfs:comment "Schema-Ontologie für den IT-Dienste-Katalog einer Organisation, die sowohl externe IT-Dienste nutzt, als auch eigene IT-Dienste bereitstellt. "@de ;                                  
+                                  owl:versionInfo "v 0.25 - im Vergleich zu v 0.2 ohne Kosten und ohne Service-Optionen (incl. der entsprechenden Object Properties) aber mit Rolle als weiterer Agent und Instanzen für Qualitative Values."@de .
 
 
 #################################################################
@@ -132,18 +130,6 @@ itcat:Utility rdf:type owl:Class ;
             skos:definition "Der Nutzen/die Funktion eines Dienstes stellt die Art der Leistung dar, die der IT-Dienst dem Nutzer bietet, z. B. Mails senden und empfangen, Kalender und Aufgaben verwalten, Lehrvideos bereitstellen, Dokumente austauschen."@de ;
             rdfs:comment "Der Nutzen/die Funktion eines Dienstes beantwortet die Frage: 'Was leistet der Dienst für den Nutzer?'"@de ;
             rdfs:comment "Der Nutzen kann in Form einer informellen Beschreibung, einer formalen (technischen) Spezifikation oder in Form eines juristischen Dokumentes (Vertrag) niedergelegt sein."@de .                           
-
-
-###  http://th-brandenburg/ns/itcat#UserAssetSupport
-
-itcat:UserAssetSupport rdf:type owl:Class ;
-			rdfs:subClassOf itcat:Utility ;
-			
-			skos:prefLabel "Unterstützung für Endgeräte"@de ;
-			skos:prefLabel "user asset support"@en ;
-			skos:definition "Dienstmerkmalsklasse zur Spezifikation der von einem Dienst unterstützten Endgeräte."@de ;
-			rdfs:comment "Diese Dienstmerkmalsklasse ist relevant für nutzerorientierte Dienste (Dienste für Fachanwender oder für externe Stakeholder). Es definiert, für welche Endgeräte der Dienst zugänglich sein soll."@de ;
-			rdfs:comment "Diese Dienstmerkmalsklasse wird in Verbindung mit der Object Property 'itcat:usableWith', die eine Unterproperty von 'itcat:hasUtility' ist, verwendet."@de .
 
 
 ###  http://th-brandenburg/ns/itcat#Warranty
@@ -312,6 +298,7 @@ foaf:page rdf:type owl:ObjectProperty ;
 			skos:prefLabel "hat Dokument"@de ;
 			skos:prefLabel "has page"@en ;
 			skos:definition "Objektrelation zwischen einer Ressource, z. B. einem IT-Dienst und einem Dokument, das Informationen für oder über diesen IT-Dienst enthält."@de ;
+			rdfs:range foaf:Document ;
 			owl:inverseOf foaf:topic .
 			
 
@@ -351,12 +338,11 @@ itcat:hasUtility rdf:type owl:ObjectProperty ;
 ###  http://th-brandenburg/ns/itcat#usableWith			
 
 itcat:usableWith rdf:type owl:ObjectProperty ;
-			rdfs:subPropertyOf itcat:hasUtility ;
 			skos:prefLabel "nutzbar mit"@de ;
 			skos:prefLabel "usable with"@en ;
 			skos:definition "Objektrelation zwischen einem IT-Dienst und der Dienstmerkmalsklasse 'Unterstützung für Endgeräte'."@de ;
 			rdfs:domain schema:Service ;
-			rdfs:range itcat:UserAssetSupport .			
+			rdfs:range itcat:ITAsset .			
 
 
 ###  http://th-brandenburg/ns/itcat#hasWarranty
