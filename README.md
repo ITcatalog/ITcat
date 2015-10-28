@@ -1,12 +1,3 @@
 # ITcat
-ITcat core ontology
 
-ITcat relies on a number of pre-existing vocabularies, namely:
-
-- SKOS
-- Dublin core (terms + type)
-- FOAF
-- Prov Ontology
-- Linked USDL
-- GoodRelations
-- schema.org
+[Technische Dokumentation](http://www.essepuntato.it/lode/lang=de/https://raw.githubusercontent.com/ITcatalog/ITcat/master/itcat_v025.rdf)
