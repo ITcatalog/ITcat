@@ -1,3 +1,3 @@
 # ITcat
 
-[Technische Dokumentation](http://www.essepuntato.it/lode/lang=de/https://raw.githubusercontent.com/ITcatalog/ITcat/master/Ontology/SchemaGraph.rdf)
+[Technische Dokumentation](http://www.essepuntato.it/lode/lang=de/https://raw.githubusercontent.com/ITcatalog/ITcat/master/Ontology/SchemaDataGraph.rdf)
