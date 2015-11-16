@@ -1,2971 +1,1367 @@
-@prefix : <http://www.semanticweb.org/owl/owlapi/turtle#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix prov:  <http://www.w3.org/ns/prov#> . 
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> . 
+@prefix dcterms: <http://purl.org/dc/terms/> . 
+@prefix schema: <https://schema.org/> . 
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> . 
+@prefix owl:   <http://www.w3.org/2002/07/owl#> . 
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> . 
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> . 
+@prefix itcat: <http://th-brandenburg.de/ns/itcat#> . 
+@prefix usdlagreement: <http://www.linked-usdl.org/ns/usdl-agreement#> . 
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix prov: <http://www.w3.org/ns/prov#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix itcat: <http://th-brandenburg.de/ns/itcat#> .
-@prefix schema: <https://schema.org/> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix usdlagreement: <http://www.linked-usdl.org/ns/usdl-agreement#> .
-@base <http://www.w3.org/2002/07/owl#> .
+
+
+#################################################################
+#
+#    IT-Dienste
+#
+#################################################################
+
+
+### BSCW Groupware
+
+itcat:BSCW  a                   schema:Service ;
+		#Annotation Properties
+		skos:prefLabel			"BSCW Groupware"@de ;
+		skos:prefLabel			"BSCW Groupware"@en ;
+		dcterms:title			"BSCW Groupware"@de ;
+		dcterms:abstract		"BSCW ist ein bewährtes Werkzeug für effiziente Kooperation, insbesondere für firmen- oder standortübergreifende Projekte."@de ;
+        dcterms:description     "BSCW ist ein Projekt- und Dokumentenmanagementsystem (Basic Support for Cooperative Work). Es wurde vor 20 Jahren vom Fraunhofer Institut FIT entwickelt. Inzwischen zeichnet die OrbiTeam Software GmbH & Co. KG für die Pflege, Weiterentwicklung und den Support des Systems verantwortlich. Der FB Wirtschaft hat eine Lizenz für Forschung und Lehre erworben und bietet die Nutzung auf einem eigenen Server an. BSCW ist das ideale Werkzeug für effiziente Kooperation, insbesondere für firmen- oder standortübergreifende Projekte. Es ermöglicht - ohne Softwareinstallation bei den Endbenutzern - die Zusammenarbeit von beliebig großen Benutzergruppen. Die Anmeldung erfolgt mit softwareeigenen Nutzerdaten, eine Intgration in des zentrale IDM ist nicht umgesetzt."@de ;
+        dcterms:subject         "" ;
+        rdfs:comment			"" ;
+        #Data Properties
+        schema:url              "http://bscw.fh-brandenburg.de" ;
+        #Object Properties
+        itcat:hasStage          itcat:Operation ;
+        itcat:user				itcat:Staff , itcat:Students ;
+        schema:customer			itcat:DBM ;
+        schema:provider			itcat:TLSO ;
+        itcat:supporter			itcat:MLangerwisch ;
+        itcat:hasCriticality	itcat:MediumCriticality ;
+        itcat:hasPriority		itcat:LowPriority ;
+        itcat:usableWith  		itcat:Smartphone , itcat:Laptop , itcat:Computer ;
+        schema:isRelatedTo		itcat:WebHosting ;
+##      foaf:page 				itcat: ;
+        itcat:inCategory		itcat:TeachingPlatforms , itcat:CommunicationServices , itcat:BusinessCatalog .
+         
+
+### Cloudservice FB Wirtschaft
+
+itcat:CloudserviceFBW  a        schema:Service ;
+		#Annotation Properties
+		skos:prefLabel			"Cloudservice des FBW"@de ;
+		skos:prefLabel			"Cloudservice DBM"@en ;
+		dcterms:title			"Cloudservice des Fachbereichs Wirtschaft"@de ;
+		dcterms:abstract		"Den Mitarbeiterinnen und Mítarbeitern des Fachbereichs Wirtschaft und der Verwaltung steht nunmehr auch ein Cloud-Service der Firma Novel zur Verfügung. Der Hersteller bewirbt diesen Dienst mit den Worten 'Ähnlich wie Dropbox. Sicher wie Fort Knox.'."@de ;
+        dcterms:description     "<p>Unseren Cloud-Service (Filr) erreichen Sie am besten mit einem Browser über die u. a. URL. Bitte loggen Sie sich dort mit Ihrem FHB-Account ein. Die Startseite zeigt nur den Mitarbeiterinnen und Mitarbeitern des Fachbereichs Wirtschaft das vom Novell-Client bekannte Home-Laufwerk, welches Sie als Arbeitsbereich nutzen können. Des Weiteren sehen Sie unter dem Menüpunkt Netzlaufwerke, die Ihnen zugewiesenen Laufwerke (z.B. Projekte, Lehre etc.).</p><p>Über die Weboberfläche unseres Cloud-Services können Sie sich zusätzlich einen Client für Ihren PC/MAC herunterladen. Dieser Client besitzt erweiterte Funktionalitäten, z.B. auch Synchronisationsmöglichkeiten, wie Sie sie vom iFolder her kennen. (Klicken Sie in der Webanwendung oben rechts auf Ihren Namen. Es öffnet sich ein Tooltip mit einem Link zum Download.) Für Smartphones und Tablets gibt es im Apple App Store bzw. Google Play Store eine kostenlose App mit dem Namen 'Filr'.</p>"@de ;
+        dcterms:subject         "" ;
+        rdfs:comment			"" ;
+        #Data Properties
+        schema:url              "https://cloud.fh-brandenburg.de" ;
+        #Object Properties
+        itcat:hasStage           itcat:Operation ;
+        itcat:user				itcat:StaffDBM , itcat:StaffADM ;
+        schema:customer			itcat:DBM ;
+        schema:provider			itcat:TLSO ;
+        itcat:supporter			itcat:TJacob ;
+        itcat:hasCriticality	itcat:MediumCriticality ;
+        itcat:hasPriority		itcat:LowPriority ;
+        itcat:usableWith  		itcat:Smartphone , itcat:Laptop , itcat:Computer ;
+        schema:isRelatedTo		itcat:WebHosting ;
+        foaf:page 				itcat:CloudserviceFBW_DocDL001 , itcat:CloudserviceFBW_DocWP001 ;
+        itcat:inCategory		itcat:MiscServices , itcat:NetworkServices , itcat:BusinessCatalog .
+        
+
+### Datensicherung
+
+itcat:Datensicherung  a        schema:Service ;
+		#Annotation Properties
+		skos:prefLabel			"Datensicherung"@de ;
+		skos:prefLabel			"backup service"@en ;
+		dcterms:title			"Backup- und Restoreservice der THB"@de ;
+		dcterms:abstract		""@de ;
+        dcterms:description     ""@de ;
+        dcterms:subject         "" ;
+        rdfs:comment			"" ;
+        #Data Properties
+        schema:url              "" ;
+        #Object Properties
+        itcat:hasStage          itcat:Operation ;
+        itcat:user				itcat:Staff ;
+        schema:customer			itcat:THB ;
+        schema:provider			itcat:DataCenter , itcat:TLSO ;
+        itcat:supporter			itcat:DataCenter ;
+        itcat:hasCriticality	itcat:MediumCriticality ;
+        itcat:hasPriority		itcat:HighPriority ;
+##      itcat:usableWith  		"" ;
+##      schema:isRelatedTo		itcat:Plattenstorage ;
+##      foaf:page 				itcat: ;
+        itcat:inCategory		itcat:InfrastructureServices , itcat:InfrastructureCatalog .
+
+
+### Datenbank-Infosystem
+
+itcat:DBIS  a        schema:Service ;
+		#Annotation Properties
+		skos:prefLabel			"Datenbank-Infosystem"@de ;
+		skos:prefLabel			"databased information system"@en ;
+		dcterms:title			"Datenbank-Infosystem der Universität Regensburg"@de ;
+		dcterms:abstract		"Das Datenbank-Infosystem (DBIS) ist ein kooperativer Service zur Nutzung wissenschaftlicher Datenbanken, der vom Rechenzentrum der Universitätsbibliothek Regensburg bereitgestellt wird."@de ;
+        dcterms:description     "<p>Das Datenbank-Infosystem (DBIS) wurde mit finanzieller Unterstützung des Bayerischen Staatsministeriums für Wissenschaft, Forschung und Kunst und der Deutschen Forschungsgemeinschaft (DFG) von der Universitätsbibliothek Regensburg entwickelt. Inzwischen wird das Datenbank-Infosystem als Nutzerservice in 299 Bibliotheken genutzt.</p><p> Momentan umfasst das Datenbank-Infosystem 11429 Einträge. Davon sind 4718 Datenbanken frei über das Internet verfügbar. In DBIS werden Datenbanken verzeichnet, deren Inhalte über eine Suchfunktionalität gezielt durchsucht werden können. Die Datenbanken werden nach Fächern sortiert angeboten. Daneben gibt es auch eine erweiterte Suche, in der unter anderem eine Stichwortsuche möglich ist oder nach Datenbanken mit geographischem Bezug gesucht werden kann.</p>"@de ;
+        dcterms:subject         "" ;
+        rdfs:comment			"" ;
+        #Data Properties
+        schema:url              "http://rzblx10.uni-regensburg.de/dbinfo/dbliste.php?bib_id=fhbrb&colors=31&ocolors=40&lett=a" ;
+        #Object Properties
+        itcat:hasStage          itcat:Operation ;
+        itcat:user				itcat:Students , itcat:Staff , itcat:ExtWorkers ;
+        schema:customer			itcat:Library ;
+        schema:provider			itcat:BRZUR ;
+        itcat:supporter			itcat:MHeinrich ;
+        itcat:hasCriticality	itcat:LowCriticality ;
+        itcat:hasPriority		itcat:HighPriority ;
+        itcat:usableWith  		itcat:Computer , itcat:Laptop , itcat:Smartphone , itcat:Tablet ;
+        schema:isRelatedTo		itcat:IDM , itcat:WebHosting ;
+##      foaf:page 				itcat: ;
+        itcat:inCategory		itcat:LibraryServices , itcat:InformationServices, itcat:BusinessCatalog .
+        
+ 
+### eduroam
+
+itcat:Eduroam  a        schema:Service ;
+		#Annotation Properties
+		skos:prefLabel			"eduroam"@de ;
+		skos:prefLabel			"eduroam"@en ;
+		dcterms:title			"eduroam - Internet über WLAN an wissenschaftlichen Einrichtungen weltweit"@de ;
+		dcterms:abstract		"eduroam ist ein weltweites WLAN, welches Mitgliedern von wissenschaftlichen Einrichtungen kostenlosen Zugang zum Internet ermöglicht. Die TH Brandenburg betreibt diesen Zugang in Zusammenarbeit mit dem DFN-Verein."@de ;
+        dcterms:description     "<p>eduroam ist ein weltweites WLAN, welches Mitgliedern von wissenschaftlichen Einrichtungen kostenlosen Zugang zum Internet ermöglicht. Die TH Brandenburg betreibt diesen Zugang in Zusammenarbeit mit dem DFN-Verein. Damit können Mitglieder der Hochschule bei angeschlossenen Einrichtungen im In- und Ausland WLAN-Dienste in Anspruch nehmen. Zum anderen haben Mitglieder anderer Einrichtungen, die unsere Hochschule besuchen, ihrerseits Zugriff auf das Web.</p> <p>Um den Dienst nutzen zu können, muss ein Installationsprogramm heruntergeladen werden. Das genaue Vorgehen für die Anmeldung und Nutzung des Dienstes ist unter der u. a. URL zu finden.</p>"@de ;
+        dcterms:subject         "" ;
+        rdfs:comment			"" ;
+        #Data Properties
+        schema:url              "http://www.fh-brandenburg.de/eduroam.html" ;
+        #Object Properties
+        itcat:hasStage          itcat:Operation ;
+        itcat:user				itcat:Staff , itcat:Students , itcat:ExtWorkers ;
+        schema:customer			itcat:THB ;
+        schema:provider			itcat:DFN ;
+        itcat:supporter			itcat:DataCenter ;
+        itcat:hasCriticality	itcat:MediumCriticality ;
+        itcat:hasPriority		itcat:HighPriority ;
+        itcat:usableWith  		itcat:Computer , itcat:Laptop , itcat:Smartphone , itcat:Tablet ;
+        schema:isRelatedTo		itcat:WLAN , itcat:IDM ;
+        foaf:page 				itcat:Eduroam_DocWP001 , itcat:Eduroam_DocWP002 ;
+        itcat:inCategory		itcat:NetworkServices , itcat:PublicCatalog .
+
+ 
+### Zentraler Maildienst
+
+itcat:CentralMail  a        schema:Service ;
+		#Annotation Properties
+		skos:prefLabel			"Zentraler Maildienst"@de ;
+		skos:prefLabel			"central mail service"@en ;
+		dcterms:title			"Zentraler Maildienst der TH Brandenburg"@de ;
+		dcterms:abstract		"Das Rechenzentrum betreibt zwei Mailserver (Mailrelay), die die Verteilung von E-Mails innerhalb der Domain fh-brandenburg.de sowie den Empfang und Versand nach aussen abwickeln."@de ;
+        dcterms:description     "<p>Das Rechenzentrum betreibt zwei Mailserver (Mailrelay), die die Verteilung von E-Mails innerhalb der Domain fh-brandenburg.de sowie den Empfang und Versand nach aussen abwickeln. Die Adressen dieser Server, in E-Mail-Clients als SMTP-Server oder Server für ausgehende Nachrichten bezeichnet, lauten:</p><ul><li>mail.fh-brandenburg.de:25</li><li>mail-auth.fh-brandenburg.de:25 (StartTLS)</li></ul><p>Eingehende Nachrichten können mittels POP3- oder IMAP-Protokoll abgerufen werden. Die Adressen dieser Server, in E-Mail-Clients als POP3-/IMAP-Server oder Server für eingehende Nachrichten bezeichnet, lauten:</p><ul><li>pop3-server: pop3.fh-brandenburg.de port: 995</li><li>imap-server: imap.fh-brandenburg.de port: 143/starttls</li><li>imap-server: imap.fh-brandenburg.de port: 993/ssl</li></ul><p>Die Größe einer E-Mail ist begrenzt auf 10 MB. Für den Austausch von größeren Dateien benutzen Sie bitte den Dienst <a href=\"VolumeTransfer\">Volumendatentransfer</a></p>."@de ;
+        dcterms:subject         "" ;
+        rdfs:comment			"" ;
+        #Data Properties
+        schema:url              "http://www.fh-brandenburg.de/email2.html" ;
+        #Object Properties
+        itcat:hasStage          itcat:Operation ;
+        itcat:user				itcat:TLSO , itcat:DataCenter ;
+        schema:customer			itcat:THB ;
+        schema:provider			itcat:DataCenter ;
+        itcat:supporter			itcat:DataCenter ;
+        itcat:hasCriticality	itcat:HighCriticality ;
+        itcat:hasPriority		itcat:HighPriority ;
+##      itcat:usableWith  		"" ;
+        schema:isRelatedTo		itcat:WebMail ;
+        foaf:page 				itcat:CentralMail_DocWP001 ; 
+        itcat:inCategory		itcat:NetworkServices , itcat:InformationServices , itcat:OperationalCatalog .
+
+
+### EZB
+
+itcat:EZB  a        schema:Service ;
+		#Annotation Properties
+		skos:prefLabel			"EZB"@de ;
+		skos:prefLabel			"EZB"@en ;
+		dcterms:title			"Elektronische Zeitschriftenbibliothek"@de ;
+		dcterms:abstract		"Die Elektronische Zeitschriftenbibliothek ist ein Service zur effektiven Nutzung wissenschaftlicher Volltextzeitschriften im Internet. Sie umfasst 80.186 Titel, davon 15.231 reine Online-Zeitschriften, zu allen Fachgebieten."@de ;
+        dcterms:description     "<p>Die Elektronische Zeitschriftenbibliothek ist ein Service zur effektiven Nutzung wissenschaftlicher Volltextzeitschriften im Internet. Sie umfasst 80.186 Titel, davon 15.231 reine Online-Zeitschriften, zu allen Fachgebieten. Zudem werden 83.449 Zeitschriften von Aggregatoren verzeichnet. 48.859 Fachzeitschriften sind im Volltext frei zugänglich. Die Anwenderbibliotheken bieten ihren Benutzern zusätzlich den Zugriff auf die Volltexte der von ihnen abonnierten E-Journals.</p> <p>Die Elektronische Zeitschriftenbibliothek wurde 1997 im Rahmen eines Projekts von der Universitätsbibliothek Regensburg, in Kooperation mit der Bibliothek der Technischen Universität München, gegründet. Das Ziel war es, allen Bibliotheksnutzern elektronische Zeitschriften übersichtlich zu präsentieren und den teilnehmenden Bibliotheken ein schnelles und effektives Verwalten ihrer wissenschaftlichen E-Journale zu ermöglichen. Derzeit nutzen 609 Teilnehmereinrichtungen die Elektronische Zeitschriftenbibliothek, darunter auch die Technische Hochschule Brandenburg.</p>"@de ;
+        dcterms:subject         "" ;
+        rdfs:comment			"" ;
+        #Data Properties
+        schema:url              "http://rzblx1.uni-regensburg.de/ezeit/" ;
+        #Object Properties
+        itcat:hasStage          itcat:Operation ;
+        itcat:user				itcat:Students , itcat:Staff , itcat:ExtWorkers ;
+        schema:customer			itcat:Library ;
+        schema:provider			itcat:BRZUR ;
+        itcat:supporter			itcat:MHeinrich ;
+        itcat:hasCriticality	itcat:MediumCriticality ;
+        itcat:hasPriority		itcat:HighPriority ;
+        itcat:usableWith  		itcat:Computer , itcat:Laptop , itcat:Smartphone , itcat:Tablet ;
+        schema:isRelatedTo		itcat:IDM , itcat:WebHosting ;
+##      foaf:page 				itcat: ;
+        itcat:inCategory		itcat:LibraryServices , itcat:InformationServices, itcat:BusinessCatalog .
+
+
+### Fernleihe
+
+itcat:Fernleihe  a        schema:Service ;
+		#Annotation Properties
+		skos:prefLabel			"KOBV Fernleihe"@de ;
+		skos:prefLabel			"inter-library loan"@en ;
+		dcterms:title			"Kooperativer Bibliotheksverbund Berlin-Brandenburg, Fernleihe"@de ;
+		dcterms:abstract		"Im Rahmen des Deutschen und Internationalen Leihverkehrs haben Sie die Möglichkeit, Medien (Bücher, Zeitschriftenartikel, usw.), die sich nicht im Bestand der Hochschulbibliothek befinden, aus anderen Bibliotheken zu bestellen."@de ;
+        dcterms:description     "<p>Im Rahmen des Deutschen und Internationalen Leihverkehrs haben Sie die Möglichkeit, Medien (Bücher, Zeitschriftenartikel, usw.), die sich nicht im Bestand der Hochschulbibliothek befinden, aus anderen Bibliotheken zu bestellen. Die Realisierung einer Fernleihbestellung dauert in der Regel 2-4 Wochen. Bevor Sie eine Fernleihbestellung aufgeben, führen Sie bitte stets eine Bestandskontrolle im Online-Katalog durch. Sind die gewünschten Medien nicht vorhanden, können Sie eine gebührenpflichtige Fernleihbestellung aufgeben.</p><p>Wenn die bestellten Medien in der Hochschulbibliothek eingegangen sind, werden Sie per E-Mail oder schriftlich benachrichtigt. Leihfrist und Ausleihbedingungen werden von der verleihenden Bibliothek festgelegt und sind streng einzuhalten. Kann Ihre Fernleihbestellung aus keiner deutschen Bibliothek beschafft werden, besteht die Möglichkeit einer internationalen Fernleihe.</p>"@de ;
+        dcterms:subject         "" ;
+        rdfs:comment			"" ;
+        #Data Properties
+        schema:url              "https://fh-brandenburg.de/bibfernleihe.3.html" ;
+        #Object Properties
+        itcat:hasStage          itcat:Operation ;
+        itcat:user				itcat:Students , itcat:Staff , itcat:ExtWorkers ;
+        schema:customer			itcat:Library ;
+        schema:provider			itcat:KOBV ;
+        itcat:supporter			itcat:KOBV ;
+        itcat:hasCriticality	itcat:MediumCriticality ;
+        itcat:hasPriority		itcat:MediumPriority ;
+        itcat:usableWith  		itcat:Computer , itcat:Laptop , itcat:Smartphone ;
+        schema:isRelatedTo		itcat:DBIS , itcat:IDM , itcat:WebHosting , itcat:OPAC ;
+        foaf:page 				itcat:Fernleihe_DocWP001 ;
+        itcat:inCategory		itcat:LibraryServices , itcat:BusinessCatalog .
+
+
+### Geräteverleih
+
+itcat:DeviceRental  a        schema:Service ;
+		#Annotation Properties
+		skos:prefLabel			"Geräteverleih"@de ;
+		skos:prefLabel			"device rental"@en ;
+		dcterms:title			""@de ;
+		dcterms:abstract		"Die TH Brandenburg bietet ihren Studierenden die Möglichkeit verschiedenste Geräte für den Gebrauch in der Hochschule zur Verfügung zu stellen. Bei den Geräten sind, soweit verfügbar,auch Anleitungen verlinkt. Sie liegen teilweise ind Deutsch und teilweise in Englisch vor. Es sind auch einige weitere Materialien, die hilfreich sein könnten, hinterlegt."@de ;
+        dcterms:description     "<p>Die TH Brandenburg bietet ihren Studierenden die Möglichkeit verschiedenste Geräte für den Gebrauch in der Hochschule zur Verfügung zu stellen. Bei den Geräten sind, soweit verfügbar, auch Anleitungen verlinkt. Sie liegen teilweise in Deutsch und teilweise in Englisch vor. Es sind auch einige weitere Materialien, die hilfreich sein könnten, hinterlegt.</p><p> <b>Modalitäten des Geräteverleihs:</b> Der Geräteverleih an Studenten ist nur im Rahmen des Unterrichts an der THB möglich. Bedingung ist, das vom Studenten eine Haftpflichversicherung abgeschlossen wurde. Nähere Informationen hierzu sind am Schwarzen Brett in der Nähe des Raumes InfZ 108 zu finden. Es ist ein Leihschein auszufüllen und von dem verantwortlichen Professor zu unterschreiben. Diese Scheine sind bei Fr. Prenzlow zu bekommen. Hier wird dann auch gleich das Vorhandensein einer Versicherung (MLP) geprüft. Auf dem Schein sind die gewünschten Geräte anzukreuzen. Aufgrund der begrenzten Resourcen sollten die Geräte rechtzeitig reserviert werden. Andernfalls kann die Verfügbarkeit zum gewünschten Zeitraum nicht gewährleistet werden.</p>"@de ;
+        dcterms:subject         "" ;
+        rdfs:comment			"" ;
+        #Data Properties
+        schema:url              "https://moodle.fh-brandenburg.de/course/view.php?id=199" ;
+        #Object Properties
+        itcat:hasStage          itcat:Operation ;
+        itcat:user				itcat:Students ;
+        schema:customer			itcat:THB ;
+        schema:provider			itcat:DCS ;
+        itcat:supporter			itcat:APrenzlow , itcat:TRanglack ;
+        itcat:hasCriticality	itcat:LowCriticality ;
+        itcat:hasPriority		itcat:LowPriority ;
+        itcat:usableWith  		itcat:Computer , itcat:Laptop , itcat:Smartphone , itcat:Tablet ;
+        schema:isRelatedTo		itcat:Moodle ;
+        foaf:page 				itcat:DeviceRental_DocDL001 , itcat:DeviceRental_DocWP001 ;
+        itcat:inCategory		itcat:InfrastructureServices , itcat:BusinessCatalog .
+
+
+### HISinOneAPP
+
+itcat:HISinOneAPP  a        schema:Service ;
+		#Annotation Properties
+		skos:prefLabel			"Zulassungsservice"@de ;
+		skos:prefLabel			"application service"@en ;
+		dcterms:title			"HISinOne Bewerberportal - Zulassungsservice"@de ;
+		dcterms:abstract		"Über das Online-Bewerbungsportal können sich Studieninteressierte für einen Studienplatz an der Fachhochschule Brandenburg bewerben. Das Portal richtet sich an Personen, die ihre Hochschulzugangsberechtigung in Deutschland erworben haben. "@de ;
+        dcterms:description     "<p>Über das Online-Bewerbungsportal können sich Studieninteressierte für einen Studienplatz an der Fachhochschule Brandenburg bewerben. Das Portal richtet sich an Personen, die ihre Hochschulzugangsberechtigung in Deutschland erworben haben.</p> <p>Die Bewerbung auf Studiengänge an der Fachhochschule Brandenburg erfolgt grundsätzlich online. Generell werden verschiedene Unterlagen für eine Immatrikulation benötigt, die gemeinsam mit dem Bewerbungsformular aus dem Online-Bewerberportal an der Fachhochschule Brandenburg einzureichen sind. Unsere Checkliste zur Unterstützung von Einschreibung bzw. Bewerbung beantwortet Fragen.</p>"@de ;
+        dcterms:subject         "" ;
+        rdfs:comment			"" ;
+        #Data Properties
+        schema:url              "https://his1-ws.fh-brandenburg.de/qisserver/pages/cs/sys/portal/hisinoneStartPage.faces" ;
+        #Object Properties
+        itcat:hasStage          itcat:Implementation ;
+        itcat:user				itcat:Enrollees ;
+        schema:customer			itcat:RegOffice ;
+        schema:provider			itcat:DataCenter , itcat:RegOffice ;
+        itcat:supporter			itcat:DataCenter , itcat:HISProject ;
+        itcat:hasCriticality	itcat:MediumCriticality ;
+        itcat:hasPriority		itcat:HighPriority ;
+        itcat:usableWith  		itcat:Computer , itcat:Laptop , itcat:Smartphone , itcat:Tablet ;
+        schema:isRelatedTo		itcat:WebHosting , itcat:IDM ;
+        foaf:page 				itcat:HISInOneAPP_DocWP001 , itcat:HISInOneAPP_DocWP002 ;
+        itcat:inCategory		itcat:HISServices , itcat:PublicCatalog .
+
+
+### HISQIS
+
+itcat:HISQIS  a        schema:Service ;
+		#Annotation Properties
+		skos:prefLabel			"Studierenden-Portal"@de ;
+		skos:prefLabel			"student's portal"@en ;
+		dcterms:title			"Online-Portal des Studierendensekretariat der TH Brandenburg für Studenten"@de ;
+		dcterms:abstract		"Über dieses Online-Portal können Studierende Einsicht in ihre Noten nehmen, den Notenspiegel abrufen, ihre Stammdaten ändern, den RückmeldehasStage sowie den Gebührenstand einsehen und Studienbescheinigungen ausdrucken."@de ;
+        dcterms:description     "Neben der Noteneinsicht sind auch Prüfungsanmeldungen, Prüfungsversuche sowie das Prüfungsdatum einsehbar. Zu den änderbaren Stammdaten gehören: Heimatanschrift, Semesteranschrift, Telefonnummer und E-Mail-Adresse. Studienbescheinigungen können generiert, verifiziert und ausgedruckt werden."@de ;
+        dcterms:subject         "" ;
+        rdfs:comment			"Dieser Dienst wird baldmöglichst vom HISinOne-Modul EXA abgelöst."@de ;
+        #Data Properties
+        schema:url              "https://hisqis.fh-brandenburg.de/qisserver/rds?state=user&type=0" ;
+        #Object Properties
+        itcat:hasStage          itcat:InRelief ;
+        itcat:user				itcat:Students ;
+        schema:customer			itcat:RegOffice ;
+        schema:provider			itcat:DataCenter , itcat:RegOffice ;
+        itcat:supporter			itcat:DataCenter ;
+        itcat:hasCriticality	itcat:MediumCriticality ;
+        itcat:hasPriority		itcat:HighPriority ;
+        itcat:usableWith  		itcat:Computer , itcat:Laptop , itcat:Smartphone ;
+        schema:isRelatedTo		itcat:IDM , itcat:WebHosting , itcat:QISPOS ;
+        foaf:page 				itcat:HISQIS_DocWP001 ;
+        itcat:inCategory		itcat:HISServices , itcat:BusinessCatalog .
+
+
+### IDM
+
+itcat:IDM  a        schema:Service ;
+		#Annotation Properties
+		skos:prefLabel			"Identity Management"@de ;
+		skos:prefLabel			"identity management"@en ;
+		dcterms:title			"Identity Management"@de ;
+		dcterms:abstract		"Das IdM beinhaltet die zentrale Benutzerverwaltung der Fachhochschule Brandenburg. Hier werden die wichtigsten Daten aller Angehörigen der FHB in einem zentralen Verzeichnisdienst (LDAP) gespeichert und verwaltet, die für den Zugang zur IT-Infrastruktur und der angeschlossenen Systeme notwendig sind."@de ;
+        dcterms:description     "<p>Die Benutzerkennung wird u. a. für die folgenden Dienste verwendet: E-Mail, Lernplattform Moodle, Anmeldung in Computerlaboren, Verbindung zu Netzlaufwerken, Zugang zum WLAN, Nutzung VPN-Zugang, Antrag zur Nutzung Internet im Studentenwohnheim.</p><p>Ein neuer Benutzer muss zunächst seine Benutzerkennung über das IDM-Portal aktivieren. Aktivierte Nutzer haben die Möglichkeit Ihr Passwort zu ändern. Für die Wahl des Passwortes finden sich Tipps auf der Hilfeseite des Rechenzentrums. Sollte ein Benutzer sein Passwort vergessen, so kann er sich ein neues Passwort an seine private E-Mail-Adresse zusenden lassen. Das IDM-Portal kann auch genutzt werden, um ein Foto für die CampusCard hochzuladen. </p>"@de ;
+        dcterms:subject         "" ;
+        rdfs:comment			"" ;
+        #Data Properties
+        schema:url              "https://www.idm.fh-brandenburg.de/IDMProv/jsps/login/Login.jsp" ;
+        #Object Properties
+        itcat:hasStage          itcat:Operation ;
+        itcat:user				itcat:Staff , itcat:Students , itcat:ExtWorkers ;
+        schema:customer			itcat:THB ;
+        schema:provider			itcat:DataCenter ;
+        itcat:supporter			itcat:DataCenter , itcat:TLSO , itcat:WWeidner , itcat:RDoletzki , itcat:DSchulz , itcat:DThiele ;
+        itcat:hasCriticality	itcat:HighCriticality ;
+        itcat:hasPriority		itcat:HighPriority ;
+        itcat:usableWith  		itcat:Computer , itcat:Laptop ;
+        schema:isRelatedTo		itcat:WebHosting ;
+        foaf:page 				itcat:IDM_DocWP001 , itcat:IDM_DocWP002 ;
+        itcat:inCategory		itcat:MiscServices , itcat:NetworkServices , itcat:OperationalCatalog .
+
+
+### Infodisplay FBW
+
+itcat:InfoDisplay  a        schema:Service ;
+		#Annotation Properties
+		skos:prefLabel			"Info-Display FBW"@de ;
+		skos:prefLabel			"information display DBM"@en ;
+		dcterms:title			"Informationsdienst Info-Display des Fachbereichs Wirtschaft"@de ;
+		dcterms:abstract		"Über das Display in den 2. Etage des WWZ werden Studenten und Mitarbeiter über aktuelle Veranstaltungen, Ausfälle von Vorlesungen, den tagesaktuellen Mensaplan oder Raumänderungen informiert."@de ;
+        dcterms:description     "Wenn Sie Informationen auf dem Display veröffentlichen wollen, schicken Sie eine Mail mit den Veranstaltungsdaten an: fbw-infodisplay(at)fh-brandenburg.de "@de ;
+        dcterms:subject         "" ;
+        rdfs:comment			"" ;
+        #Data Properties
+        schema:url              "http://www.bsn-infodisplay.de/mobil/fhbfbwi" ;
+        #Object Properties
+        itcat:hasStage          itcat:Operation ;
+        itcat:user				itcat:Public , itcat:Students , itcat:Staff ;
+        schema:customer			itcat:THB ;
+        schema:provider			itcat:BSNeV ;
+        itcat:supporter			itcat:TLSO ;
+        itcat:hasCriticality	itcat:LowCriticality ;
+        itcat:hasPriority		itcat:MediumPriority ;
+        itcat:usableWith  		itcat:Computer , itcat:Laptop , itcat:Smartphone , itcat:Tablet , itcat:Screen ;
+        schema:isRelatedTo		itcat:WebHosting ;
+        foaf:page 				itcat:InfoDisplay_DocWP001 ;
+        itcat:inCategory		itcat:InformationServices , itcat:BusinessCatalog .
+
+
+### Lehrelaufwerk
+
+itcat:EduDrive  a        schema:Service ;
+		#Annotation Properties
+		skos:prefLabel			"Lehrelaufwerk"@de ;
+		skos:prefLabel			"educational drive"@en ;
+		dcterms:title			"Lehrelaufwerk für Lehrende im Fachbereich Wirtschaft"@de ;
+		dcterms:abstract		"Im Hochschulnetz haben Lehrende des Fachbereichs Wirtschaft die Möglichkeit, elektronische Lehrskripte für Studierende bereitzustellen. Das Lehrelaufwerk erlaubt den lesenden Zugriff durch alle Lehrenden und Studierenden des Fachbereichs auf die Laufwerke der anderen Lehrenden."@de ;
+        dcterms:description     "Innerhalb der Fachhochschule ist der Portalserver des FB Wirtschaft nach erfolgreicher Anmeldung auf dem Netzwerklaufwerk L: (Lehre) auf den Desktops zugewiesen. Der Link zum browserbasierten Portalzugriff ist unten angegeben. Für den Zugang benötigen Sie einen gültigen Account und gegebenenfalls das Zertifikat für den WEB-Browser. Die Authentifizierung erfolgt mit den IDM-Login-Daten."@de ;
+        dcterms:subject         "" ;
+        rdfs:comment			"" ;
+        #Data Properties
+        schema:url              "https://fhs-w7.fh-brandenburg.de/lehre/" ;
+        #Object Properties
+        itcat:hasStage          itcat:Operation ;
+        itcat:user				itcat:Staff , itcat:Students ;
+        schema:customer			itcat:DBM ;
+        schema:provider			itcat:TLSO ;
+        itcat:supporter			itcat:TLSO ;
+        itcat:hasCriticality	itcat:MediumCriticality ;
+        itcat:hasPriority		itcat:MediumPriority ;
+        itcat:usableWith  		itcat:Computer , itcat:Laptop , itcat:Smartphone ;
+        schema:isRelatedTo		itcat:IDM ;
+        foaf:page 				itcat:EduDrive_DocWP001 ;
+        itcat:inCategory		itcat:TeachingPlatforms , itcat:NetworkServices , itcat:BusinessCatalog .
+
+
+### MapOnGo
+
+itcat:MapOnGo  a        schema:Service ;
+		#Annotation Properties
+		skos:prefLabel			"Gebäudeplan Bibliothek"@de ;
+		skos:prefLabel			"library map"@en ;
+		dcterms:title			"MapOnGo - Gebäudeplan der Bibliothek"@de ;
+		dcterms:abstract		"Ein elektronisches Abbild des Gebäudeplans der Hochschulbibliothek einschließlich der Aufbewahrungsorte von Fachliteratur nach Themen geordnet. Dieser Dienst kann im Zusammenhang mit dem Online-Katalog (OPAC) verwendet werden."@de ;
+        dcterms:description     "Der interaktive Gebäudeplan der Bibliothek erlaubt den Nutzern, sich über die Anordnung der Ausstattung sowie der Fachliteratur in der Hochschulbibliothek zu informieren. Neben einer Anwahl der verschiedenen Gebäudeteile und Elemente über ein Menü, kann auch der Mouse-Over-Effekt des Gebäudeplans verwendet werden."@de ;
+        dcterms:subject         "" ;
+        rdfs:comment			"" ;
+        #Data Properties
+        schema:url              "http://fh-brandenburg.mapongo.de/viewer?language=de&project_id=1#" ;
+        #Object Properties
+        itcat:hasStage          itcat:Operation ;
+        itcat:user				itcat:Students , itcat:Staff ;
+        schema:customer			itcat:Library ;
+        schema:provider			itcat:TLSO ;
+        itcat:supporter			itcat:TLSO ;
+        itcat:hasCriticality	itcat:LowCriticality ;
+        itcat:hasPriority		itcat:LowPriority ;
+        itcat:usableWith  		itcat:Smartphone , itcat:Laptop ;
+        schema:isRelatedTo		itcat:OPAC , itcat:WebHosting ;
+        foaf:page 				itcat:MapOnGo_DocWP001 ;
+        itcat:inCategory		itcat:LibraryServices , itcat:BusinessCatalog .
+
+
+### Monitoring
+
+itcat:Monitoring  a        schema:Service ;
+		#Annotation Properties
+		skos:prefLabel			"IT-Monitoring"@de ;
+		skos:prefLabel			"IT monitoring"@en ;
+		dcterms:title			"Monitoring von IT-Systemen und -Komponenten"@de ;
+		dcterms:abstract		"Für die Überwachung der IT-Systeme und -Komponenten nutzt das Rechenzentrum der Hochschule das Monitoring-System nagios."@de ;
+        dcterms:description     "<p>Nagios ist eine Software, die dem Monitoring komplexer IT-Infrastrukturen dient. Nagios bietet dazu eine Sammlung von Modulen zur Überwachung von Netzwerken, Hosts und speziellen Diensten sowie eine Web-Schnittstelle zum Abfragen der gesammelten Daten. 2007 wurde die Nagios Enterprises LLC von Ethan Galstad gegründet, welche Consulting und technische Unterstützung rund um das Thema Nagios als kommerzielle Dienstleistung anbietet. Die Kern-Software selbst bleibt weiterhin unter einer freien Lizenz.</p><p>An der TH Brandenburg wird Nagios vom Rechenzentrum eingesetzt, um die wesentlichen Elemente der IT-Infrastruktur sowie das Netzwerk zu überwachen.</p>"@de ;
+        dcterms:subject         "" ;
+        rdfs:comment			"" ;
+        #Data Properties
+        schema:url              "https://www.nagios.org/" ;
+        #Object Properties
+        itcat:hasStage          itcat:Operation ;
+        itcat:user				itcat:DataCenter ;
+        schema:customer			itcat:THB ;
+        schema:provider			itcat:DataCenter ;
+        itcat:supporter			itcat:Nagios ;
+        itcat:hasCriticality	itcat:MediumCriticality ;
+        itcat:hasPriority		itcat:HighPriority ;
+        itcat:usableWith  		itcat:Computer , itcat:Laptop ;
+##      schema:isRelatedTo		itcat: ;
+##      foaf:page 				itcat: ;
+        itcat:inCategory		itcat:InfrastructureServices , itcat:OperationalCatalog .
+
+
+### Moodle
+
+itcat:Moodle  a        schema:Service ;
+		#Annotation Properties
+		skos:prefLabel			"Lehrplattform moodle"@de ;
+		skos:prefLabel			"teaching platform moodle"@en ;
+		dcterms:title			"Kurs-/Lernmanagementsystem Moodle"@de ;
+		dcterms:abstract		"Moodle dient als Plattform für Kurse an der Fachhochschule Brandenburg. Diese Kurse können Vorlesungen oder andere organisatorische Einheiten, Dienste u. ä. sein."@de ;
+        dcterms:description     "In den moodle-Kursen können u.a. Dokumente und Dateien hoch- und runtergeladen werden, Tests veröffentlicht, Aufgaben verteilt, Foren eröffnet, oder Wikis erstellt/bereitgestellt werden. In moodle können Kurse für bestimmte Nutzergruppen gesperrt, bzw. geöffnet werden. Die Authentifizierung erfolgt mit den IDM-Login-Daten"@de ;
+        dcterms:subject         "" ;
+        rdfs:comment			"" ;
+        #Data Properties
+        schema:url              "http://www.fh-brandenburg.de/moodle" ;
+        #Object Properties
+        itcat:hasStage          itcat:Operation ;
+        itcat:user				itcat:Students , itcat:Staff , itcat:ExtWorkers ;
+        schema:customer			itcat:THB ;
+        schema:provider			itcat:DataCenter ;
+        itcat:supporter			itcat:RWietusch , itcat:DataCenter ;
+        itcat:hasCriticality	itcat:HighCriticality ;
+        itcat:hasPriority		itcat:HighPriority ;
+        itcat:usableWith  		itcat:Computer , itcat:Laptop ;
+        schema:isRelatedTo		itcat:IDM , itcat:WebHosting , itcat:CentralMail;
+##      foaf:page 				itcat: ;
+        itcat:inCategory		itcat:TeachingPlatforms , itcat:InformationServices , itcat:BusinessCatalog .
+
+
+### NTP
+
+itcat:NTP  a        schema:Service ;
+		#Annotation Properties
+		skos:prefLabel			"Steuerung Netzzeit"@de ;
+		skos:prefLabel			"control network time"@en ;
+		dcterms:title			"Zeitsynchronisationsdienst NTP - Network Time Protocol"@de ;
+		dcterms:abstract		"Um eine eindeutige und weitgehend einheitliche Systemzeit im gesamten Hochschulnetz zu erreichen, betreibt das Rechenzentrum einen Zeitserver."@de ;
+        dcterms:description     "Für die Synchronisation mit dem Zeitserver des Rechenzentrums ist erforderlich, den ntp-Dienst zu aktivieren. In Abhängigkeit vom Betriebssystem der Zielsysteme stehen dafür verschiedene Konfigurationsdateien bzw. Kommandozeilenbefehle zur Verfügung. Details finden sich unter der u. a. URL."@de ;
+        dcterms:subject         "" ;
+        rdfs:comment			"" ;
+        #Data Properties
+        schema:url              "https://www.fh-brandenburg.de/zeitsynchronisation.html" ;
+        #Object Properties
+        itcat:hasStage          itcat:Operation ;
+        itcat:user				itcat:TLSO ;
+        schema:customer			itcat:THB ;
+        schema:provider			itcat:TUBerlin , itcat:UniStuttgart ;
+        itcat:supporter			itcat:DataCenter ;
+        itcat:hasCriticality	itcat:MediumCriticality ;
+        itcat:hasPriority		itcat:LowPriority ;
+        itcat:usableWith  		itcat:Computer , itcat:Laptop ;
+##      schema:isRelatedTo		itcat: ;
+##      foaf:page 				itcat: ;
+        itcat:inCategory		itcat:InfrastructureServices , itcat:OperationalCatalog.
+
+
+### Online-Shop
+
+itcat:OnlineShop  a        schema:Service ;
+		#Annotation Properties
+		skos:prefLabel			"THB-Onlineshop"@de ;
+		skos:prefLabel			"online shop"@en ;
+		dcterms:title			"Onlineshop der TH Brandenburg"@de ;
+		dcterms:abstract		"Die TH Brandenburg betreibt einen Online-Shop unter dem Dach des Social-Commerce-Unternehmens Spreadshirt. Hier können Bekleidungsstücke, Tassen u. a. nette Sachen mit Motiven der Hochschule bestellt werden."@de ;
+        dcterms:description     "Im Onlineshop der TH Brandenburg können Sie folgende Gegenstände kaufen: <ul><li>Jacken</li><li>Kapuzenpullover</li><li>T-Shirts</li><li>Poloshirts</li> <li>Tassen</li><li>Kochschürzen</li><li>Badtücher</li></li>Baseballkappen</li><li>diverse Kleinteile</li></ul> Insgesamt stehen mehrere Farben und Motive zur Verfügung."@de ;
+        dcterms:subject         "" ;
+        rdfs:comment			"" ;
+        #Data Properties
+        schema:url              "http://fh-brandenburg.spreadshirt.de/" ;
+        #Object Properties
+        itcat:hasStage          itcat:Operation ;
+        itcat:user				itcat:Public , itcat:Staff , itcat:Students ;
+        schema:customer			itcat:THB ;
+        schema:provider			itcat:SpreadShirt ;
+        itcat:supporter			itcat:KLeipnitz ;
+        itcat:hasCriticality	itcat:LowCriticality ;
+        itcat:hasPriority		itcat:MediumPriority ;
+        itcat:usableWith  		itcat:Computer , itcat:Laptop , itcat:Smartphone , itcat:Tablet ;
+        schema:isRelatedTo		itcat:WebHosting ;
+##      foaf:page 				itcat: ;
+        itcat:inCategory		itcat:MiscServices , itcat:PublicCatalog .
+
+
+### OPAC
+
+itcat:OPAC  a        schema:Service ;
+		#Annotation Properties
+		skos:prefLabel			"Online-Katalog OPAC"@de ;
+		skos:prefLabel			"online catalog OPAC"@en ;
+		dcterms:title			"Online-Katalog der Hochschulbibliothek (OPAC)"@de ;
+		dcterms:abstract		"Der Medienbestand der Hochschulbibliothek ist im Online-Katalog (OPAC) nachgewiesen. Hier sind ind sowohl die physischen als auch der größte Teil der E-Medien verzeichnet. Für die physikalischen Medien ist der Status (verliehen / nicht verliehen) einsehbar."@de ;
+        dcterms:description     "<p>Der Online-Katalog erlaubt verschieden Suchstrategien: die einfache, die erweiterte und die systematische Suche. Darüber hinaus kann ein Benutzer Merklisten anlegen, die Neuerwerbungen einsehen, Auskünfte einholen sowie Anschaffungswünsche platzieren.</p><p>Die Anmeldung erfolgt mit der Benutzernummer und einem Passwort. Nach Anmeldung kann der Benutzer sein Konto einsehen und verwalten. Damit sind auch Vormerkungen und Verlängerungen online realisierbar.</p>"@de ;
+        dcterms:subject         "" ;
+        rdfs:comment			"" ;
+        #Data Properties
+        schema:url              "https://opac.fh-brandenburg.de" ;
+        #Object Properties
+        itcat:hasStage          itcat:Operation ;
+        itcat:user				itcat:Students , itcat:Staff , itcat:Public ;
+        schema:customer			itcat:Library ;
+        schema:provider			itcat:OCLC ;
+        itcat:supporter			itcat:DataCenter ;
+        itcat:hasCriticality	itcat:MediumCriticality ;
+        itcat:hasPriority		itcat:HighPriority ;
+        itcat:usableWith  		itcat:Computer , itcat:Laptop , itcat:Smartphone , itcat:Tablet ;
+        schema:isRelatedTo		itcat:CentralMail , itcat:WebHosting ;
+        foaf:page 				itcat:OPAC_DocWP001 , itcat:OPAC_DocWP002 ;
+        itcat:inCategory		itcat:LibraryServices , itcat:InformationServices , itcat:PublicCatalog .
+
+
+### QISFSV
+
+itcat:QISFSV  a        schema:Service ;
+		#Annotation Properties
+		skos:prefLabel			"QISFSV"@de ;
+		skos:prefLabel			"QISFSV"@en ;
+		dcterms:title			"Finanz- und Sachmittelverwaltungsmodul der TH Brandenburg"@de ;
+		dcterms:abstract		"Das Finanz- und Sachmittelverwaltungsmodul FSV ist mit den Untermodulen Beschaffung (BES), Mittelbewirtschaftung (MBS), Inventarisierung (IVS) und Materialwirtschaft (MAT) eine integrierte Lösung für die Verwaltung der Hochschulen. Auf dem Modul MBS setzt das Finanzbuchhaltungs-Modul FIBU auf."@de ;
+        dcterms:description     "An der TH Brandenburg wird FSV sowohl in der zentralen Verwaltung als auch bei der Steuerung von Drittmittelprojekten eingesetzt."@de ;
+        dcterms:subject         "" ;
+        rdfs:comment			"" ;
+        #Data Properties
+        schema:url              "https://qisfsv.fh-brandenburg.de/qisserver/rds?state=user&type=0" ;
+        #Object Properties
+        itcat:hasStage          itcat:Operation ;
+        itcat:user				itcat:StaffADM ;
+        schema:customer			itcat:THB ;
+        schema:provider			itcat:DataCenter ;
+        itcat:supporter			itcat:DataCenter ;
+        itcat:hasCriticality	itcat:HighCriticality ;
+        itcat:hasPriority		itcat:HighPriority ;
+        itcat:usableWith  		itcat:Computer , itcat:Laptop ;
+        schema:isRelatedTo		itcat:IDM , itcat:WebHosting ;
+        foaf:page 				itcat:QISFSV_DocWP001 ;
+        itcat:inCategory		itcat:HISServices , itcat:BusinessCatalog .
+        
+
+### QISPOS
+
+itcat:QISPOS  a        schema:Service ;
+		#Annotation Properties
+		skos:prefLabel			"Prüferportal"@de ;
+		skos:prefLabel			"examinator's portal"@en ;
+		dcterms:title			"Online-Portal des Studierendensekretariat der TH Brandenburg für Prüfer (QISPOS)"@de ;
+		dcterms:abstract		"Über dieses Online-Portal können Prüfende Einsicht von ihnen zu verantwortende Prüfungen nehmen, Zulassungslisten ausdrucken und Noten eingeben."@de ;
+        dcterms:description     "Die Anmeldung an diesem Portal erfolgt über die IDM-Login-Daten. Neben der aktuellen Prüfungsperiode können auch Nachprüfungen aus vergangenen Semestern bearbeitet werden. Die Prüfenden geben die Noten nach dem üblichen Raster ein. Nach Verarbeitung vom System können Notenlisten ausgedruckt und weiterverarbeitet werden."@de ;
+        dcterms:subject         "" ;
+        rdfs:comment			"Dieser Dienst wird baldmöglichst vom HISinOne-Modul EXA abgelöst." ;
+        #Data Properties
+        schema:url              "https://hisqis.fh-brandenburg.de/qisserver/rds?state=user&type=0" ;
+        #Object Properties
+        itcat:hasStage          itcat:InRelief ;
+        itcat:user				itcat:Staff , itcat:ExtWorkers ;
+        schema:customer			itcat:THB ;
+        schema:provider			itcat:DataCenter ;
+        itcat:supporter			itcat:DataCenter , itcat:RegOffice ;
+        itcat:hasCriticality	itcat:MediumCriticality ;
+        itcat:hasPriority		itcat:HighPriority ;
+        itcat:usableWith  		itcat:Computer , itcat:Laptop , itcat:Smartphone ;
+        schema:isRelatedTo		itcat:IDM , itcat:HISQIS , itcat:WebHosting ;
+        foaf:page 				itcat:QISPOS_DocWP001 ;
+        itcat:inCategory		itcat:HISServices , itcat:BusinessCatalog .
+
+
+### Reisemanagement
+
+itcat:TravelMgt  a        schema:Service ;
+		#Annotation Properties
+		skos:prefLabel			"Reisemanagement"@de ;
+		skos:prefLabel			"travel management"@en ;
+		dcterms:title			"Beantragung und Abrechnung von Dienstreisen"@de ;
+		dcterms:abstract		"Der Verwaltungsbereich Personal/Organisation der TH Brandenburg bietet zwei online bearbeitbare PDF-Formulare zur Beantragung und zur Abrechnung von Dienstreisen an."@de ;
+        dcterms:description     "Die Formulare stehen im Intranet zur Verfügung und können im Browser geöffnet und bearbeitet werden. Ein Speichern der ausgefüllten Formulare ist nicht möglich. Ausgefüllte Formulare müssen auf Papier ausgedruckt werden. (Ein Adobe-PDF-Ausdruck kann zur elektronischen Ablage verwendet werden). Die weitere Verarbeitung der Dokumente bedarf einer Reihe von Unterschriften und erfolgt somit papiergebunden."@de ;
+        dcterms:subject         "" ;
+        rdfs:comment			"" ;
+        #Data Properties
+        schema:url              "http://www.fh-brandenburg.de/2898.html?&MP=39-304" ;
+        #Object Properties
+        itcat:hasStage          itcat:Operation ;
+        itcat:user				itcat:Staff , itcat:Students , itcat:ExtWorkers ;
+        schema:customer			itcat:THB ;
+        schema:provider			itcat:StaffADM ;
+        itcat:supporter			itcat:DataCenter ;
+        itcat:hasCriticality	itcat:MediumCriticality ;
+        itcat:hasPriority		itcat:MediumPriority ;
+        itcat:usableWith  		itcat:Computer , itcat:Laptop ;
+        schema:isRelatedTo		itcat:WebHosting ;
+##      foaf:page 				itcat: ;
+        itcat:inCategory		itcat:MiscServices , itcat:BusinessCatalog .
+
+
+### DSFW/Samba
+
+itcat:DSFWSamba  a        schema:Service ;
+		#Annotation Properties
+		skos:prefLabel			"DSFW/Samba"@de ;
+		skos:prefLabel			"DSFW/Samba"@en ;
+		dcterms:title			"DSFW-Server (Netzlaufwerke) auf Basis der Samba-Software"@de ;
+		dcterms:abstract		"Die Software Samba wird in der TH Brandenburg als Datei- und Druckserver verwendet. Sie basiert auf dem NetBIOS-Protokoll SMB von Microsoft. Sie gibt den Anwendern die Möglichkeit auf ihre Laufwerke über eine VPN-Verbindung zuzugreifen und auf ihnen lokal unabhängig zu interagieren. Die Authentifizierung erfolgt mit den IDM-Login-Daten."@de ;
+        dcterms:description     "Der Zugriff auf die Freigaben der DSFW-Server (Domain Service for Windows) ist nur innerhalb der Hochschule möglich. Sie müssen über eine entsprechende Berechtigung verfügen, damit Sie Zugriff erhalten. Diese wird aus ihrer Zugehörigkeit zu einer Organisationsabteilung abgeleitet und vom Rechenzentrum bei Beginn ihrer Tätigkeit angelegt.Sollten Sie weitere Netzlaufwerke benötigen, erfordert dies eine Benachrichtigung per Email durch ihren Vorgesetzten an das Rechenzentrum. Weitere Informationen sind den DSFW-/Samba-FAQ zu entnehmen."@de ;
+        dcterms:subject         "" ;
+        rdfs:comment			"" ;
+        #Data Properties
+        schema:url              "http://www.fh-brandenburg.de/samba-faq.html" ;
+        #Object Properties
+        itcat:hasStage          itcat:Operation ;
+        itcat:user				itcat:Students , itcat:Staff , itcat:ExtWorkers ;
+        schema:customer			itcat:THB ;
+        schema:provider			itcat:DataCenter ;
+        itcat:supporter			itcat:DataCenter ;
+        itcat:hasCriticality	itcat:MediumCriticality ;
+        itcat:hasPriority		itcat:MediumPriority ;
+        itcat:usableWith  		itcat:WindowsPC ;
+        schema:isRelatedTo		itcat:IDM ;
+        foaf:page 				itcat:DSFWSamba_DocWP001 ;
+        itcat:inCategory		itcat:InfrastructureServices , itcat:OperationalCatalog .
+
+
+### Stundenpläne
+
+itcat:ClassSchedule  a        schema:Service ;
+		#Annotation Properties
+		skos:prefLabel			"Stundenplan"@de ;
+		skos:prefLabel			"class schedule"@en ;
+		dcterms:title			"Stundenpläne für alle Studiengänge der TH Brandenburg"@de ;
+		dcterms:abstract		"Die Webseite zur Auswahl und Anzeige der aktuellen Stundenpläne ist grundsätzlich aus dem öffentlichen Netz zugänglich, allerdings werden die Stundenpläne selbst nur im Hochschulnetz angezeigt."@de ;
+        dcterms:description     "Die Stundenplanung an der TH Brandenburg basiert auf der Eigenentwicklung CATT (Computer Aided Time Table). Neben dem aktuell gültigen Stundenplan ist ggf. der des gerade abgelaufenen bzw. des demnächst beginnenden Semesters einsehbar. Die Funktion 'Persönlicher Plan des Lehrenden' wird nicht mehr unterstützt. Nach vollumfänglicher Einführung des Hochschulinformationssystems HISinOne wird dieser Dienst abgelöst."@de ;
+        dcterms:subject         "" ;
+        rdfs:comment			"" ;
+        #Data Properties
+        schema:url              "http://zeus.fh-brandenburg.de/Stundenplan/Plan.htm" ;
+        #Object Properties
+        itcat:hasStage          itcat:InRelief ;
+        itcat:user				itcat:Students , itcat:Staff , itcat:ExtWorkers ;
+        schema:customer			itcat:DCS ;
+        schema:provider			itcat:LSCS ;
+        itcat:supporter			itcat:RWietusch , itcat:DCS ;
+        itcat:hasCriticality	itcat:MediumCriticality ;
+        itcat:hasPriority		itcat:MediumPriority ;
+        itcat:usableWith  		itcat:Computer , itcat:Laptop , itcat:Smartphone ;
+        schema:isRelatedTo		itcat:WebHosting ;
+##      foaf:page 				itcat: ;
+        itcat:inCategory		itcat:InformationServices , itcat:BusinessCatalog .
+        
+     
+### VolumeTransfer
+
+itcat:VolumeTransfer  a        schema:Service ;
+		#Annotation Properties
+		skos:prefLabel			"Volumendaten-Transfer"@de ;
+		skos:prefLabel			"volume data transfer"@en ;
+		dcterms:title			"Bereitstellung und Empfang großer Daten (> 10 MB)"@de ;
+		dcterms:abstract		"Das Rechenzentrum bietet die Möglichkeit über ein Formular, Dateien für externe Partner zur Verfügung zu stellen bzw. große Dateien zu empfangen. Diese Option kann genutzt werden, wenn die zu übertragenden oder zu empfangenden Daten die Begrenzung von 10 MB für den Transfer von Dateien per E-Mail überschritten wird."@de ;
+        dcterms:description     "<p>Über das Formular können Dateien bis maximal 791 MB hochgeladen werden. Es wird ein Downloadlink generiert, der der Zielperson per E-Mail zugesandt wird. Standardmäßig ist eine Lebenszeit der Datei von 3 Tagen eingestellt, dieser Wert kann aber über das Formular geändert werden.</p><p> Alternativ bzw. ergänzend kann der Transfer über ein TAN abgesichert werden. Für die Erzeugung von TANs wird ein weiteres Online-Formular zur Verfügung gestellt. Bei der Gültigkeitsbegrenzung der TANs kann zwischen einer einmaligen und einer zeitlich befristeten Nutzung gewählt werden. Initiiert wird dieser Dienst immer von einer Person mit THB-Account (IDM-Login).</p>"@de ;
+        dcterms:subject         "" ;
+        rdfs:comment			"" ;
+        #Data Properties
+        schema:url              "https://www.fh-brandenburg.de/exchange" ;
+        #Object Properties
+        itcat:hasStage          itcat:Operation ;
+        itcat:user				itcat:Staff , itcat:Students , itcat:ExtWorkers , itcat:Public ;
+        schema:customer			itcat:THB ;
+        schema:provider			itcat:DataCenter ;
+        itcat:supporter			itcat:DataCenter ;
+        itcat:hasCriticality	itcat:LowCriticality ;
+        itcat:hasPriority		itcat:MediumPriority ;
+        itcat:usableWith  		itcat:Computer , itcat:Laptop ;
+        schema:isRelatedTo		itcat:IDM , itcat:WebHosting ;
+        foaf:page 				itcat:VolumeTransfer_DocWP001 ;
+        itcat:inCategory		itcat:CommunicationServices , itcat:BusinessCatalog .
+
+
+
+### VPNService
+
+itcat:VPNService  a        schema:Service ;
+		#Annotation Properties
+		skos:prefLabel			"VPN-Dienst"@de ;
+		skos:prefLabel			"VPN service"@en ;
+		dcterms:title			"Zugang zum Virtual Private Network (VPN) der TH Brandenburg"@de ;
+		dcterms:abstract		"Der VPN-Dienst erlaubt Nutzern mit einem gültigen E-Mail-Account der TH Brandenburg auch außerhalb des Hochschulnetzes auf interne Webressourcen zuzugreifen. Das Rechenzentrum stellt zu diesem Zweck für alle relevanten Betriebssysteme VPN-Clients und Aleitungen zum Download zur Verfügung."@de ;
+        dcterms:description     "Aktuell werden an der TH Brandenburg VPN-Clients der Firma Fortinet eingesetzt. Die Clients müssen auf den Endgeräten installiert werden. Die Authentifizierung erfolgt über die IDM-Login-Daten."@de ;
+        dcterms:subject         "" ;
+        rdfs:comment			"" ;
+        #Data Properties
+        schema:url              "http://www.fh-brandenburg.de/vpnanleitung.html" ;
+        #Object Properties
+        itcat:hasStage          itcat:Operation ;
+        itcat:user				itcat:Students , itcat:Staff , itcat:ExtWorkers ;
+        schema:customer			itcat:THB ;
+        schema:provider			itcat:DataCenter ;
+        itcat:supporter			itcat:DataCenter ;
+        itcat:hasCriticality	itcat:MediumCriticality ;
+        itcat:hasPriority		itcat:HighPriority ;
+        itcat:usableWith  		itcat:Computer , itcat:Laptop ;
+        schema:isRelatedTo		itcat:IDM , itcat:WebHosting ;
+##      foaf:page 				itcat: ;
+        itcat:inCategory		itcat:NetworkServices , itcat:BusinessCatalog .
+        
+
+### WebMail
+
+itcat:WebMail  a        schema:Service ;
+		#Annotation Properties
+		skos:prefLabel			"WebMail-Dienst"@de ;
+		skos:prefLabel			"webmail service"@en ;
+		dcterms:title			"WebMail-Dienst Zimbra der TH Brandenburg"@de ;
+		dcterms:abstract		"Für alle Studierenden und Lehrkräfte bietet die Hochschule einen Webmailer auf Basis von Zimbra an. Der Dienst ist innerhalb und außerhalb des Hochschulnetzes zugänglich. Die Authentifizierung erfolgt mit den IDM-Login-Daten."@de ;
+        dcterms:description     "<p>Der Webmail-Service ist plattformunabhängig mit jedem Gerät abrufbar. Verwendet wird zentral die Software „Zimbra“, welche neben dem E-Mail-Dienst weitere Funktionen einer Groupware wie einen Kalender, Kontaktbuch und Aufgabenbereich beinhaltet. Des Weiteren kann man online Dateien hochladen und freigeben.</p>"@de ;
+        dcterms:subject         "" ;
+        rdfs:comment			"" ;
+        #Data Properties
+        schema:url              "https://webmail.fh-brandenburg.de/" ;
+        #Object Properties
+        itcat:hasStage          itcat:Operation ;
+        itcat:user				itcat:Staff , itcat:Students , itcat:ExtWorkers ;
+        schema:customer			itcat:THB ;
+        schema:provider			itcat:DataCenter ;
+        itcat:supporter			itcat:DataCenter ;
+        itcat:hasCriticality	itcat:HighCriticality ;
+        itcat:hasPriority		itcat:HighPriority ;
+        itcat:usableWith  		itcat:Computer , itcat:Laptop , itcat:Smartphone , itcat:Tablet ;
+        schema:isRelatedTo		itcat:CentralMail , itcat:IDM ;
+        foaf:page 				itcat:WebMail_DocWP001 ;
+        itcat:inCategory		itcat:CommunicationServices , itcat:BusinessCatalog .
+
+
+### GroupWareADM
+
+itcat:GroupWareADM  a        schema:Service ;
+		#Annotation Properties
+		skos:prefLabel			"Groupware Verwaltung"@de ;
+		skos:prefLabel			"groupware administration"@en ;
+		dcterms:title			"Groupware-Lösung Zimbra für die Verwaltung der TH Brandenburg"@de ;
+		dcterms:abstract		"Für die Mitarbeiter der Verwaltung der TH Brandenburg steht eine lizensierte Groupware-Lösung auf Basis von Zimbra zur Verfügung. Der Dienst ist innerhalb und außerhalb des Hochschulnetzes zugänglich. Die Authentifizierung erfolgt mit den IDM-Login-Daten."@de ;
+        dcterms:description     "<p>Der Groupware-Dienst ist plattformunabhängig mit jedem Gerät abrufbar. Verwendet wird zentral die Software „Zimbra“, welche neben dem E-Mail-Dienst weitere Funktionen einer Groupware wie einen Kalender, Kontaktbuch und Aufgabenbereich beinhaltet. Des Weiteren kann man online Dateien hochladen und freigeben.</p><p>F Neben den oben genannten Funktionalitäten erlaubt dieser Dienst den Austausch von Aufgaben und Terminen."@de ;
+        dcterms:subject         "" ;
+        rdfs:comment			"" ;
+        #Data Properties
+        schema:url              "https://zimbra.fh-brandenburg.de/" ;
+        #Object Properties
+        itcat:hasStage          itcat:Operation ;
+        itcat:user				itcat:StaffADM ;
+        schema:customer			itcat:THB ;
+        schema:provider			itcat:DataCenter ;
+        itcat:supporter			itcat:DataCenter ;
+        itcat:hasCriticality	itcat:HighCriticality ;
+        itcat:hasPriority		itcat:HighPriority ;
+        itcat:usableWith  		itcat:Computer , itcat:Laptop , itcat:Smartphone , itcat:Tablet ;
+        schema:isRelatedTo		itcat:CentralMail , itcat:IDM ;
+        foaf:page 				itcat:GroupWareADM_DocWP001 ;
+        itcat:inCategory		itcat:CommunicationServices , itcat:BusinessCatalog .
+
+
+### WLAN
+
+itcat:WLAN  a        schema:Service ;
+		#Annotation Properties
+		skos:prefLabel			"WLAN"@de ;
+		skos:prefLabel			"WLAN"@en ;
+		dcterms:title			"Hochschuleigenes WLAN"@de ;
+		dcterms:abstract		"Die Nutzung des hochschuleigenen WLANs 'fhb-wlan' steht allen Angehörigen der Fachhochschule Brandenburg frei. Die Anmeldung an diesem WLAN erfolgt mit den IDM-Login-Daten. In der Regel genügt die Eingabe ihrer Zugangsdaten um sich im WLAN der Fachhochschule Brandenburg anzumelden."@de ;
+        dcterms:description     "<p>Sollte es Probleme bei der Verbindung geben, nutzen Sie zunächst bitte die unter Dokumente abgelegte Anleitung um die Verbindung neu einzurichten.</p><p>Mit dem Beginn des Wintersemester 2015 kann das eduroam - WLAN auch durch Studierende und Mitarbeitende der FHB genutzt werden. Mit der einmaligen Einrichtung von eduroam auf ihrem mobilen Gerät haben Sie dann die Möglichkeit, kostenlosen Zugang zum Internet an der FHB und eben auch allen wissenschaftlichen Einrichtungen weltweit zu erhalten.</p><p>Das 'fhb-wlan' wird zunächst noch parallel zur Verfügung stehen, jedoch zum Beginn des Sommersemester 2016 abgeschaltet werden.</p>"@de ;
+        dcterms:subject         "" ;
+        rdfs:comment			"" ;
+        #Data Properties
+        schema:url              "http://www.fh-brandenburg.de/1347.html" ;
+        #Object Properties
+        itcat:hasStage          itcat:InRelief ;
+        itcat:user				itcat:Students , itcat:Staff , itcat:ExtWorkers ;
+        schema:customer			itcat:THB ;
+        schema:provider			itcat:DataCenter ;
+        itcat:supporter			itcat:DataCenter ;
+        itcat:hasCriticality	itcat:HighCriticality ;
+        itcat:hasPriority		itcat:HighPriority ;
+        itcat:usableWith  		itcat:Computer , itcat:Laptop , itcat:Smartphone , itcat:Tablet ;
+        schema:isRelatedTo		itcat:IDM , itcat:WebHosting ;
+        foaf:page 				itcat:WLAN_DocDL001 ;
+        itcat:inCategory		itcat:NetworkServices , itcat:InfrastructureCatalog .
+
+
+### ProxyServer
+
+itcat:ProxyServer  a        schema:Service ;
+		#Annotation Properties
+		skos:prefLabel			"Proxy-Server"@de ;
+		skos:prefLabel			"proxy server"@en ;
+		dcterms:title			"Verwalten und Einrichten von Web-Filtern (Proxies) an der TH Brandenburg"@de ;
+		dcterms:abstract		"Netzanschlüsse auf dem Campus TH Brandenburg bekommen gewöhnlich eine sogenannte 'private' IP-Adresse. Verbindungen zum Internet, d.h. ausserhalb der Domain fh-brandenburg.de, können über Proxies hergestellt werden."@de ;
+        dcterms:description     "<p>An Arbeitsstationen, bei denen im Browser 'Automatische Suche der Einstellungen' aktiviert wurde und die ihre IP-Adresse per DHCP erhalten, müssen keine Änderungen vorgenommen werden.</p> <p>Alle Arbeitsstationen und Server, deren IP-Adresse manuell eingestellt wurde und die demzufolge keine DHCP nutzen, können das automatische Proxy-Konfigurationsscript verwenden oder manuell die Einstellungen vornehmen. Anleigungen finden sich unter u. a. URL.</p>"@de ;
+        dcterms:subject         "" ;
+        rdfs:comment			"" ;
+        #Data Properties
+        schema:url              "http://www.fh-brandenburg.de/proxies.html" ;
+        #Object Properties
+        itcat:hasStage          itcat:Operation ;
+        itcat:user				itcat:Staff , itcat:Students ;
+        schema:customer			itcat:THB ;
+        schema:provider			itcat:DataCenter ;
+        itcat:supporter			itcat:DataCenter ;
+        itcat:hasCriticality	itcat:MediumCriticality ;
+        itcat:hasPriority		itcat:LowPriority ;
+        itcat:usableWith  		itcat:Computer , itcat:Laptop ;
+        schema:isRelatedTo		itcat:WebHosting ;
+##      foaf:page 				itcat: ;
+        itcat:inCategory		itcat:NetworkServices , itcat:InfrastructureCatalog .
+
+
+### VirtualMachine
+
+itcat:VirtualMachine  a        schema:Service ;
+		#Annotation Properties
+		skos:prefLabel			"Virtuelle Maschine"@de ;
+		skos:prefLabel			"virtual machine"@en ;
+		dcterms:title			"Bereitstellung virtueller Server durch den FBW"@de ;
+		dcterms:abstract		"Der Fachbereich Wirtschaft bietet Lehrenden, Mitarbeitern und Studierenden die Möglichkeit zur Unterstützung der Lehre und bei Projektarbeiten Server mit verschiedenen Betriebssystemen in einer virtuellen Umgebung zur Verfügung zu stellen. "@de ;
+        dcterms:description     "Die Bereitstellung eines virtuellen Servers kann über ein Formular beantragt werden. Das Formular erfordert eine Anmeldung mit den IDM-Login-Daten. Der Antragsteller muss die 'Nutzungsbedingungen für virtuelle Maschinen' lesen und akzeptieren. Die Bearbeitung des Antrags erfolgt gewöhnlich innerhalb von 14 Tagen."@de ;
+        dcterms:subject         "" ;
+        rdfs:comment			"" ;
+        #Data Properties
+        schema:url              "https://fbwcms.fh-brandenburg.de/wirtschaft/vmantrag" ;
+        #Object Properties
+        itcat:hasStage          itcat:Operation ;
+        itcat:user				itcat:Staff ;
+        schema:customer			itcat:DBM ;
+        schema:provider			itcat:TLSO ;
+        itcat:supporter			itcat:TLSO ;
+        itcat:hasCriticality	itcat:MediumCriticality ;
+        itcat:hasPriority		itcat:MediumPriority ;
+        itcat:usableWith  		itcat:Computer , itcat:Laptop ;
+        schema:isRelatedTo		itcat:IDM , itcat:WebHosting ;
+        foaf:page 				itcat:VirtualMachine_DocWP001 ;
+        itcat:inCategory		itcat:InfrastructureServices , itcat:BusinessCatalog .
+
+
+### WebHosting
+
+itcat:WebHosting  a        schema:Service ;
+		#Annotation Properties
+		skos:prefLabel			"Web-Hosting"@de ;
+		skos:prefLabel			"web hosting"@en ;
+		dcterms:title			"Betrieb des zentralen Web-Servers an der TH Brandenburg"@de ;
+		dcterms:abstract		"Die TH Brandenburg betreibt eigene Web-Server im Rahmen des DFN (Deutsches Forschungsnetz). Damit können sämtliche webbasierten Dienste der Hochschule mit hoher Performanz und Verfügbarkeit betrieben werden."@de ;
+        dcterms:description     "Der Web-Hosting-Dienst ist die Grundlage für eine Fülle von webbasierten Diensten an der Hochschule."@de ;
+        dcterms:subject         "" ;
+        rdfs:comment			"" ;
+        #Data Properties
+        schema:url              "http://www.fh-brandenburg.de/www.html" ;
+        #Object Properties
+        itcat:hasStage          itcat:Operation ;
+        itcat:user				itcat:THB , itcat:DataCenter , itcat:TLSO , itcat:LSCS , itcat:HISProject ;
+        schema:customer			itcat:THB ;
+        schema:provider			itcat:DFN ;
+        itcat:supporter			itcat:DataCenter ;
+        itcat:hasCriticality	itcat:HighCriticality ;
+        itcat:hasPriority		itcat:HighPriority ;
+##      itcat:usableWith  		itcat: ;
+##      schema:isRelatedTo		itcat: ;
+##      foaf:page 				itcat: ;
+        itcat:inCategory		itcat:InfrastructureServices , itcat:OperationalCatalog .
+
+
+### WebSite
+
+itcat:WebSite  a        schema:Service ;
+		#Annotation Properties
+		skos:prefLabel			"Webseite der THB"@de ;
+		skos:prefLabel			"website of UASB"@en ;
+		dcterms:title			"Zentrale Webseite der TH Brandenburg"@de ;
+		dcterms:abstract		"Die Webseite der Hochschule ist das zentrale Informationsportal für alle Interessenten und die gesamte Öffentlichkeit. Darüber hinaus bietet die Webseite auch den Angehörigen der TH Brandenburg interessante Informationen zu Struktur, Aktivitäten und Diensten der Hochschule."@de ;
+        dcterms:description     "Aktuell betreiben die Fachbereiche, Zentren und Projekte eigene Webseiten, die unterhalb der Domain 'fh-brandenburg.de' gehostet werden. Ein Projekt zur Vereinheitlichung und Zusammenführung dieser Webseiten wurde 2014 gestartet und soll 2016 abgeschlossen werden."@de ;
+        dcterms:subject         "" ;
+        rdfs:comment			"" ;
+        #Data Properties
+        schema:url              "http://www.th-brandenburg.de" ;
+        #Object Properties
+        itcat:hasStage          itcat:Implementation ;
+        itcat:user				itcat:Public , itcat:Enrollees , itcat:Staff , itcat:Students ;
+        schema:customer			itcat:THB ;
+        schema:provider			itcat:DataCenter ;
+        itcat:supporter			itcat:DataCenter ;
+        itcat:hasCriticality	itcat:HighCriticality ;
+        itcat:hasPriority		itcat:HighPriority ;
+        itcat:usableWith  		itcat:Computer , itcat:Laptop , itcat:Smartphone , itcat:Tablet ;
+        schema:isRelatedTo		itcat:WebHosting ;
+        foaf:page 				itcat:WebSite_DocWP001 , itcat:WebSite_DocWP002 , itcat:WebSite_DocWP003 ;
+        itcat:inCategory		itcat:InformationServices , itcat:PublicCatalog .
 
 
 
 #################################################################
 #
-#    Annotation properties
+#    IT-Assets
 #
-#################################################################
+#################################################################        
+ 
 
+itcat:Computer	a				itcat:ITAsset ;
+		skos:prefLabel			"Computer"@de ;
+		skos:prefLabel			"computer"@en ;
+		skos:definition			"Desktop-Computer, insbesondere die von Mitarbeitern genutzten Geräte sowie die Labor-PCs."@de .
 
-###  http://purl.org/dc/terms/abstract
 
-dcterms:abstract rdf:type owl:AnnotationProperty .
+itcat:Laptop	a				itcat:ITAsset ;
+		skos:prefLabel			"Laptop"@de ;
+		skos:prefLabel			"laptop"@en ;
+		skos:definition			"Portable Computer. Diese können als Hochschuleigentum von Mitarbeitern genutzt werden. Auch die privaten portablen Computer der Mitarbeiter, Studierenden und externen Beschäftigten sind mit gemeint."@de .
 
 
+itcat:WindowsPC  a				itcat:ITAsset ;
+		skos:prefLabel			"Windows PC"@de ;
+		skos:prefLabel			"Windows PC"@en ;
+		skos:definition			"Deskotp-Computer und Laptops, die mit dem Betriebssystem MS Windows ausgestattet sind."@de .
 
-###  http://purl.org/dc/terms/description
 
-dcterms:description rdf:type owl:AnnotationProperty .
+itcat:Smartphone a				itcat:ITAsset ;
+		skos:prefLabel			"Smartphone"@de ;
+		skos:prefLabel			"smart phone"@en ;
+		skos:definition			"Kleine mobile Endgeräte, die u. a. zum Telefonieren benutzt werden können. Diese Endgeräte sind überwiegend im Privatbesitz der Mitarbeiter, Studierenden und der externen Beschäftigten."@de .
 
 
+itcat:Tablet	a				itcat:ITAsset ;
+		skos:prefLabel			"Tablet"@de ;
+		skos:prefLabel			"tablet"@en ;
+		skos:definition			"Größere mobile Endgeräte. Diese Endgeräte sind überwiegend im Privatbesitz der Mitarbeiter, Studierenden und der externen Beschäftigten."@de .
 
-###  http://purl.org/dc/terms/subject
 
-dcterms:subject rdf:type owl:AnnotationProperty .
-
-
-
-###  http://purl.org/dc/terms/title
-
-dcterms:title rdf:type owl:AnnotationProperty .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#hasCriticality
-
-itcat:hasCriticality rdf:type owl:AnnotationProperty .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#hasPriority
-
-itcat:hasPriority rdf:type owl:AnnotationProperty .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#hasStage
-
-itcat:hasStage rdf:type owl:AnnotationProperty .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#inCategory
-
-itcat:inCategory rdf:type owl:AnnotationProperty .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#supporter
-
-itcat:supporter rdf:type owl:AnnotationProperty .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#usableWith
-
-itcat:usableWith rdf:type owl:AnnotationProperty .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#user
-
-itcat:user rdf:type owl:AnnotationProperty .
-
-
-
-###  http://www.w3.org/2004/02/skos/core#definition
-
-skos:definition rdf:type owl:AnnotationProperty .
-
-
-
-###  http://www.w3.org/2004/02/skos/core#prefLabel
-
-skos:prefLabel rdf:type owl:AnnotationProperty .
-
-
-
-###  http://xmlns.com/foaf/0.1/mbox
-
-foaf:mbox rdf:type owl:AnnotationProperty .
-
-
-
-###  http://xmlns.com/foaf/0.1/name
-
-foaf:name rdf:type owl:AnnotationProperty .
-
-
-
-###  http://xmlns.com/foaf/0.1/page
-
-foaf:page rdf:type owl:AnnotationProperty .
-
-
-
-###  http://xmlns.com/foaf/0.1/phone
-
-foaf:phone rdf:type owl:AnnotationProperty .
-
-
-
-###  https://schema.org/customer
-
-schema:customer rdf:type owl:AnnotationProperty .
-
-
-
-###  https://schema.org/employee
-
-schema:employee rdf:type owl:AnnotationProperty .
-
-
-
-###  https://schema.org/isPartOf
-
-schema:isPartOf rdf:type owl:AnnotationProperty .
-
-
-
-###  https://schema.org/isRelatedTo
-
-schema:isRelatedTo rdf:type owl:AnnotationProperty .
-
-
-
-###  https://schema.org/provider
-
-schema:provider rdf:type owl:AnnotationProperty .
-
-
-
-###  https://schema.org/url
-
-schema:url rdf:type owl:AnnotationProperty .
-
-
-
+itcat:Screen	a				itcat:ITAsset ;
+		skos:prefLabel			"Bildschirm"@de ;
+		skos:prefLabel			"screen"@en ;
+		skos:definition			"In öffentlich zugänglichen Bereichen der Hochschulgebäude fest installierte Bildschirme, z. B. als Info-Displays genutzt."@de .
 
 
 #################################################################
 #
-#    Classes
+#    Agents
 #
 #################################################################
+        
+
+### Role Individuals
+
+itcat:Students	a				schema:Role ;
+		skos:prefLabel			"Studierende"@de ;
+		skos:prefLabel			"students"@en ;
+		skos:definition			"Zum aktuellen Zeitpunkt an der Hochschule eingeschriebene Studierende."@de .
 
 
-###  http://th-brandenburg.de/ns/itcat#ITAsset
+itcat:Staff		a				schema:Role ;
+		skos:prefLabel			"Mitarbeiter"@de ;
+		skos:prefLabel			"staff"@en ;
+		skos:definition			"Zum aktuellen Zeitpunkt an der Hochschule festangestellte Mitarbeiter."@de .
+		
+		
+itcat:StaffDBM	a				schema:Role ;
+		skos:prefLabel			"Mitarbeiter FBW"@de ;
+		skos:prefLabel			"staff of DBM"@en ;
+		skos:definition			"Mitarbeiter des Fachbereichs Wirtschaft."@de .
+		
+		
+itcat:StaffDCS	a				schema:Role ;
+		skos:prefLabel			"Mitarbeiter FBI"@de ;
+		skos:prefLabel			"staff of DCS"@en ;
+		skos:definition			"Mitarbeiter des Fachbereichs Informatik und Medien."@de .
+		
+		
+itcat:StaffDTE	a				schema:Role ;
+		skos:prefLabel			"Mitarbeiter FBT"@de ;
+		skos:prefLabel			"staff of DTE"@en ;
+		skos:definition			"Mitarbeiter des Fachbereichs Technik."@de .
+		
+		
+itcat:StaffADM	a				schema:Role ;
+		skos:prefLabel			"Mitarbeiter Verwaltung/Zentren"@de ;
+		skos:prefLabel			"staff of administration or centers"@en ;
+		skos:definition			"Mitarbeiter der Hochschulverwaltung oder der Zentren."@de .
+		
+		
+itcat:ExtWorkers	a			schema:Role ;
+		skos:prefLabel			"Externe Beschäftigte"@de ;
+		skos:prefLabel			"external workers"@en ;
+		skos:definition			"Lehrbeauftragte, Gastprofessoren, Honorarprofessoren u. a. externe Beschäftigten, z. B. in Projekten."@de ;
+		rdfs:comment			"Externe Beschäftigte erhalten einen Hochschulaccount und haben damit auch Zugriff auf viele interne IT-Dienste der Hochschule."@de .
+		
+		
+itcat:Enrollees	a				schema:Role ;
+		skos:prefLabel			"Studienbewerber"@de ;
+		skos:prefLabel			"enrollees"@en ;
+		skos:definition			"Personen, die sich an der Hochschule bewerben oder beworben haben, über deren Bewerbung jedoch aktuell noch nicht entschieden wurde."@de .
+		
+		
+itcat:Public	a				schema:Role ;
+		skos:prefLabel			"Öffentlichkeit"@de ;
+		skos:prefLabel			"public"@en ;
+		skos:definition			"Personen, die ein berufliches oder privates Interesse an der Hochschule haben."@de .
 
-itcat:ITAsset rdf:type owl:Class .
+
+### Organization Individuals
 
 
-
-###  http://xmlns.com/foaf/0.1/Document
-
-foaf:Document rdf:type owl:Class .
-
-
-
-###  http://xmlns.com/foaf/0.1/Organization
-
-foaf:Organization rdf:type owl:Class .
-
-
-
-###  http://xmlns.com/foaf/0.1/Person
-
-foaf:Person rdf:type owl:Class .
+itcat:THB		a				foaf:Organization ;
+		skos:prefLabel			"TH Brandenburg"@de ;
+		skos:prefLabel			"UAS Brandenburg"@en ;
+		dcterms:title			"Technische Hochschule Brandenburg an der Havel - University of Applied Sciences"@de .
+		
+		
+itcat:DCS		a				foaf:Organization ;
+		skos:prefLabel			"FBI"@de ;
+		skos:prefLabel			"DCS - Department of Computer Science and Media"@en ;
+		dcterms:title			"Fachbereich Informatik und Medien"@de ;
+		schema:isPartOf			itcat:THB .
 
 
+itcat:LSCS		a				foaf:Organization ;
+		skos:prefLabel			"Labordienst FBI"@de ;
+		skos:prefLabel			"lab service DCS"@en ;
+		dcterms:title			"Labordienst des Fachbereichs Informatik und Medien"@de ;
+		schema:isPartOf			itcat:DCS .
 
-###  https://schema.org/Role
+		
+itcat:DTE		a				foaf:Organization ;
+		skos:prefLabel			"FBT"@de ;
+		skos:prefLabel			"DTE - Department of Technology and Engineering"@en ;
+		dcterms:title			"Fachbereich Technik"@de ;
+		schema:isPartOf	 		itcat:THB .
+		
+		
+itcat:DBM		a				foaf:Organization ;
+		skos:prefLabel			"FBW"@de ;
+		skos:prefLabel			"DBM - Department of Business and Management"@en ;
+		dcterms:title			"Fachbereich Wirtschaft"@de ;
+		schema:isPartOf			itcat:THB .
+		
+		
+itcat:TLSO		a				foaf:Organization ;
+		skos:prefLabel			"TLSO"@de ;
+		skos:prefLabel			"TLSO"@en ;
+		dcterms:title			"Team Labor Service und Organisation des FBW"@de ;
+		schema:isPartOf			itcat:DBM .
+		
+		
+itcat:DataCenter	a			foaf:Organization ;
+		skos:prefLabel			"Rechenzentrum"@de ;
+		skos:prefLabel			"data center"@en ;
+		dcterms:title			"Rechenzentrum der TH Brandenburg"@de ;
+		schema:isPartOf			itcat:THB .
 
-schema:Role rdf:type owl:Class .
+
+itcat:HISProject	a			foaf:Organization ;
+		skos:prefLabel			"HISinOne-Projekt"@de ;
+		skos:prefLabel			"HISinOne project"@en ;
+		dcterms:title			"Projekt zur Einführung des integrierten Hoschschulinformationssystems HISinOne"@de ;
+		schema:isPartOf			itcat:THB .
+		
+		
+itcat:Library	a				foaf:Organization ;
+		skos:prefLabel			"Hochschulbibliothek"@de ;
+		skos:prefLabel			"university library"@en ;
+		dcterms:title			"Hochschulbibliothek der TH Brandenburg"@de ;
+		schema:isPartOf			itcat:THB .
+		
+
+itcat:RegOffice	a				foaf:Organization ;
+		skos:prefLabel			"Studierendensekretariat"@de ;
+		skos:prefLabel			"registrar's office"@en ;
+		dcterms:title			"Studierendensekretariat der TH Brandenburg"@de ;
+		schema:isPartOf			itcat:THB .
+				
+		
+itcat:BRZUR		a				foaf:Organization ;
+		skos:prefLabel			"BRZ Uni Regensburg"@de ;
+		skos:prefLabel			"University Data Center Regensburg"@en ;
+		dcterms:title			"Bibliotheksrechenzentrum der Universität Regensburg"@de .
+		
+		
+itcat:DFN		a				foaf:Organization ;
+		skos:prefLabel			"DFN Verein"@de ;
+		skos:prefLabel			"DFN association"@en ;
+		dcterms:title			"DFN Verein zur Förderung eines Deutschen Forschungsnetzes e. V."@de .
+		
+		
+itcat:KOBV		a				foaf:Organization ;
+		skos:prefLabel			"KOBV Berlin-Brandenburg"@de ;
+		skos:prefLabel			"KOBV Berlin-Brandenburg"@en ;
+		dcterms:title			"Kooperativer Bibliotheksverbund Berlin-Brandenburg"@de .
 
 
-
-###  https://schema.org/Service
-
-schema:Service rdf:type owl:Class .
-
-
+itcat:OCLC		a				foaf:Organization ;
+		skos:prefLabel			"OCLC Deutschland"@de ;
+		skos:prefLabel			"OCLC Germany"@en ;
+		dcterms:title			"Deutsches Chapter des Online Computer Library Center (OCLC) - weltweit tätige Non-Profit-Organisation und Dienstleister für Bibliotheken"@de .
 
 
+itcat:Nagios	a				foaf:Organization ;
+		skos:prefLabel			"Nagios Community"@de ;
+		skos:prefLabel			"Nagios community"@en ;
+		dcterms:title			"Open Source Community zur Weiterentwicklung der IT-Monitoring-Software Nagios"@de .
+
+
+itcat:SpreadShirt	a			foaf:Organization ;
+		skos:prefLabel			"sprd.net AG"@de ;
+		skos:prefLabel			"sprd.net AG"@en ;
+		dcterms:title			"Spreadshirt sprd.net AG"@de .
+
+
+itcat:TUBerlin	a				foaf:Organization ;
+		skos:prefLabel			"TU Berlin"@de ;
+		skos:prefLabel			"Technical University Berlin"@en ;
+		dcterms:title			"Technische Universität Berlin"@de .
+
+
+itcat:UniStuttgart	a			foaf:Organization ;
+		skos:prefLabel			"Uni Stuttgart"@de ;
+		skos:prefLabel			"University of Stuttgart"@en ;
+		dcterms:title			"Universität Stuttgart"@de .
+
+
+itcat:BSNeV 	a				foaf:Organization ;
+		skos:prefLabel			"BürgerServiceNetz e.V."@de ;
+		skos:prefLabel			"BSN e. V."@en ;
+		dcterms:title			"BSN e. V - E-Government und E-Health an der FH Brandenburg"@de .
+
+
+### Person Individuals
+
+
+itcat:WWeidner	a				foaf:Person ;
+		skos:prefLabel			"Wolfram Weidner, B.Sc." ;
+		schema:employee			itcat:DCS ;
+		foaf:name				"Wolfram Weidner" ;
+		foaf:mbox				"wolfram.weidner(at)th-brandenburg.de" ;
+		foaf:phone 				"+49 3381 355 - 437" .
+		
+
+itcat:RDoletzki	a				foaf:Person ;
+		skos:prefLabel			"Dipl.-Ing. Ralf Doletzki" ;
+		schema:employee			itcat:DCS ;
+		foaf:name				"Ralf Doletzki" ;
+		foaf:mbox				"ralf.doletzki(at)th-brandenburg.de" ;
+		foaf:phone 				"+49 3381 355 - 414" .
+		
+
+itcat:DSchulz	a				foaf:Person ;
+		skos:prefLabel			"Dipl.-Ing. (FH) Dieter Schulz" ;
+		schema:employee			itcat:DTE ;
+		foaf:name				"Dieter Schulz" ;
+		foaf:mbox				"dieter.schulz(at)th-brandenburg.de" ;
+		foaf:phone 				"+49 3381 355 - 325" .
+		
+
+itcat:DThiele	a				foaf:Person ;
+		skos:prefLabel			"Dipl.-Ing. (FH) Dieter Thiele" ;
+		schema:employee			itcat:DTE ;
+		foaf:name				"Dieter Thiehle" ;
+		foaf:mbox				"dieter.thiele(at)th-brandenburg.de" ;
+		foaf:phone 				"+49 3381 355 - 538" ;
+		foaf:phone				"+49 3381 355 - 508" .
+		
+
+itcat:TJacob	a				foaf:Person ;
+		skos:prefLabel			"Dipl. Wi.-Inform.(FH) Thomas Jacob" ;
+		schema:employee			itcat:TLSO ;
+		foaf:name				"Thomas Jacob" ;
+		foaf:mbox				"thomas.jacob(at)th-brandenburg.de" ;
+		foaf:phone 				"+49 3381 355 - 222" .
+		
+
+itcat:MLangerwisch	a			foaf:Person ;
+		skos:prefLabel			"Dipl. Wi-Inform.(FH) Marco Langerwisch" ;
+		schema:employee			itcat:TLSO ;
+		foaf:name				"Marco Langerwisch" ;
+		foaf:mbox				"marco.langerwisch(at)th-brandenburg.de" ;
+		foaf:phone 				"+49 3381 355 - 224" .
+		
+
+itcat:RFahl		a				foaf:Person ;
+		skos:prefLabel			"René Fahl" ;
+		schema:employee			itcat:TLSO ;
+		foaf:name				"René Fahl" ;
+		foaf:mbox				"rene.fahl(at)th-brandenburg.de" ;
+		foaf:phone 				"+49 3381 355 - 279" .
+		
+
+itcat:RWietusch		a			foaf:Person ;
+		skos:prefLabel			"Dipl.-Chem. Renate Wietusch" ;
+		schema:employee			itcat:TLSO ;
+		foaf:name				"Renate Wietusch" ;
+		foaf:mbox				"renate.wietusch(at)th-brandenburg.de" ;
+		foaf:phone 				"+49 3381 355 - 213" .
+		
+		
+itcat:MHeinrich	a				foaf:Person ;
+		skos:prefLabel			"Marcus Heinrich" ;
+		schema:employee			itcat:DCS ;
+		foaf:name				"Marcus Heinrich" ;
+		foaf:mbox				"marcus.heinrich(at)th-brandenburg.de" ;
+		foaf:phone 				"+49 3381 355 - 164" .
+		
+
+itcat:APrenzlow	a				foaf:Person ;
+		skos:prefLabel			"Andrea Prenzlow" ;
+		schema:employee			itcat:DCS ;
+		foaf:name				"Andrea Prenzlow" ;
+		foaf:mbox				"andrea.prenzlow(at)th-brandenburg.de" ;
+		foaf:phone 				"+49 3381 355 - 401" .
+		
+
+itcat:TRanglack	a				foaf:Person ;
+		skos:prefLabel			"Thomas Ranglack" ;
+		schema:employee			itcat:DCS ;
+		foaf:name				"Thomas Ranglack" ;
+		foaf:mbox				"thomas.ranglack(at)th-brandenburg.de" ;
+		foaf:phone 				"+49 3381 355 - 445" .
+		
+
+
+itcat:KLeipnitz	a				foaf:Person ;
+		skos:prefLabel			"Stellvertretende Leitung Zentrum für Marketing und PR / Pressesprecherin Katharina Leipnitz" ;
+		schema:employee			itcat:DCS ;
+		foaf:name				"Katharina Leipnitz" ;
+		foaf:mbox				"katharina.leipnitz(at)th-brandenburg.de" ;
+		foaf:phone 				"+49 3381 355 - 293" .
+		
 
 #################################################################
 #
-#    Individuals
+#    Document Individuals
 #
 #################################################################
+        
 
+itcat:CloudserviceFBW_DocDL001 a foaf:Document ;
+		schema:url "http://fbwcms.fh-brandenburg.de/sixcms/media.php/1127/filr1_qs_mobile.pdf" .
+		
+itcat:CloudserviceFBW_DocWP001 a foaf:Document ;
+		schema:url "http://itworks.fh-brandenburg.de/" .
 
-###  http://th-brandenburg.de/ns/itcat#APrenzlow
+itcat:Eduroam_DocWP001 a foaf:Document  ;
+		schema:url "https://www.dfn.de/dienstleistungen/dfnroaming/" .
+		
+itcat:Eduroam_DocWP002 a foaf:Document ;
+		schema:url "https://edit.dfn.de/CAT-1.0.4/web/" .
 
-itcat:APrenzlow rdf:type owl:NamedIndividual ,
-                         foaf:Person ;
-                
-                foaf:name "Andrea Prenzlow" ;
-                
-                skos:prefLabel "Andrea Prenzlow" ;
-                
-                foaf:phone "+49 3381 355 - 401" ;
-                
-                foaf:mbox "andrea.prenzlow(at)th-brandenburg.de" ;
-                
-                schema:employee itcat:DCS .
+itcat:CentralMail_DocWP001 a foaf:Document ;
+		schema:url "http://www.fh-brandenburg.de/email.html" .
 
+itcat:Fernleihe_DocWP001 a foaf:Document ;
+		schema:url "http://portal.kobv.de/?plv=2" .
 
+itcat:DeviceRental_DocDL001 a foaf:Document ;
+        schema:url "https://moodle.fh-brandenburg.de/brokenfile.php#/947/user/draft/799894076/MLP%20Haftpflicht%202013.pdf" .
 
-###  http://th-brandenburg.de/ns/itcat#BRZUR
+itcat:DeviceRental_DocWP001 a foaf:Document ;
+		schema:url "https://moodle.fh-brandenburg.de/mod/resource/view.php?id=44403" .
 
-itcat:BRZUR rdf:type owl:NamedIndividual ,
-                     foaf:Organization ;
-            
-            skos:prefLabel "BRZ Uni Regensburg"@de ;
-            
-            dcterms:title "Bibliotheksrechenzentrum der Universität Regensburg"@de ;
-            
-            skos:prefLabel "University Data Center Regensburg"@en .
+itcat:HISInOneAPP_DocWP001 a foaf:Document ;
+		schema:url "http://www.fh-brandenburg.de/bewerbung-portale.html" .
 
+itcat:HISInOneAPP_DocWP002 a foaf:Document ;
+		schema:url "http://www.fh-brandenburg.de/sts-bewerbung.html" .
 
+itcat:HISQIS_DocWP001 a foaf:Document ;
+        schema:url "http://www.fh-brandenburg.de/online-portal.html" .
 
-###  http://th-brandenburg.de/ns/itcat#BSCW
+itcat:IDM_DocWP001 a foaf:Document ;
+        schema:url "http://www.fh-brandenburg.de/2261.html" .
 
-itcat:BSCW rdf:type owl:NamedIndividual ,
-                    schema:Service ;
-           
-           dcterms:title "BSCW Groupware"@de ;
-           
-           skos:prefLabel "BSCW Groupware"@en ;
-           
-           schema:url "http://bscw.fh-brandenburg.de" ;
-           
-           rdfs:comment "" ;
-           
-           dcterms:subject "" ;
-           
-           skos:prefLabel "BSCW Groupware"@de ;
-           
-           dcterms:description "BSCW ist ein Projekt- und Dokumentenmanagementsystem (Basic Support for Cooperative Work). Es wurde vor 20 Jahren vom Fraunhofer Institut FIT entwickelt. Inzwischen zeichnet die OrbiTeam Software GmbH & Co. KG für die Pflege, Weiterentwicklung und den Support des Systems verantwortlich. Der FB Wirtschaft hat eine Lizenz für Forschung und Lehre erworben und bietet die Nutzung auf einem eigenen Server an. BSCW ist das ideale Werkzeug für effiziente Kooperation, insbesondere für firmen- oder standortübergreifende Projekte. Es ermöglicht - ohne Softwareinstallation bei den Endbenutzern - die Zusammenarbeit von beliebig großen Benutzergruppen. Die Anmeldung erfolgt mit softwareeigenen Nutzerdaten, eine Intgration in des zentrale IDM ist nicht umgesetzt."@de ;
-           
-           dcterms:abstract "BSCW ist ein bewährtes Werkzeug für effiziente Kooperation, insbesondere für firmen- oder standortübergreifende Projekte."@de ;
-           
-           itcat:inCategory itcat:BusinessCatalog ,
-                            itcat:CommunicationServices ;
-           
-           itcat:usableWith itcat:Computer ;
-           
-           schema:customer itcat:DBM ;
-           
-           itcat:usableWith itcat:Laptop ;
-           
-           itcat:hasPriority itcat:LowPriority ;
-           
-           itcat:supporter itcat:MLangerwisch ;
-           
-           itcat:hasCriticality itcat:MediumCriticality ;
-           
-           itcat:hasStage itcat:Operation ;
-           
-           itcat:usableWith itcat:Smartphone ;
-           
-           itcat:user itcat:Staff ,
-                      itcat:Students ;
-           
-           schema:provider itcat:TLSO ;
-           
-           itcat:inCategory itcat:TeachingPlatforms ;
-           
-           schema:isRelatedTo itcat:WebHosting .
+itcat:IDM_DocWP002 a foaf:Document ;
+		schema:url "https://www.idm.fh-brandenburg.de/IDMProv/portal/cn/GuestContainerPage/Passwort_vergessen" .
 
-
-
-###  http://th-brandenburg.de/ns/itcat#BSNeV
-
-itcat:BSNeV rdf:type owl:NamedIndividual ,
-                     foaf:Organization ;
-            
-            dcterms:title "BSN e. V - E-Government und E-Health an der FH Brandenburg"@de ;
-            
-            skos:prefLabel "BürgerServiceNetz e.V."@de ,
-                           "BSN e. V."@en .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#CentralMail
-
-itcat:CentralMail rdf:type owl:NamedIndividual ,
-                           schema:Service ;
-                  
-                  schema:url "http://www.fh-brandenburg.de/email2.html" ;
-                  
-                  dcterms:subject "" ;
-                  
-                  rdfs:comment "" ;
-                  
-                  dcterms:description "<p>Das Rechenzentrum betreibt zwei Mailserver (Mailrelay), die die Verteilung von E-Mails innerhalb der Domain fh-brandenburg.de sowie den Empfang und Versand nach aussen abwickeln. Die Adressen dieser Server, in E-Mail-Clients als SMTP-Server oder Server für ausgehende Nachrichten bezeichnet, lauten:</p><ul><li>mail.fh-brandenburg.de:25</li><li>mail-auth.fh-brandenburg.de:25 (StartTLS)</li></ul><p>Eingehende Nachrichten können mittels POP3- oder IMAP-Protokoll abgerufen werden. Die Adressen dieser Server, in E-Mail-Clients als POP3-/IMAP-Server oder Server für eingehende Nachrichten bezeichnet, lauten:</p><ul><li>pop3-server: pop3.fh-brandenburg.de port: 995</li><li>imap-server: imap.fh-brandenburg.de port: 143/starttls</li><li>imap-server: imap.fh-brandenburg.de port: 993/ssl</li></ul><p>Die Größe einer E-Mail ist begrenzt auf 10 MB. Für den Austausch von größeren Dateien benutzen Sie bitte den Dienst <a href=\"VolumeTransfer\">Volumendatentransfer</a></p>."@de ;
-                  
-                  dcterms:abstract "Das Rechenzentrum betreibt zwei Mailserver (Mailrelay), die die Verteilung von E-Mails innerhalb der Domain fh-brandenburg.de sowie den Empfang und Versand nach aussen abwickeln."@de ;
-                  
-                  skos:prefLabel "Zentraler Maildienst"@de ;
-                  
-                  dcterms:title "Zentraler Maildienst der TH Brandenburg"@de ;
-                  
-                  skos:prefLabel "central mail service"@en ;
-                  
-                  foaf:page itcat:CentralMail_DocWP001 ;
-                  
-                  itcat:user itcat:DataCenter ;
-                  
-                  schema:provider itcat:DataCenter ;
-                  
-                  itcat:supporter itcat:DataCenter ;
-                  
-                  itcat:hasCriticality itcat:HighCriticality ;
-                  
-                  itcat:hasPriority itcat:HighPriority ;
-                  
-                  itcat:inCategory itcat:InformationServices ,
-                                   itcat:NetworkServices ;
-                  
-                  itcat:hasStage itcat:Operation ;
-                  
-                  itcat:inCategory itcat:OperationalCatalog ;
-                  
-                  schema:customer itcat:THB ;
-                  
-                  itcat:user itcat:TLSO ;
-                  
-                  schema:isRelatedTo itcat:WebMail .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#CentralMail_DocWP001
-
-itcat:CentralMail_DocWP001 rdf:type owl:NamedIndividual ,
-                                    foaf:Document ;
-                           
-                           schema:url "http://www.fh-brandenburg.de/email.html" .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#ClassSchedule
-
-itcat:ClassSchedule rdf:type owl:NamedIndividual ,
-                             schema:Service ;
-                    
-                    dcterms:subject "" ;
-                    
-                    dcterms:description "Die Stundenplanung an der TH Brandenburg basiert auf der Eigenentwicklung CATT (Computer Aided Time Table). Neben dem aktuell gültigen Stundenplan ist ggf. der des gerade abgelaufenen bzw. des demnächst beginnenden Semesters einsehbar. Die Funktion 'Persönlicher Plan des Lehrenden' wird nicht mehr unterstützt. Nach vollumfänglicher Einführung des Hochschulinformationssystems HISinOne wird dieser Dienst abgelöst."@de ;
-                    
-                    schema:url "http://zeus.fh-brandenburg.de/Stundenplan/Plan.htm" ;
-                    
-                    rdfs:comment "" ;
-                    
-                    dcterms:abstract "Die Webseite zur Auswahl und Anzeige der aktuellen Stundenpläne ist grundsätzlich aus dem öffentlichen Netz zugänglich."@de ;
-                    
-                    skos:prefLabel "Stundenplan"@de ;
-                    
-                    dcterms:title "Stundenpläne für alle Studiengänge der TH Brandenburg"@de ;
-                    
-                    skos:prefLabel "class schedule"@en ;
-                    
-                    itcat:inCategory itcat:BusinessCatalog ;
-                    
-                    itcat:usableWith itcat:Computer ;
-                    
-                    schema:customer itcat:DCS ;
-                    
-                    itcat:supporter itcat:DCS ;
-                    
-                    itcat:user itcat:ExtWorkers ;
-                    
-                    itcat:hasStage itcat:InRelief ;
-                    
-                    itcat:inCategory itcat:InformationServices ;
-                    
-                    schema:provider itcat:LSCS ;
-                    
-                    itcat:usableWith itcat:Laptop ;
-                    
-                    itcat:hasCriticality itcat:MediumCriticality ;
-                    
-                    itcat:hasPriority itcat:MediumPriority ;
-                    
-                    itcat:supporter itcat:RWietusch ;
-                    
-                    itcat:usableWith itcat:Smartphone ;
-                    
-                    itcat:user itcat:Staff ,
-                               itcat:Students ;
-                    
-                    schema:isRelatedTo itcat:WebHosting .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#CloudserviceFBW
-
-itcat:CloudserviceFBW rdf:type owl:NamedIndividual ,
-                               schema:Service ;
-                      
-                      schema:url "https://cloud.fh-brandenburg.de" ;
-                      
-                      dcterms:subject "" ;
-                      
-                      rdfs:comment "" ;
-                      
-                      dcterms:description "<p>Unseren Cloud-Service (Filr) erreichen Sie am besten mit einem Browser über die u. a. URL. Bitte loggen Sie sich dort mit Ihrem FHB-Account ein. Die Startseite zeigt nur den Mitarbeiterinnen und Mitarbeitern des Fachbereichs Wirtschaft das vom Novell-Client bekannte Home-Laufwerk, welches Sie als Arbeitsbereich nutzen können. Des Weiteren sehen Sie unter dem Menüpunkt Netzlaufwerke, die Ihnen zugewiesenen Laufwerke (z.B. Projekte, Lehre etc.).</p><p>Über die Weboberfläche unseres Cloud-Services können Sie sich zusätzlich einen Client für Ihren PC/MAC herunterladen. Dieser Client besitzt erweiterte Funktionalitäten, z.B. auch Synchronisationsmöglichkeiten, wie Sie sie vom iFolder her kennen. (Klicken Sie in der Webanwendung oben rechts auf Ihren Namen. Es öffnet sich ein Tooltip mit einem Link zum Download.) Für Smartphones und Tablets gibt es im Apple App Store bzw. Google Play Store eine kostenlose App mit dem Namen 'Filr'.</p>"@de ;
-                      
-                      skos:prefLabel "Cloudservice des FBW"@de ;
-                      
-                      dcterms:title "Cloudservice des Fachbereichs Wirtschaft"@de ;
-                      
-                      dcterms:abstract "Den Mitarbeiterinnen und Mítarbeitern des Fachbereichs Wirtschaft und der Verwaltung steht nunmehr auch ein Cloud-Service der Firma Novel zur Verfügung. Der Hersteller bewirbt diesen Dienst mit den Worten 'Ähnlich wie Dropbox. Sicher wie Fort Knox.'."@de ;
-                      
-                      skos:prefLabel "Cloudservice DBM"@en ;
-                      
-                      itcat:inCategory itcat:BusinessCatalog ;
-                      
-                      foaf:page itcat:CloudserviceFBW_DocDL001 ,
-                                itcat:CloudserviceFBW_DocWP001 ;
-                      
-                      itcat:usableWith itcat:Computer ;
-                      
-                      schema:customer itcat:DBM ;
-                      
-                      itcat:usableWith itcat:Laptop ;
-                      
-                      itcat:hasPriority itcat:LowPriority ;
-                      
-                      itcat:hasCriticality itcat:MediumCriticality ;
-                      
-                      itcat:inCategory itcat:MiscServices ,
-                                       itcat:NetworkServices ;
-                      
-                      itcat:hasStage itcat:Operation ;
-                      
-                      itcat:usableWith itcat:Smartphone ;
-                      
-                      itcat:user itcat:StaffADM ,
-                                 itcat:StaffDBM ;
-                      
-                      itcat:supporter itcat:TJacob ;
-                      
-                      schema:provider itcat:TLSO ;
-                      
-                      schema:isRelatedTo itcat:WebHosting .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#CloudserviceFBW_DocDL001
-
-itcat:CloudserviceFBW_DocDL001 rdf:type owl:NamedIndividual ,
-                                        foaf:Document ;
-                               
-                               schema:url "http://fbwcms.fh-brandenburg.de/sixcms/media.php/1127/filr1_qs_mobile.pdf" .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#CloudserviceFBW_DocWP001
-
-itcat:CloudserviceFBW_DocWP001 rdf:type owl:NamedIndividual ,
-                                        foaf:Document ;
-                               
-                               schema:url "http://itworks.fh-brandenburg.de/" .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#Computer
-
-itcat:Computer rdf:type itcat:ITAsset ,
-                        owl:NamedIndividual ;
-               
-               skos:prefLabel "Computer"@de ;
-               
-               skos:definition "Desktop-Computer, insbesondere die von Mitarbeitern genutzten Geräte sowie die Labor-PCs."@de ;
-               
-               skos:prefLabel "computer"@en .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#DBIS
-
-itcat:DBIS rdf:type owl:NamedIndividual ,
-                    schema:Service ;
-           
-           schema:url "http://rzblx10.uni-regensburg.de/dbinfo/dbliste.php?bib_id=fhbrb&colors=31&ocolors=40&lett=a" ;
-           
-           rdfs:comment "" ;
-           
-           dcterms:subject "" ;
-           
-           dcterms:description "<p>Das Datenbank-Infosystem (DBIS) wurde mit finanzieller Unterstützung des Bayerischen Staatsministeriums für Wissenschaft, Forschung und Kunst und der Deutschen Forschungsgemeinschaft (DFG) von der Universitätsbibliothek Regensburg entwickelt. Inzwischen wird das Datenbank-Infosystem als Nutzerservice in 299 Bibliotheken genutzt.</p><p> Momentan umfasst das Datenbank-Infosystem 11429 Einträge. Davon sind 4718 Datenbanken frei über das Internet verfügbar. In DBIS werden Datenbanken verzeichnet, deren Inhalte über eine Suchfunktionalität gezielt durchsucht werden können. Die Datenbanken werden nach Fächern sortiert angeboten. Daneben gibt es auch eine erweiterte Suche, in der unter anderem eine Stichwortsuche möglich ist oder nach Datenbanken mit geographischem Bezug gesucht werden kann.</p>"@de ;
-           
-           dcterms:abstract "Das Datenbank-Infosystem (DBIS) ist ein kooperativer Service zur Nutzung wissenschaftlicher Datenbanken, der vom Rechenzentrum der Universitätsbibliothek Regensburg bereitgestellt wird."@de ;
-           
-           skos:prefLabel "Datenbank-Infosystem"@de ;
-           
-           dcterms:title "Datenbank-Infosystem der Universität Regensburg"@de ;
-           
-           skos:prefLabel "databased information system"@en ;
-           
-           schema:provider itcat:BRZUR ;
-           
-           itcat:inCategory itcat:BusinessCatalog ;
-           
-           itcat:usableWith itcat:Computer ;
-           
-           itcat:user itcat:ExtWorkers ;
-           
-           itcat:hasPriority itcat:HighPriority ;
-           
-           schema:isRelatedTo itcat:IDM ;
-           
-           itcat:inCategory itcat:InformationServices ;
-           
-           itcat:usableWith itcat:Laptop ;
-           
-           schema:customer itcat:Library ;
-           
-           itcat:inCategory itcat:LibraryServices ;
-           
-           itcat:hasCriticality itcat:LowCriticality ;
-           
-           itcat:supporter itcat:MHeinrich ;
-           
-           itcat:hasStage itcat:Operation ;
-           
-           itcat:usableWith itcat:Smartphone ;
-           
-           itcat:user itcat:Staff ,
-                      itcat:Students ;
-           
-           itcat:usableWith itcat:Tablet ;
-           
-           schema:isRelatedTo itcat:WebHosting .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#DBM
-
-itcat:DBM rdf:type owl:NamedIndividual ,
-                   foaf:Organization ;
-          
-          skos:prefLabel "FBW"@de ;
-          
-          dcterms:title "Fachbereich Wirtschaft"@de ;
-          
-          skos:prefLabel "DBM - Department of Business and Management"@en ;
-          
-          schema:isPartOf itcat:THB .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#DCS
-
-itcat:DCS rdf:type owl:NamedIndividual ,
-                   foaf:Organization ;
-          
-          skos:prefLabel "FBI"@de ;
-          
-          dcterms:title "Fachbereich Informatik und Medien"@de ;
-          
-          skos:prefLabel "DCS - Department of Computer Science and Media"@en ;
-          
-          schema:isPartOf itcat:THB .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#DFN
-
-itcat:DFN rdf:type owl:NamedIndividual ,
-                   foaf:Organization ;
-          
-          skos:prefLabel "DFN Verein"@de ;
-          
-          dcterms:title "DFN Verein zur Förderung eines Deutschen Forschungsnetzes e. V."@de ;
-          
-          skos:prefLabel "DFN association"@en .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#DSFWSamba
-
-itcat:DSFWSamba rdf:type owl:NamedIndividual ,
-                         schema:Service ;
-                
-                schema:url "http://www.fh-brandenburg.de/samba-faq.html" ;
-                
-                rdfs:comment "" ;
-                
-                dcterms:subject "" ;
-                
-                dcterms:title "DSFW-Server (Netzlaufwerke) auf Basis der Samba-Software"@de ;
-                
-                skos:prefLabel "DSFW/Samba"@de ;
-                
-                dcterms:description "Der Zugriff auf die Freigaben der DSFW-Server (Domain Service for Windows) ist nur innerhalb der Hochschule möglich. Sie müssen über eine entsprechende Berechtigung verfügen, damit Sie Zugriff erhalten. Diese wird aus ihrer Zugehörigkeit zu einer Organisationsabteilung abgeleitet und vom Rechenzentrum bei Beginn ihrer Tätigkeit angelegt.Sollten Sie weitere Netzlaufwerke benötigen, erfordert dies eine Benachrichtigung per Email durch ihren Vorgesetzten an das Rechenzentrum. Weitere Informationen sind den DSFW-/Samba-FAQ zu entnehmen."@de ;
-                
-                dcterms:abstract "Die Software Samba wird in der TH Brandenburg als Datei- und Druckserver verwendet. Sie basiert auf dem NetBIOS-Protokoll SMB von Microsoft. Sie gibt den Anwendern die Möglichkeit auf ihre Laufwerke über eine VPN-Verbindung zuzugreifen und auf ihnen lokal unabhängig zu interagieren. Die Authentifizierung erfolgt mit den IDM-Login-Daten."@de ;
-                
-                skos:prefLabel "DSFW/Samba"@en ;
-                
-                foaf:page itcat:DSFWSamba_DocWP001 ;
-                
-                schema:provider itcat:DataCenter ;
-                
-                itcat:supporter itcat:DataCenter ;
-                
-                itcat:user itcat:ExtWorkers ;
-                
-                schema:isRelatedTo itcat:IDM ;
-                
-                itcat:inCategory itcat:InfrastructureServices ;
-                
-                itcat:hasCriticality itcat:MediumCriticality ;
-                
-                itcat:hasPriority itcat:MediumPriority ;
-                
-                itcat:hasStage itcat:Operation ;
-                
-                itcat:inCategory itcat:OperationalCatalog ;
-                
-                itcat:user itcat:Staff ,
-                           itcat:Students ;
-                
-                schema:customer itcat:THB ;
-                
-                itcat:usableWith itcat:WindowsPC .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#DSFWSamba_DocWP001
-
-itcat:DSFWSamba_DocWP001 rdf:type owl:NamedIndividual ,
-                                  foaf:Document ;
-                         
-                         schema:url "http://www.fh-brandenburg.de/laufwerksbezeichnung.html" .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#DSchulz
-
-itcat:DSchulz rdf:type owl:NamedIndividual ,
-                       foaf:Person ;
-              
-              foaf:mbox "dieter.schulz(at)th-brandenburg.de" ;
-              
-              skos:prefLabel "Dipl.-Ing. (FH) Dieter Schulz" ;
-              
-              foaf:phone "+49 3381 355 - 325" ;
-              
-              foaf:name "Dieter Schulz" ;
-              
-              schema:employee itcat:DTE .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#DTE
-
-itcat:DTE rdf:type owl:NamedIndividual ,
-                   foaf:Organization ;
-          
-          skos:prefLabel "FBT"@de ;
-          
-          dcterms:title "Fachbereich Technik"@de ;
-          
-          skos:prefLabel "DTE - Department of Technology and Engineering"@en ;
-          
-          schema:isPartOf itcat:THB .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#DThiele
-
-itcat:DThiele rdf:type owl:NamedIndividual ,
-                       foaf:Person ;
-              
-              foaf:mbox "dieter.thiele(at)th-brandenburg.de" ;
-              
-              foaf:name "Dieter Thiehle" ;
-              
-              foaf:phone "+49 3381 355 - 538" ,
-                         "+49 3381 355 - 508" ;
-              
-              skos:prefLabel "Dipl.-Ing. (FH) Dieter Thiele" ;
-              
-              schema:employee itcat:DTE .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#DataCenter
-
-itcat:DataCenter rdf:type owl:NamedIndividual ,
-                          foaf:Organization ;
-                 
-                 skos:prefLabel "Rechenzentrum"@de ;
-                 
-                 dcterms:title "Rechenzentrum der TH Brandenburg"@de ;
-                 
-                 skos:prefLabel "data center"@en ;
-                 
-                 schema:isPartOf itcat:THB .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#Datensicherung
-
-itcat:Datensicherung rdf:type owl:NamedIndividual ,
-                              schema:Service ;
-                     
-                     rdfs:comment "" ;
-                     
-                     dcterms:subject "" ;
-                     
-                     schema:url "" ;
-                     
-                     dcterms:description ""@de ;
-                     
-                     dcterms:abstract ""@de ;
-                     
-                     dcterms:title "Backup- und Restoreservice der THB"@de ;
-                     
-                     skos:prefLabel "Datensicherung"@de ,
-                                    "backup service"@en ;
-                     
-                     schema:provider itcat:DataCenter ;
-                     
-                     itcat:supporter itcat:DataCenter ;
-                     
-                     itcat:hasPriority itcat:HighPriority ;
-                     
-                     itcat:inCategory itcat:InfrastructureCatalog ,
-                                      itcat:InfrastructureServices ;
-                     
-                     itcat:hasCriticality itcat:MediumCriticality ;
-                     
-                     itcat:hasStage itcat:Operation ;
-                     
-                     itcat:user itcat:Staff ;
-                     
-                     schema:customer itcat:THB ;
-                     
-                     schema:provider itcat:TLSO .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#DeviceRental
-
-itcat:DeviceRental rdf:type owl:NamedIndividual ,
-                            schema:Service ;
-                   
-                   schema:url "https://moodle.fh-brandenburg.de/course/view.php?id=199" ;
-                   
-                   rdfs:comment "" ;
-                   
-                   dcterms:subject "" ;
-                   
-                   dcterms:title ""@de ;
-                   
-                   dcterms:description "<p>Die TH Brandenburg bietet ihren Studierenden die Möglichkeit verschiedenste Geräte für den Gebrauch in der Hochschule zur Verfügung zu stellen. Bei den Geräten sind, soweit verfügbar, auch Anleitungen verlinkt. Sie liegen teilweise in Deutsch und teilweise in Englisch vor. Es sind auch einige weitere Materialien, die hilfreich sein könnten, hinterlegt.</p><p> <b>Modalitäten des Geräteverleihs:</b> Der Geräteverleih an Studenten ist nur im Rahmen des Unterrichts an der THB möglich. Bedingung ist, das vom Studenten eine Haftpflichversicherung abgeschlossen wurde. Nähere Informationen hierzu sind am Schwarzen Brett in der Nähe des Raumes InfZ 108 zu finden. Es ist ein Leihschein auszufüllen und von dem verantwortlichen Professor zu unterschreiben. Diese Scheine sind bei Fr. Prenzlow zu bekommen. Hier wird dann auch gleich das Vorhandensein einer Versicherung (MLP) geprüft. Auf dem Schein sind die gewünschten Geräte anzukreuzen. Aufgrund der begrenzten Resourcen sollten die Geräte rechtzeitig reserviert werden. Andernfalls kann die Verfügbarkeit zum gewünschten Zeitraum nicht gewährleistet werden.</p>"@de ;
-                   
-                   dcterms:abstract "Die TH Brandenburg bietet ihren Studierenden die Möglichkeit verschiedenste Geräte für den Gebrauch in der Hochschule zur Verfügung zu stellen. Bei den Geräten sind, soweit verfügbar,auch Anleitungen verlinkt. Sie liegen teilweise ind Deutsch und teilweise in Englisch vor. Es sind auch einige weitere Materialien, die hilfreich sein könnten, hinterlegt."@de ;
-                   
-                   skos:prefLabel "Geräteverleih"@de ,
-                                  "device rental"@en ;
-                   
-                   itcat:supporter itcat:APrenzlow ;
-                   
-                   itcat:inCategory itcat:BusinessCatalog ;
-                   
-                   itcat:usableWith itcat:Computer ;
-                   
-                   schema:provider itcat:DCS ;
-                   
-                   foaf:page itcat:DeviceRental_DocDL001 ,
-                             itcat:DeviceRental_DocWP001 ;
-                   
-                   itcat:inCategory itcat:InfrastructureServices ;
-                   
-                   itcat:usableWith itcat:Laptop ;
-                   
-                   itcat:hasCriticality itcat:LowCriticality ;
-                   
-                   itcat:hasPriority itcat:LowPriority ;
-                   
-                   schema:isRelatedTo itcat:Moodle ;
-                   
-                   itcat:hasStage itcat:Operation ;
-                   
-                   itcat:usableWith itcat:Smartphone ;
-                   
-                   itcat:user itcat:Students ;
-                   
-                   schema:customer itcat:THB ;
-                   
-                   itcat:supporter itcat:TRanglack ;
-                   
-                   itcat:usableWith itcat:Tablet .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#DeviceRental_DocDL001
-
-itcat:DeviceRental_DocDL001 rdf:type owl:NamedIndividual ,
-                                     foaf:Document ;
-                            
-                            schema:url "https://moodle.fh-brandenburg.de/brokenfile.php#/947/user/draft/799894076/MLP%20Haftpflicht%202013.pdf" .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#DeviceRental_DocWP001
-
-itcat:DeviceRental_DocWP001 rdf:type owl:NamedIndividual ,
-                                     foaf:Document ;
-                            
-                            schema:url "https://moodle.fh-brandenburg.de/mod/resource/view.php?id=44403" .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#EZB
-
-itcat:EZB rdf:type owl:NamedIndividual ,
-                   schema:Service ;
-          
-          rdfs:comment "" ;
-          
-          schema:url "http://rzblx1.uni-regensburg.de/ezeit/" ;
-          
-          dcterms:subject "" ;
-          
-          dcterms:description "<p>Die Elektronische Zeitschriftenbibliothek ist ein Service zur effektiven Nutzung wissenschaftlicher Volltextzeitschriften im Internet. Sie umfasst 80.186 Titel, davon 15.231 reine Online-Zeitschriften, zu allen Fachgebieten. Zudem werden 83.449 Zeitschriften von Aggregatoren verzeichnet. 48.859 Fachzeitschriften sind im Volltext frei zugänglich. Die Anwenderbibliotheken bieten ihren Benutzern zusätzlich den Zugriff auf die Volltexte der von ihnen abonnierten E-Journals.</p> <p>Die Elektronische Zeitschriftenbibliothek wurde 1997 im Rahmen eines Projekts von der Universitätsbibliothek Regensburg, in Kooperation mit der Bibliothek der Technischen Universität München, gegründet. Das Ziel war es, allen Bibliotheksnutzern elektronische Zeitschriften übersichtlich zu präsentieren und den teilnehmenden Bibliotheken ein schnelles und effektives Verwalten ihrer wissenschaftlichen E-Journale zu ermöglichen. Derzeit nutzen 609 Teilnehmereinrichtungen die Elektronische Zeitschriftenbibliothek, darunter auch die Technische Hochschule Brandenburg.</p>"@de ;
-          
-          dcterms:abstract "Die Elektronische Zeitschriftenbibliothek ist ein Service zur effektiven Nutzung wissenschaftlicher Volltextzeitschriften im Internet. Sie umfasst 80.186 Titel, davon 15.231 reine Online-Zeitschriften, zu allen Fachgebieten."@de ;
-          
-          skos:prefLabel "EZB"@de ;
-          
-          dcterms:title "Elektronische Zeitschriftenbibliothek"@de ;
-          
-          skos:prefLabel "EZB"@en ;
-          
-          schema:provider itcat:BRZUR ;
-          
-          itcat:inCategory itcat:BusinessCatalog ;
-          
-          itcat:usableWith itcat:Computer ;
-          
-          itcat:user itcat:ExtWorkers ;
-          
-          itcat:hasPriority itcat:HighPriority ;
-          
-          schema:isRelatedTo itcat:IDM ;
-          
-          itcat:inCategory itcat:InformationServices ;
-          
-          itcat:usableWith itcat:Laptop ;
-          
-          schema:customer itcat:Library ;
-          
-          itcat:inCategory itcat:LibraryServices ;
-          
-          itcat:supporter itcat:MHeinrich ;
-          
-          itcat:hasCriticality itcat:MediumCriticality ;
-          
-          itcat:hasStage itcat:Operation ;
-          
-          itcat:usableWith itcat:Smartphone ;
-          
-          itcat:user itcat:Staff ,
-                     itcat:Students ;
-          
-          itcat:usableWith itcat:Tablet ;
-          
-          schema:isRelatedTo itcat:WebHosting .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#EduDrive
-
-itcat:EduDrive rdf:type owl:NamedIndividual ,
-                        schema:Service ;
-               
-               dcterms:subject "" ;
-               
-               rdfs:comment "" ;
-               
-               dcterms:abstract "Im Hochschulnetz haben Lehrende des Fachbereichs Wirtschaft die Möglichkeit, elektronische Lehrskripte für Studierende bereitzustellen. Das Lehrelaufwerk erlaubt den lesenden Zugriff durch alle Lehrenden und Studierenden des Fachbereichs auf die Laufwerke der anderen Lehrenden."@de ;
-               
-               dcterms:description "Innerhalb der Fachhochschule ist der Portalserver des FB Wirtschaft nach erfolgreicher Anmeldung auf dem Netzwerklaufwerk L: (Lehre) auf den Desktops zugewiesen. Der Link zum browserbasierten Portalzugriff ist unten angegeben. Für den Zugang benötigen Sie einen gültigen Account und gegebenenfalls das Zertifikat für den WEB-Browser. Die Authentifizierung erfolgt mit den IDM-Login-Daten."@de ;
-               
-               skos:prefLabel "Lehrelaufwerk"@de ;
-               
-               schema:url "https://fhs-w7.fh-brandenburg.de/lehre/" ;
-               
-               dcterms:title "Lehrelaufwerk für Lehrende im Fachbereich Wirtschaft"@de ;
-               
-               skos:prefLabel "educational drive"@en ;
-               
-               itcat:inCategory itcat:BusinessCatalog ;
-               
-               itcat:usableWith itcat:Computer ;
-               
-               schema:customer itcat:DBM ;
-               
-               foaf:page itcat:EduDrive_DocWP001 ;
-               
-               schema:isRelatedTo itcat:IDM ;
-               
-               itcat:usableWith itcat:Laptop ;
-               
-               itcat:hasCriticality itcat:MediumCriticality ;
-               
-               itcat:hasPriority itcat:MediumPriority ;
-               
-               itcat:inCategory itcat:NetworkServices ;
-               
-               itcat:hasStage itcat:Operation ;
-               
-               itcat:usableWith itcat:Smartphone ;
-               
-               itcat:user itcat:Staff ,
-                          itcat:Students ;
-               
-               itcat:supporter itcat:TLSO ;
-               
-               schema:provider itcat:TLSO ;
-               
-               itcat:inCategory itcat:TeachingPlatforms .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#EduDrive_DocWP001
-
-itcat:EduDrive_DocWP001 rdf:type owl:NamedIndividual ,
-                                 foaf:Document ;
-                        
-                        schema:url "https://fhs-w8.fh-brandenburg.de/NetStorage/" .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#Eduroam
-
-itcat:Eduroam rdf:type owl:NamedIndividual ,
-                       schema:Service ;
-              
-              schema:url "http://www.fh-brandenburg.de/eduroam.html" ;
-              
-              rdfs:comment "" ;
-              
-              dcterms:subject "" ;
-              
-              dcterms:description "<p>eduroam ist ein weltweites WLAN, welches Mitgliedern von wissenschaftlichen Einrichtungen kostenlosen Zugang zum Internet ermöglicht. Die TH Brandenburg betreibt diesen Zugang in Zusammenarbeit mit dem DFN-Verein. Damit können Mitglieder der Hochschule bei angeschlossenen Einrichtungen im In- und Ausland WLAN-Dienste in Anspruch nehmen. Zum anderen haben Mitglieder anderer Einrichtungen, die unsere Hochschule besuchen, ihrerseits Zugriff auf das Web.</p> <p>Um den Dienst nutzen zu können, muss ein Installationsprogramm heruntergeladen werden. Das genaue Vorgehen für die Anmeldung und Nutzung des Dienstes ist unter der u. a. URL zu finden.</p>"@de ;
-              
-              skos:prefLabel "eduroam"@de ;
-              
-              dcterms:title "eduroam - Internet über WLAN an wissenschaftlichen Einrichtungen weltweit"@de ;
-              
-              dcterms:abstract "eduroam ist ein weltweites WLAN, welches Mitgliedern von wissenschaftlichen Einrichtungen kostenlosen Zugang zum Internet ermöglicht. Die TH Brandenburg betreibt diesen Zugang in Zusammenarbeit mit dem DFN-Verein."@de ;
-              
-              skos:prefLabel "eduroam"@en ;
-              
-              itcat:usableWith itcat:Computer ;
-              
-              schema:provider itcat:DFN ;
-              
-              itcat:supporter itcat:DataCenter ;
-              
-              foaf:page itcat:Eduroam_DocWP001 ,
-                        itcat:Eduroam_DocWP002 ;
-              
-              itcat:user itcat:ExtWorkers ;
-              
-              itcat:hasPriority itcat:HighPriority ;
-              
-              schema:isRelatedTo itcat:IDM ;
-              
-              itcat:usableWith itcat:Laptop ;
-              
-              itcat:hasCriticality itcat:MediumCriticality ;
-              
-              itcat:inCategory itcat:NetworkServices ;
-              
-              itcat:hasStage itcat:Operation ;
-              
-              itcat:inCategory itcat:PublicCatalog ;
-              
-              itcat:usableWith itcat:Smartphone ;
-              
-              itcat:user itcat:Staff ,
-                         itcat:Students ;
-              
-              schema:customer itcat:THB ;
-              
-              itcat:usableWith itcat:Tablet ;
-              
-              schema:isRelatedTo itcat:WLAN .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#Eduroam_DocWP001
-
-itcat:Eduroam_DocWP001 rdf:type owl:NamedIndividual ,
-                                foaf:Document ;
-                       
-                       schema:url "https://www.dfn.de/dienstleistungen/dfnroaming/" .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#Eduroam_DocWP002
-
-itcat:Eduroam_DocWP002 rdf:type owl:NamedIndividual ,
-                                foaf:Document ;
-                       
-                       schema:url "https://edit.dfn.de/CAT-1.0.4/web/" .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#Enrollees
-
-itcat:Enrollees rdf:type owl:NamedIndividual ,
-                         schema:Role ;
-                
-                skos:definition "Personen, die sich an der Hochschule bewerben oder beworben haben, über deren Bewerbung jedoch aktuell noch nicht entschieden wurde."@de ;
-                
-                skos:prefLabel "Studienbewerber"@de ,
-                               "enrollees"@en .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#ExtWorkers
-
-itcat:ExtWorkers rdf:type owl:NamedIndividual ,
-                          schema:Role ;
-                 
-                 skos:prefLabel "Externe Beschäftigte"@de ;
-                 
-                 rdfs:comment "Externe Beschäftigte erhalten einen Hochschulaccount und haben damit auch Zugriff auf viele interne IT-Dienste der Hochschule."@de ;
-                 
-                 skos:definition "Lehrbeauftragte, Gastprofessoren, Honorarprofessoren u. a. externe Beschäftigten, z. B. in Projekten."@de ;
-                 
-                 skos:prefLabel "external workers"@en .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#Fernleihe
-
-itcat:Fernleihe rdf:type owl:NamedIndividual ,
-                         schema:Service ;
-                
-                rdfs:comment "" ;
-                
-                dcterms:description "<p>Im Rahmen des Deutschen und Internationalen Leihverkehrs haben Sie die Möglichkeit, Medien (Bücher, Zeitschriftenartikel, usw.), die sich nicht im Bestand der Hochschulbibliothek befinden, aus anderen Bibliotheken zu bestellen. Die Realisierung einer Fernleihbestellung dauert in der Regel 2-4 Wochen. Bevor Sie eine Fernleihbestellung aufgeben, führen Sie bitte stets eine Bestandskontrolle im Online-Katalog durch. Sind die gewünschten Medien nicht vorhanden, können Sie eine gebührenpflichtige Fernleihbestellung aufgeben.</p><p>Wenn die bestellten Medien in der Hochschulbibliothek eingegangen sind, werden Sie per E-Mail oder schriftlich benachrichtigt. Leihfrist und Ausleihbedingungen werden von der verleihenden Bibliothek festgelegt und sind streng einzuhalten. Kann Ihre Fernleihbestellung aus keiner deutschen Bibliothek beschafft werden, besteht die Möglichkeit einer internationalen Fernleihe.</p>"@de ;
-                
-                schema:url "https://fh-brandenburg.de/bibfernleihe.3.html" ;
-                
-                dcterms:subject "" ;
-                
-                dcterms:abstract "Im Rahmen des Deutschen und Internationalen Leihverkehrs haben Sie die Möglichkeit, Medien (Bücher, Zeitschriftenartikel, usw.), die sich nicht im Bestand der Hochschulbibliothek befinden, aus anderen Bibliotheken zu bestellen."@de ;
-                
-                skos:prefLabel "KOBV Fernleihe"@de ;
-                
-                dcterms:title "Kooperativer Bibliotheksverbund Berlin-Brandenburg, Fernleihe"@de ;
-                
-                skos:prefLabel "inter-library loan"@en ;
-                
-                itcat:inCategory itcat:BusinessCatalog ;
-                
-                itcat:usableWith itcat:Computer ;
-                
-                schema:isRelatedTo itcat:DBIS ;
-                
-                itcat:user itcat:ExtWorkers ;
-                
-                foaf:page itcat:Fernleihe_DocWP001 ;
-                
-                schema:isRelatedTo itcat:IDM ;
-                
-                schema:provider itcat:KOBV ;
-                
-                itcat:supporter itcat:KOBV ;
-                
-                itcat:usableWith itcat:Laptop ;
-                
-                schema:customer itcat:Library ;
-                
-                itcat:inCategory itcat:LibraryServices ;
-                
-                itcat:hasCriticality itcat:MediumCriticality ;
-                
-                itcat:hasPriority itcat:MediumPriority ;
-                
-                schema:isRelatedTo itcat:OPAC ;
-                
-                itcat:hasStage itcat:Operation ;
-                
-                itcat:usableWith itcat:Smartphone ;
-                
-                itcat:user itcat:Staff ,
-                           itcat:Students ;
-                
-                schema:isRelatedTo itcat:WebHosting .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#Fernleihe_DocWP001
-
-itcat:Fernleihe_DocWP001 rdf:type owl:NamedIndividual ,
-                                  foaf:Document ;
-                         
-                         schema:url "http://portal.kobv.de/?plv=2" .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#GroupWareADM
-
-itcat:GroupWareADM rdf:type owl:NamedIndividual ,
-                            schema:Service ;
-                   
-                   rdfs:comment "" ;
-                   
-                   dcterms:subject "" ;
-                   
-                   dcterms:description "<p>Der Groupware-Dienst ist plattformunabhängig mit jedem Gerät abrufbar. Verwendet wird zentral die Software „Zimbra“, welche neben dem E-Mail-Dienst weitere Funktionen einer Groupware wie einen Kalender, Kontaktbuch und Aufgabenbereich beinhaltet. Des Weiteren kann man online Dateien hochladen und freigeben.</p><p>F Neben den oben genannten Funktionalitäten erlaubt dieser Dienst den Austausch von Aufgaben und Terminen."@de ;
-                   
-                   dcterms:abstract "Für die Mitarbeiter der Verwaltung der TH Brandenburg steht eine lizensierte Groupware-Lösung auf Basis von Zimbra zur Verfügung. Der Dienst ist innerhalb und außerhalb des Hochschulnetzes zugänglich. Die Authentifizierung erfolgt mit den IDM-Login-Daten."@de ;
-                   
-                   dcterms:title "Groupware-Lösung Zimbra für die Verwaltung der TH Brandenburg"@de ;
-                   
-                   skos:prefLabel "groupware administration"@en ;
-                   
-                   schema:url "https://zimbra.fh-brandenburg.de/" ;
-                   
-                   skos:prefLabel "Groupware Verwaltung"@de ;
-                   
-                   itcat:inCategory itcat:BusinessCatalog ;
-                   
-                   schema:isRelatedTo itcat:CentralMail ;
-                   
-                   itcat:inCategory itcat:CommunicationServices ;
-                   
-                   itcat:usableWith itcat:Computer ;
-                   
-                   itcat:supporter itcat:DataCenter ;
-                   
-                   schema:provider itcat:DataCenter ;
-                   
-                   foaf:page itcat:GroupWareADM_DocWP001 ;
-                   
-                   itcat:hasCriticality itcat:HighCriticality ;
-                   
-                   itcat:hasPriority itcat:HighPriority ;
-                   
-                   schema:isRelatedTo itcat:IDM ;
-                   
-                   itcat:usableWith itcat:Laptop ;
-                   
-                   itcat:hasStage itcat:Operation ;
-                   
-                   itcat:usableWith itcat:Smartphone ;
-                   
-                   itcat:user itcat:StaffADM ;
-                   
-                   schema:customer itcat:THB ;
-                   
-                   itcat:usableWith itcat:Tablet .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#GroupWareADM_DocWP001
-
-itcat:GroupWareADM_DocWP001 rdf:type owl:NamedIndividual ;
-                            
-                            owl:sameAs itcat:WebMail_DocWP001 .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#HISInOneAPP_DocWP001
-
-itcat:HISInOneAPP_DocWP001 rdf:type owl:NamedIndividual ,
-                                    foaf:Document ;
-                           
-                           schema:url "http://www.fh-brandenburg.de/bewerbung-portale.html" .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#HISInOneAPP_DocWP002
-
-itcat:HISInOneAPP_DocWP002 rdf:type owl:NamedIndividual ,
-                                    foaf:Document ;
-                           
-                           schema:url "http://www.fh-brandenburg.de/sts-bewerbung.html" .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#HISProject
-
-itcat:HISProject rdf:type owl:NamedIndividual ,
-                          foaf:Organization ;
-                 
-                 skos:prefLabel "HISinOne-Projekt"@de ;
-                 
-                 dcterms:title "Projekt zur Einführung des integrierten Hoschschulinformationssystems HISinOne"@de ;
-                 
-                 skos:prefLabel "HISinOne project"@en ;
-                 
-                 schema:isPartOf itcat:THB .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#HISQIS
-
-itcat:HISQIS rdf:type owl:NamedIndividual ,
-                      schema:Service ;
-             
-             schema:url "https://hisqis.fh-brandenburg.de/qisserver/rds?state=user&type=0" ;
-             
-             dcterms:subject "" ;
-             
-             rdfs:comment "Dieser Dienst wird baldmöglichst vom HISinOne-Modul EXA abgelöst."@de ;
-             
-             dcterms:description "Neben der Noteneinsicht sind auch Prüfungsanmeldungen, Prüfungsversuche sowie das Prüfungsdatum einsehbar. Zu den änderbaren Stammdaten gehören: Heimatanschrift, Semesteranschrift, Telefonnummer und E-Mail-Adresse. Studienbescheinigungen können generiert, verifiziert und ausgedruckt werden."@de ;
-             
-             dcterms:title "Online-Portal des Studierendensekretariat der TH Brandenburg für Studenten"@de ;
-             
-             skos:prefLabel "Studierenden-Portal"@de ;
-             
-             dcterms:abstract "Über dieses Online-Portal können Studierende Einsicht in ihre Noten nehmen, den Notenspiegel abrufen, ihre Stammdaten ändern, den RückmeldehasStage sowie den Gebührenstand einsehen und Studienbescheinigungen ausdrucken."@de ;
-             
-             skos:prefLabel "student's portal"@en ;
-             
-             itcat:inCategory itcat:BusinessCatalog ;
-             
-             itcat:usableWith itcat:Computer ;
-             
-             itcat:supporter itcat:DataCenter ;
-             
-             schema:provider itcat:DataCenter ;
-             
-             foaf:page itcat:HISQIS_DocWP001 ;
-             
-             itcat:inCategory itcat:HISServices ;
-             
-             itcat:hasPriority itcat:HighPriority ;
-             
-             schema:isRelatedTo itcat:IDM ;
-             
-             itcat:hasStage itcat:InRelief ;
-             
-             itcat:usableWith itcat:Laptop ;
-             
-             itcat:hasCriticality itcat:MediumCriticality ;
-             
-             schema:isRelatedTo itcat:QISPOS ;
-             
-             schema:customer itcat:RegOffice ;
-             
-             schema:provider itcat:RegOffice ;
-             
-             itcat:usableWith itcat:Smartphone ;
-             
-             itcat:user itcat:Students ;
-             
-             schema:isRelatedTo itcat:WebHosting .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#HISQIS_DocWP001
-
-itcat:HISQIS_DocWP001 rdf:type owl:NamedIndividual ,
-                               foaf:Document ;
-                      
-                      schema:url "http://www.fh-brandenburg.de/online-portal.html" .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#HISinOneAPP
-
-itcat:HISinOneAPP rdf:type owl:NamedIndividual ,
-                           schema:Service ;
-                  
-                  schema:url "https://his1-ws.fh-brandenburg.de/qisserver/pages/cs/sys/portal/hisinoneStartPage.faces" ;
-                  
-                  rdfs:comment "" ;
-                  
-                  dcterms:subject "" ;
-                  
-                  dcterms:description "<p>Über das Online-Bewerbungsportal können sich Studieninteressierte für einen Studienplatz an der Fachhochschule Brandenburg bewerben. Das Portal richtet sich an Personen, die ihre Hochschulzugangsberechtigung in Deutschland erworben haben.</p> <p>Die Bewerbung auf Studiengänge an der Fachhochschule Brandenburg erfolgt grundsätzlich online. Generell werden verschiedene Unterlagen für eine Immatrikulation benötigt, die gemeinsam mit dem Bewerbungsformular aus dem Online-Bewerberportal an der Fachhochschule Brandenburg einzureichen sind. Unsere Checkliste zur Unterstützung von Einschreibung bzw. Bewerbung beantwortet Fragen.</p>"@de ;
-                  
-                  dcterms:title "HISinOne Bewerberportal - Zulassungsservice"@de ;
-                  
-                  skos:prefLabel "Zulassungsservice"@de ;
-                  
-                  dcterms:abstract "Über das Online-Bewerbungsportal können sich Studieninteressierte für einen Studienplatz an der Fachhochschule Brandenburg bewerben. Das Portal richtet sich an Personen, die ihre Hochschulzugangsberechtigung in Deutschland erworben haben. "@de ;
-                  
-                  skos:prefLabel "application service"@en ;
-                  
-                  itcat:usableWith itcat:Computer ;
-                  
-                  itcat:supporter itcat:DataCenter ;
-                  
-                  schema:provider itcat:DataCenter ;
-                  
-                  itcat:user itcat:Enrollees ;
-                  
-                  foaf:page itcat:HISInOneAPP_DocWP001 ,
-                            itcat:HISInOneAPP_DocWP002 ;
-                  
-                  itcat:supporter itcat:HISProject ;
-                  
-                  itcat:inCategory itcat:HISServices ;
-                  
-                  itcat:hasPriority itcat:HighPriority ;
-                  
-                  schema:isRelatedTo itcat:IDM ;
-                  
-                  itcat:hasStage itcat:Implementation ;
-                  
-                  itcat:usableWith itcat:Laptop ;
-                  
-                  itcat:hasCriticality itcat:MediumCriticality ;
-                  
-                  itcat:inCategory itcat:PublicCatalog ;
-                  
-                  schema:provider itcat:RegOffice ;
-                  
-                  schema:customer itcat:RegOffice ;
-                  
-                  itcat:usableWith itcat:Smartphone ,
-                                   itcat:Tablet ;
-                  
-                  schema:isRelatedTo itcat:WebHosting .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#IDM
-
-itcat:IDM rdf:type owl:NamedIndividual ,
-                   schema:Service ;
-          
-          dcterms:subject "" ;
-          
-          dcterms:abstract "Das IdM beinhaltet die zentrale Benutzerverwaltung der Fachhochschule Brandenburg. Hier werden die wichtigsten Daten aller Angehörigen der FHB in einem zentralen Verzeichnisdienst (LDAP) gespeichert und verwaltet, die für den Zugang zur IT-Infrastruktur und der angeschlossenen Systeme notwendig sind."@de ;
-          
-          dcterms:title "Identity Management"@de ;
-          
-          schema:url "https://www.idm.fh-brandenburg.de/IDMProv/jsps/login/Login.jsp" ;
-          
-          rdfs:comment "" ;
-          
-          dcterms:description "<p>Die Benutzerkennung wird u. a. für die folgenden Dienste verwendet: E-Mail, Lernplattform Moodle, Anmeldung in Computerlaboren, Verbindung zu Netzlaufwerken, Zugang zum WLAN, Nutzung VPN-Zugang, Antrag zur Nutzung Internet im Studentenwohnheim.</p><p>Ein neuer Benutzer muss zunächst seine Benutzerkennung über das IDM-Portal aktivieren. Aktivierte Nutzer haben die Möglichkeit Ihr Passwort zu ändern. Für die Wahl des Passwortes finden sich Tipps auf der Hilfeseite des Rechenzentrums. Sollte ein Benutzer sein Passwort vergessen, so kann er sich ein neues Passwort an seine private E-Mail-Adresse zusenden lassen. Das IDM-Portal kann auch genutzt werden, um ein Foto für die CampusCard hochzuladen. </p>"@de ;
-          
-          skos:prefLabel "Identity Management"@de ,
-                         "identity management"@en ;
-          
-          itcat:usableWith itcat:Computer ;
-          
-          itcat:supporter itcat:DSchulz ,
-                          itcat:DThiele ;
-          
-          schema:provider itcat:DataCenter ;
-          
-          itcat:supporter itcat:DataCenter ;
-          
-          itcat:user itcat:ExtWorkers ;
-          
-          itcat:hasCriticality itcat:HighCriticality ;
-          
-          itcat:hasPriority itcat:HighPriority ;
-          
-          foaf:page itcat:IDM_DocWP001 ,
-                    itcat:IDM_DocWP002 ;
-          
-          itcat:usableWith itcat:Laptop ;
-          
-          itcat:inCategory itcat:MiscServices ,
-                           itcat:NetworkServices ;
-          
-          itcat:hasStage itcat:Operation ;
-          
-          itcat:inCategory itcat:OperationalCatalog ;
-          
-          itcat:supporter itcat:RDoletzki ;
-          
-          itcat:user itcat:Staff ,
-                     itcat:Students ;
-          
-          schema:customer itcat:THB ;
-          
-          itcat:supporter itcat:TLSO ,
-                          itcat:WWeidner ;
-          
-          schema:isRelatedTo itcat:WebHosting .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#IDM_DocWP001
-
-itcat:IDM_DocWP001 rdf:type owl:NamedIndividual ,
-                            foaf:Document ;
-                   
-                   schema:url "http://www.fh-brandenburg.de/2261.html" .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#IDM_DocWP002
-
-itcat:IDM_DocWP002 rdf:type owl:NamedIndividual ,
-                            foaf:Document ;
-                   
-                   schema:url "https://www.idm.fh-brandenburg.de/IDMProv/portal/cn/GuestContainerPage/Passwort_vergessen" .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#InfoDisplay
-
-itcat:InfoDisplay rdf:type owl:NamedIndividual ,
-                           schema:Service ;
-                  
-                  schema:url "http://www.bsn-infodisplay.de/mobil/fhbfbwi" ;
-                  
-                  dcterms:subject "" ;
-                  
-                  rdfs:comment "" ;
-                  
-                  skos:prefLabel "Info-Display FBW"@de ;
-                  
-                  dcterms:title "Informationsdienst Info-Display des Fachbereichs Wirtschaft"@de ;
-                  
-                  dcterms:description "Wenn Sie Informationen auf dem Display veröffentlichen wollen, schicken Sie eine Mail mit den Veranstaltungsdaten an: fbw-infodisplay(at)fh-brandenburg.de "@de ;
-                  
-                  dcterms:abstract "Über das Display in den 2. Etage des WWZ werden Studenten und Mitarbeiter über aktuelle Veranstaltungen, Ausfälle von Vorlesungen, den tagesaktuellen Mensaplan oder Raumänderungen informiert."@de ;
-                  
-                  skos:prefLabel "information display DBM"@en ;
-                  
-                  schema:provider itcat:BSNeV ;
-                  
-                  itcat:inCategory itcat:BusinessCatalog ;
-                  
-                  itcat:usableWith itcat:Computer ;
-                  
-                  foaf:page itcat:InfoDisplay_DocWP001 ;
-                  
-                  itcat:inCategory itcat:InformationServices ;
-                  
-                  itcat:usableWith itcat:Laptop ;
-                  
-                  itcat:hasCriticality itcat:LowCriticality ;
-                  
-                  itcat:hasPriority itcat:MediumPriority ;
-                  
-                  itcat:hasStage itcat:Operation ;
-                  
-                  itcat:user itcat:Public ;
-                  
-                  itcat:usableWith itcat:Screen ,
-                                   itcat:Smartphone ;
-                  
-                  itcat:user itcat:Staff ,
-                             itcat:Students ;
-                  
-                  schema:customer itcat:THB ;
-                  
-                  itcat:supporter itcat:TLSO ;
-                  
-                  itcat:usableWith itcat:Tablet ;
-                  
-                  schema:isRelatedTo itcat:WebHosting .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#InfoDisplay_DocWP001
-
-itcat:InfoDisplay_DocWP001 rdf:type owl:NamedIndividual ,
-                                    foaf:Document ;
-                           
-                           schema:url "http://www.buergerservicenetz.de/" .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#KLeipnitz
-
-itcat:KLeipnitz rdf:type owl:NamedIndividual ,
-                         foaf:Person ;
-                
-                skos:prefLabel "Stellvertretende Leitung Zentrum für Marketing und PR / Pressesprecherin Katharina Leipnitz" ;
-                
-                foaf:phone "+49 3381 355 - 293" ;
-                
-                foaf:mbox "katharina.leipnitz(at)th-brandenburg.de" ;
-                
-                foaf:name "Katharina Leipnitz" ;
-                
-                schema:employee itcat:DCS .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#KOBV
-
-itcat:KOBV rdf:type owl:NamedIndividual ,
-                    foaf:Organization ;
-           
-           skos:prefLabel "KOBV Berlin-Brandenburg"@de ;
-           
-           dcterms:title "Kooperativer Bibliotheksverbund Berlin-Brandenburg"@de ;
-           
-           skos:prefLabel "KOBV Berlin-Brandenburg"@en .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#LSCS
-
-itcat:LSCS rdf:type owl:NamedIndividual ,
-                    foaf:Organization ;
-           
-           skos:prefLabel "Labordienst FBI"@de ;
-           
-           dcterms:title "Labordienst des Fachbereichs Informatik und Medien"@de ;
-           
-           skos:prefLabel "lab service DCS"@en ;
-           
-           schema:isPartOf itcat:DCS .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#Laptop
-
-itcat:Laptop rdf:type itcat:ITAsset ,
-                      owl:NamedIndividual ;
-             
-             skos:prefLabel "Laptop"@de ;
-             
-             skos:definition "Portable Computer. Diese können als Hochschuleigentum von Mitarbeitern genutzt werden. Auch die privaten portablen Computer der Mitarbeiter, Studierenden und externen Beschäftigten sind mit gemeint."@de ;
-             
-             skos:prefLabel "laptop"@en .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#Library
-
-itcat:Library rdf:type owl:NamedIndividual ,
-                       foaf:Organization ;
-              
-              skos:prefLabel "Hochschulbibliothek"@de ;
-              
-              dcterms:title "Hochschulbibliothek der TH Brandenburg"@de ;
-              
-              skos:prefLabel "university library"@en ;
-              
-              schema:isPartOf itcat:THB .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#MHeinrich
-
-itcat:MHeinrich rdf:type owl:NamedIndividual ,
-                         foaf:Person ;
-                
-                foaf:phone "+49 3381 355 - 164" ;
-                
-                foaf:name "Marcus Heinrich" ;
-                
-                foaf:mbox "marcus.heinrich(at)th-brandenburg.de" ;
-                
-                skos:prefLabel "Marcus Heinrich" ;
-                
-                schema:employee itcat:DCS .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#MLangerwisch
-
-itcat:MLangerwisch rdf:type owl:NamedIndividual ,
-                            foaf:Person ;
-                   
-                   foaf:name "Marco Langerwisch" ;
-                   
-                   skos:prefLabel "Dipl. Wi-Inform.(FH) Marco Langerwisch" ;
-                   
-                   foaf:phone "+49 3381 355 - 224" ;
-                   
-                   foaf:mbox "marco.langerwisch(at)th-brandenburg.de" ;
-                   
-                   schema:employee itcat:TLSO .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#MapOnGo
-
-itcat:MapOnGo rdf:type owl:NamedIndividual ,
-                       schema:Service ;
-              
-              schema:url "http://fh-brandenburg.mapongo.de/viewer?language=de&project_id=1#" ;
-              
-              dcterms:subject "" ;
-              
-              rdfs:comment "" ;
-              
-              dcterms:description "Der interaktive Gebäudeplan der Bibliothek erlaubt den Nutzern, sich über die Anordnung der Ausstattung sowie der Fachliteratur in der Hochschulbibliothek zu informieren. Neben einer Anwahl der verschiedenen Gebäudeteile und Elemente über ein Menü, kann auch der Mouse-Over-Effekt des Gebäudeplans verwendet werden."@de ;
-              
-              dcterms:abstract "Ein elektronisches Abbild des Gebäudeplans der Hochschulbibliothek einschließlich der Aufbewahrungsorte von Fachliteratur nach Themen geordnet. Dieser Dienst kann im Zusammenhang mit dem Online-Katalog (OPAC) verwendet werden."@de ;
-              
-              skos:prefLabel "Gebäudeplan Bibliothek"@de ;
-              
-              dcterms:title "MapOnGo - Gebäudeplan der Bibliothek"@de ;
-              
-              skos:prefLabel "library map"@en ;
-              
-              itcat:inCategory itcat:BusinessCatalog ;
-              
-              itcat:usableWith itcat:Laptop ;
-              
-              schema:customer itcat:Library ;
-              
-              itcat:inCategory itcat:LibraryServices ;
-              
-              itcat:hasCriticality itcat:LowCriticality ;
-              
-              itcat:hasPriority itcat:LowPriority ;
-              
-              foaf:page itcat:MapOnGo_DocWP001 ;
-              
-              schema:isRelatedTo itcat:OPAC ;
-              
-              itcat:hasStage itcat:Operation ;
-              
-              itcat:usableWith itcat:Smartphone ;
-              
-              itcat:user itcat:Staff ,
-                         itcat:Students ;
-              
-              itcat:supporter itcat:TLSO ;
-              
-              schema:provider itcat:TLSO ;
+itcat:InfoDisplay_DocWP001 a foaf:Document ;
+        schema:url "http://www.buergerservicenetz.de/" .
+        
+itcat:EduDrive_DocWP001 a foaf:Document ;        
+        schema:url "https://fhs-w8.fh-brandenburg.de/NetStorage/" .
+       
+itcat:MapOnGo_DocWP001 a foaf:Document ;        
+        schema:url "http://www.fh-brandenburg.de/bibgebaeudeplan.html" .
+        
+itcat:OPAC_DocWP001 a foaf:Document ;      
+        schema:url "http://www.fh-brandenburg.de/bibopac.html" . 
+        
+itcat:OPAC_DocWP002 a foaf:Document ;           
+        schema:url "https://www.oclc.org/deutschland/de_de.html" .
               
-              schema:isRelatedTo itcat:WebHosting .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#MapOnGo_DocWP001
-
-itcat:MapOnGo_DocWP001 rdf:type owl:NamedIndividual ,
-                                foaf:Document ;
-                       
-                       schema:url "http://www.fh-brandenburg.de/bibgebaeudeplan.html" .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#Monitoring
-
-itcat:Monitoring rdf:type owl:NamedIndividual ,
-                          schema:Service ;
-                 
-                 schema:url "https://www.nagios.org/" ;
-                 
-                 rdfs:comment "" ;
-                 
-                 dcterms:subject "" ;
-                 
-                 dcterms:description "<p>Nagios ist eine Software, die dem Monitoring komplexer IT-Infrastrukturen dient. Nagios bietet dazu eine Sammlung von Modulen zur Überwachung von Netzwerken, Hosts und speziellen Diensten sowie eine Web-Schnittstelle zum Abfragen der gesammelten Daten. 2007 wurde die Nagios Enterprises LLC von Ethan Galstad gegründet, welche Consulting und technische Unterstützung rund um das Thema Nagios als kommerzielle Dienstleistung anbietet. Die Kern-Software selbst bleibt weiterhin unter einer freien Lizenz.</p><p>An der TH Brandenburg wird Nagios vom Rechenzentrum eingesetzt, um die wesentlichen Elemente der IT-Infrastruktur sowie das Netzwerk zu überwachen.</p>"@de ;
-                 
-                 dcterms:abstract "Für die Überwachung der IT-Systeme und -Komponenten nutzt das Rechenzentrum der Hochschule das Monitoring-System nagios."@de ;
-                 
-                 skos:prefLabel "IT-Monitoring"@de ;
-                 
-                 dcterms:title "Monitoring von IT-Systemen und -Komponenten"@de ;
-                 
-                 skos:prefLabel "IT monitoring"@en ;
-                 
-                 itcat:usableWith itcat:Computer ;
-                 
-                 schema:provider itcat:DataCenter ;
-                 
-                 itcat:user itcat:DataCenter ;
-                 
-                 itcat:hasPriority itcat:HighPriority ;
-                 
-                 itcat:inCategory itcat:InfrastructureServices ;
-                 
-                 itcat:usableWith itcat:Laptop ;
-                 
-                 itcat:hasCriticality itcat:MediumCriticality ;
-                 
-                 itcat:supporter itcat:Nagios ;
-                 
-                 itcat:hasStage itcat:Operation ;
-                 
-                 itcat:inCategory itcat:OperationalCatalog ;
-                 
-                 schema:customer itcat:THB .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#Moodle
-
-itcat:Moodle rdf:type owl:NamedIndividual ,
-                      schema:Service ;
-             
-             schema:url "http://www.fh-brandenburg.de/moodle" ;
-             
-             dcterms:subject "" ;
-             
-             rdfs:comment "" ;
-             
-             dcterms:description "In den moodle-Kursen können u.a. Dokumente und Dateien hoch- und runtergeladen werden, Tests veröffentlicht, Aufgaben verteilt, Foren eröffnet, oder Wikis erstellt/bereitgestellt werden. In moodle können Kurse für bestimmte Nutzergruppen gesperrt, bzw. geöffnet werden. Die Authentifizierung erfolgt mit den IDM-Login-Daten"@de ;
-             
-             dcterms:title "Kurs-/Lernmanagementsystem Moodle"@de ;
-             
-             skos:prefLabel "Lehrplattform moodle"@de ;
-             
-             dcterms:abstract "Moodle dient als Plattform für Kurse an der Fachhochschule Brandenburg. Diese Kurse können Vorlesungen oder andere organisatorische Einheiten, Dienste u. ä. sein."@de ;
-             
-             skos:prefLabel "teaching platform moodle"@en ;
-             
-             itcat:inCategory itcat:BusinessCatalog ;
-             
-             schema:isRelatedTo itcat:CentralMail ;
-             
-             itcat:usableWith itcat:Computer ;
-             
-             itcat:supporter itcat:DataCenter ;
-             
-             schema:provider itcat:DataCenter ;
-             
-             itcat:user itcat:ExtWorkers ;
-             
-             itcat:hasCriticality itcat:HighCriticality ;
-             
-             itcat:hasPriority itcat:HighPriority ;
-             
-             schema:isRelatedTo itcat:IDM ;
-             
-             itcat:inCategory itcat:InformationServices ;
-             
-             itcat:usableWith itcat:Laptop ;
-             
-             itcat:hasStage itcat:Operation ;
-             
-             itcat:supporter itcat:RWietusch ;
-             
-             itcat:user itcat:Staff ,
-                        itcat:Students ;
-             
-             schema:customer itcat:THB ;
-             
-             itcat:inCategory itcat:TeachingPlatforms ;
-             
-             schema:isRelatedTo itcat:WebHosting .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#NTP
-
-itcat:NTP rdf:type owl:NamedIndividual ,
-                   schema:Service ;
-          
-          rdfs:comment "" ;
-          
-          schema:url "https://www.fh-brandenburg.de/zeitsynchronisation.html" ;
-          
-          dcterms:subject "" ;
-          
-          dcterms:description "Für die Synchronisation mit dem Zeitserver des Rechenzentrums ist erforderlich, den ntp-Dienst zu aktivieren. In Abhängigkeit vom Betriebssystem der Zielsysteme stehen dafür verschiedene Konfigurationsdateien bzw. Kommandozeilenbefehle zur Verfügung. Details finden sich unter der u. a. URL."@de ;
-          
-          skos:prefLabel "Steuerung Netzzeit"@de ;
-          
-          dcterms:abstract "Um eine eindeutige und weitgehend einheitliche Systemzeit im gesamten Hochschulnetz zu erreichen, betreibt das Rechenzentrum einen Zeitserver."@de ;
-          
-          dcterms:title "Zeitsynchronisationsdienst NTP - Network Time Protocol"@de ;
-          
-          skos:prefLabel "control network time"@en ;
-          
-          itcat:usableWith itcat:Computer ;
-          
-          itcat:supporter itcat:DataCenter ;
-          
-          itcat:inCategory itcat:InfrastructureServices ;
-          
-          itcat:usableWith itcat:Laptop ;
-          
-          itcat:hasPriority itcat:LowPriority ;
-          
-          itcat:hasCriticality itcat:MediumCriticality ;
-          
-          itcat:hasStage itcat:Operation ;
-          
-          itcat:inCategory itcat:OperationalCatalog ;
-          
-          schema:customer itcat:THB ;
-          
-          itcat:user itcat:TLSO ;
-          
-          schema:provider itcat:TUBerlin ,
-                          itcat:UniStuttgart .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#Nagios
-
-itcat:Nagios rdf:type owl:NamedIndividual ,
-                      foaf:Organization ;
-             
-             skos:prefLabel "Nagios Community"@de ;
-             
-             dcterms:title "Open Source Community zur Weiterentwicklung der IT-Monitoring-Software Nagios"@de ;
-             
-             skos:prefLabel "Nagios community"@en .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#OCLC
-
-itcat:OCLC rdf:type owl:NamedIndividual ,
-                    foaf:Organization ;
-           
-           dcterms:title "Deutsches Chapter des Online Computer Library Center (OCLC) - weltweit tätige Non-Profit-Organisation und Dienstleister für Bibliotheken"@de ;
-           
-           skos:prefLabel "OCLC Deutschland"@de ,
-                          "OCLC Germany"@en .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#OPAC
-
-itcat:OPAC rdf:type owl:NamedIndividual ,
-                    schema:Service ;
-           
-           rdfs:comment "" ;
-           
-           dcterms:subject "" ;
-           
-           dcterms:abstract "Der Medienbestand der Hochschulbibliothek ist im Online-Katalog (OPAC) nachgewiesen. Hier sind ind sowohl die physischen als auch der größte Teil der E-Medien verzeichnet. Für die physikalischen Medien ist der Status (verliehen / nicht verliehen) einsehbar."@de ;
-           
-           skos:prefLabel "Online-Katalog OPAC"@de ;
-           
-           dcterms:title "Online-Katalog der Hochschulbibliothek (OPAC)"@de ;
-           
-           schema:url "https://opac.fh-brandenburg.de" ;
-           
-           dcterms:description "<p>Der Online-Katalog erlaubt verschieden Suchstrategien: die einfache, die erweiterte und die systematische Suche. Darüber hinaus kann ein Benutzer Merklisten anlegen, die Neuerwerbungen einsehen, Auskünfte einholen sowie Anschaffungswünsche platzieren.</p><p>Die Anmeldung erfolgt mit der Benutzernummer und einem Passwort. Nach Anmeldung kann der Benutzer sein Konto einsehen und verwalten. Damit sind auch Vormerkungen und Verlängerungen online realisierbar.</p>"@de ;
-           
-           skos:prefLabel "online catalog OPAC"@en ;
-           
-           schema:isRelatedTo itcat:CentralMail ;
-           
-           itcat:usableWith itcat:Computer ;
-           
-           itcat:supporter itcat:DataCenter ;
-           
-           itcat:hasPriority itcat:HighPriority ;
-           
-           itcat:inCategory itcat:InformationServices ;
-           
-           itcat:usableWith itcat:Laptop ;
-           
-           schema:customer itcat:Library ;
-           
-           itcat:inCategory itcat:LibraryServices ;
-           
-           itcat:hasCriticality itcat:MediumCriticality ;
-           
-           schema:provider itcat:OCLC ;
-           
-           foaf:page itcat:OPAC_DocWP001 ,
-                     itcat:OPAC_DocWP002 ;
-           
-           itcat:hasStage itcat:Operation ;
-           
-           itcat:user itcat:Public ;
-           
-           itcat:inCategory itcat:PublicCatalog ;
-           
-           itcat:usableWith itcat:Smartphone ;
-           
-           itcat:user itcat:Staff ,
-                      itcat:Students ;
-           
-           itcat:usableWith itcat:Tablet ;
-           
-           schema:isRelatedTo itcat:WebHosting .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#OPAC_DocWP001
-
-itcat:OPAC_DocWP001 rdf:type owl:NamedIndividual ,
-                             foaf:Document ;
-                    
-                    schema:url "http://www.fh-brandenburg.de/bibopac.html" .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#OPAC_DocWP002
-
-itcat:OPAC_DocWP002 rdf:type owl:NamedIndividual ,
-                             foaf:Document ;
-                    
-                    schema:url "https://www.oclc.org/deutschland/de_de.html" .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#OnlineShop
-
-itcat:OnlineShop rdf:type owl:NamedIndividual ,
-                          schema:Service ;
-                 
-                 schema:url "http://fh-brandenburg.spreadshirt.de/" ;
-                 
-                 rdfs:comment "" ;
-                 
-                 dcterms:subject "" ;
-                 
-                 dcterms:abstract "Die TH Brandenburg betreibt einen Online-Shop unter dem Dach des Social-Commerce-Unternehmens Spreadshirt. Hier können Bekleidungsstücke, Tassen u. a. nette Sachen mit Motiven der Hochschule bestellt werden."@de ;
-                 
-                 dcterms:description "Im Onlineshop der TH Brandenburg können Sie folgende Gegenstände kaufen: <ul><li>Jacken</li><li>Kapuzenpullover</li><li>T-Shirts</li><li>Poloshirts</li> <li>Tassen</li><li>Kochschürzen</li><li>Badtücher</li></li>Baseballkappen</li><li>diverse Kleinteile</li></ul> Insgesamt stehen mehrere Farben und Motive zur Verfügung."@de ;
-                 
-                 dcterms:title "Onlineshop der TH Brandenburg"@de ;
-                 
-                 skos:prefLabel "THB-Onlineshop"@de ,
-                                "online shop"@en ;
-                 
-                 itcat:usableWith itcat:Computer ;
-                 
-                 itcat:supporter itcat:KLeipnitz ;
-                 
-                 itcat:usableWith itcat:Laptop ;
-                 
-                 itcat:hasCriticality itcat:LowCriticality ;
-                 
-                 itcat:hasPriority itcat:MediumPriority ;
-                 
-                 itcat:inCategory itcat:MiscServices ;
-                 
-                 itcat:hasStage itcat:Operation ;
-                 
-                 itcat:user itcat:Public ;
-                 
-                 itcat:inCategory itcat:PublicCatalog ;
-                 
-                 itcat:usableWith itcat:Smartphone ;
-                 
-                 schema:provider itcat:SpreadShirt ;
-                 
-                 itcat:user itcat:Staff ,
-                            itcat:Students ;
-                 
-                 schema:customer itcat:THB ;
-                 
-                 itcat:usableWith itcat:Tablet ;
-                 
-                 schema:isRelatedTo itcat:WebHosting .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#ProxyServer
-
-itcat:ProxyServer rdf:type owl:NamedIndividual ,
-                           schema:Service ;
-                  
-                  dcterms:subject "" ;
-                  
-                  rdfs:comment "" ;
-                  
-                  dcterms:description "<p>An Arbeitsstationen, bei denen im Browser 'Automatische Suche der Einstellungen' aktiviert wurde und die ihre IP-Adresse per DHCP erhalten, müssen keine Änderungen vorgenommen werden.</p> <p>Alle Arbeitsstationen und Server, deren IP-Adresse manuell eingestellt wurde und die demzufolge keine DHCP nutzen, können das automatische Proxy-Konfigurationsscript verwenden oder manuell die Einstellungen vornehmen. Anleigungen finden sich unter u. a. URL.</p>"@de ;
-                  
-                  dcterms:abstract "Netzanschlüsse auf dem Campus TH Brandenburg bekommen gewöhnlich eine sogenannte 'private' IP-Adresse. Verbindungen zum Internet, d.h. ausserhalb der Domain fh-brandenburg.de, können über Proxies hergestellt werden."@de ;
-                  
-                  skos:prefLabel "Proxy-Server"@de ;
-                  
-                  dcterms:title "Verwalten und Einrichten von Web-Filtern (Proxies) an der TH Brandenburg"@de ;
-                  
-                  schema:url "http://www.fh-brandenburg.de/proxies.html" ;
-                  
-                  skos:prefLabel "proxy server"@en ;
-                  
-                  itcat:usableWith itcat:Computer ;
-                  
-                  schema:provider itcat:DataCenter ;
-                  
-                  itcat:supporter itcat:DataCenter ;
-                  
-                  itcat:inCategory itcat:InfrastructureCatalog ;
-                  
-                  itcat:usableWith itcat:Laptop ;
-                  
-                  itcat:hasPriority itcat:LowPriority ;
-                  
-                  itcat:hasCriticality itcat:MediumCriticality ;
-                  
-                  itcat:inCategory itcat:NetworkServices ;
-                  
-                  itcat:hasStage itcat:Operation ;
-                  
-                  itcat:user itcat:Staff ,
-                             itcat:Students ;
-                  
-                  schema:customer itcat:THB ;
-                  
-                  schema:isRelatedTo itcat:WebHosting .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#Public
-
-itcat:Public rdf:type owl:NamedIndividual ,
-                      schema:Role ;
-             
-             skos:definition "Personen, die ein berufliches oder privates Interesse an der Hochschule haben."@de ;
-             
-             skos:prefLabel "Öffentlichkeit"@de ,
-                            "public"@en .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#QISFSV
-
-itcat:QISFSV rdf:type owl:NamedIndividual ,
-                      schema:Service ;
-             
-             rdfs:comment "" ;
-             
-             dcterms:subject "" ;
-             
-             dcterms:description "An der TH Brandenburg wird FSV sowohl in der zentralen Verwaltung als auch bei der Steuerung von Drittmittelprojekten eingesetzt."@de ;
-             
-             dcterms:abstract "Das Finanz- und Sachmittelverwaltungsmodul FSV ist mit den Untermodulen Beschaffung (BES), Mittelbewirtschaftung (MBS), Inventarisierung (IVS) und Materialwirtschaft (MAT) eine integrierte Lösung für die Verwaltung der Hochschulen. Auf dem Modul MBS setzt das Finanzbuchhaltungs-Modul FIBU auf."@de ;
-             
-             dcterms:title "Finanz- und Sachmittelverwaltungsmodul der TH Brandenburg"@de ;
-             
-             skos:prefLabel "QISFSV"@de ,
-                            "QISFSV"@en ;
-             
-             schema:url "https://qisfsv.fh-brandenburg.de/qisserver/rds?state=user&type=0" ;
-             
-             itcat:inCategory itcat:BusinessCatalog ;
-             
-             itcat:usableWith itcat:Computer ;
-             
-             itcat:supporter itcat:DataCenter ;
-             
-             schema:provider itcat:DataCenter ;
-             
-             itcat:inCategory itcat:HISServices ;
-             
-             itcat:hasCriticality itcat:HighCriticality ;
-             
-             itcat:hasPriority itcat:HighPriority ;
-             
-             schema:isRelatedTo itcat:IDM ;
-             
-             itcat:usableWith itcat:Laptop ;
-             
-             itcat:hasStage itcat:Operation ;
-             
-             foaf:page itcat:QISFSV_DocWP001 ;
-             
-             itcat:user itcat:StaffADM ;
-             
-             schema:customer itcat:THB ;
-             
-             schema:isRelatedTo itcat:WebHosting .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#QISFSV_DocWP001
-
-itcat:QISFSV_DocWP001 rdf:type owl:NamedIndividual ,
-                               foaf:Document ;
-                      
-                      schema:url "https://www.his.de/produkte/gxqis/finanz-und-sachmittelverwaltung.html" .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#QISPOS
-
-itcat:QISPOS rdf:type owl:NamedIndividual ,
-                      schema:Service ;
-             
-             rdfs:comment "Dieser Dienst wird baldmöglichst vom HISinOne-Modul EXA abgelöst." ;
-             
-             dcterms:subject "" ;
-             
-             dcterms:description "Die Anmeldung an diesem Portal erfolgt über die IDM-Login-Daten. Neben der aktuellen Prüfungsperiode können auch Nachprüfungen aus vergangenen Semestern bearbeitet werden. Die Prüfenden geben die Noten nach dem üblichen Raster ein. Nach Verarbeitung vom System können Notenlisten ausgedruckt und weiterverarbeitet werden."@de ;
-             
-             dcterms:title "Online-Portal des Studierendensekretariat der TH Brandenburg für Prüfer (QISPOS)"@de ;
-             
-             skos:prefLabel "Prüferportal"@de ;
-             
-             schema:url "https://hisqis.fh-brandenburg.de/qisserver/rds?state=user&type=0" ;
-             
-             dcterms:abstract "Über dieses Online-Portal können Prüfende Einsicht von ihnen zu verantwortende Prüfungen nehmen, Zulassungslisten ausdrucken und Noten eingeben."@de ;
-             
-             skos:prefLabel "examinator's portal"@en ;
-             
-             itcat:inCategory itcat:BusinessCatalog ;
-             
-             itcat:usableWith itcat:Computer ;
-             
-             itcat:supporter itcat:DataCenter ;
-             
-             schema:provider itcat:DataCenter ;
-             
-             itcat:user itcat:ExtWorkers ;
-             
-             schema:isRelatedTo itcat:HISQIS ;
-             
-             itcat:inCategory itcat:HISServices ;
-             
-             itcat:hasPriority itcat:HighPriority ;
-             
-             schema:isRelatedTo itcat:IDM ;
-             
-             itcat:hasStage itcat:InRelief ;
-             
-             itcat:usableWith itcat:Laptop ;
-             
-             itcat:hasCriticality itcat:MediumCriticality ;
-             
-             foaf:page itcat:QISPOS_DocWP001 ;
-             
-             itcat:supporter itcat:RegOffice ;
-             
-             itcat:usableWith itcat:Smartphone ;
-             
-             itcat:user itcat:Staff ;
-             
-             schema:customer itcat:THB ;
-             
-             schema:isRelatedTo itcat:WebHosting .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#QISPOS_DocWP001
-
-itcat:QISPOS_DocWP001 rdf:type owl:NamedIndividual ,
-                               foaf:Document ;
-                      
-                      schema:url "http://www.fh-brandenburg.de/qispos.html" .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#RDoletzki
-
-itcat:RDoletzki rdf:type owl:NamedIndividual ,
-                         foaf:Person ;
-                
-                foaf:name "Ralf Doletzki" ;
-                
-                skos:prefLabel "Dipl.-Ing. Ralf Doletzki" ;
-                
-                foaf:phone "+49 3381 355 - 414" ;
-                
-                foaf:mbox "ralf.doletzki(at)th-brandenburg.de" ;
-                
-                schema:employee itcat:DCS .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#RFahl
-
-itcat:RFahl rdf:type owl:NamedIndividual ,
-                     foaf:Person ;
-            
-            foaf:mbox "rene.fahl(at)th-brandenburg.de" ;
-            
-            foaf:phone "+49 3381 355 - 279" ;
-            
-            skos:prefLabel "René Fahl" ;
-            
-            foaf:name "René Fahl" ;
-            
-            schema:employee itcat:TLSO .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#RWietusch
-
-itcat:RWietusch rdf:type owl:NamedIndividual ,
-                         foaf:Person ;
-                
-                foaf:name "Renate Wietusch" ;
-                
-                foaf:mbox "renate.wietusch(at)th-brandenburg.de" ;
-                
-                skos:prefLabel "Dipl.-Chem. Renate Wietusch" ;
-                
-                foaf:phone "+49 3381 355 - 213" ;
-                
-                schema:employee itcat:TLSO .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#RegOffice
-
-itcat:RegOffice rdf:type owl:NamedIndividual ,
-                         foaf:Organization ;
-                
-                skos:prefLabel "Studierendensekretariat"@de ;
-                
-                dcterms:title "Studierendensekretariat der TH Brandenburg"@de ;
-                
-                skos:prefLabel "registrar's office"@en ;
-                
-                schema:isPartOf itcat:THB .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#Screen
-
-itcat:Screen rdf:type itcat:ITAsset ,
-                      owl:NamedIndividual ;
-             
-             skos:prefLabel "Bildschirm"@de ;
-             
-             skos:definition "In öffentlich zugänglichen Bereichen der Hochschulgebäude fest installierte Bildschirme, z. B. als Info-Displays genutzt."@de ;
-             
-             skos:prefLabel "screen"@en .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#Smartphone
-
-itcat:Smartphone rdf:type itcat:ITAsset ,
-                          owl:NamedIndividual ;
-                 
-                 skos:definition "Kleine mobile Endgeräte, die u. a. zum Telefonieren benutzt werden können. Diese Endgeräte sind überwiegend im Privatbesitz der Mitarbeiter, Studierenden und der externen Beschäftigten."@de ;
-                 
-                 skos:prefLabel "Smartphone"@de ,
-                                "smart phone"@en .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#SpreadShirt
-
-itcat:SpreadShirt rdf:type owl:NamedIndividual ,
-                           foaf:Organization ;
-                  
-                  dcterms:title "Spreadshirt sprd.net AG"@de ;
-                  
-                  skos:prefLabel "sprd.net AG"@de ,
-                                 "sprd.net AG"@en .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#Staff
-
-itcat:Staff rdf:type owl:NamedIndividual ,
-                     schema:Role ;
-            
-            skos:prefLabel "Mitarbeiter"@de ;
-            
-            skos:definition "Zum aktuellen Zeitpunkt an der Hochschule festangestellte Mitarbeiter."@de ;
-            
-            skos:prefLabel "staff"@en .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#StaffADM
-
-itcat:StaffADM rdf:type owl:NamedIndividual ,
-                        schema:Role ;
-               
-               skos:prefLabel "Mitarbeiter Verwaltung/Zentren"@de ;
-               
-               skos:definition "Mitarbeiter der Hochschulverwaltung oder der Zentren."@de ;
-               
-               skos:prefLabel "staff of administration or centers"@en .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#StaffDBM
-
-itcat:StaffDBM rdf:type owl:NamedIndividual ,
-                        schema:Role ;
-               
-               skos:prefLabel "Mitarbeiter FBW"@de ;
-               
-               skos:definition "Mitarbeiter des Fachbereichs Wirtschaft."@de ;
-               
-               skos:prefLabel "staff of DBM"@en .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#StaffDCS
-
-itcat:StaffDCS rdf:type owl:NamedIndividual ,
-                        schema:Role ;
-               
-               skos:prefLabel "Mitarbeiter FBI"@de ;
-               
-               skos:definition "Mitarbeiter des Fachbereichs Informatik und Medien."@de ;
-               
-               skos:prefLabel "staff of DCS"@en .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#StaffDTE
-
-itcat:StaffDTE rdf:type owl:NamedIndividual ,
-                        schema:Role ;
-               
-               skos:prefLabel "Mitarbeiter FBT"@de ;
-               
-               skos:definition "Mitarbeiter des Fachbereichs Technik."@de ;
-               
-               skos:prefLabel "staff of DTE"@en .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#Students
-
-itcat:Students rdf:type owl:NamedIndividual ,
-                        schema:Role ;
-               
-               skos:prefLabel "Studierende"@de ;
-               
-               skos:definition "Zum aktuellen Zeitpunkt an der Hochschule eingeschriebene Studierende."@de ;
-               
-               skos:prefLabel "students"@en .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#THB
-
-itcat:THB rdf:type owl:NamedIndividual ,
-                   foaf:Organization ;
-          
-          skos:prefLabel "TH Brandenburg"@de ;
-          
-          dcterms:title "Technische Hochschule Brandenburg an der Havel - University of Applied Sciences"@de ;
-          
-          skos:prefLabel "UAS Brandenburg"@en .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#TJacob
-
-itcat:TJacob rdf:type owl:NamedIndividual ,
-                      foaf:Person ;
-             
-             foaf:phone "+49 3381 355 - 222" ;
-             
-             foaf:mbox "thomas.jacob(at)th-brandenburg.de" ;
-             
-             foaf:name "Thomas Jacob" ;
-             
-             skos:prefLabel "Dipl. Wi.-Inform.(FH) Thomas Jacob" ;
-             
-             schema:employee itcat:TLSO .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#TLSO
-
-itcat:TLSO rdf:type owl:NamedIndividual ,
-                    foaf:Organization ;
-           
-           skos:prefLabel "TLSO"@de ;
-           
-           dcterms:title "Team Labor Service und Organisation des FBW"@de ;
-           
-           skos:prefLabel "TLSO"@en ;
-           
-           schema:isPartOf itcat:DBM .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#TRanglack
-
-itcat:TRanglack rdf:type owl:NamedIndividual ,
-                         foaf:Person ;
-                
-                foaf:phone "+49 3381 355 - 445" ;
-                
-                foaf:mbox "thomas.ranglack(at)th-brandenburg.de" ;
-                
-                foaf:name "Thomas Ranglack" ;
-                
-                skos:prefLabel "Thomas Ranglack" ;
-                
-                schema:employee itcat:DCS .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#TUBerlin
-
-itcat:TUBerlin rdf:type owl:NamedIndividual ,
-                        foaf:Organization ;
-               
-               skos:prefLabel "TU Berlin"@de ;
-               
-               dcterms:title "Technische Universität Berlin"@de ;
-               
-               skos:prefLabel "Technical University Berlin"@en .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#Tablet
-
-itcat:Tablet rdf:type itcat:ITAsset ,
-                      owl:NamedIndividual ;
-             
-             skos:definition "Größere mobile Endgeräte. Diese Endgeräte sind überwiegend im Privatbesitz der Mitarbeiter, Studierenden und der externen Beschäftigten."@de ;
-             
-             skos:prefLabel "Tablet"@de ,
-                            "tablet"@en .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#TravelMgt
-
-itcat:TravelMgt rdf:type owl:NamedIndividual ,
-                         schema:Service ;
-                
-                schema:url "http://www.fh-brandenburg.de/2898.html?&MP=39-304" ;
-                
-                rdfs:comment "" ;
-                
-                dcterms:subject "" ;
-                
-                dcterms:title "Beantragung und Abrechnung von Dienstreisen"@de ;
-                
-                dcterms:abstract "Der Verwaltungsbereich Personal/Organisation der TH Brandenburg bietet zwei online bearbeitbare PDF-Formulare zur Beantragung und zur Abrechnung von Dienstreisen an."@de ;
-                
-                dcterms:description "Die Formulare stehen im Intranet zur Verfügung und können im Browser geöffnet und bearbeitet werden. Ein Speichern der ausgefüllten Formulare ist nicht möglich. Ausgefüllte Formulare müssen auf Papier ausgedruckt werden. (Ein Adobe-PDF-Ausdruck kann zur elektronischen Ablage verwendet werden). Die weitere Verarbeitung der Dokumente bedarf einer Reihe von Unterschriften und erfolgt somit papiergebunden."@de ;
-                
-                skos:prefLabel "Reisemanagement"@de ,
-                               "travel management"@en ;
-                
-                itcat:inCategory itcat:BusinessCatalog ;
-                
-                itcat:usableWith itcat:Computer ;
-                
-                itcat:supporter itcat:DataCenter ;
-                
-                itcat:user itcat:ExtWorkers ;
-                
-                itcat:usableWith itcat:Laptop ;
-                
-                itcat:hasCriticality itcat:MediumCriticality ;
-                
-                itcat:hasPriority itcat:MediumPriority ;
-                
-                itcat:inCategory itcat:MiscServices ;
-                
-                itcat:hasStage itcat:Operation ;
-                
-                itcat:user itcat:Staff ;
-                
-                schema:provider itcat:StaffADM ;
-                
-                itcat:user itcat:Students ;
-                
-                schema:customer itcat:THB ;
-                
-                schema:isRelatedTo itcat:WebHosting .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#UniStuttgart
-
-itcat:UniStuttgart rdf:type owl:NamedIndividual ,
-                            foaf:Organization ;
-                   
-                   skos:prefLabel "Uni Stuttgart"@de ;
-                   
-                   dcterms:title "Universität Stuttgart"@de ;
-                   
-                   skos:prefLabel "University of Stuttgart"@en .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#VPNService
-
-itcat:VPNService rdf:type owl:NamedIndividual ,
-                          schema:Service ;
-                 
-                 schema:url "http://www.fh-brandenburg.de/vpnanleitung.html" ;
-                 
-                 dcterms:subject "" ;
-                 
-                 rdfs:comment "" ;
-                 
-                 dcterms:description "Aktuell werden an der TH Brandenburg VPN-Clients der Firma Fortinet eingesetzt. Die Clients müssen auf den Endgeräten installiert werden. Die Authentifizierung erfolgt über die IDM-Login-Daten."@de ;
-                 
-                 dcterms:abstract "Der VPN-Dienst erlaubt Nutzern mit einem gültigen E-Mail-Account der TH Brandenburg auch außerhalb des Hochschulnetzes auf interne Webressourcen zuzugreifen. Das Rechenzentrum stellt zu diesem Zweck für alle relevanten Betriebssysteme VPN-Clients und Aleitungen zum Download zur Verfügung."@de ;
-                 
-                 skos:prefLabel "VPN-Dienst"@de ;
-                 
-                 dcterms:title "Zugang zum Virtual Private Network (VPN) der TH Brandenburg"@de ;
-                 
-                 skos:prefLabel "VPN service"@en ;
-                 
-                 itcat:inCategory itcat:BusinessCatalog ;
-                 
-                 itcat:usableWith itcat:Computer ;
-                 
-                 itcat:supporter itcat:DataCenter ;
-                 
-                 schema:provider itcat:DataCenter ;
-                 
-                 itcat:user itcat:ExtWorkers ;
-                 
-                 itcat:hasPriority itcat:HighPriority ;
-                 
-                 schema:isRelatedTo itcat:IDM ;
-                 
-                 itcat:usableWith itcat:Laptop ;
-                 
-                 itcat:hasCriticality itcat:MediumCriticality ;
-                 
-                 itcat:inCategory itcat:NetworkServices ;
-                 
-                 itcat:hasStage itcat:Operation ;
-                 
-                 itcat:user itcat:Staff ,
-                            itcat:Students ;
-                 
-                 schema:customer itcat:THB ;
-                 
-                 schema:isRelatedTo itcat:WebHosting .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#VirtualMachine
-
-itcat:VirtualMachine rdf:type owl:NamedIndividual ,
-                              schema:Service ;
-                     
-                     rdfs:comment "" ;
-                     
-                     skos:prefLabel "Virtuelle Maschine"@de ;
-                     
-                     schema:url "https://fbwcms.fh-brandenburg.de/wirtschaft/vmantrag" ;
-                     
-                     dcterms:subject "" ;
-                     
-                     dcterms:title "Bereitstellung virtueller Server durch den FBW"@de ;
-                     
-                     dcterms:abstract "Der Fachbereich Wirtschaft bietet Lehrenden, Mitarbeitern und Studierenden die Möglichkeit zur Unterstützung der Lehre und bei Projektarbeiten Server mit verschiedenen Betriebssystemen in einer virtuellen Umgebung zur Verfügung zu stellen. "@de ;
-                     
-                     dcterms:description "Die Bereitstellung eines virtuellen Servers kann über ein Formular beantragt werden. Das Formular erfordert eine Anmeldung mit den IDM-Login-Daten. Der Antragsteller muss die 'Nutzungsbedingungen für virtuelle Maschinen' lesen und akzeptieren. Die Bearbeitung des Antrags erfolgt gewöhnlich innerhalb von 14 Tagen."@de ;
-                     
-                     skos:prefLabel "virtual machine"@en ;
-                     
-                     itcat:inCategory itcat:BusinessCatalog ;
-                     
-                     itcat:usableWith itcat:Computer ;
-                     
-                     schema:customer itcat:DBM ;
-                     
-                     schema:isRelatedTo itcat:IDM ;
-                     
-                     itcat:inCategory itcat:InfrastructureServices ;
-                     
-                     itcat:usableWith itcat:Laptop ;
-                     
-                     itcat:hasCriticality itcat:MediumCriticality ;
-                     
-                     itcat:hasPriority itcat:MediumPriority ;
-                     
-                     itcat:hasStage itcat:Operation ;
-                     
-                     itcat:user itcat:Staff ;
-                     
-                     itcat:supporter itcat:TLSO ;
-                     
-                     schema:provider itcat:TLSO ;
-                     
-                     foaf:page itcat:VirtualMachine_DocWP001 ;
-                     
-                     schema:isRelatedTo itcat:WebHosting .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#VirtualMachine_DocWP001
-
-itcat:VirtualMachine_DocWP001 rdf:type owl:NamedIndividual ,
-                                       foaf:Document ;
-                              
-                              schema:url "http://fbwcms.fh-brandenburg.de/wirtschaft/vmantragagb" .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#VolumeTransfer
-
-itcat:VolumeTransfer rdf:type owl:NamedIndividual ,
-                              schema:Service ;
-                     
-                     schema:url "https://www.fh-brandenburg.de/exchange" ;
-                     
-                     rdfs:comment "" ;
-                     
-                     dcterms:subject "" ;
-                     
-                     dcterms:description "<p>Über das Formular können Dateien bis maximal 791 MB hochgeladen werden. Es wird ein Downloadlink generiert, der der Zielperson per E-Mail zugesandt wird. Standardmäßig ist eine Lebenszeit der Datei von 3 Tagen eingestellt, dieser Wert kann aber über das Formular geändert werden.</p><p> Alternativ bzw. ergänzend kann der Transfer über ein TAN abgesichert werden. Für die Erzeugung von TANs wird ein weiteres Online-Formular zur Verfügung gestellt. Bei der Gültigkeitsbegrenzung der TANs kann zwischen einer einmaligen und einer zeitlich befristeten Nutzung gewählt werden. Initiiert wird dieser Dienst immer von einer Person mit THB-Account (IDM-Login).</p>"@de ;
-                     
-                     dcterms:title "Bereitstellung und Empfang großer Daten (> 10 MB)"@de ;
-                     
-                     dcterms:abstract "Das Rechenzentrum bietet die Möglichkeit über ein Formular, Dateien für externe Partner zur Verfügung zu stellen bzw. große Dateien zu empfangen. Diese Option kann genutzt werden, wenn die zu übertragenden oder zu empfangenden Daten die Begrenzung von 10 MB für den Transfer von Dateien per E-Mail überschritten wird."@de ;
-                     
-                     skos:prefLabel "Volumendaten-Transfer"@de ,
-                                    "volume data transfer"@en ;
-                     
-                     itcat:inCategory itcat:BusinessCatalog ,
-                                      itcat:CommunicationServices ;
-                     
-                     itcat:usableWith itcat:Computer ;
-                     
-                     itcat:supporter itcat:DataCenter ;
-                     
-                     schema:provider itcat:DataCenter ;
-                     
-                     itcat:user itcat:ExtWorkers ;
-                     
-                     schema:isRelatedTo itcat:IDM ;
-                     
-                     itcat:usableWith itcat:Laptop ;
-                     
-                     itcat:hasCriticality itcat:LowCriticality ;
-                     
-                     itcat:hasPriority itcat:MediumPriority ;
-                     
-                     itcat:hasStage itcat:Operation ;
-                     
-                     itcat:user itcat:Public ,
-                                itcat:Staff ,
-                                itcat:Students ;
-                     
-                     schema:customer itcat:THB ;
-                     
-                     foaf:page itcat:VolumeTransfer_DocWP001 ;
-                     
-                     schema:isRelatedTo itcat:WebHosting .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#VolumeTransfer_DocWP001
-
-itcat:VolumeTransfer_DocWP001 rdf:type owl:NamedIndividual ,
-                                       foaf:Document ;
-                              
-                              schema:url "https://www.fh-brandenburg.de/exchange?tans=1" .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#WLAN
-
-itcat:WLAN rdf:type owl:NamedIndividual ,
-                    schema:Service ;
-           
-           schema:url "http://www.fh-brandenburg.de/1347.html" ;
-           
-           rdfs:comment "" ;
-           
-           dcterms:subject "" ;
-           
-           dcterms:description "<p>Sollte es Probleme bei der Verbindung geben, nutzen Sie zunächst bitte die unter Dokumente abgelegte Anleitung um die Verbindung neu einzurichten.</p><p>Mit dem Beginn des Wintersemester 2015 kann das eduroam - WLAN auch durch Studierende und Mitarbeitende der FHB genutzt werden. Mit der einmaligen Einrichtung von eduroam auf ihrem mobilen Gerät haben Sie dann die Möglichkeit, kostenlosen Zugang zum Internet an der FHB und eben auch allen wissenschaftlichen Einrichtungen weltweit zu erhalten.</p><p>Das 'fhb-wlan' wird zunächst noch parallel zur Verfügung stehen, jedoch zum Beginn des Sommersemester 2016 abgeschaltet werden.</p>"@de ;
-           
-           dcterms:abstract "Die Nutzung des hochschuleigenen WLANs 'fhb-wlan' steht allen Angehörigen der Fachhochschule Brandenburg frei. Die Anmeldung an diesem WLAN erfolgt mit den IDM-Login-Daten. In der Regel genügt die Eingabe ihrer Zugangsdaten um sich im WLAN der Fachhochschule Brandenburg anzumelden."@de ;
-           
-           dcterms:title "Hochschuleigenes WLAN"@de ;
-           
-           skos:prefLabel "WLAN"@de ,
-                          "WLAN"@en ;
-           
-           itcat:usableWith itcat:Computer ;
-           
-           schema:provider itcat:DataCenter ;
-           
-           itcat:supporter itcat:DataCenter ;
-           
-           itcat:user itcat:ExtWorkers ;
-           
-           itcat:hasCriticality itcat:HighCriticality ;
-           
-           itcat:hasPriority itcat:HighPriority ;
-           
-           schema:isRelatedTo itcat:IDM ;
-           
-           itcat:hasStage itcat:InRelief ;
-           
-           itcat:inCategory itcat:InfrastructureCatalog ;
-           
-           itcat:usableWith itcat:Laptop ;
-           
-           itcat:inCategory itcat:NetworkServices ;
-           
-           itcat:usableWith itcat:Smartphone ;
-           
-           itcat:user itcat:Staff ,
-                      itcat:Students ;
-           
-           schema:customer itcat:THB ;
-           
-           itcat:usableWith itcat:Tablet ;
-           
-           foaf:page itcat:WLAN_DocDL001 ;
-           
-           schema:isRelatedTo itcat:WebHosting .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#WLAN_DocDL001
-
-itcat:WLAN_DocDL001 rdf:type owl:NamedIndividual ,
-                             foaf:Document ;
-                    
-                    schema:url "http://www.fh-brandenburg.de/uploads/media/Einrichten_des_fhb-wlan.pdf" .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#WWeidner
-
-itcat:WWeidner rdf:type owl:NamedIndividual ,
-                        foaf:Person ;
-               
-               foaf:name "Wolfram Weidner" ;
-               
-               foaf:phone "+49 3381 355 - 437" ;
-               
-               skos:prefLabel "Wolfram Weidner, B.Sc." ;
-               
-               foaf:mbox "wolfram.weidner(at)th-brandenburg.de" ;
-               
-               schema:employee itcat:DCS .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#WebHosting
-
-itcat:WebHosting rdf:type owl:NamedIndividual ,
-                          schema:Service ;
-                 
-                 rdfs:comment "" ;
-                 
-                 dcterms:subject "" ;
-                 
-                 dcterms:title "Betrieb des zentralen Web-Servers an der TH Brandenburg"@de ;
-                 
-                 dcterms:description "Der Web-Hosting-Dienst ist die Grundlage für eine Fülle von webbasierten Diensten an der Hochschule."@de ;
-                 
-                 dcterms:abstract "Die TH Brandenburg betreibt eigene Web-Server im Rahmen des DFN (Deutsches Forschungsnetz). Damit können sämtliche webbasierten Dienste der Hochschule mit hoher Performanz und Verfügbarkeit betrieben werden."@de ;
-                 
-                 skos:prefLabel "Web-Hosting"@de ;
-                 
-                 schema:url "http://www.fh-brandenburg.de/www.html" ;
-                 
-                 skos:prefLabel "web hosting"@en ;
-                 
-                 schema:provider itcat:DFN ;
-                 
-                 itcat:user itcat:DataCenter ;
-                 
-                 itcat:supporter itcat:DataCenter ;
-                 
-                 itcat:user itcat:HISProject ;
-                 
-                 itcat:hasCriticality itcat:HighCriticality ;
-                 
-                 itcat:hasPriority itcat:HighPriority ;
-                 
-                 itcat:inCategory itcat:InfrastructureServices ;
-                 
-                 itcat:user itcat:LSCS ;
-                 
-                 itcat:hasStage itcat:Operation ;
-                 
-                 itcat:inCategory itcat:OperationalCatalog ;
-                 
-                 itcat:user itcat:THB ;
-                 
-                 schema:customer itcat:THB ;
-                 
-                 itcat:user itcat:TLSO .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#WebMail
-
-itcat:WebMail rdf:type owl:NamedIndividual ,
-                       schema:Service ;
-              
-              rdfs:comment "" ;
-              
-              schema:url "https://webmail.fh-brandenburg.de/" ;
-              
-              dcterms:subject "" ;
-              
-              dcterms:description "<p>Der Webmail-Service ist plattformunabhängig mit jedem Gerät abrufbar. Verwendet wird zentral die Software „Zimbra“, welche neben dem E-Mail-Dienst weitere Funktionen einer Groupware wie einen Kalender, Kontaktbuch und Aufgabenbereich beinhaltet. Des Weiteren kann man online Dateien hochladen und freigeben.</p>"@de ;
-              
-              dcterms:abstract "Für alle Studierenden und Lehrkräfte bietet die Hochschule einen Webmailer auf Basis von Zimbra an. Der Dienst ist innerhalb und außerhalb des Hochschulnetzes zugänglich. Die Authentifizierung erfolgt mit den IDM-Login-Daten."@de ;
-              
-              skos:prefLabel "WebMail-Dienst"@de ;
-              
-              dcterms:title "WebMail-Dienst Zimbra der TH Brandenburg"@de ;
-              
-              skos:prefLabel "webmail service"@en ;
-              
-              itcat:inCategory itcat:BusinessCatalog ;
-              
-              schema:isRelatedTo itcat:CentralMail ;
-              
-              itcat:inCategory itcat:CommunicationServices ;
-              
-              itcat:usableWith itcat:Computer ;
-              
-              schema:provider itcat:DataCenter ;
-              
-              itcat:supporter itcat:DataCenter ;
-              
-              itcat:user itcat:ExtWorkers ;
-              
-              itcat:hasCriticality itcat:HighCriticality ;
-              
-              itcat:hasPriority itcat:HighPriority ;
-              
-              schema:isRelatedTo itcat:IDM ;
-              
-              itcat:usableWith itcat:Laptop ;
-              
-              itcat:hasStage itcat:Operation ;
-              
-              itcat:usableWith itcat:Smartphone ;
-              
-              itcat:user itcat:Staff ,
-                         itcat:Students ;
-              
-              schema:customer itcat:THB ;
-              
-              itcat:usableWith itcat:Tablet ;
-              
-              foaf:page itcat:WebMail_DocWP001 .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#WebMail_DocWP001
-
-itcat:WebMail_DocWP001 rdf:type owl:NamedIndividual ,
-                                foaf:Document ;
-                       
-                       schema:url "https://webmail.fh-brandenburg.de/help/de/advanced/zimbra_user_help.htm" .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#WebSite
-
-itcat:WebSite rdf:type owl:NamedIndividual ,
-                       schema:Service ;
-              
-              schema:url "http://www.th-brandenburg.de" ;
-              
-              dcterms:subject "" ;
-              
-              rdfs:comment "" ;
-              
-              dcterms:description "Aktuell betreiben die Fachbereiche, Zentren und Projekte eigene Webseiten, die unterhalb der Domain 'fh-brandenburg.de' gehostet werden. Ein Projekt zur Vereinheitlichung und Zusammenführung dieser Webseiten wurde 2014 gestartet und soll 2016 abgeschlossen werden."@de ;
-              
-              dcterms:abstract "Die Webseite der Hochschule ist das zentrale Informationsportal für alle Interessenten und die gesamte Öffentlichkeit. Darüber hinaus bietet die Webseite auch den Angehörigen der TH Brandenburg interessante Informationen zu Struktur, Aktivitäten und Diensten der Hochschule."@de ;
-              
-              skos:prefLabel "Webseite der THB"@de ;
-              
-              dcterms:title "Zentrale Webseite der TH Brandenburg"@de ;
-              
-              skos:prefLabel "website of UASB"@en ;
-              
-              itcat:usableWith itcat:Computer ;
-              
-              itcat:supporter itcat:DataCenter ;
-              
-              schema:provider itcat:DataCenter ;
-              
-              itcat:user itcat:Enrollees ;
-              
-              itcat:hasCriticality itcat:HighCriticality ;
-              
-              itcat:hasPriority itcat:HighPriority ;
-              
-              itcat:hasStage itcat:Implementation ;
-              
-              itcat:inCategory itcat:InformationServices ;
-              
-              itcat:usableWith itcat:Laptop ;
-              
-              itcat:user itcat:Public ;
-              
-              itcat:inCategory itcat:PublicCatalog ;
-              
-              itcat:usableWith itcat:Smartphone ;
-              
-              itcat:user itcat:Staff ,
-                         itcat:Students ;
-              
-              schema:customer itcat:THB ;
-              
-              itcat:usableWith itcat:Tablet ;
-              
-              schema:isRelatedTo itcat:WebHosting ;
-              
-              foaf:page itcat:WebSite_DocWP001 ,
-                        itcat:WebSite_DocWP002 ,
-                        itcat:WebSite_DocWP003 .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#WebSite_DocWP001
-
-itcat:WebSite_DocWP001 rdf:type owl:NamedIndividual ,
-                                foaf:Document ;
-                       
-                       schema:url "http://www.fh-brandenburg.de" .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#WebSite_DocWP002
-
-itcat:WebSite_DocWP002 rdf:type owl:NamedIndividual ,
-                                foaf:Document ;
-                       
-                       schema:url "http://fbwcms.fh-brandenburg.de" .
-
-
-
-###  http://th-brandenburg.de/ns/itcat#WebSite_DocWP003
+itcat:QISFSV_DocWP001 a foaf:Document ;
+		schema:url "https://www.his.de/produkte/gxqis/finanz-und-sachmittelverwaltung.html" .
+		
+itcat:QISPOS_DocWP001 a foaf:Document ;
+        schema:url "http://www.fh-brandenburg.de/qispos.html" .
 
-itcat:WebSite_DocWP003 rdf:type owl:NamedIndividual ,
-                                foaf:Document ;
-                       
-                       schema:url "http://informatik.fh-brandenburg.de/" .
+itcat:DSFWSamba_DocWP001 a foaf:Document ;
+        schema:url "http://www.fh-brandenburg.de/laufwerksbezeichnung.html" .
 
+itcat:VolumeTransfer_DocWP001 a foaf:Document ;
+        schema:url "https://www.fh-brandenburg.de/exchange?tans=1" .
 
+itcat:WebMail_DocWP001 a foaf:Document ;
+        schema:url "https://webmail.fh-brandenburg.de/help/de/advanced/zimbra_user_help.htm" .
 
-###  http://th-brandenburg.de/ns/itcat#WindowsPC
+itcat:GroupWareADM_DocWP001 owl:sameAs itcat:WebMail_DocWP001 .
 
-itcat:WindowsPC rdf:type itcat:ITAsset ,
-                         owl:NamedIndividual ;
-                
-                skos:definition "Deskotp-Computer und Laptops, die mit dem Betriebssystem MS Windows ausgestattet sind."@de ;
-                
-                skos:prefLabel "Windows PC"@de ,
-                               "Windows PC"@en .
+itcat:WLAN_DocDL001 a foaf:Document ;
+        schema:url "http://www.fh-brandenburg.de/uploads/media/Einrichten_des_fhb-wlan.pdf" .
 
+itcat:VirtualMachine_DocWP001 a foaf:Document ;
+        schema:url "http://fbwcms.fh-brandenburg.de/wirtschaft/vmantragagb" .
 
+itcat:WebSite_DocWP001 a foaf:Document ;
+        schema:url "http://www.fh-brandenburg.de" . 
 
+itcat:WebSite_DocWP002 a foaf:Document ;
+		schema:url "http://fbwcms.fh-brandenburg.de" .
 
-###  Generated by the OWL API (version 3.5.1) http://owlapi.sourceforge.net
+itcat:WebSite_DocWP003 a foaf:Document ;
+		schema:url "http://informatik.fh-brandenburg.de/" .
 
