@@ -2609,17 +2609,16 @@ foaf:Person rdf:type owl:Class ;
         
         rdfs:comment "" ;
         
-        dcterms:description "In den moodle-Kursen können u.a. Dokumente und Dateien hoch- und runtergeladen werden, Tests veröffentlicht, Aufgaben verteilt, Foren eröffnet, oder Wikis erstellt/bereitgestellt werden. In moodle können Kurse für bestimmte Nutzergruppen gesperrt, bzw. geöffnet werden. Die Authentifizierung erfolgt mit den IDM-Login-Daten"@de ;
-        
         dcterms:title "Kurs-/Lernmanagementsystem Moodle"@de ;
-        
-        skos:prefLabel "Lehrplattform moodle"@de ;
         
         dcterms:abstract "Moodle dient als Plattform für Kurse an der Fachhochschule Brandenburg. Diese Kurse können Vorlesungen oder andere organisatorische Einheiten, Dienste u. ä. sein."@de ;
         
         schema:url "http://www.fh-brandenburg.de/moodle" ;
         
-        skos:prefLabel "teaching platform moodle"@en ;
+        dcterms:description "In moodle können Kurse für bestimmte Nutzergruppen erstellt, bzw. geöffnet oder gesperrt werden. Die Authentifizierung erfolgt mit den IDM-Login-Daten. In den moodle-Kursen können u.a. Dokumente und Dateien hoch- und runtergeladen werden, Tests veröffentlicht, Aufgaben verteilt, Foren eröffnet, oder Wikis erstellt/bereitgestellt werden."@de ;
+        
+        skos:prefLabel "Lehrplattform moodle"@de ,
+                       "teaching platform moodle"@en ;
         
         :inCategory :BusinessCatalog ;
         
@@ -2644,8 +2643,6 @@ foaf:Person rdf:type owl:Class ;
         :usableWith :Laptop ;
         
         :hasStage :Operation ;
-        
-        :supporter :RWietusch ;
         
         :user :Staff ,
               :Students ;
