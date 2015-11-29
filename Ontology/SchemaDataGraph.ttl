@@ -2845,13 +2845,14 @@ foaf:Person rdf:type owl:Class ;
             
             dcterms:subject "" ;
             
+            dcterms:abstract """Die THB betreibt in Kooperation mit Spreadshirt einen Onlineshop.
+Hier finden Sie Shirts, Pullover, Tassen und Taschen der THB."""@de ;
+            
             schema:url "http://fh-brandenburg.spreadshirt.de/" ;
             
             rdfs:comment "" ;
             
-            dcterms:abstract "Die TH Brandenburg betreibt einen Online-Shop unter dem Dach des Social-Commerce-Unternehmens Spreadshirt. Hier können Bekleidungsstücke, Tassen u. a. nette Sachen mit Motiven der Hochschule bestellt werden."@de ;
-            
-            dcterms:description "Im Onlineshop der TH Brandenburg können Sie folgende Gegenstände kaufen: <ul><li>Jacken</li><li>Kapuzenpullover</li><li>T-Shirts</li><li>Poloshirts</li> <li>Tassen</li><li>Kochschürzen</li><li>Badtücher</li></li>Baseballkappen</li><li>diverse Kleinteile</li></ul> Insgesamt stehen mehrere Farben und Motive zur Verfügung."@de ;
+            dcterms:description "Im Onlineshop der THB können Sie folgende Artikel kaufen:<ul><li>- Jacken</li><li>- Kapuzenpullover</li><li>- T-Shirts</li><li>- Poloshirts</li><li>- Tassen</li><li>- Kochschürzen</li><li>- Badetücher</li><li>- Baseballkappen</li><li>- diverse Kleinteile</li></ul>Insgesamt stehen mehrere Farben und Motive zur Verfügung. Das Sortiment wird ständig erweitert."@de ;
             
             dcterms:title "Onlineshop der TH Brandenburg"@de ;
             
