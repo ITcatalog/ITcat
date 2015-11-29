@@ -1027,7 +1027,9 @@ foaf:Person rdf:type owl:Class ;
                
                :usableWith :Computer ;
                
-               :supporter :DCS ;
+               :supporter :DBM ,
+                          :DCS ,
+                          :DTE ;
                
                :user :ExtWorkers ;
                
