@@ -17,21 +17,21 @@
 
 <http://th-brandenburg/ns/itcat#> rdf:type owl:Ontology ;
                                   
-                                  dc:date "2015-09-05"^^xsd:date ;
+                                  dc:creator "Vera G. Meister" ;
                                   
                                   dc:title "ITCAT Ontologie" ;
                                   
+                                  dc:description "Die Schema-Ontologie für den IT-Dienste-Katalog stellt das Konzept ITService (IT-Dienst) ins Zentrum. Dienste können nach fachlichen Kategorien bzw. nach Katalogkategorien klassifiziert werden. Die Einteilung in fachliche Kategorien ist nich ausschließlich. Weitere Klassifikationen sind durch die Lebenszyklusphase eines Dienstes sowie seine Kritikalität und Priorität gegeben. Für alle genannten Kategorien sind Individuen im Sinne einer vollständigen Aufzählung von Instanzen (Enumerations) hinterlegt. Zentrale Relation in der Ontologie ist die Verbindung zwischen einem IT-Dienst und den eingebundenen Akteuren (Agents, Stakeholder). Akteure können Personen, Organisationen und Rollen sein, die als Anbieter (Provider), Kunde, Supporter oder Nutzer in Aktion treten. Personen können als Mitarbeiter einer Organisation dargestellt werden, Organisationen können hierarchisch gegliedert sein. Schließlich erlaubt die Ontologie die Referenz auf diverse Endgeräte (IT-Assets), mit denen ein Dienst genutzt werden kann sowie auf verbundene Dokumente (auch Webseiten). Ein weiteres zentrales Element der Ontologie ist die Darstellung von Relationen zwischen IT-Diensten. Die Art der Relation ist vorerst nicht spezifiziert. Es kann sich um eine direkte Abhängigkeit oder die Nutzung gemeinsamer Ressourcen handeln. Alle Ressourcen sind umfassend annotiert, definiert und beschrieben. Als Grundprinzip der Ontologie-Entwicklung wurde eine umfassende Nachnutzung von Standardressourcen aus schema.org, foaf und prov-o verfolgt. Die Annotation setzt primär auf rdfs, dc und skos." ;
+                                  
                                   skos:prefLabel "ITCat Schema" ;
                                   
-                                  rdfs:comment "Schema-Ontologie für den IT-Dienste-Katalog einer Organisation, die sowohl externe IT-Dienste nutzt, als auch eigene IT-Dienste bereitstellt. "@de ;
-                                  
-                                  dc:creator "Vera G. Meister" ;
+                                  dc:date "2016-03-02" ;
                                   
                                   dc:rights "Diese Ontologie unterliegt der Creative Commons Attribuition Licence - http://creativecommons.org/licenses/by/3.0 ." ;
                                   
-                                  dc:description "Die Schema-Ontologie für den IT-Dienste-Katalog stellt das Konzept ITService (IT-Dienst) ins Zentrum. Dienste können nach fachlichen Kategorien bzw. nach Katalogkategorien klassifiziert werden. Die Einteilung in fachliche Kategorien ist nich ausschließlich. Weitere Klassifikationen sind durch die Lebenszyklusphase eines Dienstes sowie seine Kritikalität und Priorität gegeben. Für alle genannten Kategorien sind Individuen im Sinne einer vollständigen Aufzählung von Instanzen (Enumerations) hinterlegt. Zentrale Relation in der Ontologie ist die Verbindung zwischen einem IT-Dienst und den eingebundenen Akteuren (Agents, Stakeholder). Akteure können Personen, Organisationen und Rollen sein, die als Anbieter (Provider), Kunde, Supporter oder Nutzer in Aktion treten. Personen können als Mitarbeiter einer Organisation dargestellt werden, Organisationen können hierarchisch gegliedert sein. Schließlich erlaubt die Ontologie die Referenz auf diverse Endgeräte (IT-Assets), mit denen ein Dienst genutzt werden kann sowie auf verbundene Dokumente (auch Webseiten). Ein weiteres zentrales Element der Ontologie ist die Darstellung von Relationen zwischen IT-Diensten. Die Art der Relation ist vorerst nicht spezifiziert. Es kann sich um eine direkte Abhängigkeit oder die Nutzung gemeinsamer Ressourcen handeln. Alle Ressourcen sind umfassend annotiert, definiert und beschrieben. Als Grundprinzip der Ontologie-Entwicklung wurde eine umfassende Nachnutzung von Standardressourcen aus schema.org, foaf und prov-o verfolgt. Die Annotation setzt primär auf rdfs, dc und skos." ;
+                                  rdfs:comment "Schema-Ontologie für den IT-Dienste-Katalog einer Organisation, die sowohl externe IT-Dienste nutzt, als auch eigene IT-Dienste bereitstellt. "@de ;
                                   
-                                  owl:versionInfo "v 0.25 - im Vergleich zu v 0.2 ohne Kosten und ohne Service-Optionen (incl. der entsprechenden Object Properties) aber mit Rolle als weiterer Agent und Instanzen für Qualitative Values."@de ;
+                                  owl:versionInfo "v0.3 - Definitionen für zentrale ObjectProperty(s) so angepasst, dass für Nutzer verständliche Texte ausgegeben werden. Einführung der Standardrelation schema:valueReference und Zuordnung der proprietären Relationen itcat:hasPriority und itcat:hasCriticality als Unterrelationen von schema:valueReference."@de ;
                                   
                                   dc:description <http://univera.de/FHB/SUSCa/SchemaGraph.png> .
 
@@ -171,11 +171,11 @@ schema:agent rdf:type owl:ObjectProperty ;
              
              rdfs:label "agent" ;
              
-             rdfs:comment "Abstrakte Objektrelation zwischen einem IT-Dienst und einem Akteur (Instanz der Klasse 'Agent'), der eine handelnde Rolle in Bezug zu diesem IT-Dienst einnimmt, z. B. als Anbieter, Kunde, Nutzer oder Supporter."@de ;
-             
              skos:definition "Abstrakte Objektrelation zwischen einem IT-Dienst und einem Akteur (Instanz der Klasse 'Agent'), der eine handelnde Rolle in Bezug zu diesem IT-Dienst einnimmt, z. B. als Anbieter, Kunde, Nutzer oder Supporter."@de ;
              
-             skos:prefLabel "Akteur"@de ,
+             rdfs:comment "Abstrakte Objektrelation zwischen einem IT-Dienst und einem Akteur (Instanz der Klasse 'Agent'), der eine handelnde Rolle in Bezug zu diesem IT-Dienst einnimmt, z. B. als Anbieter, Kunde, Nutzer oder Supporter."@de ;
+             
+             skos:prefLabel "hatAkteur"@de ,
                             "agent"@en ;
              
              rdfs:domain schema:Service ;
@@ -190,9 +190,9 @@ schema:customer rdf:type owl:ObjectProperty ;
                 
                 rdfs:label "customer" ;
                 
-                rdfs:comment "Objektrelation zwischen einem IT-Dienst und (einem) seinem(r) Kunden. Der Kunde hat für die Kosten des IT-Dienstes aufzukommen, entweder indem er die Rechnungen des Anbieters begleicht (externer Kunde) oder indem er dem (internen) Anbieter ein Budget zur Verfügung stellt."@de ;
+                skos:definition "Der Kunde eines IT-Dienstes hat für die Kosten des IT-Dienstes aufzukommen, entweder indem er die Rechnungen des Anbieters begleicht (externer Kunde) oder indem er dem (internen) Anbieter ein Budget zur Verfügung stellt."@de ;
                 
-                skos:definition "Objektrelation zwischen einem IT-Dienst und (einem) seinem(r) Kunden. Der Kunde hat für die Kosten des IT-Dienstes aufzukommen, entweder indem er die Rechnungen des Anbieters begleicht (externer Kunde) oder indem er dem (internen) Anbieter ein Budget zur Verfügung stellt."@de ;
+                rdfs:comment "Objektrelation zwischen einem IT-Dienst und (einem) seinem(r) Kunden. Der Kunde hat für die Kosten des IT-Dienstes aufzukommen, entweder indem er die Rechnungen des Anbieters begleicht (externer Kunde) oder indem er dem (internen) Anbieter ein Budget zur Verfügung stellt."@de ;
                 
                 skos:prefLabel "bestellt von"@de ,
                                "has customer"@en ;
@@ -260,9 +260,9 @@ schema:provider rdf:type owl:ObjectProperty ;
                 
                 rdfs:label "provider" ;
                 
-                skos:definition "Objektrelation zwischen einem IT-Dienst und seinem Anbieter."@de ;
-                
                 rdfs:comment "Objektrelation zwischen einem IT-Dienst und seinem Anbieter."@de ;
+                
+                skos:definition "Zu unterscheiden sind externe und interne Anbieter von IT-Diensten. Externe Anbieter können Unternehmen oder eine andere Hochschule o. ä. sein. Interne Anbieter sind Einrichtungen der Hochschule selbst, z. B. das Rechenzentrum oder das Labor eines Fachbereichs."@de ;
                 
                 skos:prefLabel "hat Anbieter"@de ,
                                "has provider"@en ;
@@ -275,22 +275,30 @@ schema:provider rdf:type owl:ObjectProperty ;
 
 
 
+###  http://schema.org/valueReference
+
+schema:valueReference rdf:type owl:ObjectProperty .
+
+
+
 ###  http://th-brandenburg.de/ns/itcat#hasCriticality
 
 :hasCriticality rdf:type owl:ObjectProperty ;
                 
                 rdfs:label "hasCriticality" ;
                 
-                skos:definition "Objektrelation zwischen einem IT-Dienst und seiner Kritikalitätskategorie. "@de ;
+                skos:definition "Die Kritikalität eines Dienstes gibt an, wie kritisch eine Störung oder der Ausfall eines Dienstes für die IT-Versorgung einer Organisation eingeschätzt wird. Die Einschätzung erfolgt in drei Abstufungen: hohe, mittlere und geringe Kritikalität."@de ;
                 
-                rdfs:comment "Objektrelation zwischen einem IT-Dienst und seiner Kritikalitätskategorie. Wird demnächst durch schema:valueReference ersetzt."@de ;
+                rdfs:comment "Objektrelation zwischen einem IT-Dienst und seiner Kritikalitätskategorie. Sie ist eine Unterrelation von schema:valueReference ."@de ;
                 
                 skos:prefLabel "hat Kritikalität"@de ,
                                "has criticality"@en ;
                 
                 rdfs:range schema:QualitativeValue ;
                 
-                rdfs:domain schema:Service .
+                rdfs:domain schema:Service ;
+                
+                rdfs:subPropertyOf schema:valueReference .
 
 
 
@@ -300,16 +308,18 @@ schema:provider rdf:type owl:ObjectProperty ;
              
              rdfs:label "hasPriority" ;
              
-             skos:definition "Objektrelation zwischen einem IT-Dienst und seiner Prioritätskategorie. "@de ;
+             skos:definition "Die Priorität eines Dienstes gibt an, welcher Wert ihm im Rahmen des Dienste-Portfolios einer Organisation beigemessen wird. Die Priorität wird in drei Abstufungen dargestellt: hohe, mittlere und geringe Priorität."@de ;
              
-             rdfs:comment "Objektrelation zwischen einem IT-Dienst und seiner Prioritätskategorie. Wird demnächst durch schema:valueReference ersetzt."@de ;
+             rdfs:comment "Objektrelation zwischen einem IT-Dienst und seiner Prioritätskategorie. Sie ist eine Unterrelation von schema:valueReference ."@de ;
              
              skos:prefLabel "hat Priorität"@de ,
                             "has priority"@en ;
              
              rdfs:range schema:QualitativeValue ;
              
-             rdfs:domain schema:Service .
+             rdfs:domain schema:Service ;
+             
+             rdfs:subPropertyOf schema:valueReference .
 
 
 
@@ -397,7 +407,7 @@ schema:provider rdf:type owl:ObjectProperty ;
            
            rdfs:label "supporter" ;
            
-           skos:definition "Objektrelation zwischen einem IT-Dienst und (einem) seinem(r) Supporter."@de ;
+           skos:definition "Der Suppporter eines IT-Dienstes ist die Person oder Organisation, die Wartung, Pflege und/oder Nutzerbetreuung für den IT-Dienst übernimmt. Zumeist handelt es sich um einen verantwortlich Handelnden aus der Hochschule selbst."@de ;
            
            rdfs:comment "Objektrelation zwischen einem IT-Dienst und (einem) seinem(r) Supporter."@de ;
            
@@ -418,9 +428,9 @@ schema:provider rdf:type owl:ObjectProperty ;
             
             rdfs:label "usableWith" ;
             
-            rdfs:comment "Objektrelation zwischen einem IT-Dienst und der Dienstmerkmalsklasse 'Unterstützung für Endgeräte'."@de ;
+            skos:definition "Gibt an, mit welchen Endgeräten ein IT-Dienst genutzt werden kann."@de ;
             
-            skos:definition "Objektrelation zwischen einem IT-Dienst und der Dienstmerkmalsklasse 'Unterstützung für Endgeräte'."@de ;
+            rdfs:comment "Objektrelation zwischen einem IT-Dienst und der Dienstmerkmalsklasse 'Unterstützung für Endgeräte'."@de ;
             
             skos:prefLabel "nutzbar mit"@de ,
                            "usable with"@en ;
@@ -437,9 +447,9 @@ schema:provider rdf:type owl:ObjectProperty ;
       
       rdfs:label "user" ;
       
-      rdfs:comment "Objektrelation zwischen einem IT-Dienst und (einem) seinem(r) Nutzer."@de ;
+      skos:definition "Nutzer von IT-Diensten sind Personen, die berechtigt sind, die IT-Dienste für ihre fachlichen Aufgaben an der Hochschule (Fachanwender) oder für ihre privaten Informationsinteressen (Endanwender) in Anspruch zu nehmen. Die Nutzer werden als Rollen dargestellt, z. B. Verwaltungsmitarbeiter, Studierende, Lehrende."@de ;
       
-      skos:definition "Objektrelation zwischen einem IT-Dienst und (einem) seinem(r) Nutzer."@de ;
+      rdfs:comment "Objektrelation zwischen einem IT-Dienst und (einem) seinem(r) Nutzer."@de ;
       
       skos:prefLabel "hat Nutzer"@de ,
                      "has user"@en ;
@@ -474,9 +484,9 @@ foaf:page rdf:type owl:ObjectProperty ;
           
           rdfs:label "page" ;
           
-          skos:definition "Objektrelation zwischen einer Ressource, z. B. einem IT-Dienst und einem Dokument, das Informationen für oder über diesen IT-Dienst enthält."@de ;
-          
           rdfs:comment "Objektrelation zwischen einer Ressource, z. B. einem IT-Dienst und einem Dokument, das Informationen für oder über diesen IT-Dienst enthält."@de ;
+          
+          skos:definition "Objektrelation zwischen einer Ressource, z. B. einem IT-Dienst und einem Dokument, das Informationen für oder über diesen IT-Dienst enthält."@de ;
           
           skos:prefLabel "hat Dokument"@de ,
                          "has page"@en ;
@@ -493,9 +503,9 @@ foaf:topic rdf:type owl:ObjectProperty ;
            
            rdfs:label "topic" ;
            
-           rdfs:comment "Objektrelation zwischen einem Dokument und einer anderen Ressource. Dokumente können Beschreibungen, Benutzerhilfen, Regeln, Richtlinien, Prozessmodelle, Verträge o. ä. sein bzw. enthalten, die einen Bezug zu einem IT-Dienst haben."@de ;
-           
            skos:definition "Objektrelation zwischen einem Dokument und einer anderen Ressource. Dokumente können Beschreibungen, Benutzerhilfen, Regeln, Richtlinien, Prozessmodelle, Verträge o. ä. sein bzw. enthalten, die einen Bezug zu einem IT-Dienst haben."@de ;
+           
+           rdfs:comment "Objektrelation zwischen einem Dokument und einer anderen Ressource. Dokumente können Beschreibungen, Benutzerhilfen, Regeln, Richtlinien, Prozessmodelle, Verträge o. ä. sein bzw. enthalten, die einen Bezug zu einem IT-Dienst haben."@de ;
            
            skos:prefLabel "hat Thema"@de ,
                           "has topic"@en ;
@@ -746,9 +756,9 @@ usdl-agreement:ServiceProperty rdf:type owl:Class ;
                                
                                skos:prefLabel "Dienstmerkmal"@de ;
                                
-                               skos:definition "Dienstmerkmale sind charakteristische Eigenschaften eines IT-Dienstes, die seinen Nutzen/seine Funktionalität sowie seine zugesicherten Qualitätsmerkmale darstellen."@de ;
-                               
                                rdfs:comment "Dienstmerkmale sind charakteristische Eigenschaften eines IT-Dienstes, die seinen Nutzen/seine Funktionalität sowie seine zugesicherten Qualitätsmerkmale darstellen."@de ;
+                               
+                               skos:definition "Dienstmerkmale sind charakteristische Eigenschaften eines IT-Dienstes, die seinen Nutzen/seine Funktionalität sowie seine zugesicherten Qualitätsmerkmale darstellen."@de ;
                                
                                skos:prefLabel "service property"@en .
 
@@ -776,9 +786,9 @@ prov:Entity rdf:type owl:Class ;
             
             rdfs:label "Entitiy" ;
             
-            skos:definition "Eine Entität ist ein Gegenstand oder ein immaterieller Artefakt, der durch Akteure beeinflusst, verändert wird, z. B. im Rahmen von IT-Diensten ."@de ;
-            
             rdfs:comment "Eine Entität ist ein Gegenstand oder ein immaterieller Artefakt, der durch Akteure beeinflusst, verändert wird, z. B. im Rahmen von IT-Diensten ."@de ;
+            
+            skos:definition "Eine Entität ist ein Gegenstand oder ein immaterieller Artefakt, der durch Akteure beeinflusst, verändert wird, z. B. im Rahmen von IT-Diensten ."@de ;
             
             skos:prefLabel "Entität"@de ,
                            "entity"@en .
@@ -841,11 +851,11 @@ foaf:Person rdf:type owl:Class ;
 :APrenzlow rdf:type owl:NamedIndividual ,
                     foaf:Person ;
            
+           foaf:phone "+49 3381 355 - 401" ;
+           
            foaf:name "Andrea Prenzlow" ;
            
            skos:prefLabel "Andrea Prenzlow" ;
-           
-           foaf:phone "+49 3381 355 - 401" ;
            
            foaf:mbox "andrea.prenzlow(at)th-brandenburg.de" ;
            
@@ -873,19 +883,19 @@ foaf:Person rdf:type owl:Class ;
       
       dcterms:subject "" ;
       
-      schema:url "http://bscw.fh-brandenburg.de" ;
-      
       rdfs:comment "" ;
       
-      dcterms:title "BSCW Groupware"@de ;
-      
-      skos:prefLabel "BSCW Groupware"@de ;
-      
-      dcterms:description "BSCW ist ein Projekt- und Dokumentenmanagementsystem (Basic Support for Cooperative Work). Es wurde vor 20 Jahren vom Fraunhofer Institut FIT entwickelt. BSCW ist das ideale Werkzeug für effiziente Kooperation, insbesondere für Gruppenarbeiten oder standortübergreifende Projekte. Es ermöglicht - ohne Softwareinstallation bei den Endbenutzern - die Zusammenarbeit von beliebig großen Benutzergruppen. Die Anmeldung erfolgt mit softwareeigenen Nutzerdaten, eine Intgration in des zentrale IDM ist nicht umgesetzt. Inzwischen zeichnet die OrbiTeam Software GmbH & Co. KG für die Pflege, Weiterentwicklung und den Support des Systems verantwortlich. Der FB Wirtschaft hat eine Lizenz für Forschung und Lehre erworben und bietet die Nutzung auf einem eigenen Server an."@de ;
+      dcterms:description "BSCW ist ein Projekt- und Dokumentenmanagementsystem (Basic Support for Cooperative Work). Es wurde vor 20 Jahren vom Fraunhofer Institut FIT entwickelt. Inzwischen zeichnet die OrbiTeam Software GmbH & Co. KG für die Pflege, Weiterentwicklung und den Support des Systems verantwortlich. Der FB Wirtschaft hat eine Lizenz für Forschung und Lehre erworben und bietet die Nutzung auf einem eigenen Server an. BSCW ist das ideale Werkzeug für effiziente Kooperation, insbesondere für firmen- oder standortübergreifende Projekte. Es ermöglicht - ohne Softwareinstallation bei den Endbenutzern - die Zusammenarbeit von beliebig großen Benutzergruppen. Die Anmeldung erfolgt mit softwareeigenen Nutzerdaten, eine Intgration in des zentrale IDM ist nicht umgesetzt."@de ;
       
       dcterms:abstract "BSCW ist ein bewährtes Werkzeug für effiziente Kooperation, insbesondere für firmen- oder standortübergreifende Projekte."@de ;
       
       skos:prefLabel "BSCW Groupware"@en ;
+      
+      schema:url "http://bscw.fh-brandenburg.de" ;
+      
+      skos:prefLabel "BSCW Groupware"@de ;
+      
+      dcterms:title "BSCW Groupware"@de ;
       
       :inCategory :BusinessCatalog ,
                   :CommunicationServices ;
@@ -936,9 +946,9 @@ foaf:Person rdf:type owl:Class ;
                  
                  rdfs:label "BusinessCatalog" ;
                  
-                 rdfs:comment "Der Fachanwenderkatalog umfasst alle für Fachanwender bereitgestellten Dienste einer Organisation. Sprache und Design des Katalogs orientieren sich an der Sprache der Fachanwender."@de ;
-                 
                  skos:definition "Der Fachanwenderkatalog umfasst alle für Fachanwender bereitgestellten Dienste einer Organisation. Sprache und Design des Katalogs orientieren sich an der Sprache der Fachanwender."@de ;
+                 
+                 rdfs:comment "Der Fachanwenderkatalog umfasst alle für Fachanwender bereitgestellten Dienste einer Organisation. Sprache und Design des Katalogs orientieren sich an der Sprache der Fachanwender."@de ;
                  
                  skos:prefLabel "Fachanwenderkatalog"@de ,
                                 "business catalog"@en .
@@ -952,8 +962,6 @@ foaf:Person rdf:type owl:Class ;
              
              rdfs:comment "" ;
              
-             schema:url "http://www.fh-brandenburg.de/email2.html" ;
-             
              dcterms:subject "" ;
              
              dcterms:description "<p>Das Rechenzentrum betreibt zwei Mailserver (Mailrelay), die die Verteilung von E-Mails innerhalb der Domain fh-brandenburg.de sowie den Empfang und Versand nach aussen abwickeln. Die Adressen dieser Server, in E-Mail-Clients als SMTP-Server oder Server für ausgehende Nachrichten bezeichnet, lauten:</p><ul><li>mail.fh-brandenburg.de:25</li><li>mail-auth.fh-brandenburg.de:25 (StartTLS)</li></ul><p>Eingehende Nachrichten können mittels POP3- oder IMAP-Protokoll abgerufen werden. Die Adressen dieser Server, in E-Mail-Clients als POP3-/IMAP-Server oder Server für eingehende Nachrichten bezeichnet, lauten:</p><ul><li>pop3-server: pop3.fh-brandenburg.de port: 995</li><li>imap-server: imap.fh-brandenburg.de port: 143/starttls</li><li>imap-server: imap.fh-brandenburg.de port: 993/ssl</li></ul><p>Die Größe einer E-Mail ist begrenzt auf 10 MB. Für den Austausch von größeren Dateien benutzen Sie bitte den Dienst <a href=\"VolumeTransfer\">Volumendatentransfer</a></p>."@de ;
@@ -962,15 +970,17 @@ foaf:Person rdf:type owl:Class ;
              
              skos:prefLabel "Zentraler Maildienst"@de ;
              
+             schema:url "http://www.fh-brandenburg.de/email2.html" ;
+             
              dcterms:title "Zentraler Maildienst der TH Brandenburg"@de ;
              
              skos:prefLabel "central mail service"@en ;
              
              foaf:page :CentralMail_DocWP001 ;
              
-             :user :DataCenter ;
-             
              :supporter :DataCenter ;
+             
+             :user :DataCenter ;
              
              schema:provider :DataCenter ;
              
@@ -1009,9 +1019,9 @@ foaf:Person rdf:type owl:Class ;
                
                schema:url "http://zeus.fh-brandenburg.de/Stundenplan/Plan.htm" ;
                
-               dcterms:subject "" ;
-               
                rdfs:comment "" ;
+               
+               dcterms:subject "" ;
                
                dcterms:description "Die Stundenplanung an der TH Brandenburg basiert auf der Eigenentwicklung CATT (Computer Aided Time Table). Neben dem aktuell gültigen Stundenplan ist ggf. der des gerade abgelaufenen bzw. des demnächst beginnenden Semesters einsehbar. Die Funktion 'Persönlicher Plan des Lehrenden' wird nicht mehr unterstützt. Nach vollumfänglicher Einführung des Hochschulinformationssystems HISinOne wird dieser Dienst abgelöst."@de ;
                
@@ -1027,9 +1037,9 @@ foaf:Person rdf:type owl:Class ;
                
                :usableWith :Computer ;
                
-               :supporter :DBM ,
-                          :DCS ,
-                          :DTE ;
+               :supporter :DCS ;
+               
+               schema:customer :DCS ;
                
                :user :ExtWorkers ;
                
@@ -1045,12 +1055,12 @@ foaf:Person rdf:type owl:Class ;
                
                :hasPriority :MediumPriority ;
                
+               :supporter :RWietusch ;
+               
                :usableWith :Smartphone ;
                
                :user :Staff ,
                      :Students ;
-               
-               schema:customer :THB ;
                
                schema:isRelatedTo :WebHosting .
 
@@ -1061,11 +1071,11 @@ foaf:Person rdf:type owl:Class ;
 :CloudserviceFBW rdf:type schema:Service ,
                           owl:NamedIndividual ;
                  
-                 rdfs:comment "" ;
-                 
                  schema:url "https://cloud.fh-brandenburg.de" ;
                  
                  dcterms:subject "" ;
+                 
+                 rdfs:comment "" ;
                  
                  dcterms:description "<p>Unseren Cloud-Service (Filr) erreichen Sie am besten mit einem Browser über die u. a. URL. Bitte loggen Sie sich dort mit Ihrem FHB-Account ein. Die Startseite zeigt nur den Mitarbeiterinnen und Mitarbeitern des Fachbereichs Wirtschaft das vom Novell-Client bekannte Home-Laufwerk, welches Sie als Arbeitsbereich nutzen können. Des Weiteren sehen Sie unter dem Menüpunkt Netzlaufwerke, die Ihnen zugewiesenen Laufwerke (z.B. Projekte, Lehre etc.).</p><p>Über die Weboberfläche unseres Cloud-Services können Sie sich zusätzlich einen Client für Ihren PC/MAC herunterladen. Dieser Client besitzt erweiterte Funktionalitäten, z.B. auch Synchronisationsmöglichkeiten, wie Sie sie vom iFolder her kennen. (Klicken Sie in der Webanwendung oben rechts auf Ihren Namen. Es öffnet sich ein Tooltip mit einem Link zum Download.) Für Smartphones und Tablets gibt es im Apple App Store bzw. Google Play Store eine kostenlose App mit dem Namen 'Filr'.</p>"@de ;
                  
@@ -1163,21 +1173,21 @@ foaf:Person rdf:type owl:Class ;
 :DBIS rdf:type schema:Service ,
                owl:NamedIndividual ;
       
-      rdfs:comment "" ;
+      dcterms:subject "" ;
       
       dcterms:description "<p>Das Datenbank-Infosystem (DBIS) wurde mit finanzieller Unterstützung des Bayerischen Staatsministeriums für Wissenschaft, Forschung und Kunst und der Deutschen Forschungsgemeinschaft (DFG) von der Universitätsbibliothek Regensburg entwickelt. Inzwischen wird das Datenbank-Infosystem als Nutzerservice in 299 Bibliotheken genutzt.</p><p> Momentan umfasst das Datenbank-Infosystem 11429 Einträge. Davon sind 4718 Datenbanken frei über das Internet verfügbar. In DBIS werden Datenbanken verzeichnet, deren Inhalte über eine Suchfunktionalität gezielt durchsucht werden können. Die Datenbanken werden nach Fächern sortiert angeboten. Daneben gibt es auch eine erweiterte Suche, in der unter anderem eine Stichwortsuche möglich ist oder nach Datenbanken mit geographischem Bezug gesucht werden kann.</p>"@de ;
       
       dcterms:abstract "Das Datenbank-Infosystem (DBIS) ist ein kooperativer Service zur Nutzung wissenschaftlicher Datenbanken, der vom Rechenzentrum der Universitätsbibliothek Regensburg bereitgestellt wird."@de ;
-      
-      schema:url "http://rzblx10.uni-regensburg.de/dbinfo/dbliste.php?bib_id=fhbrb&colors=31&ocolors=40&lett=a" ;
-      
-      dcterms:subject "" ;
       
       skos:prefLabel "Datenbank-Infosystem"@de ;
       
       dcterms:title "Datenbank-Infosystem der Universität Regensburg"@de ;
       
       skos:prefLabel "databased information system"@en ;
+      
+      schema:url "http://rzblx10.uni-regensburg.de/dbinfo/dbliste.php?bib_id=fhbrb&colors=31&ocolors=40&lett=a" ;
+      
+      rdfs:comment "" ;
       
       schema:provider :BRZUR ;
       
@@ -1264,10 +1274,6 @@ foaf:Person rdf:type owl:Class ;
 :DSFWSamba rdf:type schema:Service ,
                     owl:NamedIndividual ;
            
-           dcterms:description "Der Zugriff auf die Freigaben der DSFW-Server (Domain Service for Windows) ist nur innerhalb der Hochschule möglich. Sie müssen über eine entsprechende Berechtigung verfügen, damit Sie Zugriff erhalten. Diese wird aus ihrer Zugehörigkeit zu einer Organisationsabteilung abgeleitet und vom Rechenzentrum bei Beginn ihrer Tätigkeit angelegt.Sollten Sie weitere Netzlaufwerke benötigen, erfordert dies eine Benachrichtigung per Email durch ihren Vorgesetzten an das Rechenzentrum. Weitere Informationen sind den DSFW-/Samba-FAQ zu entnehmen."@de ;
-           
-           schema:url "http://www.fh-brandenburg.de/samba-faq.html" ;
-           
            rdfs:comment "" ;
            
            dcterms:subject "" ;
@@ -1276,7 +1282,11 @@ foaf:Person rdf:type owl:Class ;
            
            skos:prefLabel "DSFW/Samba"@de ;
            
+           dcterms:description "Der Zugriff auf die Freigaben der DSFW-Server (Domain Service for Windows) ist nur innerhalb der Hochschule möglich. Sie müssen über eine entsprechende Berechtigung verfügen, damit Sie Zugriff erhalten. Diese wird aus ihrer Zugehörigkeit zu einer Organisationsabteilung abgeleitet und vom Rechenzentrum bei Beginn ihrer Tätigkeit angelegt.Sollten Sie weitere Netzlaufwerke benötigen, erfordert dies eine Benachrichtigung per Email durch ihren Vorgesetzten an das Rechenzentrum. Weitere Informationen sind den DSFW-/Samba-FAQ zu entnehmen."@de ;
+           
            dcterms:abstract "Die Software Samba wird in der TH Brandenburg als Datei- und Druckserver verwendet. Sie basiert auf dem NetBIOS-Protokoll SMB von Microsoft. Sie gibt den Anwendern die Möglichkeit auf ihre Laufwerke über eine VPN-Verbindung zuzugreifen und auf ihnen lokal unabhängig zu interagieren. Die Authentifizierung erfolgt mit den IDM-Login-Daten."@de ;
+           
+           schema:url "http://www.fh-brandenburg.de/samba-faq.html" ;
            
            skos:prefLabel "DSFW/Samba"@en ;
            
@@ -1323,13 +1333,13 @@ foaf:Person rdf:type owl:Class ;
 :DSchulz rdf:type owl:NamedIndividual ,
                   foaf:Person ;
          
-         foaf:mbox "dieter.schulz(at)th-brandenburg.de" ;
-         
          skos:prefLabel "Dipl.-Ing. (FH) Dieter Schulz" ;
          
          foaf:phone "+49 3381 355 - 325" ;
          
          foaf:name "Dieter Schulz" ;
+         
+         foaf:mbox "dieter.schulz(at)th-brandenburg.de" ;
          
          schema:employee :DTE .
 
@@ -1355,14 +1365,15 @@ foaf:Person rdf:type owl:Class ;
 :DThiele rdf:type owl:NamedIndividual ,
                   foaf:Person ;
          
-         foaf:mbox "dieter.thiele(at)th-brandenburg.de" ;
+         foaf:phone "+49 3381 355 - 508" ;
          
          foaf:name "Dieter Thiehle" ;
          
-         foaf:phone "+49 3381 355 - 538" ,
-                    "+49 3381 355 - 508" ;
+         foaf:phone "+49 3381 355 - 538" ;
          
          skos:prefLabel "Dipl.-Ing. (FH) Dieter Thiele" ;
+         
+         foaf:mbox "dieter.thiele(at)th-brandenburg.de" ;
          
          schema:employee :DTE .
 
@@ -1388,11 +1399,11 @@ foaf:Person rdf:type owl:Class ;
 :Datensicherung rdf:type schema:Service ,
                          owl:NamedIndividual ;
                 
+                schema:url "" ;
+                
                 rdfs:comment "" ;
                 
                 dcterms:subject "" ;
-                
-                schema:url "" ;
                 
                 dcterms:description ""@de ;
                 
@@ -1429,15 +1440,15 @@ foaf:Person rdf:type owl:Class ;
 :DeviceRental rdf:type schema:Service ,
                        owl:NamedIndividual ;
               
-              schema:url "https://moodle.fh-brandenburg.de/course/view.php?id=199" ;
-              
-              dcterms:subject "" ;
-              
               rdfs:comment "" ;
               
               dcterms:title ""@de ;
               
-              dcterms:description "<p>Die TH Brandenburg bietet ihren Studierenden (vorrangig des FB Informatik) die Möglichkeit verschiedenste Geräte für den Gebrauch in der Hochschule zur Verfügung zu stellen. Bei den Geräten sind, soweit verfügbar, auch Anleitungen verlinkt. Sie liegen teilweise in Deutsch und teilweise in Englisch vor. Es sind auch einige weitere Materialien, die hilfreich sein könnten, hinterlegt.</p><p> <b>Modalitäten des Geräteverleihs:</b> Der Geräteverleih an Studenten ist nur im Rahmen des Unterrichts an der THB möglich. Bedingung ist, das vom Studenten eine Haftpflichversicherung abgeschlossen wurde. Nähere Informationen hierzu sind am Schwarzen Brett in der Nähe des Raumes InfZ 108 zu finden. Es ist ein Leihschein auszufüllen und von dem verantwortlichen Professor zu unterschreiben. Diese Scheine sind bei Fr. Prenzlow zu bekommen. Hier wird dann auch gleich das Vorhandensein einer Versicherung (MLP) geprüft. Auf dem Schein sind die gewünschten Geräte anzukreuzen. Aufgrund der begrenzten Resourcen sollten die Geräte rechtzeitig reserviert werden. Andernfalls kann die Verfügbarkeit zum gewünschten Zeitraum nicht gewährleistet werden.</p>"@de ;
+              schema:url "https://moodle.fh-brandenburg.de/course/view.php?id=199" ;
+              
+              dcterms:subject "" ;
+              
+              dcterms:description "<p>Die TH Brandenburg bietet ihren Studierenden die Möglichkeit verschiedenste Geräte für den Gebrauch in der Hochschule zur Verfügung zu stellen. Bei den Geräten sind, soweit verfügbar, auch Anleitungen verlinkt. Sie liegen teilweise in Deutsch und teilweise in Englisch vor. Es sind auch einige weitere Materialien, die hilfreich sein könnten, hinterlegt.</p><p> <b>Modalitäten des Geräteverleihs:</b> Der Geräteverleih an Studenten ist nur im Rahmen des Unterrichts an der THB möglich. Bedingung ist, das vom Studenten eine Haftpflichversicherung abgeschlossen wurde. Nähere Informationen hierzu sind am Schwarzen Brett in der Nähe des Raumes InfZ 108 zu finden. Es ist ein Leihschein auszufüllen und von dem verantwortlichen Professor zu unterschreiben. Diese Scheine sind bei Fr. Prenzlow zu bekommen. Hier wird dann auch gleich das Vorhandensein einer Versicherung (MLP) geprüft. Auf dem Schein sind die gewünschten Geräte anzukreuzen. Aufgrund der begrenzten Resourcen sollten die Geräte rechtzeitig reserviert werden. Andernfalls kann die Verfügbarkeit zum gewünschten Zeitraum nicht gewährleistet werden.</p>"@de ;
               
               dcterms:abstract "Die TH Brandenburg bietet ihren Studierenden die Möglichkeit verschiedenste Geräte für den Gebrauch in der Hochschule zur Verfügung zu stellen. Bei den Geräten sind, soweit verfügbar,auch Anleitungen verlinkt. Sie liegen teilweise ind Deutsch und teilweise in Englisch vor. Es sind auch einige weitere Materialien, die hilfreich sein könnten, hinterlegt."@de ;
               
@@ -1502,11 +1513,9 @@ foaf:Person rdf:type owl:Class ;
 :EZB rdf:type schema:Service ,
               owl:NamedIndividual ;
      
-     schema:url "http://rzblx1.uni-regensburg.de/ezeit/" ;
+     rdfs:comment "" ;
      
      dcterms:subject "" ;
-     
-     rdfs:comment "" ;
      
      dcterms:description "<p>Die Elektronische Zeitschriftenbibliothek ist ein Service zur effektiven Nutzung wissenschaftlicher Volltextzeitschriften im Internet. Sie umfasst 80.186 Titel, davon 15.231 reine Online-Zeitschriften, zu allen Fachgebieten. Zudem werden 83.449 Zeitschriften von Aggregatoren verzeichnet. 48.859 Fachzeitschriften sind im Volltext frei zugänglich. Die Anwenderbibliotheken bieten ihren Benutzern zusätzlich den Zugriff auf die Volltexte der von ihnen abonnierten E-Journals.</p> <p>Die Elektronische Zeitschriftenbibliothek wurde 1997 im Rahmen eines Projekts von der Universitätsbibliothek Regensburg, in Kooperation mit der Bibliothek der Technischen Universität München, gegründet. Das Ziel war es, allen Bibliotheksnutzern elektronische Zeitschriften übersichtlich zu präsentieren und den teilnehmenden Bibliotheken ein schnelles und effektives Verwalten ihrer wissenschaftlichen E-Journale zu ermöglichen. Derzeit nutzen 609 Teilnehmereinrichtungen die Elektronische Zeitschriftenbibliothek, darunter auch die Technische Hochschule Brandenburg.</p>"@de ;
      
@@ -1517,6 +1526,8 @@ foaf:Person rdf:type owl:Class ;
      dcterms:title "Elektronische Zeitschriftenbibliothek"@de ;
      
      skos:prefLabel "EZB"@en ;
+     
+     schema:url "http://rzblx1.uni-regensburg.de/ezeit/" ;
      
      schema:provider :BRZUR ;
      
@@ -1560,9 +1571,9 @@ foaf:Person rdf:type owl:Class ;
 :EduDrive rdf:type schema:Service ,
                    owl:NamedIndividual ;
           
-          dcterms:subject "" ;
-          
           rdfs:comment "" ;
+          
+          dcterms:subject "" ;
           
           dcterms:abstract "Im Hochschulnetz haben Lehrende des Fachbereichs Wirtschaft die Möglichkeit, elektronische Lehrskripte für Studierende bereitzustellen. Das Lehrelaufwerk erlaubt den lesenden Zugriff durch alle Lehrenden und Studierenden des Fachbereichs auf die Laufwerke der anderen Lehrenden."@de ;
           
@@ -1570,11 +1581,11 @@ foaf:Person rdf:type owl:Class ;
           
           skos:prefLabel "Lehrelaufwerk"@de ;
           
-          schema:url "https://fhs-w7.fh-brandenburg.de/lehre/" ;
-          
           dcterms:title "Lehrelaufwerk für Lehrende im Fachbereich Wirtschaft"@de ;
           
           skos:prefLabel "educational drive"@en ;
+          
+          schema:url "https://fhs-w7.fh-brandenburg.de/lehre/" ;
           
           :inCategory :BusinessCatalog ;
           
@@ -1623,15 +1634,15 @@ foaf:Person rdf:type owl:Class ;
 :Eduroam rdf:type schema:Service ,
                   owl:NamedIndividual ;
          
-         dcterms:subject "" ;
-         
-         skos:prefLabel "eduroam"@de ;
-         
          schema:url "http://www.fh-brandenburg.de/eduroam.html" ;
          
          rdfs:comment "" ;
          
+         dcterms:subject "" ;
+         
          dcterms:description "<p>eduroam ist ein weltweites WLAN, welches Mitgliedern von wissenschaftlichen Einrichtungen kostenlosen Zugang zum Internet ermöglicht. Die TH Brandenburg betreibt diesen Zugang in Zusammenarbeit mit dem DFN-Verein. Damit können Mitglieder der Hochschule bei angeschlossenen Einrichtungen im In- und Ausland WLAN-Dienste in Anspruch nehmen. Zum anderen haben Mitglieder anderer Einrichtungen, die unsere Hochschule besuchen, ihrerseits Zugriff auf das Web.</p> <p>Um den Dienst nutzen zu können, muss ein Installationsprogramm heruntergeladen werden. Das genaue Vorgehen für die Anmeldung und Nutzung des Dienstes ist unter der u. a. URL zu finden.</p>"@de ;
+         
+         skos:prefLabel "eduroam"@de ;
          
          dcterms:title "eduroam - Internet über WLAN an wissenschaftlichen Einrichtungen weltweit"@de ;
          
@@ -1727,19 +1738,19 @@ foaf:Person rdf:type owl:Class ;
 :Fernleihe rdf:type schema:Service ,
                     owl:NamedIndividual ;
            
-           dcterms:subject "" ;
-           
            rdfs:comment "" ;
+           
+           dcterms:subject "" ;
            
            dcterms:description "<p>Im Rahmen des Deutschen und Internationalen Leihverkehrs haben Sie die Möglichkeit, Medien (Bücher, Zeitschriftenartikel, usw.), die sich nicht im Bestand der Hochschulbibliothek befinden, aus anderen Bibliotheken zu bestellen. Die Realisierung einer Fernleihbestellung dauert in der Regel 2-4 Wochen. Bevor Sie eine Fernleihbestellung aufgeben, führen Sie bitte stets eine Bestandskontrolle im Online-Katalog durch. Sind die gewünschten Medien nicht vorhanden, können Sie eine gebührenpflichtige Fernleihbestellung aufgeben.</p><p>Wenn die bestellten Medien in der Hochschulbibliothek eingegangen sind, werden Sie per E-Mail oder schriftlich benachrichtigt. Leihfrist und Ausleihbedingungen werden von der verleihenden Bibliothek festgelegt und sind streng einzuhalten. Kann Ihre Fernleihbestellung aus keiner deutschen Bibliothek beschafft werden, besteht die Möglichkeit einer internationalen Fernleihe.</p>"@de ;
            
            dcterms:abstract "Im Rahmen des Deutschen und Internationalen Leihverkehrs haben Sie die Möglichkeit, Medien (Bücher, Zeitschriftenartikel, usw.), die sich nicht im Bestand der Hochschulbibliothek befinden, aus anderen Bibliotheken zu bestellen."@de ;
            
+           schema:url "https://fh-brandenburg.de/bibfernleihe.3.html" ;
+           
            skos:prefLabel "KOBV Fernleihe"@de ;
            
            dcterms:title "Kooperativer Bibliotheksverbund Berlin-Brandenburg, Fernleihe"@de ;
-           
-           schema:url "https://fh-brandenburg.de/bibfernleihe.3.html" ;
            
            skos:prefLabel "inter-library loan"@en ;
            
@@ -1796,8 +1807,6 @@ foaf:Person rdf:type owl:Class ;
 :GroupWareADM rdf:type schema:Service ,
                        owl:NamedIndividual ;
               
-              schema:url "https://zimbra.fh-brandenburg.de/" ;
-              
               dcterms:subject "" ;
               
               rdfs:comment "" ;
@@ -1806,11 +1815,13 @@ foaf:Person rdf:type owl:Class ;
               
               dcterms:abstract "Für die Mitarbeiter der Verwaltung der TH Brandenburg steht eine lizensierte Groupware-Lösung auf Basis von Zimbra zur Verfügung. Der Dienst ist innerhalb und außerhalb des Hochschulnetzes zugänglich. Die Authentifizierung erfolgt mit den IDM-Login-Daten."@de ;
               
-              skos:prefLabel "Groupware Verwaltung"@de ;
-              
               dcterms:title "Groupware-Lösung Zimbra für die Verwaltung der TH Brandenburg"@de ;
               
               skos:prefLabel "groupware administration"@en ;
+              
+              schema:url "https://zimbra.fh-brandenburg.de/" ;
+              
+              skos:prefLabel "Groupware Verwaltung"@de ;
               
               :inCategory :BusinessCatalog ;
               
@@ -1820,9 +1831,9 @@ foaf:Person rdf:type owl:Class ;
               
               :usableWith :Computer ;
               
-              schema:provider :DataCenter ;
-              
               :supporter :DataCenter ;
+              
+              schema:provider :DataCenter ;
               
               foaf:page :GroupWareADM_DocWP001 ;
               
@@ -1892,8 +1903,6 @@ foaf:Person rdf:type owl:Class ;
 :HISQIS rdf:type schema:Service ,
                  owl:NamedIndividual ;
         
-        schema:url "https://hisqis.fh-brandenburg.de/qisserver/rds?state=user&type=0" ;
-        
         dcterms:subject "" ;
         
         rdfs:comment "Dieser Dienst wird baldmöglichst vom HISinOne-Modul EXA abgelöst."@de ;
@@ -1904,6 +1913,8 @@ foaf:Person rdf:type owl:Class ;
         
         skos:prefLabel "Studierenden-Portal"@de ;
         
+        schema:url "https://hisqis.fh-brandenburg.de/qisserver/rds?state=user&type=0" ;
+        
         dcterms:abstract "Über dieses Online-Portal können Studierende Einsicht in ihre Noten nehmen, den Notenspiegel abrufen, ihre Stammdaten ändern, den RückmeldehasStage sowie den Gebührenstand einsehen und Studienbescheinigungen ausdrucken."@de ;
         
         skos:prefLabel "student's portal"@en ;
@@ -1912,9 +1923,9 @@ foaf:Person rdf:type owl:Class ;
         
         :usableWith :Computer ;
         
-        schema:provider :DataCenter ;
-        
         :supporter :DataCenter ;
+        
+        schema:provider :DataCenter ;
         
         foaf:page :HISQIS_DocWP001 ;
         
@@ -1932,9 +1943,9 @@ foaf:Person rdf:type owl:Class ;
         
         schema:isRelatedTo :QISPOS ;
         
-        schema:customer :RegOffice ;
-        
         schema:provider :RegOffice ;
+        
+        schema:customer :RegOffice ;
         
         :usableWith :Smartphone ;
         
@@ -1977,9 +1988,9 @@ foaf:Person rdf:type owl:Class ;
              
              rdfs:comment "" ;
              
-             dcterms:subject "" ;
-             
              schema:url "https://his1-ws.fh-brandenburg.de/qisserver/pages/cs/sys/portal/hisinoneStartPage.faces" ;
+             
+             dcterms:subject "" ;
              
              dcterms:description "<p>Über das Online-Bewerbungsportal können sich Studieninteressierte für einen Studienplatz an der Fachhochschule Brandenburg bewerben. Das Portal richtet sich an Personen, die ihre Hochschulzugangsberechtigung in Deutschland erworben haben.</p> <p>Die Bewerbung auf Studiengänge an der Fachhochschule Brandenburg erfolgt grundsätzlich online. Generell werden verschiedene Unterlagen für eine Immatrikulation benötigt, die gemeinsam mit dem Bewerbungsformular aus dem Online-Bewerberportal an der Fachhochschule Brandenburg einzureichen sind. Unsere Checkliste zur Unterstützung von Einschreibung bzw. Bewerbung beantwortet Fragen.</p>"@de ;
              
@@ -2068,28 +2079,26 @@ foaf:Person rdf:type owl:Class ;
      
      schema:url "https://www.idm.fh-brandenburg.de/IDMProv/jsps/login/Login.jsp" ;
      
-     rdfs:comment "" ;
-     
      dcterms:subject "" ;
+     
+     rdfs:comment "" ;
      
      dcterms:description "<p>Die Benutzerkennung wird u. a. für die folgenden Dienste verwendet: E-Mail, Lernplattform Moodle, Anmeldung in Computerlaboren, Verbindung zu Netzlaufwerken, Zugang zum WLAN, Nutzung VPN-Zugang, Antrag zur Nutzung Internet im Studentenwohnheim.</p><p>Ein neuer Benutzer muss zunächst seine Benutzerkennung über das IDM-Portal aktivieren. Aktivierte Nutzer haben die Möglichkeit Ihr Passwort zu ändern. Für die Wahl des Passwortes finden sich Tipps auf der Hilfeseite des Rechenzentrums. Sollte ein Benutzer sein Passwort vergessen, so kann er sich ein neues Passwort an seine private E-Mail-Adresse zusenden lassen. Das IDM-Portal kann auch genutzt werden, um ein Foto für die CampusCard hochzuladen. </p>"@de ;
      
      dcterms:abstract "Das IdM beinhaltet die zentrale Benutzerverwaltung der Fachhochschule Brandenburg. Hier werden die wichtigsten Daten aller Angehörigen der FHB in einem zentralen Verzeichnisdienst (LDAP) gespeichert und verwaltet, die für den Zugang zur IT-Infrastruktur und der angeschlossenen Systeme notwendig sind."@de ;
      
-     skos:prefLabel "Identity Management"@de ;
-     
      dcterms:title "Identity Management"@de ;
      
-     skos:prefLabel "identity management"@en ;
+     skos:prefLabel "Identity Management"@de ,
+                    "identity management"@en ;
      
      :usableWith :Computer ;
      
      :supporter :DSchulz ,
-                :DThiele ;
+                :DThiele ,
+                :DataCenter ;
      
      schema:provider :DataCenter ;
-     
-     :supporter :DataCenter ;
      
      :user :ExtWorkers ;
      
@@ -2148,9 +2157,9 @@ foaf:Person rdf:type owl:Class ;
                 
                 rdfs:label "Implementation" ;
                 
-                skos:definition "Ein IT-Dienst ist 'in Einführung', wenn ein Projekt oder eine Maßnahme zur Einführung des Dienstes begonnen wurde."@de ;
-                
                 rdfs:comment "Ein IT-Dienst ist 'in Einführung', wenn ein Projekt oder eine Maßnahme zur Einführung des Dienstes begonnen wurde."@de ;
+                
+                skos:definition "Ein IT-Dienst ist 'in Einführung', wenn ein Projekt oder eine Maßnahme zur Einführung des Dienstes begonnen wurde."@de ;
                 
                 skos:prefLabel "in Einführung"@de ,
                                "implementation"@en .
@@ -2180,9 +2189,9 @@ foaf:Person rdf:type owl:Class ;
              
              schema:url "http://www.bsn-infodisplay.de/mobil/fhbfbwi" ;
              
-             rdfs:comment "" ;
-             
              dcterms:subject "" ;
+             
+             rdfs:comment "" ;
              
              skos:prefLabel "Info-Display FBW"@de ;
              
@@ -2248,9 +2257,9 @@ foaf:Person rdf:type owl:Class ;
                      
                      skos:prefLabel "Informationsdienste"@de ;
                      
-                     skos:definition "Informationsdienste stellen für die Benutzer strukturierte, regelmäßig aktualisierte Informationen über verschiedene Medien bereit."@de ;
-                     
                      rdfs:comment "Informationsdienste stellen für die Benutzer strukturierte, regelmäßig aktualisierte Informationen über verschiedene Medien bereit."@de ;
+                     
+                     skos:definition "Informationsdienste stellen für die Benutzer strukturierte, regelmäßig aktualisierte Informationen über verschiedene Medien bereit."@de ;
                      
                      skos:prefLabel "information services"@en .
 
@@ -2263,9 +2272,9 @@ foaf:Person rdf:type owl:Class ;
                        
                        rdfs:label "InfrastructureCatalog" ;
                        
-                       skos:definition "Der IT-Infrastrukturkatalog umfasst alle für die Sicherung des IT-Betriebs einer Organisation relevanten IT-Systeme bzw. -Komponenten. Sprache und Design des Katalogs orientieren sich an der Sprache der IT-Administratoren."@de ;
-                       
                        rdfs:comment "Der IT-Infrastrukturkatalog umfasst alle für die Sicherung des IT-Betriebs einer Organisation relevanten IT-Systeme bzw. -Komponenten. Sprache und Design des Katalogs orientieren sich an der Sprache der IT-Administratoren."@de ;
+                       
+                       skos:definition "Der IT-Infrastrukturkatalog umfasst alle für die Sicherung des IT-Betriebs einer Organisation relevanten IT-Systeme bzw. -Komponenten. Sprache und Design des Katalogs orientieren sich an der Sprache der IT-Administratoren."@de ;
                        
                        skos:prefLabel "IT-Infrastrukturkatalog"@de ,
                                       "infrastructure catalog"@en .
@@ -2294,13 +2303,13 @@ foaf:Person rdf:type owl:Class ;
 :KLeipnitz rdf:type owl:NamedIndividual ,
                     foaf:Person ;
            
-           skos:prefLabel "Stellvertretende Leitung Zentrum für Marketing und PR / Pressesprecherin Katharina Leipnitz" ;
-           
-           foaf:phone "+49 3381 355 - 293" ;
-           
            foaf:mbox "katharina.leipnitz(at)th-brandenburg.de" ;
            
+           skos:prefLabel "Stellvertretende Leitung Zentrum für Marketing und PR / Pressesprecherin Katharina Leipnitz" ;
+           
            foaf:name "Katharina Leipnitz" ;
+           
+           foaf:phone "+49 3381 355 - 293" ;
            
            schema:employee :DCS .
 
@@ -2386,9 +2395,9 @@ foaf:Person rdf:type owl:Class ;
                 
                 rdfs:label "LowCriticality" ;
                 
-                rdfs:comment "Ein Dienst ist von geringer Kritikalität, wenn eine Störung oder der Ausfall dieses Dienstes die IT-Versorgung einer Organisation nicht wesentlich einschränkt."@de ;
-                
                 skos:definition "Ein Dienst ist von geringer Kritikalität, wenn eine Störung oder der Ausfall dieses Dienstes die IT-Versorgung einer Organisation nicht wesentlich einschränkt."@de ;
+                
+                rdfs:comment "Ein Dienst ist von geringer Kritikalität, wenn eine Störung oder der Ausfall dieses Dienstes die IT-Versorgung einer Organisation nicht wesentlich einschränkt."@de ;
                 
                 skos:prefLabel "Geringe Kritikalität"@de ,
                                "low criticality"@en .
@@ -2402,9 +2411,9 @@ foaf:Person rdf:type owl:Class ;
              
              rdfs:label "LowPriority" ;
              
-             rdfs:comment "Ein Dienst ist von geringer Priortät, wenn ihm im Rahmen des Dienste-Portfolios einer Organisation ein geringer Wert beigemessen wird."@de ;
-             
              skos:definition "Ein Dienst ist von geringer Priortät, wenn ihm im Rahmen des Dienste-Portfolios einer Organisation ein geringer Wert beigemessen wird."@de ;
+             
+             rdfs:comment "Ein Dienst ist von geringer Priortät, wenn ihm im Rahmen des Dienste-Portfolios einer Organisation ein geringer Wert beigemessen wird."@de ;
              
              skos:prefLabel "Geringe Priorität"@de ,
                             "low priority"@en .
@@ -2416,13 +2425,13 @@ foaf:Person rdf:type owl:Class ;
 :MHeinrich rdf:type owl:NamedIndividual ,
                     foaf:Person ;
            
-           foaf:phone "+49 3381 355 - 164" ;
+           skos:prefLabel "Marcus Heinrich" ;
            
-           foaf:name "Marcus Heinrich" ;
+           foaf:phone "+49 3381 355 - 164" ;
            
            foaf:mbox "marcus.heinrich(at)th-brandenburg.de" ;
            
-           skos:prefLabel "Marcus Heinrich" ;
+           foaf:name "Marcus Heinrich" ;
            
            schema:employee :DCS .
 
@@ -2433,13 +2442,13 @@ foaf:Person rdf:type owl:Class ;
 :MLangerwisch rdf:type owl:NamedIndividual ,
                        foaf:Person ;
               
-              foaf:name "Marco Langerwisch" ;
+              foaf:phone "+49 3381 355 - 224" ;
               
               skos:prefLabel "Dipl. Wi-Inform.(FH) Marco Langerwisch" ;
               
-              foaf:phone "+49 3381 355 - 224" ;
-              
               foaf:mbox "marco.langerwisch(at)th-brandenburg.de" ;
+              
+              foaf:name "Marco Langerwisch" ;
               
               schema:employee :TLSO .
 
@@ -2450,17 +2459,17 @@ foaf:Person rdf:type owl:Class ;
 :MapOnGo rdf:type schema:Service ,
                   owl:NamedIndividual ;
          
-         dcterms:description "Der interaktive Gebäudeplan der Bibliothek erlaubt den Nutzern, sich über die Anordnung der Ausstattung sowie der Fachliteratur in der Hochschulbibliothek zu informieren. Neben einer Anwahl der verschiedenen Gebäudeteile und Elemente über ein Menü, kann auch der Mouse-Over-Effekt des Gebäudeplans verwendet werden."@de ;
-         
-         schema:url "http://fh-brandenburg.mapongo.de/viewer?language=de&project_id=1#" ;
+         rdfs:comment "" ;
          
          dcterms:subject "" ;
          
-         rdfs:comment "" ;
+         dcterms:description "Der interaktive Gebäudeplan der Bibliothek erlaubt den Nutzern, sich über die Anordnung der Ausstattung sowie der Fachliteratur in der Hochschulbibliothek zu informieren. Neben einer Anwahl der verschiedenen Gebäudeteile und Elemente über ein Menü, kann auch der Mouse-Over-Effekt des Gebäudeplans verwendet werden."@de ;
          
          dcterms:abstract "Ein elektronisches Abbild des Gebäudeplans der Hochschulbibliothek einschließlich der Aufbewahrungsorte von Fachliteratur nach Themen geordnet. Dieser Dienst kann im Zusammenhang mit dem Online-Katalog (OPAC) verwendet werden."@de ;
          
          skos:prefLabel "Gebäudeplan Bibliothek"@de ;
+         
+         schema:url "http://fh-brandenburg.mapongo.de/viewer?language=de&project_id=1#" ;
          
          dcterms:title "MapOnGo - Gebäudeplan der Bibliothek"@de ;
          
@@ -2529,9 +2538,9 @@ foaf:Person rdf:type owl:Class ;
                 
                 rdfs:label "MediumPriority" ;
                 
-                rdfs:comment "Ein Dienst ist von mittlerer Priortät, wenn ihm im Rahmen des Dienste-Portfolios einer Organisation ein mittlerer Wert beigemessen wird."@de ;
-                
                 skos:definition "Ein Dienst ist von mittlerer Priortät, wenn ihm im Rahmen des Dienste-Portfolios einer Organisation ein mittlerer Wert beigemessen wird."@de ;
+                
+                rdfs:comment "Ein Dienst ist von mittlerer Priortät, wenn ihm im Rahmen des Dienste-Portfolios einer Organisation ein mittlerer Wert beigemessen wird."@de ;
                 
                 skos:prefLabel "Mittlere Priorität"@de ,
                                "medium priority"@en .
@@ -2547,9 +2556,9 @@ foaf:Person rdf:type owl:Class ;
               
               skos:prefLabel "Sonstige Anwendungen"@de ;
               
-              rdfs:comment "Unter sonstigen Anwendungen werden alle Fachanwendungen (IT-Dienste) zusammengefasst, die in keine der anderen Sachkategorien schlüssig einordenbar sind."@de ;
-              
               skos:definition "Unter sonstigen Anwendungen werden alle Fachanwendungen (IT-Dienste) zusammengefasst, die in keine der anderen Sachkategorien schlüssig einordenbar sind."@de ;
+              
+              rdfs:comment "Unter sonstigen Anwendungen werden alle Fachanwendungen (IT-Dienste) zusammengefasst, die in keine der anderen Sachkategorien schlüssig einordenbar sind."@de ;
               
               skos:prefLabel "miscellaneous applications"@en .
 
@@ -2578,9 +2587,9 @@ foaf:Person rdf:type owl:Class ;
             
             :usableWith :Computer ;
             
-            :user :DataCenter ;
-            
             schema:provider :DataCenter ;
+            
+            :user :DataCenter ;
             
             :hasPriority :HighPriority ;
             
@@ -2605,20 +2614,21 @@ foaf:Person rdf:type owl:Class ;
 :Moodle rdf:type schema:Service ,
                  owl:NamedIndividual ;
         
-        dcterms:subject "" ;
-        
         rdfs:comment "" ;
         
+        dcterms:subject "" ;
+        
+        dcterms:description "In den moodle-Kursen können u.a. Dokumente und Dateien hoch- und runtergeladen werden, Tests veröffentlicht, Aufgaben verteilt, Foren eröffnet, oder Wikis erstellt/bereitgestellt werden. In moodle können Kurse für bestimmte Nutzergruppen gesperrt, bzw. geöffnet werden. Die Authentifizierung erfolgt mit den IDM-Login-Daten"@de ;
+        
         dcterms:title "Kurs-/Lernmanagementsystem Moodle"@de ;
+        
+        skos:prefLabel "Lehrplattform moodle"@de ;
         
         dcterms:abstract "Moodle dient als Plattform für Kurse an der Fachhochschule Brandenburg. Diese Kurse können Vorlesungen oder andere organisatorische Einheiten, Dienste u. ä. sein."@de ;
         
         schema:url "http://www.fh-brandenburg.de/moodle" ;
         
-        dcterms:description "In moodle können Kurse für bestimmte Nutzergruppen erstellt, bzw. geöffnet oder gesperrt werden. Die Authentifizierung erfolgt mit den IDM-Login-Daten. In den moodle-Kursen können u.a. Dokumente und Dateien hoch- und runtergeladen werden, Tests veröffentlicht, Aufgaben verteilt, Foren eröffnet, oder Wikis erstellt/bereitgestellt werden."@de ;
-        
-        skos:prefLabel "Lehrplattform moodle"@de ,
-                       "teaching platform moodle"@en ;
+        skos:prefLabel "teaching platform moodle"@en ;
         
         :inCategory :BusinessCatalog ;
         
@@ -2626,9 +2636,9 @@ foaf:Person rdf:type owl:Class ;
         
         :usableWith :Computer ;
         
-        :supporter :DataCenter ;
-        
         schema:provider :DataCenter ;
+        
+        :supporter :DataCenter ;
         
         :user :ExtWorkers ;
         
@@ -2643,6 +2653,8 @@ foaf:Person rdf:type owl:Class ;
         :usableWith :Laptop ;
         
         :hasStage :Operation ;
+        
+        :supporter :RWietusch ;
         
         :user :Staff ,
               :Students ;
@@ -2660,9 +2672,9 @@ foaf:Person rdf:type owl:Class ;
 :NTP rdf:type schema:Service ,
               owl:NamedIndividual ;
      
-     rdfs:comment "" ;
-     
      dcterms:subject "" ;
+     
+     rdfs:comment "" ;
      
      dcterms:description "Für die Synchronisation mit dem Zeitserver des Rechenzentrums ist erforderlich, den ntp-Dienst zu aktivieren. In Abhängigkeit vom Betriebssystem der Zielsysteme stehen dafür verschiedene Konfigurationsdateien bzw. Kommandozeilenbefehle zur Verfügung. Details finden sich unter der u. a. URL."@de ;
      
@@ -2672,9 +2684,9 @@ foaf:Person rdf:type owl:Class ;
      
      dcterms:title "Zeitsynchronisationsdienst NTP - Network Time Protocol"@de ;
      
-     skos:prefLabel "control network time"@en ;
-     
      schema:url "https://www.fh-brandenburg.de/zeitsynchronisation.html" ;
+     
+     skos:prefLabel "control network time"@en ;
      
      :usableWith :Computer ;
      
@@ -2723,9 +2735,9 @@ foaf:Person rdf:type owl:Class ;
                  
                  skos:prefLabel "Netzwerkdienste"@de ;
                  
-                 skos:definition "Netzwerkdienste nutzen ein oder mehrere Netzwerkprotokolle (HTTP, DNS, NTP, DHCP ...) um über ein Computernetzwerk bestimmte Funktionen bereitzustellen."@de ;
-                 
                  rdfs:comment "Netzwerkdienste nutzen ein oder mehrere Netzwerkprotokolle (HTTP, DNS, NTP, DHCP ...) um über ein Computernetzwerk bestimmte Funktionen bereitzustellen."@de ;
+                 
+                 skos:definition "Netzwerkdienste nutzen ein oder mehrere Netzwerkprotokolle (HTTP, DNS, NTP, DHCP ...) um über ein Computernetzwerk bestimmte Funktionen bereitzustellen."@de ;
                  
                  skos:prefLabel "network services"@en .
 
@@ -2845,19 +2857,19 @@ foaf:Person rdf:type owl:Class ;
             
             dcterms:subject "" ;
             
-            dcterms:abstract """Die THB betreibt in Kooperation mit Spreadshirt einen Onlineshop.
-Hier finden Sie Shirts, Pullover, Tassen und Taschen der THB."""@de ;
-            
-            schema:url "http://fh-brandenburg.spreadshirt.de/" ;
-            
             rdfs:comment "" ;
             
-            dcterms:description "Im Onlineshop der THB können Sie folgende Artikel kaufen:<ul><li>- Jacken</li><li>- Kapuzenpullover</li><li>- T-Shirts</li><li>- Poloshirts</li><li>- Tassen</li><li>- Kochschürzen</li><li>- Badetücher</li><li>- Baseballkappen</li><li>- diverse Kleinteile</li></ul>Insgesamt stehen mehrere Farben und Motive zur Verfügung. Das Sortiment wird ständig erweitert."@de ;
+            dcterms:abstract "Die TH Brandenburg betreibt einen Online-Shop unter dem Dach des Social-Commerce-Unternehmens Spreadshirt. Hier können Bekleidungsstücke, Tassen u. a. nette Sachen mit Motiven der Hochschule bestellt werden."@de ;
+            
+            dcterms:description "Im Onlineshop der TH Brandenburg können Sie folgende Gegenstände kaufen: <ul><li>Jacken</li><li>Kapuzenpullover</li><li>T-Shirts</li><li>Poloshirts</li> <li>Tassen</li><li>Kochschürzen</li><li>Badtücher</li></li>Baseballkappen</li><li>diverse Kleinteile</li></ul> Insgesamt stehen mehrere Farben und Motive zur Verfügung."@de ;
             
             dcterms:title "Onlineshop der TH Brandenburg"@de ;
             
-            skos:prefLabel "THB-Onlineshop"@de ,
-                           "online shop"@en ;
+            skos:prefLabel "THB-Onlineshop"@de ;
+            
+            schema:url "http://fh-brandenburg.spreadshirt.de/" ;
+            
+            skos:prefLabel "online shop"@en ;
             
             :usableWith :Computer ;
             
@@ -2945,9 +2957,9 @@ Hier finden Sie Shirts, Pullover, Tassen und Taschen der THB."""@de ;
 :ProxyServer rdf:type schema:Service ,
                       owl:NamedIndividual ;
              
-             rdfs:comment "" ;
-             
              schema:url "http://www.fh-brandenburg.de/proxies.html" ;
+             
+             rdfs:comment "" ;
              
              dcterms:subject "" ;
              
@@ -2963,9 +2975,9 @@ Hier finden Sie Shirts, Pullover, Tassen und Taschen der THB."""@de ;
              
              :usableWith :Computer ;
              
-             :supporter :DataCenter ;
-             
              schema:provider :DataCenter ;
+             
+             :supporter :DataCenter ;
              
              :inCategory :InfrastructureCatalog ;
              
@@ -3021,20 +3033,21 @@ Hier finden Sie Shirts, Pullover, Tassen und Taschen der THB."""@de ;
 :QISFSV rdf:type schema:Service ,
                  owl:NamedIndividual ;
         
-        schema:url "https://qisfsv.fh-brandenburg.de/qisserver/rds?state=user&type=0" ;
-        
         dcterms:subject "" ;
-        
-        rdfs:comment "" ;
         
         dcterms:description "An der TH Brandenburg wird FSV sowohl in der zentralen Verwaltung als auch bei der Steuerung von Drittmittelprojekten eingesetzt."@de ;
         
         dcterms:abstract "Das Finanz- und Sachmittelverwaltungsmodul FSV ist mit den Untermodulen Beschaffung (BES), Mittelbewirtschaftung (MBS), Inventarisierung (IVS) und Materialwirtschaft (MAT) eine integrierte Lösung für die Verwaltung der Hochschulen. Auf dem Modul MBS setzt das Finanzbuchhaltungs-Modul FIBU auf."@de ;
         
+        skos:prefLabel "QISFSV"@en ;
+        
+        schema:url "https://qisfsv.fh-brandenburg.de/qisserver/rds?state=user&type=0" ;
+        
+        rdfs:comment "" ;
+        
         dcterms:title "Finanz- und Sachmittelverwaltungsmodul der TH Brandenburg"@de ;
         
-        skos:prefLabel "QISFSV"@de ,
-                       "QISFSV"@en ;
+        skos:prefLabel "QISFSV"@de ;
         
         :inCategory :BusinessCatalog ;
         
@@ -3080,8 +3093,6 @@ Hier finden Sie Shirts, Pullover, Tassen und Taschen der THB."""@de ;
 :QISPOS rdf:type schema:Service ,
                  owl:NamedIndividual ;
         
-        schema:url "https://hisqis.fh-brandenburg.de/qisserver/rds?state=user&type=0" ;
-        
         rdfs:comment "Dieser Dienst wird baldmöglichst vom HISinOne-Modul EXA abgelöst." ;
         
         dcterms:subject "" ;
@@ -3092,6 +3103,8 @@ Hier finden Sie Shirts, Pullover, Tassen und Taschen der THB."""@de ;
         
         skos:prefLabel "Prüferportal"@de ;
         
+        schema:url "https://hisqis.fh-brandenburg.de/qisserver/rds?state=user&type=0" ;
+        
         dcterms:abstract "Über dieses Online-Portal können Prüfende Einsicht von ihnen zu verantwortende Prüfungen nehmen, Zulassungslisten ausdrucken und Noten eingeben."@de ;
         
         skos:prefLabel "examinator's portal"@en ;
@@ -3100,9 +3113,9 @@ Hier finden Sie Shirts, Pullover, Tassen und Taschen der THB."""@de ;
         
         :usableWith :Computer ;
         
-        :supporter :DataCenter ;
-        
         schema:provider :DataCenter ;
+        
+        :supporter :DataCenter ;
         
         :user :ExtWorkers ;
         
@@ -3148,13 +3161,13 @@ Hier finden Sie Shirts, Pullover, Tassen und Taschen der THB."""@de ;
 :RDoletzki rdf:type owl:NamedIndividual ,
                     foaf:Person ;
            
-           foaf:name "Ralf Doletzki" ;
-           
            skos:prefLabel "Dipl.-Ing. Ralf Doletzki" ;
            
            foaf:phone "+49 3381 355 - 414" ;
            
            foaf:mbox "ralf.doletzki(at)th-brandenburg.de" ;
+           
+           foaf:name "Ralf Doletzki" ;
            
            schema:employee :DCS .
 
@@ -3165,9 +3178,9 @@ Hier finden Sie Shirts, Pullover, Tassen und Taschen der THB."""@de ;
 :RFahl rdf:type owl:NamedIndividual ,
                 foaf:Person ;
        
-       foaf:mbox "rene.fahl(at)th-brandenburg.de" ;
-       
        foaf:phone "+49 3381 355 - 279" ;
+       
+       foaf:mbox "rene.fahl(at)th-brandenburg.de" ;
        
        skos:prefLabel "René Fahl" ;
        
@@ -3182,13 +3195,13 @@ Hier finden Sie Shirts, Pullover, Tassen und Taschen der THB."""@de ;
 :RWietusch rdf:type owl:NamedIndividual ,
                     foaf:Person ;
            
-           foaf:name "Renate Wietusch" ;
-           
-           foaf:mbox "renate.wietusch(at)th-brandenburg.de" ;
-           
            skos:prefLabel "Dipl.-Chem. Renate Wietusch" ;
            
            foaf:phone "+49 3381 355 - 213" ;
+           
+           foaf:mbox "renate.wietusch(at)th-brandenburg.de" ;
+           
+           foaf:name "Renate Wietusch" ;
            
            schema:employee :TLSO .
 
@@ -3342,13 +3355,13 @@ Hier finden Sie Shirts, Pullover, Tassen und Taschen der THB."""@de ;
 :TJacob rdf:type owl:NamedIndividual ,
                  foaf:Person ;
         
-        foaf:phone "+49 3381 355 - 222" ;
-        
-        foaf:mbox "thomas.jacob(at)th-brandenburg.de" ;
-        
         foaf:name "Thomas Jacob" ;
         
         skos:prefLabel "Dipl. Wi.-Inform.(FH) Thomas Jacob" ;
+        
+        foaf:mbox "thomas.jacob(at)th-brandenburg.de" ;
+        
+        foaf:phone "+49 3381 355 - 222" ;
         
         schema:employee :TLSO .
 
@@ -3376,11 +3389,11 @@ Hier finden Sie Shirts, Pullover, Tassen und Taschen der THB."""@de ;
            
            foaf:phone "+49 3381 355 - 445" ;
            
+           skos:prefLabel "Thomas Ranglack" ;
+           
            foaf:mbox "thomas.ranglack(at)th-brandenburg.de" ;
            
            foaf:name "Thomas Ranglack" ;
-           
-           skos:prefLabel "Thomas Ranglack" ;
            
            schema:employee :DCS .
 
@@ -3418,9 +3431,9 @@ Hier finden Sie Shirts, Pullover, Tassen und Taschen der THB."""@de ;
                    
                    rdfs:label "TeachingPlatforms" ;
                    
-                   skos:definition "Lehrplattformen unterstützen bzw. ermöglichen die Hochschullehre sowohl in der klassischen Präsenzlehre als auch im E-Learning."@de ;
-                   
                    rdfs:comment "Lehrplattformen unterstützen bzw. ermöglichen die Hochschullehre sowohl in der klassischen Präsenzlehre als auch im E-Learning."@de ;
+                   
+                   skos:definition "Lehrplattformen unterstützen bzw. ermöglichen die Hochschullehre sowohl in der klassischen Präsenzlehre als auch im E-Learning."@de ;
                    
                    skos:prefLabel "Lehrportale"@de ,
                                   "teaching platforms"@en .
@@ -3434,6 +3447,8 @@ Hier finden Sie Shirts, Pullover, Tassen und Taschen der THB."""@de ;
            
            rdfs:comment "" ;
            
+           schema:url "http://www.fh-brandenburg.de/2898.html?&MP=39-304" ;
+           
            dcterms:subject "" ;
            
            dcterms:title "Beantragung und Abrechnung von Dienstreisen"@de ;
@@ -3442,11 +3457,8 @@ Hier finden Sie Shirts, Pullover, Tassen und Taschen der THB."""@de ;
            
            dcterms:description "Die Formulare stehen im Intranet zur Verfügung und können im Browser geöffnet und bearbeitet werden. Ein Speichern der ausgefüllten Formulare ist nicht möglich. Ausgefüllte Formulare müssen auf Papier ausgedruckt werden. (Ein Adobe-PDF-Ausdruck kann zur elektronischen Ablage verwendet werden). Die weitere Verarbeitung der Dokumente bedarf einer Reihe von Unterschriften und erfolgt somit papiergebunden."@de ;
            
-           skos:prefLabel "Reisemanagement"@de ;
-           
-           schema:url "http://www.fh-brandenburg.de/2898.html?&MP=39-304" ;
-           
-           skos:prefLabel "travel management"@en ;
+           skos:prefLabel "Reisemanagement"@de ,
+                          "travel management"@en ;
            
            :inCategory :BusinessCatalog ;
            
@@ -3548,8 +3560,6 @@ Hier finden Sie Shirts, Pullover, Tassen und Taschen der THB."""@de ;
 :VirtualMachine rdf:type schema:Service ,
                          owl:NamedIndividual ;
                 
-                schema:url "https://fbwcms.fh-brandenburg.de/wirtschaft/vmantrag" ;
-                
                 dcterms:subject "" ;
                 
                 rdfs:comment "" ;
@@ -3560,8 +3570,11 @@ Hier finden Sie Shirts, Pullover, Tassen und Taschen der THB."""@de ;
                 
                 dcterms:description "Die Bereitstellung eines virtuellen Servers kann über ein Formular beantragt werden. Das Formular erfordert eine Anmeldung mit den IDM-Login-Daten. Der Antragsteller muss die 'Nutzungsbedingungen für virtuelle Maschinen' lesen und akzeptieren. Die Bearbeitung des Antrags erfolgt gewöhnlich innerhalb von 14 Tagen."@de ;
                 
-                skos:prefLabel "Virtuelle Maschine"@de ,
-                               "virtual machine"@en ;
+                skos:prefLabel "Virtuelle Maschine"@de ;
+                
+                schema:url "https://fbwcms.fh-brandenburg.de/wirtschaft/vmantrag" ;
+                
+                skos:prefLabel "virtual machine"@en ;
                 
                 :inCategory :BusinessCatalog ;
                 
@@ -3670,11 +3683,9 @@ Hier finden Sie Shirts, Pullover, Tassen und Taschen der THB."""@de ;
 :WLAN rdf:type schema:Service ,
                owl:NamedIndividual ;
       
-      schema:url "http://www.fh-brandenburg.de/1347.html" ;
+      rdfs:comment "" ;
       
       dcterms:subject "" ;
-      
-      rdfs:comment "" ;
       
       dcterms:description "<p>Sollte es Probleme bei der Verbindung geben, nutzen Sie zunächst bitte die unter Dokumente abgelegte Anleitung um die Verbindung neu einzurichten.</p><p>Mit dem Beginn des Wintersemester 2015 kann das eduroam - WLAN auch durch Studierende und Mitarbeitende der FHB genutzt werden. Mit der einmaligen Einrichtung von eduroam auf ihrem mobilen Gerät haben Sie dann die Möglichkeit, kostenlosen Zugang zum Internet an der FHB und eben auch allen wissenschaftlichen Einrichtungen weltweit zu erhalten.</p><p>Das 'fhb-wlan' wird zunächst noch parallel zur Verfügung stehen, jedoch zum Beginn des Sommersemester 2016 abgeschaltet werden.</p>"@de ;
       
@@ -3685,11 +3696,13 @@ Hier finden Sie Shirts, Pullover, Tassen und Taschen der THB."""@de ;
       skos:prefLabel "WLAN"@de ,
                      "WLAN"@en ;
       
+      schema:url "http://www.fh-brandenburg.de/1347.html" ;
+      
       :usableWith :Computer ;
       
-      schema:provider :DataCenter ;
-      
       :supporter :DataCenter ;
+      
+      schema:provider :DataCenter ;
       
       :user :ExtWorkers ;
       
@@ -3736,13 +3749,13 @@ Hier finden Sie Shirts, Pullover, Tassen und Taschen der THB."""@de ;
 :WWeidner rdf:type owl:NamedIndividual ,
                    foaf:Person ;
           
-          foaf:name "Wolfram Weidner" ;
-          
-          foaf:phone "+49 3381 355 - 437" ;
-          
           skos:prefLabel "Wolfram Weidner, B.Sc." ;
           
+          foaf:name "Wolfram Weidner" ;
+          
           foaf:mbox "wolfram.weidner(at)th-brandenburg.de" ;
+          
+          foaf:phone "+49 3381 355 - 437" ;
           
           schema:employee :DCS .
 
@@ -3753,20 +3766,21 @@ Hier finden Sie Shirts, Pullover, Tassen und Taschen der THB."""@de ;
 :WebHosting rdf:type schema:Service ,
                      owl:NamedIndividual ;
             
+            rdfs:comment "" ;
+            
             dcterms:subject "" ;
             
             dcterms:title "Betrieb des zentralen Web-Servers an der TH Brandenburg"@de ;
-            
-            schema:url "http://www.fh-brandenburg.de/www.html" ;
-            
-            rdfs:comment "" ;
             
             dcterms:description "Der Web-Hosting-Dienst ist die Grundlage für eine Fülle von webbasierten Diensten an der Hochschule."@de ;
             
             dcterms:abstract "Die TH Brandenburg betreibt eigene Web-Server im Rahmen des DFN (Deutsches Forschungsnetz). Damit können sämtliche webbasierten Dienste der Hochschule mit hoher Performanz und Verfügbarkeit betrieben werden."@de ;
             
-            skos:prefLabel "Web-Hosting"@de ,
-                           "web hosting"@en ;
+            skos:prefLabel "Web-Hosting"@de ;
+            
+            schema:url "http://www.fh-brandenburg.de/www.html" ;
+            
+            skos:prefLabel "web hosting"@en ;
             
             schema:provider :DFN ;
             
@@ -3788,11 +3802,10 @@ Hier finden Sie Shirts, Pullover, Tassen und Taschen der THB."""@de ;
             
             :inCategory :OperationalCatalog ;
             
-            :user :THB ;
-            
             schema:customer :THB ;
             
-            :user :TLSO .
+            :user :THB ,
+                  :TLSO .
 
 
 
@@ -3801,17 +3814,17 @@ Hier finden Sie Shirts, Pullover, Tassen und Taschen der THB."""@de ;
 :WebMail rdf:type schema:Service ,
                   owl:NamedIndividual ;
          
-         dcterms:subject "" ;
-         
          rdfs:comment "" ;
          
-         schema:url "https://webmail.fh-brandenburg.de/" ;
+         dcterms:subject "" ;
          
          dcterms:description "<p>Der Webmail-Service ist plattformunabhängig mit jedem Gerät abrufbar. Verwendet wird zentral die Software „Zimbra“, welche neben dem E-Mail-Dienst weitere Funktionen einer Groupware wie einen Kalender, Kontaktbuch und Aufgabenbereich beinhaltet. Des Weiteren kann man online Dateien hochladen und freigeben.</p>"@de ;
          
          dcterms:abstract "Für alle Studierenden und Lehrkräfte bietet die Hochschule einen Webmailer auf Basis von Zimbra an. Der Dienst ist innerhalb und außerhalb des Hochschulnetzes zugänglich. Die Authentifizierung erfolgt mit den IDM-Login-Daten."@de ;
          
          skos:prefLabel "WebMail-Dienst"@de ;
+         
+         schema:url "https://webmail.fh-brandenburg.de/" ;
          
          dcterms:title "WebMail-Dienst Zimbra der TH Brandenburg"@de ;
          
@@ -3825,9 +3838,9 @@ Hier finden Sie Shirts, Pullover, Tassen und Taschen der THB."""@de ;
          
          :usableWith :Computer ;
          
-         schema:provider :DataCenter ;
-         
          :supporter :DataCenter ;
+         
+         schema:provider :DataCenter ;
          
          :user :ExtWorkers ;
          
@@ -3868,15 +3881,15 @@ Hier finden Sie Shirts, Pullover, Tassen und Taschen der THB."""@de ;
 :WebSite rdf:type schema:Service ,
                   owl:NamedIndividual ;
          
-         rdfs:comment "" ;
-         
-         dcterms:abstract "Die Webseite der Hochschule ist das zentrale Informationsportal für alle Interessenten und die gesamte Öffentlichkeit. Darüber hinaus bietet die Webseite auch den Angehörigen der TH Brandenburg interessante Informationen zu Struktur, Aktivitäten und Diensten der Hochschule."@de ;
-         
          schema:url "http://www.th-brandenburg.de" ;
          
          dcterms:subject "" ;
          
+         rdfs:comment "" ;
+         
          dcterms:description "Aktuell betreiben die Fachbereiche, Zentren und Projekte eigene Webseiten, die unterhalb der Domain 'fh-brandenburg.de' gehostet werden. Ein Projekt zur Vereinheitlichung und Zusammenführung dieser Webseiten wurde 2014 gestartet und soll 2016 abgeschlossen werden."@de ;
+         
+         dcterms:abstract "Die Webseite der Hochschule ist das zentrale Informationsportal für alle Interessenten und die gesamte Öffentlichkeit. Darüber hinaus bietet die Webseite auch den Angehörigen der TH Brandenburg interessante Informationen zu Struktur, Aktivitäten und Diensten der Hochschule."@de ;
          
          skos:prefLabel "Webseite der THB"@de ;
          
@@ -3963,5 +3976,5 @@ Hier finden Sie Shirts, Pullover, Tassen und Taschen der THB."""@de ;
 
 
 
-###  Generated by the OWL API (version 3.5.1) http://owlapi.sourceforge.net
+###  Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net
 

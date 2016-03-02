@@ -1,979 +1,2146 @@
 <?xml version="1.0"?>
 
 
-<!DOCTYPE rdf:RDF [
-    <!ENTITY schema "http://schema.org/" >
-    <!ENTITY prov "http://www.w3.org/ns/prov#" >
-    <!ENTITY foaf "http://xmlns.com/foaf/0.1/" >
-    <!ENTITY dcterms "http://www.purl.org/dc/terms/" >
-    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
-    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
-    <!ENTITY gr "http://purl.org/goodrelations/v1#" >
+<!DOCTYPE Ontology [
     <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
-    <!ENTITY itcat "http://th-brandenburg.de/ns/itcat#" >
-    <!ENTITY skos "http://www.w3.org/2004/02/skos/core#" >
     <!ENTITY xml "http://www.w3.org/XML/1998/namespace" >
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
-    <!ENTITY usdl-core "http://www.linked-usdl.org/ns/usdl-core#" >
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
-    <!ENTITY usdl-agreement "http://www.linked-usdl.org/ns/usdl-agreement#" >
 ]>
 
 
-<rdf:RDF xmlns="http://th-brandenburg.de/ns/itcat#"
-     xml:base="http://th-brandenburg.de/ns/itcat"
-     xmlns:dc="http://purl.org/dc/elements/1.1/"
-     xmlns:prov="http://www.w3.org/ns/prov#"
-     xmlns:foaf="http://xmlns.com/foaf/0.1/"
-     xmlns:xml="http://www.w3.org/XML/1998/namespace"
-     xmlns:usdl-core="http://www.linked-usdl.org/ns/usdl-core#"
-     xmlns:dcterms="http://www.purl.org/dc/terms/"
-     xmlns:schema="http://schema.org/"
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://th-brandenburg/ns/itcat#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:usdl-agreement="http://www.linked-usdl.org/ns/usdl-agreement#"
-     xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-     xmlns:gr="http://purl.org/goodrelations/v1#"
-     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
-     xmlns:itcat="http://th-brandenburg.de/ns/itcat#">
-    <owl:Ontology rdf:about="http://th-brandenburg/ns/itcat#">
-        <dc:date rdf:datatype="&xsd;date">2015-09-05</dc:date>
-        <dc:rights>Diese Ontologie unterliegt der Creative Commons Attribuition Licence - http://creativecommons.org/licenses/by/3.0 .</dc:rights>
-        <skos:prefLabel>ITCat Schema</skos:prefLabel>
-        <dc:description>Die Schema-Ontologie für den IT-Dienste-Katalog stellt das Konzept ITService (IT-Dienst) ins Zentrum. Dienste können nach fachlichen Kategorien bzw. nach Katalogkategorien klassifiziert werden. Die Einteilung in fachliche Kategorien ist nich ausschließlich. Weitere Klassifikationen sind durch die Lebenszyklusphase eines Dienstes sowie seine Kritikalität und Priorität gegeben. Für alle genannten Kategorien sind Individuen im Sinne einer vollständigen Aufzählung von Instanzen (Enumerations) hinterlegt. Zentrale Relation in der Ontologie ist die Verbindung zwischen einem IT-Dienst und den eingebundenen Akteuren (Agents, Stakeholder). Akteure können Personen, Organisationen und Rollen sein, die als Anbieter (Provider), Kunde, Supporter oder Nutzer in Aktion treten. Personen können als Mitarbeiter einer Organisation dargestellt werden, Organisationen können hierarchisch gegliedert sein. Schließlich erlaubt die Ontologie die Referenz auf diverse Endgeräte (IT-Assets), mit denen ein Dienst genutzt werden kann sowie auf verbundene Dokumente (auch Webseiten). Ein weiteres zentrales Element der Ontologie ist die Darstellung von Relationen zwischen IT-Diensten. Die Art der Relation ist vorerst nicht spezifiziert. Es kann sich um eine direkte Abhängigkeit oder die Nutzung gemeinsamer Ressourcen handeln. Alle Ressourcen sind umfassend annotiert, definiert und beschrieben. Als Grundprinzip der Ontologie-Entwicklung wurde eine umfassende Nachnutzung von Standardressourcen aus schema.org, foaf und prov-o verfolgt. Die Annotation setzt primär auf rdfs, dc und skos.</dc:description>
-        <dc:title>ITCAT Ontologie</dc:title>
-        <rdfs:comment xml:lang="de">Schema-Ontologie für den IT-Dienste-Katalog einer Organisation, die sowohl externe IT-Dienste nutzt, als auch eigene IT-Dienste bereitstellt. </rdfs:comment>
-        <dc:creator>Vera G. Meister</dc:creator>
-        <owl:versionInfo xml:lang="de">v 0.25 - im Vergleich zu v 0.2 ohne Kosten und ohne Service-Optionen (incl. der entsprechenden Object Properties) aber mit Rolle als weiterer Agent und Instanzen für Qualitative Values.</owl:versionInfo>
-        <dc:description rdf:resource="http://univera.de/FHB/SUSCa/SchemaGraph.png"/>
-    </owl:Ontology>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Annotation properties
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://www.purl.org/dc/terms/abstract -->
-
-    <owl:AnnotationProperty rdf:about="&dcterms;abstract">
-        <rdfs:comment xml:lang="de">Diese Standardrelation wird in dieser Ontologie verwendet, um Kurzbeschreibungen von IT-Diensten bereitzustellen, die als Teaser im IT-Katalog erscheinen.</rdfs:comment>
-        <skos:prefLabel xml:lang="de">Kurzbeschreibung</skos:prefLabel>
-        <skos:definition xml:lang="de">Relation zu einer textuellen Kurzbeschreibung einer Ressource.</skos:definition>
-        <skos:prefLabel xml:lang="en">abstract</skos:prefLabel>
-    </owl:AnnotationProperty>
-    
-
-
-    <!-- http://www.purl.org/dc/terms/description -->
-
-    <owl:AnnotationProperty rdf:about="&dcterms;description">
-        <skos:prefLabel xml:lang="de">Beschreibung</skos:prefLabel>
-        <rdfs:comment xml:lang="de">Diese Standardrelation wird in dieser Ontologie verwendet, um Beschreibungen von IT-Diensten bereitzustellen.</rdfs:comment>
-        <skos:definition xml:lang="de">Im engeren Sinne: Relation zu einer textuellen Beschreibung einer Ressource. Kann im weiteren Sinne auch für andere Formen von Beschreibungen genutzt werden: Grafiken, Inhaltsverzeichnissen etc.</skos:definition>
-        <skos:prefLabel xml:lang="en">description</skos:prefLabel>
-    </owl:AnnotationProperty>
-    
-
-
-    <!-- http://www.purl.org/dc/terms/subject -->
-
-    <owl:AnnotationProperty rdf:about="&dcterms;subject">
-        <rdfs:comment xml:lang="de">Diese Standardrelation wird in dieser Ontologie verwendet, um Schlüsselwörter zu IT-Diensten zu referenzieren.</rdfs:comment>
-        <skos:definition xml:lang="de">Ein thematischer Gegenstand einer Ressource.</skos:definition>
-        <skos:prefLabel xml:lang="de">Gegenstand</skos:prefLabel>
-        <skos:prefLabel xml:lang="en">subject</skos:prefLabel>
-    </owl:AnnotationProperty>
-    
-
-
-    <!-- http://www.purl.org/dc/terms/title -->
-
-    <owl:AnnotationProperty rdf:about="&dcterms;title">
-        <skos:prefLabel xml:lang="de">Bezeichnung</skos:prefLabel>
-        <skos:definition xml:lang="de">Die vollständige (offizielle) Bezeichnung / der Name einer Ressource.</skos:definition>
-        <rdfs:comment xml:lang="de">Diese Standardrelation wird in dieser Ontologie verwendet, um vollständige Bezeichnungen von IT-Diensten bereitzustellen.</rdfs:comment>
-        <skos:prefLabel xml:lang="en">title</skos:prefLabel>
-    </owl:AnnotationProperty>
-    
-
-
-    <!-- http://www.w3.org/2004/02/skos/core#altLabel -->
-
-    <owl:AnnotationProperty rdf:about="&skos;altLabel"/>
-    
-
-
-    <!-- http://www.w3.org/2004/02/skos/core#definition -->
-
-    <owl:AnnotationProperty rdf:about="&skos;definition"/>
-    
-
-
-    <!-- http://www.w3.org/2004/02/skos/core#prefLabel -->
-
-    <owl:AnnotationProperty rdf:about="&skos;prefLabel">
-        <rdfs:comment xml:lang="de">Diese Standardrelation wird in dieser Ontologie verwendet, um primäre Bezeichnungen von Ressourcen bereitzustellen.</rdfs:comment>
-        <skos:prefLabel xml:lang="de">Hauptbezeichnung</skos:prefLabel>
-        <rdfs:comment xml:lang="de">In jeder Sprache kann es immer nur ein skos:prefLabel geben.</rdfs:comment>
-        <skos:definition xml:lang="de">Standardrelation zur Auszeichnung einer Bevorzugten Bezeichnung einer Ressource.</skos:definition>
-        <skos:prefLabel xml:lang="en">preferred label</skos:prefLabel>
-    </owl:AnnotationProperty>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Object Properties
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://purl.org/goodrelations/v1#hasWarrantyPromise -->
-
-    <owl:ObjectProperty rdf:about="&gr;hasWarrantyPromise"/>
-    
-
-
-    <!-- http://schema.org/agent -->
-
-    <owl:ObjectProperty rdf:about="&schema;agent">
-        <rdfs:label>agent</rdfs:label>
-        <rdfs:comment xml:lang="de">Abstrakte Objektrelation zwischen einem IT-Dienst und einem Akteur (Instanz der Klasse &apos;Agent&apos;), der eine handelnde Rolle in Bezug zu diesem IT-Dienst einnimmt, z. B. als Anbieter, Kunde, Nutzer oder Supporter.</rdfs:comment>
-        <skos:definition xml:lang="de">Abstrakte Objektrelation zwischen einem IT-Dienst und einem Akteur (Instanz der Klasse &apos;Agent&apos;), der eine handelnde Rolle in Bezug zu diesem IT-Dienst einnimmt, z. B. als Anbieter, Kunde, Nutzer oder Supporter.</skos:definition>
-        <skos:prefLabel xml:lang="de">Akteur</skos:prefLabel>
-        <skos:prefLabel xml:lang="en">agent</skos:prefLabel>
-        <rdfs:domain rdf:resource="&schema;Service"/>
-        <rdfs:range rdf:resource="&prov;Agent"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://schema.org/customer -->
-
-    <owl:ObjectProperty rdf:about="&schema;customer">
-        <rdfs:label>customer</rdfs:label>
-        <rdfs:comment xml:lang="de">Objektrelation zwischen einem IT-Dienst und (einem) seinem(r) Kunden. Der Kunde hat für die Kosten des IT-Dienstes aufzukommen, entweder indem er die Rechnungen des Anbieters begleicht (externer Kunde) oder indem er dem (internen) Anbieter ein Budget zur Verfügung stellt.</rdfs:comment>
-        <skos:definition xml:lang="de">Objektrelation zwischen einem IT-Dienst und (einem) seinem(r) Kunden. Der Kunde hat für die Kosten des IT-Dienstes aufzukommen, entweder indem er die Rechnungen des Anbieters begleicht (externer Kunde) oder indem er dem (internen) Anbieter ein Budget zur Verfügung stellt.</skos:definition>
-        <skos:prefLabel xml:lang="de">bestellt von</skos:prefLabel>
-        <skos:prefLabel xml:lang="en">has customer</skos:prefLabel>
-        <rdfs:domain rdf:resource="&schema;Service"/>
-        <rdfs:subPropertyOf rdf:resource="&schema;agent"/>
-        <rdfs:range rdf:resource="&prov;Agent"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://schema.org/hasPart -->
-
-    <owl:ObjectProperty rdf:about="&schema;hasPart">
-        <rdfs:label>hasPart</rdfs:label>
-        <skos:definition>Objektrelation zwischen zwei Ressourcen, wobei das Subjekt im Vergleich zum Objekt eine übergeordnete Rolle spielt. </skos:definition>
-        <rdfs:comment xml:lang="de">Objektrelation zwischen zwei Ressourcen, wobei das Subjekt im Vergleich zum Objekt eine übergeordnete Rolle spielt. In dieser Ontologie wird diese Objektrelation vorwiegend verwendet, um eine Verflechtung zwischen einem IT-Asset und einem diese Komponente einsetzenden IT-Dienst, oder zwischen mehreren Diensten abzubilden.</rdfs:comment>
-        <skos:prefLabel xml:lang="de">hat Teil</skos:prefLabel>
-        <skos:prefLabel xml:lang="de">setzt ein</skos:prefLabel>
-        <skos:prefLabel xml:lang="en">has part</skos:prefLabel>
-        <owl:inverseOf rdf:resource="&schema;isPartOf"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://schema.org/isPartOf -->
-
-    <owl:ObjectProperty rdf:about="&schema;isPartOf">
-        <rdfs:label>isPartOf</rdfs:label>
-        <skos:definition>Objektrelation zwischen zwei Ressourcen, wobei das Subjekt im Vergleich zum Objekt eine untergeordnete Rolle spielt. </skos:definition>
-        <rdfs:comment xml:lang="de">Objektrelation zwischen zwei Ressourcen, wobei das Subjekt im Vergleich zum Objekt eine untergeordnete Rolle spielt. In dieser Ontologie wird diese Objektrelation vorwiegend verwendet, um eine Verflechtung zwischen einem IT-Asset und einem diese Komponente einsetzenden IT-Dienst, oder zwischen mehreren Diensten abzubilden.</rdfs:comment>
-        <skos:prefLabel xml:lang="de">ist Teil von</skos:prefLabel>
-        <skos:prefLabel xml:lang="de">wird eingesetzt in</skos:prefLabel>
-        <skos:prefLabel xml:lang="en">is part of</skos:prefLabel>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://schema.org/isRelatedTo -->
-
-    <owl:ObjectProperty rdf:about="&schema;isRelatedTo">
-        <rdfs:label>isRelatedTo</rdfs:label>
-        <skos:definition xml:lang="de">Objektrelation zwischen zwei Ressourcen (Instanzen), die zueinander in Beziehung stehen.</skos:definition>
-        <rdfs:comment xml:lang="de">Objektrelation zwischen zwei Ressourcen (Instanzen), die zueinander in Beziehung stehen. Diese Standardrelation kann sehr vielfältig verwendet werden. Zwei Hauptanwendungen in dieser Ontologie sind: 1) die Beziehung zwischen zwei unterschiedlichen Diensten und 2) die Beziehung zwischen Instanzen der Diensmerkmalsklasse &apos;itcat:UserAssetSupport&apos; und den entsprechenden Instanzen der Klasse &apos;IT Asset&apos;.</rdfs:comment>
-        <skos:prefLabel xml:lang="de">in Beziehung zu</skos:prefLabel>
-        <skos:prefLabel xml:lang="en">is related to</skos:prefLabel>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://schema.org/provider -->
-
-    <owl:ObjectProperty rdf:about="&schema;provider">
-        <rdfs:label>provider</rdfs:label>
-        <rdfs:comment xml:lang="de">Objektrelation zwischen einem IT-Dienst und seinem Anbieter.</rdfs:comment>
-        <skos:definition xml:lang="de">Objektrelation zwischen einem IT-Dienst und seinem Anbieter.</skos:definition>
-        <skos:prefLabel xml:lang="de">hat Anbieter</skos:prefLabel>
-        <skos:prefLabel xml:lang="en">has provider</skos:prefLabel>
-        <rdfs:domain rdf:resource="&schema;Service"/>
-        <rdfs:subPropertyOf rdf:resource="&schema;agent"/>
-        <rdfs:range rdf:resource="&prov;Agent"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://th-brandenburg.de/ns/itcat#hasCriticality -->
-
-    <owl:ObjectProperty rdf:about="&itcat;hasCriticality">
-        <rdfs:label>hasCriticality</rdfs:label>
-        <skos:definition xml:lang="de">Objektrelation zwischen einem IT-Dienst und seiner Kritikalitätskategorie. </skos:definition>
-        <rdfs:comment xml:lang="de">Objektrelation zwischen einem IT-Dienst und seiner Kritikalitätskategorie. Wird demnächst durch schema:valueReference ersetzt.</rdfs:comment>
-        <skos:prefLabel xml:lang="de">hat Kritikalität</skos:prefLabel>
-        <skos:prefLabel xml:lang="en">has criticality</skos:prefLabel>
-        <rdfs:range rdf:resource="&schema;QualitativeValue"/>
-        <rdfs:domain rdf:resource="&schema;Service"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://th-brandenburg.de/ns/itcat#hasPriority -->
-
-    <owl:ObjectProperty rdf:about="&itcat;hasPriority">
-        <rdfs:label>hasPriority</rdfs:label>
-        <skos:definition xml:lang="de">Objektrelation zwischen einem IT-Dienst und seiner Prioritätskategorie. </skos:definition>
-        <rdfs:comment xml:lang="de">Objektrelation zwischen einem IT-Dienst und seiner Prioritätskategorie. Wird demnächst durch schema:valueReference ersetzt.</rdfs:comment>
-        <skos:prefLabel xml:lang="de">hat Priorität</skos:prefLabel>
-        <skos:prefLabel xml:lang="en">has priority</skos:prefLabel>
-        <rdfs:range rdf:resource="&schema;QualitativeValue"/>
-        <rdfs:domain rdf:resource="&schema;Service"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://th-brandenburg.de/ns/itcat#hasStage -->
-
-    <owl:ObjectProperty rdf:about="&itcat;hasStage">
-        <rdfs:label>hasStage</rdfs:label>
-        <skos:definition xml:lang="de">Gibt an in welcher Phase des Lebenszyklus sich ein IT-Dienst befindet.</skos:definition>
-        <rdfs:comment xml:lang="de">Gibt an in welcher Phase des Lebenszyklus sich ein IT-Dienst befindet. Zu verwendende Phasen sind: &apos;in Planung&apos;, &apos;in Einführung&apos;, &apos;in Betrieb&apos;, &apos;in Ablösung&apos;, &apos;abgeschaltet&apos;.</rdfs:comment>
-        <skos:prefLabel xml:lang="de">hat Lebenszyklusphase</skos:prefLabel>
-        <skos:prefLabel xml:lang="en"> has life cycle stage</skos:prefLabel>
-        <rdfs:domain rdf:resource="&schema;Service"/>
-        <rdfs:range rdf:resource="&itcat;LifeCycleStage"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://th-brandenburg.de/ns/itcat#hasUtility -->
-
-    <owl:ObjectProperty rdf:about="&itcat;hasUtility">
-        <rdfs:label>hasUtility</rdfs:label>
-        <skos:definition xml:lang="de">Objektrelation zwischen einem IT-Dienst und einer Dienstmerkmalsklasse, die der Beschreibung/Spezifikation seines Nutzens dient.</skos:definition>
-        <rdfs:comment xml:lang="de">Objektrelation zwischen einem IT-Dienst und einer Dienstmerkmalsklasse, die der Beschreibung/Spezifikation seines Nutzens dient. - Noch nicht in Anwendung umgesetzt.</rdfs:comment>
-        <skos:prefLabel xml:lang="de">hat Nutzen</skos:prefLabel>
-        <skos:prefLabel xml:lang="en">has utility</skos:prefLabel>
-        <rdfs:domain rdf:resource="&schema;Service"/>
-        <rdfs:range rdf:resource="&usdl-agreement;ServiceProperty"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://th-brandenburg.de/ns/itcat#hasWarranty -->
-
-    <owl:ObjectProperty rdf:about="&itcat;hasWarranty">
-        <rdfs:label>hasWarranty</rdfs:label>
-        <skos:definition xml:lang="de">Objektrelation zwischen einem IT-Dienst und und einer Dienstmerkmalsklasse, die der Beschreibung/Spezifikation seiner zugesicherten Qualitätsdimensionen (Gewährleistung) dient.</skos:definition>
-        <rdfs:comment xml:lang="de">Objektrelation zwischen einem IT-Dienst und und einer Dienstmerkmalsklasse, die der Beschreibung/Spezifikation seiner zugesicherten Qualitätsdimensionen (Gewährleistung) dient. - Noch nicht in Anwendung umgesetzt.</rdfs:comment>
-        <skos:prefLabel xml:lang="de">hat Gewährleistung</skos:prefLabel>
-        <skos:prefLabel xml:lang="en">has warranty</skos:prefLabel>
-        <rdfs:subPropertyOf rdf:resource="&gr;hasWarrantyPromise"/>
-        <rdfs:domain rdf:resource="&schema;Service"/>
-        <rdfs:range rdf:resource="&usdl-agreement;ServiceProperty"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://th-brandenburg.de/ns/itcat#inCategory -->
-
-    <owl:ObjectProperty rdf:about="&itcat;inCategory">
-        <rdfs:label>inCategory</rdfs:label>
-        <rdfs:comment xml:lang="de">Aktuell werden zwei Kategorieklassen unterschieden: Sachkategorien und Katalogkategorien. Jeder IT-Dienst muss mindestens einer Kategorie in jeder Kategorieklasse zugeordnet sein. Ein IT-Dienst kann gleichzeitig mehreren Dienstekategorien innerhalb einer Kategorieklasse angehören.</rdfs:comment>
-        <skos:definition xml:lang="de">Objektrelation zwischen einem IT-Dienst und einer Dienstekategorie. </skos:definition>
-        <skos:prefLabel xml:lang="de">gehört zu Kategorie</skos:prefLabel>
-        <skos:prefLabel xml:lang="en">belongs to category</skos:prefLabel>
-        <rdfs:domain rdf:resource="&schema;Service"/>
-        <rdfs:range rdf:resource="&itcat;ServiceCategory"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://th-brandenburg.de/ns/itcat#supporter -->
-
-    <owl:ObjectProperty rdf:about="&itcat;supporter">
-        <rdfs:label>supporter</rdfs:label>
-        <skos:definition xml:lang="de">Objektrelation zwischen einem IT-Dienst und (einem) seinem(r) Supporter.</skos:definition>
-        <rdfs:comment xml:lang="de">Objektrelation zwischen einem IT-Dienst und (einem) seinem(r) Supporter.</rdfs:comment>
-        <skos:prefLabel xml:lang="de">hat Betreuer</skos:prefLabel>
-        <skos:prefLabel xml:lang="en">has supporter</skos:prefLabel>
-        <rdfs:domain rdf:resource="&schema;Service"/>
-        <rdfs:subPropertyOf rdf:resource="&schema;agent"/>
-        <rdfs:range rdf:resource="&prov;Agent"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://th-brandenburg.de/ns/itcat#usableWith -->
-
-    <owl:ObjectProperty rdf:about="&itcat;usableWith">
-        <rdfs:label>usableWith</rdfs:label>
-        <skos:definition xml:lang="de">Objektrelation zwischen einem IT-Dienst und der Dienstmerkmalsklasse &apos;Unterstützung für Endgeräte&apos;.</skos:definition>
-        <rdfs:comment xml:lang="de">Objektrelation zwischen einem IT-Dienst und der Dienstmerkmalsklasse &apos;Unterstützung für Endgeräte&apos;.</rdfs:comment>
-        <skos:prefLabel xml:lang="de">nutzbar mit</skos:prefLabel>
-        <skos:prefLabel xml:lang="en">usable with</skos:prefLabel>
-        <rdfs:domain rdf:resource="&schema;Service"/>
-        <rdfs:range rdf:resource="&itcat;ITAsset"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://th-brandenburg.de/ns/itcat#user -->
-
-    <owl:ObjectProperty rdf:about="&itcat;user">
-        <rdfs:label>user</rdfs:label>
-        <skos:definition xml:lang="de">Objektrelation zwischen einem IT-Dienst und (einem) seinem(r) Nutzer.</skos:definition>
-        <rdfs:comment xml:lang="de">Objektrelation zwischen einem IT-Dienst und (einem) seinem(r) Nutzer.</rdfs:comment>
-        <skos:prefLabel xml:lang="de">hat Nutzer</skos:prefLabel>
-        <skos:prefLabel xml:lang="en">has user</skos:prefLabel>
-        <rdfs:domain rdf:resource="&schema;Service"/>
-        <rdfs:subPropertyOf rdf:resource="&schema;agent"/>
-        <rdfs:range rdf:resource="&prov;Agent"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.w3.org/2004/02/skos/core#related -->
-
-    <owl:ObjectProperty rdf:about="&skos;related">
-        <rdfs:label>related</rdfs:label>
-        <skos:prefLabel xml:lang="de">Beziehung zwischen Klassen</skos:prefLabel>
-        <skos:definition xml:lang="de">Objektrelation zwischen zwei Klassen, die zueinander in Beziehung stehen.</skos:definition>
-        <rdfs:comment xml:lang="de">Objektrelation zwischen zwei Klassen, die zueinander in Beziehung stehen. Diese Standardrelation wird hier verwendet um nicht näher spezifizierbare Beziehungen zwischen proprietären itcat-Klassen und Standardklassen zu erklären.</rdfs:comment>
-        <skos:prefLabel xml:lang="en">related</skos:prefLabel>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://xmlns.com/foaf/0.1/page -->
-
-    <owl:ObjectProperty rdf:about="&foaf;page">
-        <rdfs:label>page</rdfs:label>
-        <skos:definition xml:lang="de">Objektrelation zwischen einer Ressource, z. B. einem IT-Dienst und einem Dokument, das Informationen für oder über diesen IT-Dienst enthält.</skos:definition>
-        <rdfs:comment xml:lang="de">Objektrelation zwischen einer Ressource, z. B. einem IT-Dienst und einem Dokument, das Informationen für oder über diesen IT-Dienst enthält.</rdfs:comment>
-        <skos:prefLabel xml:lang="de">hat Dokument</skos:prefLabel>
-        <skos:prefLabel xml:lang="en">has page</skos:prefLabel>
-        <rdfs:range rdf:resource="&foaf;Document"/>
-        <owl:inverseOf rdf:resource="&foaf;topic"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://xmlns.com/foaf/0.1/topic -->
-
-    <owl:ObjectProperty rdf:about="&foaf;topic">
-        <rdfs:label>topic</rdfs:label>
-        <rdfs:comment xml:lang="de">Objektrelation zwischen einem Dokument und einer anderen Ressource. Dokumente können Beschreibungen, Benutzerhilfen, Regeln, Richtlinien, Prozessmodelle, Verträge o. ä. sein bzw. enthalten, die einen Bezug zu einem IT-Dienst haben.</rdfs:comment>
-        <skos:definition xml:lang="de">Objektrelation zwischen einem Dokument und einer anderen Ressource. Dokumente können Beschreibungen, Benutzerhilfen, Regeln, Richtlinien, Prozessmodelle, Verträge o. ä. sein bzw. enthalten, die einen Bezug zu einem IT-Dienst haben.</skos:definition>
-        <skos:prefLabel xml:lang="de">hat Thema</skos:prefLabel>
-        <skos:prefLabel xml:lang="en">has topic</skos:prefLabel>
-        <rdfs:domain rdf:resource="&foaf;Document"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Data properties
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://schema.org/url -->
-
-    <owl:DatatypeProperty rdf:about="&schema;url">
-        <rdfs:label>url</rdfs:label>
-        <skos:definition xml:lang="de">Referenziert eine URL zu einer Ressource. Verweist auf weiterführende Informationen, Dokumente, Zugänge etc.</skos:definition>
-        <rdfs:comment xml:lang="de">Referenziert eine URL zu einer Ressource. Verweist auf weiterführende Informationen, Dokumente, Zugänge etc. Diese Standardrelation wird in dieser Ontologie verwendet, um die bereits vorhandenen Webseiten zu den IT-Diensten zu referenzieren.</rdfs:comment>
-        <skos:prefLabel xml:lang="de">URL</skos:prefLabel>
-        <skos:prefLabel xml:lang="en">url</skos:prefLabel>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Classes
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://schema.org/QualitativeValue -->
-
-    <owl:Class rdf:about="&schema;QualitativeValue">
-        <rdfs:label>QualitativeValue</rdfs:label>
-        <skos:definition xml:lang="de">Qualitative Werte erlauben die Beurteilung eines Dienstes oder einer Entität im Hinblick auf ihren Wert/ihre Bedeutung für die Organisation.</skos:definition>
-        <rdfs:comment>Qualitative Werte erlauben die Beurteilung eines Dienstes oder einer Entität im Hinblick auf ihren Wert/ihre Bedeutung für die Organisation. In dieser Ontologie stehen IT-Dienste im Fokus. Qualitative Werte beziehen sich hauptsächlich auf IT-Dienste und ihren Wert/ihre Bedeutung für die Organisation.</rdfs:comment>
-        <skos:prefLabel xml:lang="de">qualitativer Wert</skos:prefLabel>
-        <skos:prefLabel xml:lang="en">qualitative value</skos:prefLabel>
-    </owl:Class>
-    
-
-
-    <!-- http://schema.org/Role -->
-
-    <owl:Class rdf:about="&schema;Role">
-        <rdfs:label>Role</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&prov;Agent"/>
-        <rdfs:comment xml:lang="de">Eine Rolle im Rahmen dieser Ontologie meint ein Handlungsmodell in Bezug auf IT-Dienste der Hochschule. Wesentliche Rollen sind Mitarbeiter (verschiedener Organisationseinheite), Studierende, Interessenten etc.</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://schema.org/Service -->
-
-    <owl:Class rdf:about="&schema;Service">
-        <rdfs:label>Service</rdfs:label>
-        <skos:prefLabel xml:lang="de">Dienst</skos:prefLabel>
-        <skos:definition xml:lang="de">Ein IT-Dienst ist eine abgrenzbare Dienstleistung, die auf dem Einsatz von Informationstechnologie basiert. Sie wird von einem Leistungsanbieter (IT Service Provider) für interne und/oder externe Leistungsempfänger bereitgestellt.</skos:definition>
-        <rdfs:comment xml:lang="de">Gegenstand dieser Ontologie sind IT-Dienste, klassifiziert nach Katalogen und Sachkategorien sowie die Relationen zwischen IT-Diensten, Empfängern, Anbietern sowie Technologiekomponenten. Ein IT-Dienst ist eine abgrenzbare Dienstleistung, die auf dem Einsatz von Informationstechnologie basiert. Sie wird von einem Leistungsanbieter (IT Service Provider) für interne und/oder externe Leistungsempfänger bereitgestellt.</rdfs:comment>
-        <skos:prefLabel xml:lang="en">service</skos:prefLabel>
-    </owl:Class>
-    
-
-
-    <!-- http://th-brandenburg.de/ns/itcat#CatalogCategory -->
-
-    <owl:Class rdf:about="&itcat;CatalogCategory">
-        <rdfs:label>CatalogCategory</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&itcat;ServiceCategory"/>
-        <skos:prefLabel xml:lang="de">Katalogkategorie</skos:prefLabel>
-        <skos:definition xml:lang="de">Katalogkategorien helfen bei der Einordnung von IT-Diensten in verschiedene Dienstekataloge.</skos:definition>
-        <rdfs:comment xml:lang="de">Katalogkategorien helfen bei der Einordnung von IT-Diensten in verschiedene Dienstekataloge. Wie IT-Dienste in Katalogkategorien eingruppiert werden, ist noch nicht abschließend geklärt. Aktuell sind vier Katalogkategorien angelegt: Fachanwenderkatalog, IT-Betriebskatalog, IT-Infrastrukturkatalog und Öffentlicher Dienstekatalog.</rdfs:comment>
-        <skos:prefLabel xml:lang="en">catalog category</skos:prefLabel>
-    </owl:Class>
-    
-
-
-    <!-- http://th-brandenburg.de/ns/itcat#Criticality -->
-
-    <owl:Class rdf:about="&itcat;Criticality">
-        <rdfs:label>Criticality</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&schema;QualitativeValue"/>
-        <skos:definition xml:lang="de">Die Kritikalität eines Dienstes gibt an, wie kritisch eine Störung oder der Ausfall eines Dienstes für die IT-Versorgung einer Organisation eingeschätzt wird.</skos:definition>
-        <rdfs:comment xml:lang="de">Die Kritikalität eines Dienstes gibt an, wie kritisch eine Störung oder der Ausfall eines Dienstes für die IT-Versorgung einer Organisation eingeschätzt wird. Kritikalitäten werden nach den folgenden Kritikalitätskategorien eingeteilt: hoch, mittel und gering.</rdfs:comment>
-        <skos:prefLabel xml:lang="de">Kritikalität</skos:prefLabel>
-        <skos:prefLabel xml:lang="en">criticality</skos:prefLabel>
-    </owl:Class>
-    
-
-
-    <!-- http://th-brandenburg.de/ns/itcat#ITAsset -->
-
-    <owl:Class rdf:about="&itcat;ITAsset">
-        <rdfs:label>ITAsset</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&prov;Entity"/>
-        <skos:prefLabel xml:lang="de">IT-Asset</skos:prefLabel>
-        <skos:definition xml:lang="de">IT-Assets sind die im Rahmen eines IT-Dienstes eingesetzten Systeme und Komponenten der Informations- und Kommunikationstechnologie. Dazu zählen u. a. PCs, Server, Drucker, Netzwerkkomponenten, Software(-Pakete).</skos:definition>
-        <rdfs:comment xml:lang="de">IT-Assets sind die im Rahmen eines IT-Dienstes eingesetzten Systeme und Komponenten der Informations- und Kommunikationstechnologie. Dazu zählen u. a. PCs, Server, Drucker, Netzwerkkomponenten, Software(-Pakete). Die IT-Assets gelten im Rahmen des IT-Service-Managements als Configuration Items. Da dieser Begriff jedoch viel weiter gefasst ist und neben technischen Komponenten auch Dokumente, Prozesse, Rollen und auch Dienste umfasst, soll hier der engere Begriff IT-Assets verwendet werden.</rdfs:comment>
-        <skos:prefLabel xml:lang="en">IT asset</skos:prefLabel>
-    </owl:Class>
-    
-
-
-    <!-- http://th-brandenburg.de/ns/itcat#LifeCycleStage -->
-
-    <owl:Class rdf:about="&itcat;LifeCycleStage">
-        <rdfs:label>LifeCycleStage</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&itcat;ServiceCategory"/>
-        <skos:definition xml:lang="de">Die Lebenzyklusphase gibt an, ob ein IT-Dienst aktuell in Planung ist, eingeführt wird, regulär angeboten und genutzt wir, sich in Ablösung befindet oder endgültig abgeschaltet ist. Ein IT-Dienst kann immer nur einer Lebenszyklusphase angehören.</skos:definition>
-        <rdfs:comment xml:lang="de">Die Lebenzyklusphase gibt an, ob ein IT-Dienst aktuell in Planung ist, eingeführt wird, regulär angeboten und genutzt wir, sich in Ablösung befindet oder endgültig abgeschaltet ist. Ein IT-Dienst kann immer nur einer Lebenszyklusphase angehören. Es werden folgende Lebenszyklusphasen verwendet: In Planung, in Einführung, in Betrieb, in Ablösung und abgeschaltet.</rdfs:comment>
-        <skos:prefLabel xml:lang="de">Lebenszyklusphase</skos:prefLabel>
-        <skos:prefLabel xml:lang="en">life cycle stage</skos:prefLabel>
-    </owl:Class>
-    
-
-
-    <!-- http://th-brandenburg.de/ns/itcat#Priority -->
-
-    <owl:Class rdf:about="&itcat;Priority">
-        <rdfs:label>Priority</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&schema;QualitativeValue"/>
-        <skos:definition xml:lang="de">Die Priorität eines Dienstes gibt an, welcher Wert ihm im Rahmen des Dienste-Portfolios einer Organisation beigemessen wird.</skos:definition>
-        <rdfs:comment xml:lang="de">Die Priorität eines Dienstes gibt an, welcher Wert ihm im Rahmen des Dienste-Portfolios einer Organisation beigemessen wird. Prioritäten werden nach Prioritätskategorien den folgenden eingeteilt: hoch, mittel und gering.</rdfs:comment>
-        <skos:prefLabel xml:lang="de">Priorität</skos:prefLabel>
-        <skos:prefLabel xml:lang="en">priority</skos:prefLabel>
-    </owl:Class>
-    
-
-
-    <!-- http://th-brandenburg.de/ns/itcat#ServiceCategory -->
-
-    <owl:Class rdf:about="&itcat;ServiceCategory">
-        <rdfs:label>ServiceCategory</rdfs:label>
-        <skos:prefLabel xml:lang="de">Dienstekategorie</skos:prefLabel>
-        <skos:definition xml:lang="de">Dienstkategorien werden verwendet, um die IT-Dienste nach geeigneten Unterscheidungskriterien zu klassifizieren.</skos:definition>
-        <rdfs:comment xml:lang="de">Dienstkategorien werden verwendet, um die IT-Dienste nach geeigneten Unterscheidungskriterien zu klassifizieren. Unterscheidungskriterien sind fachliche Aspekte (Dienstgruppen), die primäre Zielgruppe (Art des Katalogs) sowie die Zugehörigkeit zu einer Lebenszyklusphase.</rdfs:comment>
-        <skos:prefLabel xml:lang="en">service category</skos:prefLabel>
-    </owl:Class>
-    
-
-
-    <!-- http://th-brandenburg.de/ns/itcat#SubjectCategory -->
-
-    <owl:Class rdf:about="&itcat;SubjectCategory">
-        <rdfs:label>SubjectCategory</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&itcat;ServiceCategory"/>
-        <skos:prefLabel xml:lang="de">Sachkategorie</skos:prefLabel>
-        <rdfs:comment xml:lang="de">Sachkategorien helfen bei der sachlichen Einordnung von IT-Diensten. Ein IT-Dienst kann mehreren Sachkategorien angehören. Aktuell sind acht Dienstkategorien angelegt: Bibliotheksdienste, HIS-Dienste, Informationsdienste, Infrastrukturdienste, Kommunikationsdienste, Lehrportale, Netzwerkdienste und Sonstige Anwendungen.</rdfs:comment>
-        <skos:definition xml:lang="de">Sachkategorien helfen bei der sachlichen Einordnung von IT-Diensten. Ein IT-Dienst kann mehreren Sachkategorien angehören. Aktuell sind acht Dienstkategorien angelegt: Bibliotheksdienste, HIS-Dienste, Informationsdienste, Infrastrukturdienste, Kommunikationsdienste, Lehrportale, Netzwerkdienste und Sonstige Anwendungen.</skos:definition>
-        <skos:prefLabel xml:lang="en">subject category</skos:prefLabel>
-    </owl:Class>
-    
-
-
-    <!-- http://th-brandenburg.de/ns/itcat#Utility -->
-
-    <owl:Class rdf:about="&itcat;Utility">
-        <rdfs:label>Utitility</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&usdl-agreement;ServiceProperty"/>
-        <skos:definition xml:lang="de">Der Nutzen/die Funktion eines Dienstes stellt die Art der Leistung dar, die der IT-Dienst dem Nutzer bietet, z. B. Mails senden und empfangen, Kalender und Aufgaben verwalten, Lehrvideos bereitstellen, Dokumente austauschen.</skos:definition>
-        <rdfs:comment xml:lang="de">Der Nutzen/die Funktion eines Dienstes stellt die Art der Leistung dar, die der IT-Dienst dem Nutzer bietet, z. B. Mails senden und empfangen, Kalender und Aufgaben verwalten, Lehrvideos bereitstellen, Dokumente austauschen. Der Nutzen/die Funktion eines Dienstes beantwortet die Frage: &apos;Was leistet der Dienst für den Nutzer?&apos; Der Nutzen kann in Form einer informellen Beschreibung, einer formalen (technischen) Spezifikation oder in Form eines juristischen Dokumentes (Vertrag) niedergelegt sein.</rdfs:comment>
-        <skos:prefLabel xml:lang="de">Funktion</skos:prefLabel>
-        <skos:altLabel xml:lang="de">Nutzen</skos:altLabel>
-        <skos:prefLabel xml:lang="en">utility</skos:prefLabel>
-    </owl:Class>
-    
-
-
-    <!-- http://th-brandenburg.de/ns/itcat#Warranty -->
-
-    <owl:Class rdf:about="&itcat;Warranty">
-        <rdfs:label>Warranty</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&usdl-agreement;ServiceProperty"/>
-        <skos:definition xml:lang="de">Die Gewährleistung umfasst alle Zusicherungen des Dienste-Anbieters in Bezug auf Qualitätsdimensionen des Dienstes, z. B. Verfügbarkeit, Bandbreite, Geschwindigkeit, Transfervolumen, Verschlüsselungsgrad.</skos:definition>
-        <rdfs:comment xml:lang="de">Die Gewährleistung umfasst alle Zusicherungen des Dienste-Anbieters in Bezug auf Qualitätsdimensionen des Dienstes, z. B. Verfügbarkeit, Bandbreite, Geschwindigkeit, Transfervolumen, Verschlüsselungsgrad. Gewährleistungen sollten in einer Vereinbarung zwischen Dienste-Anbieter und Kunde festgehalten werden. Solche Vereinbarungen werden im IT-Service-Management als Service Level Agreement (SLA, für externe Kunden) bzw. Operational Level Agreement (OLA, für interne Kunden) bezeichnet.</rdfs:comment>
-        <skos:prefLabel xml:lang="de">Gewährleistung</skos:prefLabel>
-        <skos:prefLabel xml:lang="en">warranty</skos:prefLabel>
-    </owl:Class>
-    
-
-
-    <!-- http://www.linked-usdl.org/ns/usdl-agreement#ServiceProperty -->
-
-    <owl:Class rdf:about="&usdl-agreement;ServiceProperty">
-        <rdfs:label>ServiceProperty</rdfs:label>
-        <skos:prefLabel xml:lang="de">Dienstmerkmal</skos:prefLabel>
-        <skos:definition xml:lang="de">Dienstmerkmale sind charakteristische Eigenschaften eines IT-Dienstes, die seinen Nutzen/seine Funktionalität sowie seine zugesicherten Qualitätsmerkmale darstellen.</skos:definition>
-        <rdfs:comment xml:lang="de">Dienstmerkmale sind charakteristische Eigenschaften eines IT-Dienstes, die seinen Nutzen/seine Funktionalität sowie seine zugesicherten Qualitätsmerkmale darstellen.</rdfs:comment>
-        <skos:prefLabel xml:lang="en">service property</skos:prefLabel>
-    </owl:Class>
-    
-
-
-    <!-- http://www.w3.org/ns/prov#Agent -->
-
-    <owl:Class rdf:about="&prov;Agent">
-        <rdfs:label>Agent</rdfs:label>
-        <skos:prefLabel xml:lang="de">Akteur</skos:prefLabel>
-        <rdfs:comment xml:lang="de">Ein Akteur ist eine Person, Organisation oder eine Rolle, die als Leistungsanbieter, Leistungsempfänger, Nutzer oder sonstiger Verantwortlicher im Rahmen eines IT-Dienstes auftritt.</rdfs:comment>
-        <skos:definition xml:lang="de">Ein Akteur ist eine Person, Organisation oder eine Rolle, die als Leistungsanbieter, Leistungsempfänger, Nutzer oder sonstiger Verantwortlicher im Rahmen eines IT-Dienstes auftritt.</skos:definition>
-        <skos:prefLabel xml:lang="en">agent</skos:prefLabel>
-    </owl:Class>
-    
-
-
-    <!-- http://www.w3.org/ns/prov#Entity -->
-
-    <owl:Class rdf:about="&prov;Entity">
-        <rdfs:label>Entitiy</rdfs:label>
-        <skos:definition xml:lang="de">Eine Entität ist ein Gegenstand oder ein immaterieller Artefakt, der durch Akteure beeinflusst, verändert wird, z. B. im Rahmen von IT-Diensten .</skos:definition>
-        <rdfs:comment xml:lang="de">Eine Entität ist ein Gegenstand oder ein immaterieller Artefakt, der durch Akteure beeinflusst, verändert wird, z. B. im Rahmen von IT-Diensten .</rdfs:comment>
-        <skos:prefLabel xml:lang="de">Entität</skos:prefLabel>
-        <skos:prefLabel xml:lang="en">entity</skos:prefLabel>
-    </owl:Class>
-    
-
-
-    <!-- http://xmlns.com/foaf/0.1/Document -->
-
-    <owl:Class rdf:about="&foaf;Document">
-        <rdfs:label>Document</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&prov;Entity"/>
-        <skos:prefLabel xml:lang="de">Dokument</skos:prefLabel>
-        <skos:definition xml:lang="de">Dokumente beinhalten unstrukturierte bzw. schwach strukturierte Informationen in elektronischer oder papiergebundener Form. Sie sind primär darauf ausgerichtet, von Menschen gelesen zu werden. Durch den Einsatz semantischer Technologien kann die maschinelle Auswertbarkeit von elektronischen Dokumenten signifikant erhöht werden.</skos:definition>
-        <rdfs:comment xml:lang="de">Dokumente beinhalten unstrukturierte bzw. schwach strukturierte Informationen in elektronischer oder papiergebundener Form. Sie sind primär darauf ausgerichtet, von Menschen gelesen zu werden. Durch den Einsatz semantischer Technologien kann die maschinelle Auswertbarkeit von elektronischen Dokumenten signifikant erhöht werden. Dokumente können Beschreibungen, Benutzerhilfen, Regeln, Richtlinien, Prozessmodelle, vertragliche Vereinbarungen o. ä. sein.</rdfs:comment>
-        <skos:prefLabel xml:lang="en">document</skos:prefLabel>
-    </owl:Class>
-    
-
-
-    <!-- http://xmlns.com/foaf/0.1/Organization -->
-
-    <owl:Class rdf:about="&foaf;Organization">
-        <rdfs:label>Organization</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&prov;Agent"/>
-        <rdfs:comment xml:lang="de">Im Rahmen dieser Ontologie ist eine Organisation ein rechtliches, formales oder informelles Gebilde, das als Leistungsanbieter, Leistungsempfänger, Nutzer oder sonstiger Verantwortlicher im Rahmen eines IT-Dienstes auftritt. Beispiele sind die Hochschule selbst, die Fachbereiche, das Rechenzentrum, das TLSO des FBW etc. Organisationen sind häufig hierarchisch gegliedert. Organisationen, die Teil einer anderen Organisation sind, werden sonst auch als Organisationseinheiten bezeichnet. Im Rahmen der Ontologie bleibt es aber beim Konzept der Organisation.</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://xmlns.com/foaf/0.1/Person -->
-
-    <owl:Class rdf:about="&foaf;Person">
-        <rdfs:label>Person</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&prov;Agent"/>
-        <rdfs:comment xml:lang="de">Eine Person im Rahmen dieser Ontologie ist ein Mensch, der als Leistungsanbieter, Leistungsempfänger, Nutzer oder sonstiger Verantwortlicher im Rahmen eines IT-Dienstes auftritt. Die Ontologie zielt jedoch nicht darauf, alle Leistungsempfänger und Nutzer zu erfassen (z. B. alle externen Interessenten). Insofern sind meist persönlich verantwortliche Supporter bzw. Dienst-Eigner integriert.</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Individuals
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://schema.org/Service -->
-
-    <owl:NamedIndividual rdf:about="&schema;Service">
-        <skos:related rdf:resource="&usdl-core;Service"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://th-brandenburg.de/ns/itcat#BusinessCatalog -->
-
-    <owl:NamedIndividual rdf:about="&itcat;BusinessCatalog">
-        <rdf:type rdf:resource="&itcat;CatalogCategory"/>
-        <rdfs:label>BusinessCatalog</rdfs:label>
-        <rdfs:comment xml:lang="de">Der Fachanwenderkatalog umfasst alle für Fachanwender bereitgestellten Dienste einer Organisation. Sprache und Design des Katalogs orientieren sich an der Sprache der Fachanwender.</rdfs:comment>
-        <skos:definition xml:lang="de">Der Fachanwenderkatalog umfasst alle für Fachanwender bereitgestellten Dienste einer Organisation. Sprache und Design des Katalogs orientieren sich an der Sprache der Fachanwender.</skos:definition>
-        <skos:prefLabel xml:lang="de">Fachanwenderkatalog</skos:prefLabel>
-        <skos:prefLabel xml:lang="en">business catalog</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://th-brandenburg.de/ns/itcat#CommunicationServices -->
-
-    <owl:NamedIndividual rdf:about="&itcat;CommunicationServices">
-        <rdf:type rdf:resource="&itcat;SubjectCategory"/>
-        <rdfs:label>CommunicationServices</rdfs:label>
-        <skos:prefLabel xml:lang="de">Kommunikationsdienste</skos:prefLabel>
-        <skos:definition xml:lang="de">Kommunikationsdienste unterstützen bzw. ermöglichen die synchrone und asynchrone Kommunikation von Gruppen und Individuen.</skos:definition>
-        <rdfs:comment xml:lang="de">Kommunikationsdienste unterstützen bzw. ermöglichen die synchrone und asynchrone Kommunikation von Gruppen und Individuen.</rdfs:comment>
-        <skos:prefLabel xml:lang="en">communication services</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://th-brandenburg.de/ns/itcat#HISServices -->
-
-    <owl:NamedIndividual rdf:about="&itcat;HISServices">
-        <rdf:type rdf:resource="&itcat;SubjectCategory"/>
-        <rdfs:label>HISServices</rdfs:label>
-        <skos:prefLabel xml:lang="de">HIS-Dienste</skos:prefLabel>
-        <rdfs:comment xml:lang="de">Zu den HIS-Diensten gehören alle Anwendungen im Rahmen der Hochschulinformationssysteme HIS und HISinOne.</rdfs:comment>
-        <skos:definition xml:lang="de">Zu den HIS-Diensten gehören alle Anwendungen im Rahmen der Hochschulinformationssysteme HIS und HISinOne.</skos:definition>
-        <skos:prefLabel xml:lang="en">HIS services</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://th-brandenburg.de/ns/itcat#HighCriticality -->
-
-    <owl:NamedIndividual rdf:about="&itcat;HighCriticality">
-        <rdf:type rdf:resource="&itcat;Criticality"/>
-        <rdfs:label>HighCriticality</rdfs:label>
-        <skos:definition xml:lang="de">Ein Dienst ist von hoher Kritikalität, wenn eine Störung oder der Ausfall dieses Dienstes als sehr kritisch für die IT-Versorgung einer Organisation eingeschätzt wird.</skos:definition>
-        <rdfs:comment xml:lang="de">Ein Dienst ist von hoher Kritikalität, wenn eine Störung oder der Ausfall dieses Dienstes als sehr kritisch für die IT-Versorgung einer Organisation eingeschätzt wird.</rdfs:comment>
-        <skos:prefLabel xml:lang="de">Hohe Kritikalität</skos:prefLabel>
-        <skos:prefLabel xml:lang="en">high criticality</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://th-brandenburg.de/ns/itcat#HighPriority -->
-
-    <owl:NamedIndividual rdf:about="&itcat;HighPriority">
-        <rdf:type rdf:resource="&itcat;Priority"/>
-        <rdfs:label>HighPriority</rdfs:label>
-        <skos:definition xml:lang="de">Ein Dienst ist von hoher Priortät, wenn ihm im Rahmen des Dienste-Portfolios einer Organisation ein hoher Wert beigemessen wird.</skos:definition>
-        <rdfs:comment xml:lang="de">Ein Dienst ist von hoher Priortät, wenn ihm im Rahmen des Dienste-Portfolios einer Organisation ein hoher Wert beigemessen wird.</rdfs:comment>
-        <skos:prefLabel xml:lang="de">Hohe Priorität</skos:prefLabel>
-        <skos:prefLabel xml:lang="en">high priority</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://th-brandenburg.de/ns/itcat#Implementation -->
-
-    <owl:NamedIndividual rdf:about="&itcat;Implementation">
-        <rdf:type rdf:resource="&itcat;LifeCycleStage"/>
-        <rdfs:label>Implementation</rdfs:label>
-        <skos:definition xml:lang="de">Ein IT-Dienst ist &apos;in Einführung&apos;, wenn ein Projekt oder eine Maßnahme zur Einführung des Dienstes begonnen wurde.</skos:definition>
-        <rdfs:comment xml:lang="de">Ein IT-Dienst ist &apos;in Einführung&apos;, wenn ein Projekt oder eine Maßnahme zur Einführung des Dienstes begonnen wurde.</rdfs:comment>
-        <skos:prefLabel xml:lang="de">in Einführung</skos:prefLabel>
-        <skos:prefLabel xml:lang="en">implementation</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://th-brandenburg.de/ns/itcat#InRelief -->
-
-    <owl:NamedIndividual rdf:about="&itcat;InRelief">
-        <rdf:type rdf:resource="&itcat;LifeCycleStage"/>
-        <rdfs:label>InRelief</rdfs:label>
-        <skos:definition xml:lang="de">Ein IT-Dienst ist &apos;in Ablösung&apos;, wenn es konkrete Planungen gibt, ihn abzuschalten bzw. zu ersetzen.</skos:definition>
-        <rdfs:comment xml:lang="de">Ein IT-Dienst ist &apos;in Ablösung&apos;, wenn es konkrete Planungen gibt, ihn abzuschalten bzw. zu ersetzen.</rdfs:comment>
-        <skos:prefLabel xml:lang="de">in Ablösung</skos:prefLabel>
-        <skos:prefLabel xml:lang="en">in relief</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://th-brandenburg.de/ns/itcat#InformationServices -->
-
-    <owl:NamedIndividual rdf:about="&itcat;InformationServices">
-        <rdf:type rdf:resource="&itcat;SubjectCategory"/>
-        <rdfs:label>InformationServices</rdfs:label>
-        <skos:prefLabel xml:lang="de">Informationsdienste</skos:prefLabel>
-        <skos:definition xml:lang="de">Informationsdienste stellen für die Benutzer strukturierte, regelmäßig aktualisierte Informationen über verschiedene Medien bereit.</skos:definition>
-        <rdfs:comment xml:lang="de">Informationsdienste stellen für die Benutzer strukturierte, regelmäßig aktualisierte Informationen über verschiedene Medien bereit.</rdfs:comment>
-        <skos:prefLabel xml:lang="en">information services</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://th-brandenburg.de/ns/itcat#InfrastructureCatalog -->
-
-    <owl:NamedIndividual rdf:about="&itcat;InfrastructureCatalog">
-        <rdf:type rdf:resource="&itcat;CatalogCategory"/>
-        <rdfs:label>InfrastructureCatalog</rdfs:label>
-        <skos:definition xml:lang="de">Der IT-Infrastrukturkatalog umfasst alle für die Sicherung des IT-Betriebs einer Organisation relevanten IT-Systeme bzw. -Komponenten. Sprache und Design des Katalogs orientieren sich an der Sprache der IT-Administratoren.</skos:definition>
-        <rdfs:comment xml:lang="de">Der IT-Infrastrukturkatalog umfasst alle für die Sicherung des IT-Betriebs einer Organisation relevanten IT-Systeme bzw. -Komponenten. Sprache und Design des Katalogs orientieren sich an der Sprache der IT-Administratoren.</rdfs:comment>
-        <skos:prefLabel xml:lang="de">IT-Infrastrukturkatalog</skos:prefLabel>
-        <skos:prefLabel xml:lang="en">infrastructure catalog</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://th-brandenburg.de/ns/itcat#InfrastructureServices -->
-
-    <owl:NamedIndividual rdf:about="&itcat;InfrastructureServices">
-        <rdf:type rdf:resource="&itcat;SubjectCategory"/>
-        <rdfs:label>InfrastructureServices</rdfs:label>
-        <skos:prefLabel xml:lang="de">Infrastrukturdienste</skos:prefLabel>
-        <skos:definition xml:lang="de">Infrastrukturdienste sind grundlegende Dienste zur Bereitstellung, Pflege und Wartung einer IT-Versorgungsstruktur.</skos:definition>
-        <rdfs:comment xml:lang="de">Infrastrukturdienste sind grundlegende Dienste zur Bereitstellung, Pflege und Wartung einer IT-Versorgungsstruktur.</rdfs:comment>
-        <skos:prefLabel xml:lang="en">infrastructure services</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://th-brandenburg.de/ns/itcat#LibraryServices -->
-
-    <owl:NamedIndividual rdf:about="&itcat;LibraryServices">
-        <rdf:type rdf:resource="&itcat;SubjectCategory"/>
-        <rdfs:label>LibraryServices</rdfs:label>
-        <skos:prefLabel xml:lang="de">Bibliotheksdienste</skos:prefLabel>
-        <skos:definition xml:lang="de">Zu den Bibliotheksdiensten gehören alle IT-Dienste, die den Zugang zu Fachliteratur in der Hochschulbibliothek sowie über zentrale Datenbanken, Dienste und Systeme unterstützen bzw. ermöglichen.</skos:definition>
-        <rdfs:comment xml:lang="de">Zu den Bibliotheksdiensten gehören alle IT-Dienste, die den Zugang zu Fachliteratur in der Hochschulbibliothek sowie über zentrale Datenbanken, Dienste und Systeme unterstützen bzw. ermöglichen.</rdfs:comment>
-        <skos:prefLabel xml:lang="en">library services</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://th-brandenburg.de/ns/itcat#LowCriticality -->
-
-    <owl:NamedIndividual rdf:about="&itcat;LowCriticality">
-        <rdf:type rdf:resource="&itcat;Criticality"/>
-        <rdfs:label>LowCriticality</rdfs:label>
-        <rdfs:comment xml:lang="de">Ein Dienst ist von geringer Kritikalität, wenn eine Störung oder der Ausfall dieses Dienstes die IT-Versorgung einer Organisation nicht wesentlich einschränkt.</rdfs:comment>
-        <skos:definition xml:lang="de">Ein Dienst ist von geringer Kritikalität, wenn eine Störung oder der Ausfall dieses Dienstes die IT-Versorgung einer Organisation nicht wesentlich einschränkt.</skos:definition>
-        <skos:prefLabel xml:lang="de">Geringe Kritikalität</skos:prefLabel>
-        <skos:prefLabel xml:lang="en">low criticality</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://th-brandenburg.de/ns/itcat#LowPriority -->
-
-    <owl:NamedIndividual rdf:about="&itcat;LowPriority">
-        <rdf:type rdf:resource="&itcat;Priority"/>
-        <rdfs:label>LowPriority</rdfs:label>
-        <rdfs:comment xml:lang="de">Ein Dienst ist von geringer Priortät, wenn ihm im Rahmen des Dienste-Portfolios einer Organisation ein geringer Wert beigemessen wird.</rdfs:comment>
-        <skos:definition xml:lang="de">Ein Dienst ist von geringer Priortät, wenn ihm im Rahmen des Dienste-Portfolios einer Organisation ein geringer Wert beigemessen wird.</skos:definition>
-        <skos:prefLabel xml:lang="de">Geringe Priorität</skos:prefLabel>
-        <skos:prefLabel xml:lang="en">low priority</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://th-brandenburg.de/ns/itcat#MediumCriticality -->
-
-    <owl:NamedIndividual rdf:about="&itcat;MediumCriticality">
-        <rdf:type rdf:resource="&itcat;Criticality"/>
-        <rdfs:label>MediumCriticality</rdfs:label>
-        <rdfs:comment xml:lang="de">Ein Dienst ist von mittlerer Kritikalität, wenn eine Störung oder der Ausfall dieses Dienstes die IT-Versorgung einer Organisation einschränkt, aber nicht in kritischen Bereichen.</rdfs:comment>
-        <skos:definition xml:lang="de">Ein Dienst ist von mittlerer Kritikalität, wenn eine Störung oder der Ausfall dieses Dienstes die IT-Versorgung einer Organisation einschränkt, aber nicht in kritischen Bereichen.</skos:definition>
-        <skos:prefLabel xml:lang="de">Mittlere Kritikalität</skos:prefLabel>
-        <skos:prefLabel xml:lang="en">medium criticality</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://th-brandenburg.de/ns/itcat#MediumPriority -->
-
-    <owl:NamedIndividual rdf:about="&itcat;MediumPriority">
-        <rdf:type rdf:resource="&itcat;Priority"/>
-        <rdfs:label>MediumPriority</rdfs:label>
-        <rdfs:comment xml:lang="de">Ein Dienst ist von mittlerer Priortät, wenn ihm im Rahmen des Dienste-Portfolios einer Organisation ein mittlerer Wert beigemessen wird.</rdfs:comment>
-        <skos:definition xml:lang="de">Ein Dienst ist von mittlerer Priortät, wenn ihm im Rahmen des Dienste-Portfolios einer Organisation ein mittlerer Wert beigemessen wird.</skos:definition>
-        <skos:prefLabel xml:lang="de">Mittlere Priorität</skos:prefLabel>
-        <skos:prefLabel xml:lang="en">medium priority</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://th-brandenburg.de/ns/itcat#MiscServices -->
-
-    <owl:NamedIndividual rdf:about="&itcat;MiscServices">
-        <rdf:type rdf:resource="&itcat;SubjectCategory"/>
-        <rdfs:label>MiscServices</rdfs:label>
-        <skos:prefLabel xml:lang="de">Sonstige Anwendungen</skos:prefLabel>
-        <rdfs:comment xml:lang="de">Unter sonstigen Anwendungen werden alle Fachanwendungen (IT-Dienste) zusammengefasst, die in keine der anderen Sachkategorien schlüssig einordenbar sind.</rdfs:comment>
-        <skos:definition xml:lang="de">Unter sonstigen Anwendungen werden alle Fachanwendungen (IT-Dienste) zusammengefasst, die in keine der anderen Sachkategorien schlüssig einordenbar sind.</skos:definition>
-        <skos:prefLabel xml:lang="en">miscellaneous applications</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://th-brandenburg.de/ns/itcat#NetworkServices -->
-
-    <owl:NamedIndividual rdf:about="&itcat;NetworkServices">
-        <rdf:type rdf:resource="&itcat;SubjectCategory"/>
-        <rdfs:label>NetworkServices</rdfs:label>
-        <skos:prefLabel xml:lang="de">Netzwerkdienste</skos:prefLabel>
-        <skos:definition xml:lang="de">Netzwerkdienste nutzen ein oder mehrere Netzwerkprotokolle (HTTP, DNS, NTP, DHCP ...) um über ein Computernetzwerk bestimmte Funktionen bereitzustellen.</skos:definition>
-        <rdfs:comment xml:lang="de">Netzwerkdienste nutzen ein oder mehrere Netzwerkprotokolle (HTTP, DNS, NTP, DHCP ...) um über ein Computernetzwerk bestimmte Funktionen bereitzustellen.</rdfs:comment>
-        <skos:prefLabel xml:lang="en">network services</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://th-brandenburg.de/ns/itcat#Off -->
-
-    <owl:NamedIndividual rdf:about="&itcat;Off">
-        <rdf:type rdf:resource="&itcat;LifeCycleStage"/>
-        <rdfs:label>Off</rdfs:label>
-        <skos:definition xml:lang="de">Ein IT-Dienst ist &apos;abgeschaltet&apos;, wenn er von Nutzern grundsätzlich nicht mehr in Anspruch genommen werden kann.</skos:definition>
-        <rdfs:comment xml:lang="de">Ein IT-Dienst ist &apos;abgeschaltet&apos;, wenn er von Nutzern grundsätzlich nicht mehr in Anspruch genommen werden kann. Ob und wie lange ein abgeschalteter Dienst im Katalog vorgehalten wird, ist noch zu bestimmen.</rdfs:comment>
-        <skos:prefLabel xml:lang="de">abgeschaltet</skos:prefLabel>
-        <skos:prefLabel xml:lang="en">off</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://th-brandenburg.de/ns/itcat#Operation -->
-
-    <owl:NamedIndividual rdf:about="&itcat;Operation">
-        <rdf:type rdf:resource="&itcat;LifeCycleStage"/>
-        <rdfs:label>Operation</rdfs:label>
-        <rdfs:comment xml:lang="de">Ein IT-Dienst ist &apos;in Betrieb&apos;, wenn er aktuell von einem Anbieter betrieben wird und von Nutzern grundsätzlich in Anspruch genommen werden kann.</rdfs:comment>
-        <skos:definition xml:lang="de">Ein IT-Dienst ist &apos;in Betrieb&apos;, wenn er aktuell von einem Anbieter betrieben wird und von Nutzern grundsätzlich in Anspruch genommen werden kann.</skos:definition>
-        <skos:prefLabel xml:lang="de">in Betrieb</skos:prefLabel>
-        <skos:prefLabel xml:lang="en">operation</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://th-brandenburg.de/ns/itcat#OperationalCatalog -->
-
-    <owl:NamedIndividual rdf:about="&itcat;OperationalCatalog">
-        <rdf:type rdf:resource="&itcat;CatalogCategory"/>
-        <rdfs:label>OperationalCatalog</rdfs:label>
-        <skos:definition xml:lang="de">Der IT-Betriebskatalog umfasst alle für die Sicherung des IT-Betriebs einer Organisation relevanten Dienste. Sprache und Design des Katalogs orientieren sich an der Sprache der IT-Betriebsverantwortlichen.</skos:definition>
-        <rdfs:comment xml:lang="de">Der IT-Betriebskatalog umfasst alle für die Sicherung des IT-Betriebs einer Organisation relevanten Dienste. Sprache und Design des Katalogs orientieren sich an der Sprache der IT-Betriebsverantwortlichen.</rdfs:comment>
-        <skos:prefLabel xml:lang="de">IT-Betriebskatalog</skos:prefLabel>
-        <skos:prefLabel xml:lang="en">operational catalog</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://th-brandenburg.de/ns/itcat#Planning -->
-
-    <owl:NamedIndividual rdf:about="&itcat;Planning">
-        <rdf:type rdf:resource="&itcat;LifeCycleStage"/>
-        <rdfs:label>Planning</rdfs:label>
-        <skos:definition xml:lang="de">Ein IT-Dienst ist &apos;in Planung&apos;, wenn es konkrete Absichten, Konzepte oder Anträge in Bezug auf die Entwicklung und Einführung des Dienstes gibt.</skos:definition>
-        <rdfs:comment xml:lang="de">Ein IT-Dienst ist &apos;in Planung&apos;, wenn es konkrete Absichten, Konzepte oder Anträge in Bezug auf die Entwicklung und Einführung des Dienstes gibt.</rdfs:comment>
-        <skos:prefLabel xml:lang="de">in Planung</skos:prefLabel>
-        <skos:prefLabel xml:lang="en">planning</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://th-brandenburg.de/ns/itcat#PublicCatalog -->
-
-    <owl:NamedIndividual rdf:about="&itcat;PublicCatalog">
-        <rdf:type rdf:resource="&itcat;CatalogCategory"/>
-        <rdfs:label>PublicCatalog</rdfs:label>
-        <rdfs:comment xml:lang="de">Der Öffentliche Dienstekatalog umfasst alle für die interessierte Öffentlichkeit bereitgestellten Dienste einer Organisation. Sprache und Design des Katalogs orientieren sich an der Sprache der Zielgruppen.</rdfs:comment>
-        <skos:definition xml:lang="de">Der Öffentliche Dienstekatalog umfasst alle für die interessierte Öffentlichkeit bereitgestellten Dienste einer Organisation. Sprache und Design des Katalogs orientieren sich an der Sprache der Zielgruppen.</skos:definition>
-        <skos:prefLabel xml:lang="de">Öffentlicher Dienstekatalog</skos:prefLabel>
-        <skos:prefLabel xml:lang="en">public catalog</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://th-brandenburg.de/ns/itcat#TeachingPlatforms -->
-
-    <owl:NamedIndividual rdf:about="&itcat;TeachingPlatforms">
-        <rdf:type rdf:resource="&itcat;SubjectCategory"/>
-        <rdfs:label>TeachingPlatforms</rdfs:label>
-        <skos:definition xml:lang="de">Lehrplattformen unterstützen bzw. ermöglichen die Hochschullehre sowohl in der klassischen Präsenzlehre als auch im E-Learning.</skos:definition>
-        <rdfs:comment xml:lang="de">Lehrplattformen unterstützen bzw. ermöglichen die Hochschullehre sowohl in der klassischen Präsenzlehre als auch im E-Learning.</rdfs:comment>
-        <skos:prefLabel xml:lang="de">Lehrportale</skos:prefLabel>
-        <skos:prefLabel xml:lang="en">teaching platforms</skos:prefLabel>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.linked-usdl.org/ns/usdl-core#Service -->
-
-    <owl:NamedIndividual rdf:about="&usdl-core;Service"/>
-</rdf:RDF>
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     ontologyIRI="http://th-brandenburg/ns/itcat#">
+    <Prefix name="" IRI="http://th-brandenburg.de/ns/itcat#"/>
+    <Prefix name="dc" IRI="http://purl.org/dc/elements/1.1/"/>
+    <Prefix name="gr" IRI="http://purl.org/goodrelations/v1#"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="foaf" IRI="http://xmlns.com/foaf/0.1/"/>
+    <Prefix name="prov" IRI="http://www.w3.org/ns/prov#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Prefix name="skos" IRI="http://www.w3.org/2004/02/skos/core#"/>
+    <Prefix name="itcat" IRI="http://th-brandenburg.de/ns/itcat#"/>
+    <Prefix name="schema" IRI="http://schema.org/"/>
+    <Prefix name="dcterms" IRI="http://www.purl.org/dc/terms/"/>
+    <Prefix name="usdl-core" IRI="http://www.linked-usdl.org/ns/usdl-core#"/>
+    <Prefix name="usdl-agreement" IRI="http://www.linked-usdl.org/ns/usdl-agreement#"/>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="dc:rights"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Diese Ontologie unterliegt der Creative Commons Attribuition Licence - http://creativecommons.org/licenses/by/3.0 .</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <IRI>http://univera.de/FHB/SUSCa/SchemaGraph.png</IRI>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Die Schema-Ontologie für den IT-Dienste-Katalog stellt das Konzept ITService (IT-Dienst) ins Zentrum. Dienste können nach fachlichen Kategorien bzw. nach Katalogkategorien klassifiziert werden. Die Einteilung in fachliche Kategorien ist nich ausschließlich. Weitere Klassifikationen sind durch die Lebenszyklusphase eines Dienstes sowie seine Kritikalität und Priorität gegeben. Für alle genannten Kategorien sind Individuen im Sinne einer vollständigen Aufzählung von Instanzen (Enumerations) hinterlegt. Zentrale Relation in der Ontologie ist die Verbindung zwischen einem IT-Dienst und den eingebundenen Akteuren (Agents, Stakeholder). Akteure können Personen, Organisationen und Rollen sein, die als Anbieter (Provider), Kunde, Supporter oder Nutzer in Aktion treten. Personen können als Mitarbeiter einer Organisation dargestellt werden, Organisationen können hierarchisch gegliedert sein. Schließlich erlaubt die Ontologie die Referenz auf diverse Endgeräte (IT-Assets), mit denen ein Dienst genutzt werden kann sowie auf verbundene Dokumente (auch Webseiten). Ein weiteres zentrales Element der Ontologie ist die Darstellung von Relationen zwischen IT-Diensten. Die Art der Relation ist vorerst nicht spezifiziert. Es kann sich um eine direkte Abhängigkeit oder die Nutzung gemeinsamer Ressourcen handeln. Alle Ressourcen sind umfassend annotiert, definiert und beschrieben. Als Grundprinzip der Ontologie-Entwicklung wurde eine umfassende Nachnutzung von Standardressourcen aus schema.org, foaf und prov-o verfolgt. Die Annotation setzt primär auf rdfs, dc und skos.</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="dc:title"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">ITCAT Ontologie</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="dc:creator"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Vera G. Meister</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">ITCat Schema</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Schema-Ontologie für den IT-Dienste-Katalog einer Organisation, die sowohl externe IT-Dienste nutzt, als auch eigene IT-Dienste bereitstellt. </Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="dc:date"/>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">2016-03-02</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="owl:versionInfo"/>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">v0.3 - Definitionen für zentrale ObjectProperty(s) so angepasst, dass für Nutzer verständliche Texte ausgegeben werden. Einführung der Standardrelation schema:valueReference und Zuordnung der proprietären Relationen itcat:hasPriority und itcat:hasCriticality als Unterrelationen von schema:valueReference.</Literal>
+    </Annotation>
+    <Declaration>
+        <Class abbreviatedIRI="schema:QualitativeValue"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="schema:Role"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="schema:Service"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="itcat:CatalogCategory"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="itcat:Criticality"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="itcat:ITAsset"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="itcat:LifeCycleStage"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="itcat:Priority"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="itcat:ServiceCategory"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="itcat:SubjectCategory"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="itcat:Utility"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="itcat:Warranty"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="usdl-agreement:ServiceProperty"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="prov:Agent"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="prov:Entity"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="foaf:Document"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="foaf:Organization"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="foaf:Person"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="gr:hasWarrantyPromise"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="schema:agent"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="schema:customer"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="schema:hasPart"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="schema:isPartOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="schema:isRelatedTo"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="schema:provider"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="schema:valueReference"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="itcat:hasCriticality"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="itcat:hasPriority"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="itcat:hasStage"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="itcat:hasUtility"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="itcat:hasWarranty"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="itcat:inCategory"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="itcat:supporter"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="itcat:usableWith"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="itcat:user"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="skos:related"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="foaf:page"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="foaf:topic"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="schema:url"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="schema:Service"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="itcat:BusinessCatalog"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="itcat:CommunicationServices"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="itcat:HISServices"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="itcat:HighCriticality"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="itcat:HighPriority"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="itcat:Implementation"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="itcat:InRelief"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="itcat:InformationServices"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="itcat:InfrastructureCatalog"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="itcat:InfrastructureServices"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="itcat:LibraryServices"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="itcat:LowCriticality"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="itcat:LowPriority"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="itcat:MediumCriticality"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="itcat:MediumPriority"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="itcat:MiscServices"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="itcat:NetworkServices"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="itcat:Off"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="itcat:Operation"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="itcat:OperationalCatalog"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="itcat:Planning"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="itcat:PublicCatalog"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="itcat:TeachingPlatforms"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="usdl-core:Service"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="dcterms:abstract"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="dcterms:description"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="dcterms:subject"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="dcterms:title"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="skos:altLabel"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="skos:definition"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+    </Declaration>
+    <SubClassOf>
+        <Class abbreviatedIRI="schema:Role"/>
+        <Class abbreviatedIRI="prov:Agent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="itcat:CatalogCategory"/>
+        <Class abbreviatedIRI="itcat:ServiceCategory"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="itcat:Criticality"/>
+        <Class abbreviatedIRI="schema:QualitativeValue"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="itcat:ITAsset"/>
+        <Class abbreviatedIRI="prov:Entity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="itcat:LifeCycleStage"/>
+        <Class abbreviatedIRI="itcat:ServiceCategory"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="itcat:Priority"/>
+        <Class abbreviatedIRI="schema:QualitativeValue"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="itcat:SubjectCategory"/>
+        <Class abbreviatedIRI="itcat:ServiceCategory"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="itcat:Utility"/>
+        <Class abbreviatedIRI="usdl-agreement:ServiceProperty"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="itcat:Warranty"/>
+        <Class abbreviatedIRI="usdl-agreement:ServiceProperty"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="foaf:Document"/>
+        <Class abbreviatedIRI="prov:Entity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="foaf:Organization"/>
+        <Class abbreviatedIRI="prov:Agent"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="foaf:Person"/>
+        <Class abbreviatedIRI="prov:Agent"/>
+    </SubClassOf>
+    <ClassAssertion>
+        <Class abbreviatedIRI="itcat:CatalogCategory"/>
+        <NamedIndividual abbreviatedIRI="itcat:BusinessCatalog"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="itcat:SubjectCategory"/>
+        <NamedIndividual abbreviatedIRI="itcat:CommunicationServices"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="itcat:SubjectCategory"/>
+        <NamedIndividual abbreviatedIRI="itcat:HISServices"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="itcat:Criticality"/>
+        <NamedIndividual abbreviatedIRI="itcat:HighCriticality"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="itcat:Priority"/>
+        <NamedIndividual abbreviatedIRI="itcat:HighPriority"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="itcat:LifeCycleStage"/>
+        <NamedIndividual abbreviatedIRI="itcat:Implementation"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="itcat:LifeCycleStage"/>
+        <NamedIndividual abbreviatedIRI="itcat:InRelief"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="itcat:SubjectCategory"/>
+        <NamedIndividual abbreviatedIRI="itcat:InformationServices"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="itcat:CatalogCategory"/>
+        <NamedIndividual abbreviatedIRI="itcat:InfrastructureCatalog"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="itcat:SubjectCategory"/>
+        <NamedIndividual abbreviatedIRI="itcat:InfrastructureServices"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="itcat:SubjectCategory"/>
+        <NamedIndividual abbreviatedIRI="itcat:LibraryServices"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="itcat:Criticality"/>
+        <NamedIndividual abbreviatedIRI="itcat:LowCriticality"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="itcat:Priority"/>
+        <NamedIndividual abbreviatedIRI="itcat:LowPriority"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="itcat:Criticality"/>
+        <NamedIndividual abbreviatedIRI="itcat:MediumCriticality"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="itcat:Priority"/>
+        <NamedIndividual abbreviatedIRI="itcat:MediumPriority"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="itcat:SubjectCategory"/>
+        <NamedIndividual abbreviatedIRI="itcat:MiscServices"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="itcat:SubjectCategory"/>
+        <NamedIndividual abbreviatedIRI="itcat:NetworkServices"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="itcat:LifeCycleStage"/>
+        <NamedIndividual abbreviatedIRI="itcat:Off"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="itcat:LifeCycleStage"/>
+        <NamedIndividual abbreviatedIRI="itcat:Operation"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="itcat:CatalogCategory"/>
+        <NamedIndividual abbreviatedIRI="itcat:OperationalCatalog"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="itcat:LifeCycleStage"/>
+        <NamedIndividual abbreviatedIRI="itcat:Planning"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="itcat:CatalogCategory"/>
+        <NamedIndividual abbreviatedIRI="itcat:PublicCatalog"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="itcat:SubjectCategory"/>
+        <NamedIndividual abbreviatedIRI="itcat:TeachingPlatforms"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="skos:related"/>
+        <NamedIndividual abbreviatedIRI="schema:Service"/>
+        <NamedIndividual abbreviatedIRI="usdl-core:Service"/>
+    </ObjectPropertyAssertion>
+    <SubObjectPropertyOf>
+        <ObjectProperty abbreviatedIRI="schema:customer"/>
+        <ObjectProperty abbreviatedIRI="schema:agent"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty abbreviatedIRI="schema:provider"/>
+        <ObjectProperty abbreviatedIRI="schema:agent"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty abbreviatedIRI="itcat:hasCriticality"/>
+        <ObjectProperty abbreviatedIRI="schema:valueReference"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty abbreviatedIRI="itcat:hasPriority"/>
+        <ObjectProperty abbreviatedIRI="schema:valueReference"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty abbreviatedIRI="itcat:hasWarranty"/>
+        <ObjectProperty abbreviatedIRI="gr:hasWarrantyPromise"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty abbreviatedIRI="itcat:supporter"/>
+        <ObjectProperty abbreviatedIRI="schema:agent"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty abbreviatedIRI="itcat:user"/>
+        <ObjectProperty abbreviatedIRI="schema:agent"/>
+    </SubObjectPropertyOf>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="schema:hasPart"/>
+        <ObjectProperty abbreviatedIRI="schema:isPartOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="foaf:page"/>
+        <ObjectProperty abbreviatedIRI="foaf:topic"/>
+    </InverseObjectProperties>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="schema:agent"/>
+        <Class abbreviatedIRI="schema:Service"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="schema:customer"/>
+        <Class abbreviatedIRI="schema:Service"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="schema:provider"/>
+        <Class abbreviatedIRI="schema:Service"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="itcat:hasCriticality"/>
+        <Class abbreviatedIRI="schema:Service"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="itcat:hasPriority"/>
+        <Class abbreviatedIRI="schema:Service"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="itcat:hasStage"/>
+        <Class abbreviatedIRI="schema:Service"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="itcat:hasUtility"/>
+        <Class abbreviatedIRI="schema:Service"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="itcat:hasWarranty"/>
+        <Class abbreviatedIRI="schema:Service"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="itcat:inCategory"/>
+        <Class abbreviatedIRI="schema:Service"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="itcat:supporter"/>
+        <Class abbreviatedIRI="schema:Service"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="itcat:usableWith"/>
+        <Class abbreviatedIRI="schema:Service"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="itcat:user"/>
+        <Class abbreviatedIRI="schema:Service"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="foaf:topic"/>
+        <Class abbreviatedIRI="foaf:Document"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="schema:agent"/>
+        <Class abbreviatedIRI="prov:Agent"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="schema:customer"/>
+        <Class abbreviatedIRI="prov:Agent"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="schema:provider"/>
+        <Class abbreviatedIRI="prov:Agent"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="itcat:hasCriticality"/>
+        <Class abbreviatedIRI="schema:QualitativeValue"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="itcat:hasPriority"/>
+        <Class abbreviatedIRI="schema:QualitativeValue"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="itcat:hasStage"/>
+        <Class abbreviatedIRI="itcat:LifeCycleStage"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="itcat:hasUtility"/>
+        <Class abbreviatedIRI="usdl-agreement:ServiceProperty"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="itcat:hasWarranty"/>
+        <Class abbreviatedIRI="usdl-agreement:ServiceProperty"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="itcat:inCategory"/>
+        <Class abbreviatedIRI="itcat:ServiceCategory"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="itcat:supporter"/>
+        <Class abbreviatedIRI="prov:Agent"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="itcat:usableWith"/>
+        <Class abbreviatedIRI="itcat:ITAsset"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="itcat:user"/>
+        <Class abbreviatedIRI="prov:Agent"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="foaf:page"/>
+        <Class abbreviatedIRI="foaf:Document"/>
+    </ObjectPropertyRange>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>schema:QualitativeValue</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Qualitative Werte erlauben die Beurteilung eines Dienstes oder einer Entität im Hinblick auf ihren Wert/ihre Bedeutung für die Organisation. In dieser Ontologie stehen IT-Dienste im Fokus. Qualitative Werte beziehen sich hauptsächlich auf IT-Dienste und ihren Wert/ihre Bedeutung für die Organisation.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>schema:QualitativeValue</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">QualitativeValue</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:definition"/>
+        <AbbreviatedIRI>schema:QualitativeValue</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Qualitative Werte erlauben die Beurteilung eines Dienstes oder einer Entität im Hinblick auf ihren Wert/ihre Bedeutung für die Organisation.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>schema:QualitativeValue</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">qualitative value</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>schema:QualitativeValue</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">qualitativer Wert</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>schema:Role</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Eine Rolle im Rahmen dieser Ontologie meint ein Handlungsmodell in Bezug auf IT-Dienste der Hochschule. Wesentliche Rollen sind Mitarbeiter (verschiedener Organisationseinheite), Studierende, Interessenten etc.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>schema:Role</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Role</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>schema:Service</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Gegenstand dieser Ontologie sind IT-Dienste, klassifiziert nach Katalogen und Sachkategorien sowie die Relationen zwischen IT-Diensten, Empfängern, Anbietern sowie Technologiekomponenten. Ein IT-Dienst ist eine abgrenzbare Dienstleistung, die auf dem Einsatz von Informationstechnologie basiert. Sie wird von einem Leistungsanbieter (IT Service Provider) für interne und/oder externe Leistungsempfänger bereitgestellt.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>schema:Service</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Service</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:definition"/>
+        <AbbreviatedIRI>schema:Service</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Ein IT-Dienst ist eine abgrenzbare Dienstleistung, die auf dem Einsatz von Informationstechnologie basiert. Sie wird von einem Leistungsanbieter (IT Service Provider) für interne und/oder externe Leistungsempfänger bereitgestellt.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>schema:Service</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Dienst</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>schema:Service</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">service</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>schema:agent</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Abstrakte Objektrelation zwischen einem IT-Dienst und einem Akteur (Instanz der Klasse &apos;Agent&apos;), der eine handelnde Rolle in Bezug zu diesem IT-Dienst einnimmt, z. B. als Anbieter, Kunde, Nutzer oder Supporter.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>schema:agent</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">agent</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:definition"/>
+        <AbbreviatedIRI>schema:agent</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Abstrakte Objektrelation zwischen einem IT-Dienst und einem Akteur (Instanz der Klasse &apos;Agent&apos;), der eine handelnde Rolle in Bezug zu diesem IT-Dienst einnimmt, z. B. als Anbieter, Kunde, Nutzer oder Supporter.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>schema:agent</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Akteur</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>schema:agent</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">agent</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>schema:customer</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Objektrelation zwischen einem IT-Dienst und (einem) seinem(r) Kunden. Der Kunde hat für die Kosten des IT-Dienstes aufzukommen, entweder indem er die Rechnungen des Anbieters begleicht (externer Kunde) oder indem er dem (internen) Anbieter ein Budget zur Verfügung stellt.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>schema:customer</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">customer</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:definition"/>
+        <AbbreviatedIRI>schema:customer</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Der Kunde eines IT-Dienstes hat für die Kosten des IT-Dienstes aufzukommen, entweder indem er die Rechnungen des Anbieters begleicht (externer Kunde) oder indem er dem (internen) Anbieter ein Budget zur Verfügung stellt.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>schema:customer</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">bestellt von</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>schema:customer</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">has customer</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>schema:hasPart</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Objektrelation zwischen zwei Ressourcen, wobei das Subjekt im Vergleich zum Objekt eine übergeordnete Rolle spielt. In dieser Ontologie wird diese Objektrelation vorwiegend verwendet, um eine Verflechtung zwischen einem IT-Asset und einem diese Komponente einsetzenden IT-Dienst, oder zwischen mehreren Diensten abzubilden.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>schema:hasPart</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">hasPart</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:definition"/>
+        <AbbreviatedIRI>schema:hasPart</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Objektrelation zwischen zwei Ressourcen, wobei das Subjekt im Vergleich zum Objekt eine übergeordnete Rolle spielt. </Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>schema:hasPart</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">has part</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>schema:hasPart</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">hat Teil</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>schema:hasPart</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">setzt ein</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>schema:isPartOf</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Objektrelation zwischen zwei Ressourcen, wobei das Subjekt im Vergleich zum Objekt eine untergeordnete Rolle spielt. In dieser Ontologie wird diese Objektrelation vorwiegend verwendet, um eine Verflechtung zwischen einem IT-Asset und einem diese Komponente einsetzenden IT-Dienst, oder zwischen mehreren Diensten abzubilden.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>schema:isPartOf</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">isPartOf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:definition"/>
+        <AbbreviatedIRI>schema:isPartOf</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Objektrelation zwischen zwei Ressourcen, wobei das Subjekt im Vergleich zum Objekt eine untergeordnete Rolle spielt. </Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>schema:isPartOf</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">is part of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>schema:isPartOf</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">ist Teil von</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>schema:isPartOf</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">wird eingesetzt in</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>schema:isRelatedTo</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Objektrelation zwischen zwei Ressourcen (Instanzen), die zueinander in Beziehung stehen. Diese Standardrelation kann sehr vielfältig verwendet werden. Zwei Hauptanwendungen in dieser Ontologie sind: 1) die Beziehung zwischen zwei unterschiedlichen Diensten und 2) die Beziehung zwischen Instanzen der Diensmerkmalsklasse &apos;itcat:UserAssetSupport&apos; und den entsprechenden Instanzen der Klasse &apos;IT Asset&apos;.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>schema:isRelatedTo</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">isRelatedTo</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:definition"/>
+        <AbbreviatedIRI>schema:isRelatedTo</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Objektrelation zwischen zwei Ressourcen (Instanzen), die zueinander in Beziehung stehen.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>schema:isRelatedTo</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">in Beziehung zu</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>schema:isRelatedTo</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">is related to</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>schema:provider</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Objektrelation zwischen einem IT-Dienst und seinem Anbieter.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>schema:provider</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">provider</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:definition"/>
+        <AbbreviatedIRI>schema:provider</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Zu unterscheiden sind externe und interne Anbieter von IT-Diensten. Externe Anbieter können Unternehmen oder eine andere Hochschule o. ä. sein. Interne Anbieter sind Einrichtungen der Hochschule selbst, z. B. das Rechenzentrum oder das Labor eines Fachbereichs.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>schema:provider</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">has provider</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>schema:provider</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">hat Anbieter</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>schema:url</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Referenziert eine URL zu einer Ressource. Verweist auf weiterführende Informationen, Dokumente, Zugänge etc. Diese Standardrelation wird in dieser Ontologie verwendet, um die bereits vorhandenen Webseiten zu den IT-Diensten zu referenzieren.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>schema:url</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">url</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:definition"/>
+        <AbbreviatedIRI>schema:url</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Referenziert eine URL zu einer Ressource. Verweist auf weiterführende Informationen, Dokumente, Zugänge etc.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>schema:url</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">URL</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>schema:url</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">url</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>itcat:BusinessCatalog</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Der Fachanwenderkatalog umfasst alle für Fachanwender bereitgestellten Dienste einer Organisation. Sprache und Design des Katalogs orientieren sich an der Sprache der Fachanwender.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>itcat:BusinessCatalog</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">BusinessCatalog</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:definition"/>
+        <AbbreviatedIRI>itcat:BusinessCatalog</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Der Fachanwenderkatalog umfasst alle für Fachanwender bereitgestellten Dienste einer Organisation. Sprache und Design des Katalogs orientieren sich an der Sprache der Fachanwender.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:BusinessCatalog</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Fachanwenderkatalog</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:BusinessCatalog</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">business catalog</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>itcat:CatalogCategory</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Katalogkategorien helfen bei der Einordnung von IT-Diensten in verschiedene Dienstekataloge. Wie IT-Dienste in Katalogkategorien eingruppiert werden, ist noch nicht abschließend geklärt. Aktuell sind vier Katalogkategorien angelegt: Fachanwenderkatalog, IT-Betriebskatalog, IT-Infrastrukturkatalog und Öffentlicher Dienstekatalog.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>itcat:CatalogCategory</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">CatalogCategory</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:definition"/>
+        <AbbreviatedIRI>itcat:CatalogCategory</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Katalogkategorien helfen bei der Einordnung von IT-Diensten in verschiedene Dienstekataloge.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:CatalogCategory</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Katalogkategorie</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:CatalogCategory</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">catalog category</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>itcat:CommunicationServices</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Kommunikationsdienste unterstützen bzw. ermöglichen die synchrone und asynchrone Kommunikation von Gruppen und Individuen.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>itcat:CommunicationServices</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">CommunicationServices</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:definition"/>
+        <AbbreviatedIRI>itcat:CommunicationServices</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Kommunikationsdienste unterstützen bzw. ermöglichen die synchrone und asynchrone Kommunikation von Gruppen und Individuen.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:CommunicationServices</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Kommunikationsdienste</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:CommunicationServices</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">communication services</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>itcat:Criticality</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Die Kritikalität eines Dienstes gibt an, wie kritisch eine Störung oder der Ausfall eines Dienstes für die IT-Versorgung einer Organisation eingeschätzt wird. Kritikalitäten werden nach den folgenden Kritikalitätskategorien eingeteilt: hoch, mittel und gering.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>itcat:Criticality</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Criticality</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:definition"/>
+        <AbbreviatedIRI>itcat:Criticality</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Die Kritikalität eines Dienstes gibt an, wie kritisch eine Störung oder der Ausfall eines Dienstes für die IT-Versorgung einer Organisation eingeschätzt wird.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:Criticality</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Kritikalität</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:Criticality</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">criticality</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>itcat:HISServices</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Zu den HIS-Diensten gehören alle Anwendungen im Rahmen der Hochschulinformationssysteme HIS und HISinOne.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>itcat:HISServices</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">HISServices</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:definition"/>
+        <AbbreviatedIRI>itcat:HISServices</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Zu den HIS-Diensten gehören alle Anwendungen im Rahmen der Hochschulinformationssysteme HIS und HISinOne.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:HISServices</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">HIS services</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:HISServices</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">HIS-Dienste</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>itcat:HighCriticality</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Ein Dienst ist von hoher Kritikalität, wenn eine Störung oder der Ausfall dieses Dienstes als sehr kritisch für die IT-Versorgung einer Organisation eingeschätzt wird.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>itcat:HighCriticality</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">HighCriticality</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:definition"/>
+        <AbbreviatedIRI>itcat:HighCriticality</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Ein Dienst ist von hoher Kritikalität, wenn eine Störung oder der Ausfall dieses Dienstes als sehr kritisch für die IT-Versorgung einer Organisation eingeschätzt wird.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:HighCriticality</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Hohe Kritikalität</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:HighCriticality</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">high criticality</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>itcat:HighPriority</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Ein Dienst ist von hoher Priortät, wenn ihm im Rahmen des Dienste-Portfolios einer Organisation ein hoher Wert beigemessen wird.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>itcat:HighPriority</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">HighPriority</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:definition"/>
+        <AbbreviatedIRI>itcat:HighPriority</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Ein Dienst ist von hoher Priortät, wenn ihm im Rahmen des Dienste-Portfolios einer Organisation ein hoher Wert beigemessen wird.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:HighPriority</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Hohe Priorität</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:HighPriority</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">high priority</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>itcat:ITAsset</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">IT-Assets sind die im Rahmen eines IT-Dienstes eingesetzten Systeme und Komponenten der Informations- und Kommunikationstechnologie. Dazu zählen u. a. PCs, Server, Drucker, Netzwerkkomponenten, Software(-Pakete). Die IT-Assets gelten im Rahmen des IT-Service-Managements als Configuration Items. Da dieser Begriff jedoch viel weiter gefasst ist und neben technischen Komponenten auch Dokumente, Prozesse, Rollen und auch Dienste umfasst, soll hier der engere Begriff IT-Assets verwendet werden.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>itcat:ITAsset</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">ITAsset</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:definition"/>
+        <AbbreviatedIRI>itcat:ITAsset</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">IT-Assets sind die im Rahmen eines IT-Dienstes eingesetzten Systeme und Komponenten der Informations- und Kommunikationstechnologie. Dazu zählen u. a. PCs, Server, Drucker, Netzwerkkomponenten, Software(-Pakete).</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:ITAsset</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">IT asset</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:ITAsset</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">IT-Asset</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>itcat:Implementation</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Ein IT-Dienst ist &apos;in Einführung&apos;, wenn ein Projekt oder eine Maßnahme zur Einführung des Dienstes begonnen wurde.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>itcat:Implementation</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Implementation</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:definition"/>
+        <AbbreviatedIRI>itcat:Implementation</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Ein IT-Dienst ist &apos;in Einführung&apos;, wenn ein Projekt oder eine Maßnahme zur Einführung des Dienstes begonnen wurde.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:Implementation</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">implementation</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:Implementation</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">in Einführung</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>itcat:InRelief</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Ein IT-Dienst ist &apos;in Ablösung&apos;, wenn es konkrete Planungen gibt, ihn abzuschalten bzw. zu ersetzen.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>itcat:InRelief</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">InRelief</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:definition"/>
+        <AbbreviatedIRI>itcat:InRelief</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Ein IT-Dienst ist &apos;in Ablösung&apos;, wenn es konkrete Planungen gibt, ihn abzuschalten bzw. zu ersetzen.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:InRelief</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">in Ablösung</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:InRelief</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">in relief</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>itcat:InformationServices</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Informationsdienste stellen für die Benutzer strukturierte, regelmäßig aktualisierte Informationen über verschiedene Medien bereit.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>itcat:InformationServices</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">InformationServices</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:definition"/>
+        <AbbreviatedIRI>itcat:InformationServices</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Informationsdienste stellen für die Benutzer strukturierte, regelmäßig aktualisierte Informationen über verschiedene Medien bereit.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:InformationServices</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Informationsdienste</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:InformationServices</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">information services</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>itcat:InfrastructureCatalog</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Der IT-Infrastrukturkatalog umfasst alle für die Sicherung des IT-Betriebs einer Organisation relevanten IT-Systeme bzw. -Komponenten. Sprache und Design des Katalogs orientieren sich an der Sprache der IT-Administratoren.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>itcat:InfrastructureCatalog</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">InfrastructureCatalog</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:definition"/>
+        <AbbreviatedIRI>itcat:InfrastructureCatalog</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Der IT-Infrastrukturkatalog umfasst alle für die Sicherung des IT-Betriebs einer Organisation relevanten IT-Systeme bzw. -Komponenten. Sprache und Design des Katalogs orientieren sich an der Sprache der IT-Administratoren.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:InfrastructureCatalog</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">IT-Infrastrukturkatalog</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:InfrastructureCatalog</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">infrastructure catalog</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>itcat:InfrastructureServices</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Infrastrukturdienste sind grundlegende Dienste zur Bereitstellung, Pflege und Wartung einer IT-Versorgungsstruktur.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>itcat:InfrastructureServices</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">InfrastructureServices</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:definition"/>
+        <AbbreviatedIRI>itcat:InfrastructureServices</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Infrastrukturdienste sind grundlegende Dienste zur Bereitstellung, Pflege und Wartung einer IT-Versorgungsstruktur.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:InfrastructureServices</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Infrastrukturdienste</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:InfrastructureServices</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">infrastructure services</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>itcat:LibraryServices</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Zu den Bibliotheksdiensten gehören alle IT-Dienste, die den Zugang zu Fachliteratur in der Hochschulbibliothek sowie über zentrale Datenbanken, Dienste und Systeme unterstützen bzw. ermöglichen.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>itcat:LibraryServices</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">LibraryServices</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:definition"/>
+        <AbbreviatedIRI>itcat:LibraryServices</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Zu den Bibliotheksdiensten gehören alle IT-Dienste, die den Zugang zu Fachliteratur in der Hochschulbibliothek sowie über zentrale Datenbanken, Dienste und Systeme unterstützen bzw. ermöglichen.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:LibraryServices</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Bibliotheksdienste</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:LibraryServices</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">library services</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>itcat:LifeCycleStage</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Die Lebenzyklusphase gibt an, ob ein IT-Dienst aktuell in Planung ist, eingeführt wird, regulär angeboten und genutzt wir, sich in Ablösung befindet oder endgültig abgeschaltet ist. Ein IT-Dienst kann immer nur einer Lebenszyklusphase angehören. Es werden folgende Lebenszyklusphasen verwendet: In Planung, in Einführung, in Betrieb, in Ablösung und abgeschaltet.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>itcat:LifeCycleStage</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">LifeCycleStage</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:definition"/>
+        <AbbreviatedIRI>itcat:LifeCycleStage</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Die Lebenzyklusphase gibt an, ob ein IT-Dienst aktuell in Planung ist, eingeführt wird, regulär angeboten und genutzt wir, sich in Ablösung befindet oder endgültig abgeschaltet ist. Ein IT-Dienst kann immer nur einer Lebenszyklusphase angehören.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:LifeCycleStage</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Lebenszyklusphase</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:LifeCycleStage</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">life cycle stage</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>itcat:LowCriticality</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Ein Dienst ist von geringer Kritikalität, wenn eine Störung oder der Ausfall dieses Dienstes die IT-Versorgung einer Organisation nicht wesentlich einschränkt.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>itcat:LowCriticality</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">LowCriticality</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:definition"/>
+        <AbbreviatedIRI>itcat:LowCriticality</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Ein Dienst ist von geringer Kritikalität, wenn eine Störung oder der Ausfall dieses Dienstes die IT-Versorgung einer Organisation nicht wesentlich einschränkt.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:LowCriticality</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Geringe Kritikalität</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:LowCriticality</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">low criticality</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>itcat:LowPriority</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Ein Dienst ist von geringer Priortät, wenn ihm im Rahmen des Dienste-Portfolios einer Organisation ein geringer Wert beigemessen wird.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>itcat:LowPriority</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">LowPriority</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:definition"/>
+        <AbbreviatedIRI>itcat:LowPriority</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Ein Dienst ist von geringer Priortät, wenn ihm im Rahmen des Dienste-Portfolios einer Organisation ein geringer Wert beigemessen wird.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:LowPriority</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Geringe Priorität</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:LowPriority</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">low priority</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>itcat:MediumCriticality</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Ein Dienst ist von mittlerer Kritikalität, wenn eine Störung oder der Ausfall dieses Dienstes die IT-Versorgung einer Organisation einschränkt, aber nicht in kritischen Bereichen.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>itcat:MediumCriticality</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">MediumCriticality</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:definition"/>
+        <AbbreviatedIRI>itcat:MediumCriticality</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Ein Dienst ist von mittlerer Kritikalität, wenn eine Störung oder der Ausfall dieses Dienstes die IT-Versorgung einer Organisation einschränkt, aber nicht in kritischen Bereichen.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:MediumCriticality</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Mittlere Kritikalität</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:MediumCriticality</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">medium criticality</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>itcat:MediumPriority</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Ein Dienst ist von mittlerer Priortät, wenn ihm im Rahmen des Dienste-Portfolios einer Organisation ein mittlerer Wert beigemessen wird.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>itcat:MediumPriority</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">MediumPriority</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:definition"/>
+        <AbbreviatedIRI>itcat:MediumPriority</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Ein Dienst ist von mittlerer Priortät, wenn ihm im Rahmen des Dienste-Portfolios einer Organisation ein mittlerer Wert beigemessen wird.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:MediumPriority</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Mittlere Priorität</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:MediumPriority</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">medium priority</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>itcat:MiscServices</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Unter sonstigen Anwendungen werden alle Fachanwendungen (IT-Dienste) zusammengefasst, die in keine der anderen Sachkategorien schlüssig einordenbar sind.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>itcat:MiscServices</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">MiscServices</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:definition"/>
+        <AbbreviatedIRI>itcat:MiscServices</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Unter sonstigen Anwendungen werden alle Fachanwendungen (IT-Dienste) zusammengefasst, die in keine der anderen Sachkategorien schlüssig einordenbar sind.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:MiscServices</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Sonstige Anwendungen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:MiscServices</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">miscellaneous applications</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>itcat:NetworkServices</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Netzwerkdienste nutzen ein oder mehrere Netzwerkprotokolle (HTTP, DNS, NTP, DHCP ...) um über ein Computernetzwerk bestimmte Funktionen bereitzustellen.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>itcat:NetworkServices</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">NetworkServices</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:definition"/>
+        <AbbreviatedIRI>itcat:NetworkServices</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Netzwerkdienste nutzen ein oder mehrere Netzwerkprotokolle (HTTP, DNS, NTP, DHCP ...) um über ein Computernetzwerk bestimmte Funktionen bereitzustellen.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:NetworkServices</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Netzwerkdienste</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:NetworkServices</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">network services</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>itcat:Off</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Ein IT-Dienst ist &apos;abgeschaltet&apos;, wenn er von Nutzern grundsätzlich nicht mehr in Anspruch genommen werden kann. Ob und wie lange ein abgeschalteter Dienst im Katalog vorgehalten wird, ist noch zu bestimmen.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>itcat:Off</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Off</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:definition"/>
+        <AbbreviatedIRI>itcat:Off</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Ein IT-Dienst ist &apos;abgeschaltet&apos;, wenn er von Nutzern grundsätzlich nicht mehr in Anspruch genommen werden kann.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:Off</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">abgeschaltet</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:Off</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">off</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>itcat:Operation</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Ein IT-Dienst ist &apos;in Betrieb&apos;, wenn er aktuell von einem Anbieter betrieben wird und von Nutzern grundsätzlich in Anspruch genommen werden kann.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>itcat:Operation</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Operation</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:definition"/>
+        <AbbreviatedIRI>itcat:Operation</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Ein IT-Dienst ist &apos;in Betrieb&apos;, wenn er aktuell von einem Anbieter betrieben wird und von Nutzern grundsätzlich in Anspruch genommen werden kann.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:Operation</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">in Betrieb</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:Operation</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">operation</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>itcat:OperationalCatalog</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Der IT-Betriebskatalog umfasst alle für die Sicherung des IT-Betriebs einer Organisation relevanten Dienste. Sprache und Design des Katalogs orientieren sich an der Sprache der IT-Betriebsverantwortlichen.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>itcat:OperationalCatalog</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">OperationalCatalog</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:definition"/>
+        <AbbreviatedIRI>itcat:OperationalCatalog</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Der IT-Betriebskatalog umfasst alle für die Sicherung des IT-Betriebs einer Organisation relevanten Dienste. Sprache und Design des Katalogs orientieren sich an der Sprache der IT-Betriebsverantwortlichen.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:OperationalCatalog</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">IT-Betriebskatalog</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:OperationalCatalog</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">operational catalog</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>itcat:Planning</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Ein IT-Dienst ist &apos;in Planung&apos;, wenn es konkrete Absichten, Konzepte oder Anträge in Bezug auf die Entwicklung und Einführung des Dienstes gibt.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>itcat:Planning</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Planning</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:definition"/>
+        <AbbreviatedIRI>itcat:Planning</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Ein IT-Dienst ist &apos;in Planung&apos;, wenn es konkrete Absichten, Konzepte oder Anträge in Bezug auf die Entwicklung und Einführung des Dienstes gibt.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:Planning</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">in Planung</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:Planning</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">planning</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>itcat:Priority</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Die Priorität eines Dienstes gibt an, welcher Wert ihm im Rahmen des Dienste-Portfolios einer Organisation beigemessen wird. Prioritäten werden nach Prioritätskategorien den folgenden eingeteilt: hoch, mittel und gering.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>itcat:Priority</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Priority</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:definition"/>
+        <AbbreviatedIRI>itcat:Priority</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Die Priorität eines Dienstes gibt an, welcher Wert ihm im Rahmen des Dienste-Portfolios einer Organisation beigemessen wird.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:Priority</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Priorität</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:Priority</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">priority</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>itcat:PublicCatalog</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Der Öffentliche Dienstekatalog umfasst alle für die interessierte Öffentlichkeit bereitgestellten Dienste einer Organisation. Sprache und Design des Katalogs orientieren sich an der Sprache der Zielgruppen.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>itcat:PublicCatalog</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">PublicCatalog</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:definition"/>
+        <AbbreviatedIRI>itcat:PublicCatalog</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Der Öffentliche Dienstekatalog umfasst alle für die interessierte Öffentlichkeit bereitgestellten Dienste einer Organisation. Sprache und Design des Katalogs orientieren sich an der Sprache der Zielgruppen.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:PublicCatalog</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">public catalog</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:PublicCatalog</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Öffentlicher Dienstekatalog</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>itcat:ServiceCategory</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Dienstkategorien werden verwendet, um die IT-Dienste nach geeigneten Unterscheidungskriterien zu klassifizieren. Unterscheidungskriterien sind fachliche Aspekte (Dienstgruppen), die primäre Zielgruppe (Art des Katalogs) sowie die Zugehörigkeit zu einer Lebenszyklusphase.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>itcat:ServiceCategory</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">ServiceCategory</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:definition"/>
+        <AbbreviatedIRI>itcat:ServiceCategory</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Dienstkategorien werden verwendet, um die IT-Dienste nach geeigneten Unterscheidungskriterien zu klassifizieren.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:ServiceCategory</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Dienstekategorie</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:ServiceCategory</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">service category</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>itcat:SubjectCategory</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Sachkategorien helfen bei der sachlichen Einordnung von IT-Diensten. Ein IT-Dienst kann mehreren Sachkategorien angehören. Aktuell sind acht Dienstkategorien angelegt: Bibliotheksdienste, HIS-Dienste, Informationsdienste, Infrastrukturdienste, Kommunikationsdienste, Lehrportale, Netzwerkdienste und Sonstige Anwendungen.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>itcat:SubjectCategory</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">SubjectCategory</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:definition"/>
+        <AbbreviatedIRI>itcat:SubjectCategory</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Sachkategorien helfen bei der sachlichen Einordnung von IT-Diensten. Ein IT-Dienst kann mehreren Sachkategorien angehören. Aktuell sind acht Dienstkategorien angelegt: Bibliotheksdienste, HIS-Dienste, Informationsdienste, Infrastrukturdienste, Kommunikationsdienste, Lehrportale, Netzwerkdienste und Sonstige Anwendungen.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:SubjectCategory</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Sachkategorie</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:SubjectCategory</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">subject category</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>itcat:TeachingPlatforms</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Lehrplattformen unterstützen bzw. ermöglichen die Hochschullehre sowohl in der klassischen Präsenzlehre als auch im E-Learning.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>itcat:TeachingPlatforms</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">TeachingPlatforms</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:definition"/>
+        <AbbreviatedIRI>itcat:TeachingPlatforms</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Lehrplattformen unterstützen bzw. ermöglichen die Hochschullehre sowohl in der klassischen Präsenzlehre als auch im E-Learning.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:TeachingPlatforms</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Lehrportale</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:TeachingPlatforms</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">teaching platforms</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>itcat:Utility</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Der Nutzen/die Funktion eines Dienstes stellt die Art der Leistung dar, die der IT-Dienst dem Nutzer bietet, z. B. Mails senden und empfangen, Kalender und Aufgaben verwalten, Lehrvideos bereitstellen, Dokumente austauschen. Der Nutzen/die Funktion eines Dienstes beantwortet die Frage: &apos;Was leistet der Dienst für den Nutzer?&apos; Der Nutzen kann in Form einer informellen Beschreibung, einer formalen (technischen) Spezifikation oder in Form eines juristischen Dokumentes (Vertrag) niedergelegt sein.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>itcat:Utility</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Utitility</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:altLabel"/>
+        <AbbreviatedIRI>itcat:Utility</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Nutzen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:definition"/>
+        <AbbreviatedIRI>itcat:Utility</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Der Nutzen/die Funktion eines Dienstes stellt die Art der Leistung dar, die der IT-Dienst dem Nutzer bietet, z. B. Mails senden und empfangen, Kalender und Aufgaben verwalten, Lehrvideos bereitstellen, Dokumente austauschen.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:Utility</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Funktion</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:Utility</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">utility</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>itcat:Warranty</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Die Gewährleistung umfasst alle Zusicherungen des Dienste-Anbieters in Bezug auf Qualitätsdimensionen des Dienstes, z. B. Verfügbarkeit, Bandbreite, Geschwindigkeit, Transfervolumen, Verschlüsselungsgrad. Gewährleistungen sollten in einer Vereinbarung zwischen Dienste-Anbieter und Kunde festgehalten werden. Solche Vereinbarungen werden im IT-Service-Management als Service Level Agreement (SLA, für externe Kunden) bzw. Operational Level Agreement (OLA, für interne Kunden) bezeichnet.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>itcat:Warranty</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Warranty</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:definition"/>
+        <AbbreviatedIRI>itcat:Warranty</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Die Gewährleistung umfasst alle Zusicherungen des Dienste-Anbieters in Bezug auf Qualitätsdimensionen des Dienstes, z. B. Verfügbarkeit, Bandbreite, Geschwindigkeit, Transfervolumen, Verschlüsselungsgrad.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:Warranty</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Gewährleistung</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:Warranty</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">warranty</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>itcat:hasCriticality</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Objektrelation zwischen einem IT-Dienst und seiner Kritikalitätskategorie. Wird demnächst durch schema:valueReference ersetzt.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>itcat:hasCriticality</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">hasCriticality</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:definition"/>
+        <AbbreviatedIRI>itcat:hasCriticality</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Die Kritikalität eines Dienstes gibt an, wie kritisch eine Störung oder der Ausfall eines Dienstes für die IT-Versorgung einer Organisation eingeschätzt wird. Die Einschätzung erfolgt in drei Abstufungen: hohe, mittlere und geringe Kritikalität.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:hasCriticality</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">has criticality</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:hasCriticality</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">hat Kritikalität</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>itcat:hasPriority</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Objektrelation zwischen einem IT-Dienst und seiner Prioritätskategorie. Wird demnächst durch schema:valueReference ersetzt.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>itcat:hasPriority</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">hasPriority</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:definition"/>
+        <AbbreviatedIRI>itcat:hasPriority</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Die Priorität eines Dienstes gibt an, welcher Wert ihm im Rahmen des Dienste-Portfolios einer Organisation beigemessen wird. Die Priorität wird in drei Abstufungen dargestellt: hohe, mittlere und geringe Priorität.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:hasPriority</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">has priority</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:hasPriority</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">hat Priorität</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>itcat:hasStage</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Gibt an in welcher Phase des Lebenszyklus sich ein IT-Dienst befindet. Zu verwendende Phasen sind: &apos;in Planung&apos;, &apos;in Einführung&apos;, &apos;in Betrieb&apos;, &apos;in Ablösung&apos;, &apos;abgeschaltet&apos;.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>itcat:hasStage</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">hasStage</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:definition"/>
+        <AbbreviatedIRI>itcat:hasStage</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Gibt an in welcher Phase des Lebenszyklus sich ein IT-Dienst befindet.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:hasStage</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral"> has life cycle stage</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:hasStage</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">hat Lebenszyklusphase</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>itcat:hasUtility</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Objektrelation zwischen einem IT-Dienst und einer Dienstmerkmalsklasse, die der Beschreibung/Spezifikation seines Nutzens dient. - Noch nicht in Anwendung umgesetzt.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>itcat:hasUtility</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">hasUtility</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:definition"/>
+        <AbbreviatedIRI>itcat:hasUtility</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Objektrelation zwischen einem IT-Dienst und einer Dienstmerkmalsklasse, die der Beschreibung/Spezifikation seines Nutzens dient.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:hasUtility</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">has utility</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:hasUtility</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">hat Nutzen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>itcat:hasWarranty</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Objektrelation zwischen einem IT-Dienst und und einer Dienstmerkmalsklasse, die der Beschreibung/Spezifikation seiner zugesicherten Qualitätsdimensionen (Gewährleistung) dient. - Noch nicht in Anwendung umgesetzt.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>itcat:hasWarranty</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">hasWarranty</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:definition"/>
+        <AbbreviatedIRI>itcat:hasWarranty</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Objektrelation zwischen einem IT-Dienst und und einer Dienstmerkmalsklasse, die der Beschreibung/Spezifikation seiner zugesicherten Qualitätsdimensionen (Gewährleistung) dient.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:hasWarranty</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">has warranty</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:hasWarranty</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">hat Gewährleistung</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>itcat:inCategory</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Aktuell werden zwei Kategorieklassen unterschieden: Sachkategorien und Katalogkategorien. Jeder IT-Dienst muss mindestens einer Kategorie in jeder Kategorieklasse zugeordnet sein. Ein IT-Dienst kann gleichzeitig mehreren Dienstekategorien innerhalb einer Kategorieklasse angehören.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>itcat:inCategory</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">inCategory</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:definition"/>
+        <AbbreviatedIRI>itcat:inCategory</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Objektrelation zwischen einem IT-Dienst und einer Dienstekategorie. </Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:inCategory</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">belongs to category</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:inCategory</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">gehört zu Kategorie</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>itcat:supporter</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Objektrelation zwischen einem IT-Dienst und (einem) seinem(r) Supporter.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>itcat:supporter</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">supporter</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:definition"/>
+        <AbbreviatedIRI>itcat:supporter</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Der Suppporter eines IT-Dienstes ist die Person oder Organisation, die Wartung, Pflege und/oder Nutzerbetreuung für den IT-Dienst übernimmt. Zumeist handelt es sich um einen verantwortlich Handelnden aus der Hochschule selbst.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:supporter</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">has supporter</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:supporter</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">hat Betreuer</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>itcat:usableWith</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Objektrelation zwischen einem IT-Dienst und der Dienstmerkmalsklasse &apos;Unterstützung für Endgeräte&apos;.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>itcat:usableWith</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">usableWith</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:definition"/>
+        <AbbreviatedIRI>itcat:usableWith</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Gibt an, mit welchen Endgeräten ein IT-Dienst genutzt werden kann.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:usableWith</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">nutzbar mit</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:usableWith</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">usable with</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>itcat:user</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Objektrelation zwischen einem IT-Dienst und (einem) seinem(r) Nutzer.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>itcat:user</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">user</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:definition"/>
+        <AbbreviatedIRI>itcat:user</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Nutzer von IT-Diensten sind Personen, die berechtigt sind, die IT-Dienste für ihre fachlichen Aufgaben an der Hochschule (Fachanwender) oder für ihre privaten Informationsinteressen (Endanwender) in Anspruch zu nehmen. Die Nutzer werden als Rollen dargestellt, z. B. Verwaltungsmitarbeiter, Studierende, Lehrende.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:user</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">has user</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>itcat:user</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">hat Nutzer</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>usdl-agreement:ServiceProperty</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Dienstmerkmale sind charakteristische Eigenschaften eines IT-Dienstes, die seinen Nutzen/seine Funktionalität sowie seine zugesicherten Qualitätsmerkmale darstellen.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>usdl-agreement:ServiceProperty</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">ServiceProperty</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:definition"/>
+        <AbbreviatedIRI>usdl-agreement:ServiceProperty</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Dienstmerkmale sind charakteristische Eigenschaften eines IT-Dienstes, die seinen Nutzen/seine Funktionalität sowie seine zugesicherten Qualitätsmerkmale darstellen.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>usdl-agreement:ServiceProperty</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Dienstmerkmal</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>usdl-agreement:ServiceProperty</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">service property</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>dcterms:abstract</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Diese Standardrelation wird in dieser Ontologie verwendet, um Kurzbeschreibungen von IT-Diensten bereitzustellen, die als Teaser im IT-Katalog erscheinen.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:definition"/>
+        <AbbreviatedIRI>dcterms:abstract</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Relation zu einer textuellen Kurzbeschreibung einer Ressource.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>dcterms:abstract</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Kurzbeschreibung</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>dcterms:abstract</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">abstract</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>dcterms:description</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Diese Standardrelation wird in dieser Ontologie verwendet, um Beschreibungen von IT-Diensten bereitzustellen.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:definition"/>
+        <AbbreviatedIRI>dcterms:description</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Im engeren Sinne: Relation zu einer textuellen Beschreibung einer Ressource. Kann im weiteren Sinne auch für andere Formen von Beschreibungen genutzt werden: Grafiken, Inhaltsverzeichnissen etc.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>dcterms:description</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Beschreibung</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>dcterms:description</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">description</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>dcterms:subject</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Diese Standardrelation wird in dieser Ontologie verwendet, um Schlüsselwörter zu IT-Diensten zu referenzieren.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:definition"/>
+        <AbbreviatedIRI>dcterms:subject</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Ein thematischer Gegenstand einer Ressource.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>dcterms:subject</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Gegenstand</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>dcterms:subject</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">subject</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>dcterms:title</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Diese Standardrelation wird in dieser Ontologie verwendet, um vollständige Bezeichnungen von IT-Diensten bereitzustellen.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:definition"/>
+        <AbbreviatedIRI>dcterms:title</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Die vollständige (offizielle) Bezeichnung / der Name einer Ressource.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>dcterms:title</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Bezeichnung</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>dcterms:title</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">title</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>skos:prefLabel</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Diese Standardrelation wird in dieser Ontologie verwendet, um primäre Bezeichnungen von Ressourcen bereitzustellen.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>skos:prefLabel</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">In jeder Sprache kann es immer nur ein skos:prefLabel geben.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:definition"/>
+        <AbbreviatedIRI>skos:prefLabel</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Standardrelation zur Auszeichnung einer Bevorzugten Bezeichnung einer Ressource.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>skos:prefLabel</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Hauptbezeichnung</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>skos:prefLabel</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">preferred label</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>skos:related</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Objektrelation zwischen zwei Klassen, die zueinander in Beziehung stehen. Diese Standardrelation wird hier verwendet um nicht näher spezifizierbare Beziehungen zwischen proprietären itcat-Klassen und Standardklassen zu erklären.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>skos:related</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">related</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:definition"/>
+        <AbbreviatedIRI>skos:related</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Objektrelation zwischen zwei Klassen, die zueinander in Beziehung stehen.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>skos:related</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Beziehung zwischen Klassen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>skos:related</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">related</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>prov:Agent</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Ein Akteur ist eine Person, Organisation oder eine Rolle, die als Leistungsanbieter, Leistungsempfänger, Nutzer oder sonstiger Verantwortlicher im Rahmen eines IT-Dienstes auftritt.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>prov:Agent</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Agent</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:definition"/>
+        <AbbreviatedIRI>prov:Agent</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Ein Akteur ist eine Person, Organisation oder eine Rolle, die als Leistungsanbieter, Leistungsempfänger, Nutzer oder sonstiger Verantwortlicher im Rahmen eines IT-Dienstes auftritt.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>prov:Agent</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Akteur</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>prov:Agent</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">agent</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>prov:Entity</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Eine Entität ist ein Gegenstand oder ein immaterieller Artefakt, der durch Akteure beeinflusst, verändert wird, z. B. im Rahmen von IT-Diensten .</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>prov:Entity</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Entitiy</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:definition"/>
+        <AbbreviatedIRI>prov:Entity</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Eine Entität ist ein Gegenstand oder ein immaterieller Artefakt, der durch Akteure beeinflusst, verändert wird, z. B. im Rahmen von IT-Diensten .</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>prov:Entity</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Entität</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>prov:Entity</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">entity</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>foaf:Document</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Dokumente beinhalten unstrukturierte bzw. schwach strukturierte Informationen in elektronischer oder papiergebundener Form. Sie sind primär darauf ausgerichtet, von Menschen gelesen zu werden. Durch den Einsatz semantischer Technologien kann die maschinelle Auswertbarkeit von elektronischen Dokumenten signifikant erhöht werden. Dokumente können Beschreibungen, Benutzerhilfen, Regeln, Richtlinien, Prozessmodelle, vertragliche Vereinbarungen o. ä. sein.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>foaf:Document</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Document</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:definition"/>
+        <AbbreviatedIRI>foaf:Document</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Dokumente beinhalten unstrukturierte bzw. schwach strukturierte Informationen in elektronischer oder papiergebundener Form. Sie sind primär darauf ausgerichtet, von Menschen gelesen zu werden. Durch den Einsatz semantischer Technologien kann die maschinelle Auswertbarkeit von elektronischen Dokumenten signifikant erhöht werden.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>foaf:Document</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Dokument</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>foaf:Document</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">document</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>foaf:Organization</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Im Rahmen dieser Ontologie ist eine Organisation ein rechtliches, formales oder informelles Gebilde, das als Leistungsanbieter, Leistungsempfänger, Nutzer oder sonstiger Verantwortlicher im Rahmen eines IT-Dienstes auftritt. Beispiele sind die Hochschule selbst, die Fachbereiche, das Rechenzentrum, das TLSO des FBW etc. Organisationen sind häufig hierarchisch gegliedert. Organisationen, die Teil einer anderen Organisation sind, werden sonst auch als Organisationseinheiten bezeichnet. Im Rahmen der Ontologie bleibt es aber beim Konzept der Organisation.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>foaf:Organization</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Organization</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>foaf:Person</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Eine Person im Rahmen dieser Ontologie ist ein Mensch, der als Leistungsanbieter, Leistungsempfänger, Nutzer oder sonstiger Verantwortlicher im Rahmen eines IT-Dienstes auftritt. Die Ontologie zielt jedoch nicht darauf, alle Leistungsempfänger und Nutzer zu erfassen (z. B. alle externen Interessenten). Insofern sind meist persönlich verantwortliche Supporter bzw. Dienst-Eigner integriert.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>foaf:Person</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Person</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>foaf:page</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Objektrelation zwischen einer Ressource, z. B. einem IT-Dienst und einem Dokument, das Informationen für oder über diesen IT-Dienst enthält.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>foaf:page</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">page</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:definition"/>
+        <AbbreviatedIRI>foaf:page</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Objektrelation zwischen einer Ressource, z. B. einem IT-Dienst und einem Dokument, das Informationen für oder über diesen IT-Dienst enthält.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>foaf:page</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">has page</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>foaf:page</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">hat Dokument</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>foaf:topic</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Objektrelation zwischen einem Dokument und einer anderen Ressource. Dokumente können Beschreibungen, Benutzerhilfen, Regeln, Richtlinien, Prozessmodelle, Verträge o. ä. sein bzw. enthalten, die einen Bezug zu einem IT-Dienst haben.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>foaf:topic</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">topic</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:definition"/>
+        <AbbreviatedIRI>foaf:topic</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">Objektrelation zwischen einem Dokument und einer anderen Ressource. Dokumente können Beschreibungen, Benutzerhilfen, Regeln, Richtlinien, Prozessmodelle, Verträge o. ä. sein bzw. enthalten, die einen Bezug zu einem IT-Dienst haben.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>foaf:topic</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">has topic</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="skos:prefLabel"/>
+        <AbbreviatedIRI>foaf:topic</AbbreviatedIRI>
+        <Literal xml:lang="de" datatypeIRI="&rdf;PlainLiteral">hat Thema</Literal>
+    </AnnotationAssertion>
+</Ontology>
 
 
 
