@@ -744,7 +744,7 @@ foaf:Person rdf:type owl:Class .
                 
                 dcterms:subject "" ;
                 
-                dcterms:abstract ""@de ;
+                dcterms:abstract "Die Datensicherung erfolgt über zwei räumlich getrennte, redundant betreibbare Storage-Systeme. Beide Storage Systeme sind sowohl mit dem Backup Server als auch der Tape Library verbunden, welche ebenfalls räumlich getrennt untergebracht sind. Die räumliche Trennung bedient den physikalischen Aspekt der Datensicherheit."@de ;
                 
                 dcterms:title "Backup- und Restoreservice der THB"@de ;
                 
